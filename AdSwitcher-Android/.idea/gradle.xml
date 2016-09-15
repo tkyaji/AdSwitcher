@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="distributionType" value="LOCAL" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="gradleHome" value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/adcolony-adapter" />
+            <option value="$PROJECT_DIR$/adgeneration-adapter" />
+            <option value="$PROJECT_DIR$/admob-adapter" />
+            <option value="$PROJECT_DIR$/adswitcher" />
+            <option value="$PROJECT_DIR$/amoad-adapter" />
+            <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/applovin-adapter" />
+            <option value="$PROJECT_DIR$/facebook-adapter" />
+            <option value="$PROJECT_DIR$/five-adapter" />
+            <option value="$PROJECT_DIR$/imobile-adapter" />
+            <option value="$PROJECT_DIR$/maio-adapter" />
+            <option value="$PROJECT_DIR$/nend-adapter" />
+            <option value="$PROJECT_DIR$/unity-ads" />
+            <option value="$PROJECT_DIR$/unityads-adapter" />
+          </set>
+        </option>
+        <option name="myModules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/adcolony-adapter" />
+            <option value="$PROJECT_DIR$/adgeneration-adapter" />
+            <option value="$PROJECT_DIR$/admob-adapter" />
+            <option value="$PROJECT_DIR$/adswitcher" />
+            <option value="$PROJECT_DIR$/amoad-adapter" />
+            <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/applovin-adapter" />
+            <option value="$PROJECT_DIR$/facebook-adapter" />
+            <option value="$PROJECT_DIR$/five-adapter" />
+            <option value="$PROJECT_DIR$/imobile-adapter" />
+            <option value="$PROJECT_DIR$/maio-adapter" />
+            <option value="$PROJECT_DIR$/nend-adapter" />
+            <option value="$PROJECT_DIR$/unity-ads" />
+            <option value="$PROJECT_DIR$/unityads-adapter" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>

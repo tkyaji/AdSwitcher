@@ -1,0 +1,59 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="net.adswitcher.sample.BannerFragment"
+    android:id="@+id/bannerLayout">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Banner"
+            android:id="@+id/textView_Banner"
+            android:layout_gravity="center"
+            android:layout_marginTop="150dp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Show Banner 320x50"
+            android:id="@+id/button_ShowBanner320x50"
+            android:layout_gravity="center_horizontal"
+            android:width="150dp"
+            android:layout_marginTop="30dp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Show Banner 320x100"
+            android:id="@+id/button_ShowBanner320x100"
+            android:layout_gravity="center_horizontal"
+            android:width="150dp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Show Banner 300x250"
+            android:id="@+id/button_ShowBanner300x250"
+            android:layout_gravity="center_horizontal"
+            android:width="150dp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hide Banner"
+            android:id="@+id/button_hide"
+            android:layout_gravity="center_horizontal"
+            android:width="150dp"
+            android:layout_marginTop="20dp" />
+    </LinearLayout>
+
+</FrameLayout>

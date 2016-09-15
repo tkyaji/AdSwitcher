@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/AdSwitcher-Android.iml" filepath="$PROJECT_DIR$/AdSwitcher-Android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/adcolony-adapter/adcolony-adapter.iml" filepath="$PROJECT_DIR$/adcolony-adapter/adcolony-adapter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/adgeneration-adapter/adgeneration-adapter.iml" filepath="$PROJECT_DIR$/adgeneration-adapter/adgeneration-adapter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/admob-adapter/admob-adapter.iml" filepath="$PROJECT_DIR$/admob-adapter/admob-adapter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/adswitcher/adswitcher.iml" filepath="$PROJECT_DIR$/adswitcher/adswitcher.iml" />
+      <module fileurl="file://$PROJECT_DIR$/amoad-adapter/amoad-adapter.iml" filepath="$PROJECT_DIR$/amoad-adapter/amoad-adapter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/applovin-adapter/applovin-adapter.iml" filepath="$PROJECT_DIR$/applovin-adapter/applovin-adapter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/facebook-adapter/facebook-adapter.iml" filepath="$PROJECT_DIR$/facebook-adapter/facebook-adapter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/five-adapter/five-adapter.iml" filepath="$PROJECT_DIR$/five-adapter/five-adapter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/imobile-adapter/imobile-adapter.iml" filepath="$PROJECT_DIR$/imobile-adapter/imobile-adapter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/maio-adapter/maio-adapter.iml" filepath="$PROJECT_DIR$/maio-adapter/maio-adapter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/nend-adapter/nend-adapter.iml" filepath="$PROJECT_DIR$/nend-adapter/nend-adapter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/unity-ads/unity-ads.iml" filepath="$PROJECT_DIR$/unity-ads/unity-ads.iml" />
+      <module fileurl="file://$PROJECT_DIR$/unityads-adapter/unityads-adapter.iml" filepath="$PROJECT_DIR$/unityads-adapter/unityads-adapter.iml" />
+    </modules>
+  </component>
+</project>

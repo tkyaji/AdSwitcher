@@ -1,0 +1,47 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "24.0.0"
+
+    defaultConfig {
+        applicationId "net.adswitcher.sample"
+        minSdkVersion 16
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    lintOptions {
+        abortOnError false
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+    compile 'com.google.android.gms:play-services-ads:+'
+    compile project(':adswitcher')
+
+    compile project(':adcolony-adapter')
+    compile project(':admob-adapter')
+    compile project(':adgeneration-adapter')
+    compile project(':nend-adapter')
+    compile project(':amoad-adapter')
+    compile project(':unityads-adapter')
+    compile project(':maio-adapter')
+    compile project(':applovin-adapter')
+    compile project(':five-adapter')
+    compile project(':facebook-adapter')
+    compile project(':unityads-adapter')
+    compile project(':imobile-adapter')
+
+    compile 'com.facebook.android:audience-network-sdk:4.13.0'
+    compile project(':unity-ads')
+}

@@ -1,0 +1,434 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B21907F71D788CCF00DF3A5C /* VideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B21907F61D788CCF00DF3A5C /* VideoViewController.m */; };
+		B22D7EA51D72785B00F19E56 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B22D7EA41D72785B00F19E56 /* main.m */; };
+		B22D7EA81D72785B00F19E56 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B22D7EA71D72785B00F19E56 /* AppDelegate.m */; };
+		B22D7EB11D72785B00F19E56 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B22D7EAF1D72785B00F19E56 /* Main.storyboard */; };
+		B22D7EB31D72785B00F19E56 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B22D7EB21D72785B00F19E56 /* Assets.xcassets */; };
+		B22D7EB61D72785B00F19E56 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B22D7EB41D72785B00F19E56 /* LaunchScreen.storyboard */; };
+		B22D7EC41D7278D500F19E56 /* adswitcher.json in Resources */ = {isa = PBXBuildFile; fileRef = B22D7EBD1D7278D500F19E56 /* adswitcher.json */; };
+		B22D7EC51D7278D500F19E56 /* BannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B22D7EBF1D7278D500F19E56 /* BannerViewController.m */; };
+		B22D7EC61D7278D500F19E56 /* InterstitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B22D7EC11D7278D500F19E56 /* InterstitialViewController.m */; };
+		B22D7EE01D72797D00F19E56 /* AdSwitcherConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = B22D7ED51D72797D00F19E56 /* AdSwitcherConfig.m */; };
+		B22D7EE11D72797D00F19E56 /* AdSwitcherConfigLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = B22D7ED71D72797D00F19E56 /* AdSwitcherConfigLoader.m */; };
+		B22D7EE31D72797D00F19E56 /* AdSwitcherInterstitial.m in Sources */ = {isa = PBXBuildFile; fileRef = B22D7EDA1D72797D00F19E56 /* AdSwitcherInterstitial.m */; };
+		B22D7F661D73059500F19E56 /* AdSwitcherBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = B22D7F651D73059500F19E56 /* AdSwitcherBannerView.m */; };
+		B22D7F6D1D731C0B00F19E56 /* AdSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = B22D7F6C1D731C0B00F19E56 /* AdSelector.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		B21907F51D788CCF00DF3A5C /* VideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoViewController.h; sourceTree = "<group>"; };
+		B21907F61D788CCF00DF3A5C /* VideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoViewController.m; sourceTree = "<group>"; };
+		B22D7EA01D72785B00F19E56 /* AdSwitcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AdSwitcher.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B22D7EA41D72785B00F19E56 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B22D7EA61D72785B00F19E56 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		B22D7EA71D72785B00F19E56 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		B22D7EB01D72785B00F19E56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B22D7EB21D72785B00F19E56 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B22D7EB51D72785B00F19E56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B22D7EB71D72785B00F19E56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B22D7EBD1D7278D500F19E56 /* adswitcher.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = adswitcher.json; sourceTree = "<group>"; };
+		B22D7EBE1D7278D500F19E56 /* BannerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BannerViewController.h; sourceTree = "<group>"; };
+		B22D7EBF1D7278D500F19E56 /* BannerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BannerViewController.m; sourceTree = "<group>"; };
+		B22D7EC01D7278D500F19E56 /* InterstitialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InterstitialViewController.h; sourceTree = "<group>"; };
+		B22D7EC11D7278D500F19E56 /* InterstitialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InterstitialViewController.m; sourceTree = "<group>"; };
+		B22D7ECB1D72797D00F19E56 /* BannerAdAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BannerAdAdapter.h; sourceTree = "<group>"; };
+		B22D7ECC1D72797D00F19E56 /* InterstitialAdAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InterstitialAdAdapter.h; sourceTree = "<group>"; };
+		B22D7ED41D72797D00F19E56 /* AdSwitcherConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdSwitcherConfig.h; sourceTree = "<group>"; };
+		B22D7ED51D72797D00F19E56 /* AdSwitcherConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdSwitcherConfig.m; sourceTree = "<group>"; };
+		B22D7ED61D72797D00F19E56 /* AdSwitcherConfigLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdSwitcherConfigLoader.h; sourceTree = "<group>"; };
+		B22D7ED71D72797D00F19E56 /* AdSwitcherConfigLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdSwitcherConfigLoader.m; sourceTree = "<group>"; };
+		B22D7ED91D72797D00F19E56 /* AdSwitcherInterstitial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdSwitcherInterstitial.h; sourceTree = "<group>"; };
+		B22D7EDA1D72797D00F19E56 /* AdSwitcherInterstitial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdSwitcherInterstitial.m; sourceTree = "<group>"; };
+		B22D7EDB1D72797D00F19E56 /* Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Log.h; sourceTree = "<group>"; };
+		B22D7F641D73059500F19E56 /* AdSwitcherBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdSwitcherBannerView.h; sourceTree = "<group>"; };
+		B22D7F651D73059500F19E56 /* AdSwitcherBannerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdSwitcherBannerView.m; sourceTree = "<group>"; };
+		B22D7F6A1D73092D00F19E56 /* AdAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdAdapter.h; sourceTree = "<group>"; };
+		B22D7F6B1D731C0B00F19E56 /* AdSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdSelector.h; sourceTree = "<group>"; };
+		B22D7F6C1D731C0B00F19E56 /* AdSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdSelector.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B22D7E9D1D72785B00F19E56 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B22D7E971D72785B00F19E56 = {
+			isa = PBXGroup;
+			children = (
+				B22D7EA21D72785B00F19E56 /* AdSwitcher */,
+				B22D7EA11D72785B00F19E56 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B22D7EA11D72785B00F19E56 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B22D7EA01D72785B00F19E56 /* AdSwitcher.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B22D7EA21D72785B00F19E56 /* AdSwitcher */ = {
+			isa = PBXGroup;
+			children = (
+				B22D7EE81D72BDD000F19E56 /* Adapters */,
+				B22D7EC81D72797D00F19E56 /* AdSwitcher */,
+				B22D7EBD1D7278D500F19E56 /* adswitcher.json */,
+				B22D7EBE1D7278D500F19E56 /* BannerViewController.h */,
+				B22D7EBF1D7278D500F19E56 /* BannerViewController.m */,
+				B22D7EC01D7278D500F19E56 /* InterstitialViewController.h */,
+				B22D7EC11D7278D500F19E56 /* InterstitialViewController.m */,
+				B21907F51D788CCF00DF3A5C /* VideoViewController.h */,
+				B21907F61D788CCF00DF3A5C /* VideoViewController.m */,
+				B22D7EA61D72785B00F19E56 /* AppDelegate.h */,
+				B22D7EA71D72785B00F19E56 /* AppDelegate.m */,
+				B22D7EAF1D72785B00F19E56 /* Main.storyboard */,
+				B22D7EB21D72785B00F19E56 /* Assets.xcassets */,
+				B22D7EB41D72785B00F19E56 /* LaunchScreen.storyboard */,
+				B22D7EB71D72785B00F19E56 /* Info.plist */,
+				B22D7EA31D72785B00F19E56 /* Supporting Files */,
+			);
+			path = AdSwitcher;
+			sourceTree = "<group>";
+		};
+		B22D7EA31D72785B00F19E56 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B22D7EA41D72785B00F19E56 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B22D7EC81D72797D00F19E56 /* AdSwitcher */ = {
+			isa = PBXGroup;
+			children = (
+				B22D7EC91D72797D00F19E56 /* Adapter */,
+				B22D7ED31D72797D00F19E56 /* Config */,
+				B22D7ED91D72797D00F19E56 /* AdSwitcherInterstitial.h */,
+				B22D7EDA1D72797D00F19E56 /* AdSwitcherInterstitial.m */,
+				B22D7F641D73059500F19E56 /* AdSwitcherBannerView.h */,
+				B22D7F651D73059500F19E56 /* AdSwitcherBannerView.m */,
+				B22D7F6B1D731C0B00F19E56 /* AdSelector.h */,
+				B22D7F6C1D731C0B00F19E56 /* AdSelector.m */,
+				B22D7EDB1D72797D00F19E56 /* Log.h */,
+			);
+			path = AdSwitcher;
+			sourceTree = "<group>";
+		};
+		B22D7EC91D72797D00F19E56 /* Adapter */ = {
+			isa = PBXGroup;
+			children = (
+				B22D7F6A1D73092D00F19E56 /* AdAdapter.h */,
+				B22D7ECB1D72797D00F19E56 /* BannerAdAdapter.h */,
+				B22D7ECC1D72797D00F19E56 /* InterstitialAdAdapter.h */,
+			);
+			path = Adapter;
+			sourceTree = "<group>";
+		};
+		B22D7ED31D72797D00F19E56 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				B22D7ED41D72797D00F19E56 /* AdSwitcherConfig.h */,
+				B22D7ED51D72797D00F19E56 /* AdSwitcherConfig.m */,
+				B22D7ED61D72797D00F19E56 /* AdSwitcherConfigLoader.h */,
+				B22D7ED71D72797D00F19E56 /* AdSwitcherConfigLoader.m */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		B22D7EE81D72BDD000F19E56 /* Adapters */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Adapters;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B22D7E9F1D72785B00F19E56 /* AdSwitcher */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B22D7EBA1D72785B00F19E56 /* Build configuration list for PBXNativeTarget "AdSwitcher" */;
+			buildPhases = (
+				B22D7E9C1D72785B00F19E56 /* Sources */,
+				B22D7E9D1D72785B00F19E56 /* Frameworks */,
+				B22D7E9E1D72785B00F19E56 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AdSwitcher;
+			productName = AdSwitcher;
+			productReference = B22D7EA01D72785B00F19E56 /* AdSwitcher.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B22D7E981D72785B00F19E56 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = adwitcher;
+				TargetAttributes = {
+					B22D7E9F1D72785B00F19E56 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+				};
+			};
+			buildConfigurationList = B22D7E9B1D72785B00F19E56 /* Build configuration list for PBXProject "AdSwitcher" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B22D7E971D72785B00F19E56;
+			productRefGroup = B22D7EA11D72785B00F19E56 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B22D7E9F1D72785B00F19E56 /* AdSwitcher */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B22D7E9E1D72785B00F19E56 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B22D7EB61D72785B00F19E56 /* LaunchScreen.storyboard in Resources */,
+				B22D7EC41D7278D500F19E56 /* adswitcher.json in Resources */,
+				B22D7EB31D72785B00F19E56 /* Assets.xcassets in Resources */,
+				B22D7EB11D72785B00F19E56 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B22D7E9C1D72785B00F19E56 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B22D7EE31D72797D00F19E56 /* AdSwitcherInterstitial.m in Sources */,
+				B22D7EE01D72797D00F19E56 /* AdSwitcherConfig.m in Sources */,
+				B22D7F6D1D731C0B00F19E56 /* AdSelector.m in Sources */,
+				B22D7F661D73059500F19E56 /* AdSwitcherBannerView.m in Sources */,
+				B22D7EA81D72785B00F19E56 /* AppDelegate.m in Sources */,
+				B22D7EE11D72797D00F19E56 /* AdSwitcherConfigLoader.m in Sources */,
+				B22D7EA51D72785B00F19E56 /* main.m in Sources */,
+				B22D7EC61D7278D500F19E56 /* InterstitialViewController.m in Sources */,
+				B21907F71D788CCF00DF3A5C /* VideoViewController.m in Sources */,
+				B22D7EC51D7278D500F19E56 /* BannerViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		B22D7EAF1D72785B00F19E56 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B22D7EB01D72785B00F19E56 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		B22D7EB41D72785B00F19E56 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B22D7EB51D72785B00F19E56 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B22D7EB81D72785B00F19E56 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B22D7EB91D72785B00F19E56 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B22D7EBB1D72785B00F19E56 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/AdSwitcher/Adapters/AdMobAdapter/Libraries",
+					"$(PROJECT_DIR)/AdSwitcher/Adapters/AdColonyAdapter/Libraries",
+					"$(PROJECT_DIR)/AdSwitcher/Adapters/AdGenerationAdapter/Libraries",
+					"$(PROJECT_DIR)/AdSwitcher/Adapters/FacebookAdapter/Libraries",
+					"$(PROJECT_DIR)/AdSwitcher/Adapters/FiveAdapter/Libraries",
+					"$(PROJECT_DIR)/AdSwitcher/Adapters/IMobileAdapter/Libraries",
+					"$(PROJECT_DIR)/AdSwitcher/Adapters/MaioAdapter/Libraries",
+					"$(PROJECT_DIR)/AdSwitcher/Adapters/UnityAdsAdapter/Libraries",
+				);
+				INFOPLIST_FILE = AdSwitcher/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/AdSwitcher/Adapters/NendAdapter/Libraries/NendAd",
+					"$(PROJECT_DIR)/AdSwitcher/Adapters/AMoAdAdapter/Libraries",
+					"$(PROJECT_DIR)/AdSwitcher/Adapters/AppLovinAdapter/Libraries",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = net.adswitcher.AdSwitcher;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		B22D7EBC1D72785B00F19E56 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/AdSwitcher/Adapters/AdMobAdapter/Libraries",
+					"$(PROJECT_DIR)/AdSwitcher/Adapters/AdColonyAdapter/Libraries",
+					"$(PROJECT_DIR)/AdSwitcher/Adapters/AdGenerationAdapter/Libraries",
+					"$(PROJECT_DIR)/AdSwitcher/Adapters/FacebookAdapter/Libraries",
+					"$(PROJECT_DIR)/AdSwitcher/Adapters/FiveAdapter/Libraries",
+					"$(PROJECT_DIR)/AdSwitcher/Adapters/IMobileAdapter/Libraries",
+					"$(PROJECT_DIR)/AdSwitcher/Adapters/MaioAdapter/Libraries",
+					"$(PROJECT_DIR)/AdSwitcher/Adapters/UnityAdsAdapter/Libraries",
+				);
+				INFOPLIST_FILE = AdSwitcher/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/AdSwitcher/Adapters/NendAdapter/Libraries/NendAd",
+					"$(PROJECT_DIR)/AdSwitcher/Adapters/AMoAdAdapter/Libraries",
+					"$(PROJECT_DIR)/AdSwitcher/Adapters/AppLovinAdapter/Libraries",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = net.adswitcher.AdSwitcher;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B22D7E9B1D72785B00F19E56 /* Build configuration list for PBXProject "AdSwitcher" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B22D7EB81D72785B00F19E56 /* Debug */,
+				B22D7EB91D72785B00F19E56 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B22D7EBA1D72785B00F19E56 /* Build configuration list for PBXNativeTarget "AdSwitcher" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B22D7EBB1D72785B00F19E56 /* Debug */,
+				B22D7EBC1D72785B00F19E56 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B22D7E981D72785B00F19E56 /* Project object */;
+}

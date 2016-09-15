@@ -1,0 +1,15 @@
+{  
+    "category":{  
+        "switch_type":"rotate",  // "ratio" or "rotate"
+        "ads":[
+            // AdNetwork
+            {
+                "name":"",          // 任意の広告名を設定
+                "class_name":"",    // Adapterクラスの完全クラス名
+                "ratio":1,          // "ratio"の場合、確率
+                "parameters":{      // AdNetwork毎に必要なパラメータ
+                }
+            }
+        ]
+    }
+}
