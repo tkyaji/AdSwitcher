@@ -103,7 +103,6 @@ public class AdSwitcherInterstitial implements InterstitialAdListener {
         };
     }
 
-
     public void setAdShownListener(final AdShownListener listener) {
         this.adShownListener = new AdShownListener() {
             @Override
@@ -118,20 +117,6 @@ public class AdSwitcherInterstitial implements InterstitialAdListener {
         };
     }
 
-    public void setAdClickedListener(final AdClickedListener listener) {
-        this.adClickedListener = new AdClickedListener() {
-            @Override
-            public void onAdClicked(final AdConfig config) {
-                AdSwitcherInterstitial.this.activity.runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        listener.onAdClicked(config);
-                    }
-                });
-            }
-        };
-    }
-
     public void setAdClosedListener(final AdClosedListener listener) {
         this.adClosedListener = new AdClosedListener() {
             @Override
@@ -140,6 +125,20 @@ public class AdSwitcherInterstitial implements InterstitialAdListener {
                     @Override
                     public void run() {
                         listener.onAdClosed(config, result, isSkipped);
+                    }
+                });
+            }
+        };
+    }
+
+    public void setAdClickedListener(final AdClickedListener listener) {
+        this.adClickedListener = new AdClickedListener() {
+            @Override
+            public void onAdClicked(final AdConfig config) {
+                AdSwitcherInterstitial.this.activity.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        listener.onAdClicked(config);
                     }
                 });
             }

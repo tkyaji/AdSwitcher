@@ -118,7 +118,7 @@ public class AdMobAdapter implements BannerAdAdapter, InterstitialAdAdapter {
     public void interstitialAdLoad() {
         Log.d(TAG, "interstitialAdLoad");
 
-        this.interstitialAd = new InterstitialAd(activity);
+        this.interstitialAd = new InterstitialAd(this.activity);
         this.interstitialAd.setAdUnitId(this.adUnitId);
         this.setInterstitialAdListener(this.interstitialAd, this.interstitialAdListener);
 

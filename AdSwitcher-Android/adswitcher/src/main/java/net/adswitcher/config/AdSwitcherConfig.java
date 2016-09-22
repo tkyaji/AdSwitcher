@@ -7,8 +7,6 @@ import java.util.List;
  */
 public class AdSwitcherConfig {
 
-    private static final String TAG = "AdSwitcherConfig";
-
     public String category;
     public AdSwitchType switchType;
     public int interval;
