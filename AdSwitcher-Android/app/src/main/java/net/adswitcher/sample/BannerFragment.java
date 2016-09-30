@@ -2,13 +2,19 @@ package net.adswitcher.sample;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Point;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.DisplayMetrics;
+import android.util.Size;
+import android.view.Display;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.FrameLayout;
 
 import net.adswitcher.AdSwitcherBannerView;
@@ -43,21 +49,29 @@ public class BannerFragment extends Fragment {
         final View view = inflater.inflate(R.layout.fragment_banner, container, false);
         final FrameLayout layout = (FrameLayout)view.findViewById(R.id.bannerLayout);
 
+        FrameLayout.LayoutParams lp = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT);
+        lp.gravity = Gravity.TOP | Gravity.CENTER_HORIZONTAL;
+
+        this.bannerView_320x50 = new AdSwitcherBannerView(this.activity, AdSwitcherConfigLoader.getInstance(), "banner_320x50", true, BannerAdSize.SIZE_320X50);
+        layout.addView(bannerView_320x50, lp);
+
+        this.bannerView_320x100 = new AdSwitcherBannerView(this.activity, AdSwitcherConfigLoader.getInstance(), "banner_320x100", true, BannerAdSize.SIZE_320X100);
+        layout.addView(BannerFragment.this.bannerView_320x100, lp);
+
+        this.bannerView_300x250 = new AdSwitcherBannerView(this.activity, AdSwitcherConfigLoader.getInstance(), "banner_300x250", true, BannerAdSize.SIZE_300X250);
+        layout.addView(bannerView_300x250, lp);
+
+        this.bannerView_320x50.load();
+
+
+
         view.findViewById(R.id.button_ShowBanner320x50).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 activity.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        if (BannerFragment.this.bannerView_320x50 == null) {
-                            BannerFragment.this.bannerView_320x50 = new AdSwitcherBannerView(BannerFragment.this.activity, AdSwitcherConfigLoader.getInstance(), "banner_320x50", true, BannerAdSize.SIZE_320X50);
-                            FrameLayout.LayoutParams lp = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT);
-                            lp.gravity = Gravity.TOP | Gravity.CENTER_HORIZONTAL;
-                            layout.addView(BannerFragment.this.bannerView_320x50, lp);
-
-                        } else {
-                            BannerFragment.this.bannerView_320x50.switchAd();
-                        }
+                        bannerView_320x50.switchAd();
                     }
                 });
             }
@@ -69,15 +83,7 @@ public class BannerFragment extends Fragment {
                 activity.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        if (BannerFragment.this.bannerView_320x100 == null) {
-                            BannerFragment.this.bannerView_320x100 = new AdSwitcherBannerView(BannerFragment.this.activity, AdSwitcherConfigLoader.getInstance(), "banner_320x100", true, BannerAdSize.SIZE_320X100);
-                            FrameLayout.LayoutParams lp = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT);
-                            lp.gravity = Gravity.TOP | Gravity.CENTER_HORIZONTAL;
-                            layout.addView(BannerFragment.this.bannerView_320x100, lp);
-
-                        } else {
-                            BannerFragment.this.bannerView_320x100.switchAd();
-                        }
+                        bannerView_320x100.switchAd();
                     }
                 });
             }
@@ -89,15 +95,7 @@ public class BannerFragment extends Fragment {
                 activity.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        if (BannerFragment.this.bannerView_300x250 == null) {
-                            BannerFragment.this.bannerView_300x250 = new AdSwitcherBannerView(BannerFragment.this.activity, AdSwitcherConfigLoader.getInstance(), "banner_300x250", true, BannerAdSize.SIZE_300X250);
-                            FrameLayout.LayoutParams lp = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT);
-                            lp.gravity = Gravity.TOP | Gravity.CENTER_HORIZONTAL;
-                            layout.addView(BannerFragment.this.bannerView_300x250, lp);
-
-                        } else {
-                            BannerFragment.this.bannerView_300x250.switchAd();
-                        }
+                        bannerView_300x250.switchAd();
                     }
                 });
             }
@@ -109,21 +107,13 @@ public class BannerFragment extends Fragment {
                 activity.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        if (BannerFragment.this.bannerView_320x50 != null) {
-                            BannerFragment.this.bannerView_320x50.hide();
-                        }
-                        if (BannerFragment.this.bannerView_320x100 != null) {
-                            BannerFragment.this.bannerView_320x100.hide();
-                        }
-                        if (BannerFragment.this.bannerView_300x250 != null) {
-                            BannerFragment.this.bannerView_300x250.hide();
-                        }
+                        bannerView_320x50.hide();
+                        bannerView_320x100.hide();
+                        bannerView_300x250.hide();
                     }
                 });
             }
         });
-
-        view.findViewById(R.id.button_ShowBanner320x50).performClick();
 
         return view;
     }

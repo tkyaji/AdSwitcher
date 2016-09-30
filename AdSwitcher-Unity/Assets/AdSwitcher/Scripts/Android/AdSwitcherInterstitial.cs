@@ -24,10 +24,8 @@ public class AdSwitcherInterstitial {
 			this.handler = handler;
 		}
 		void onAdShown(AndroidJavaObject javaObj_adConfig) {
-			UnityActionExecuter.RunOnUnity(() => {
-				var adConfig = JavaObjectConverter.JavaObjectToAdConfig(javaObj_adConfig);
-				this.handler.Invoke(adConfig);
-			});
+			var adConfig = JavaObjectConverter.JavaObjectToAdConfig(javaObj_adConfig);
+			this.handler.Invoke(adConfig);
 		}
 	}
 
@@ -50,10 +48,8 @@ public class AdSwitcherInterstitial {
 			this.handler = handler;
 		}
 		void onAdClicked(AndroidJavaObject javaObj_adConfig) {
-			UnityActionExecuter.RunOnUnity(() => {
-				var adConfig = JavaObjectConverter.JavaObjectToAdConfig(javaObj_adConfig);
-				this.handler.Invoke(adConfig);
-			});
+			var adConfig = JavaObjectConverter.JavaObjectToAdConfig(javaObj_adConfig);
+			this.handler.Invoke(adConfig);
 		}
 	}
 

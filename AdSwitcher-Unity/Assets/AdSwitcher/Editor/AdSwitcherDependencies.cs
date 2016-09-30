@@ -7,7 +7,7 @@ using UnityEditor;
 /// your plugin depends on.
 /// </summary>
 [InitializeOnLoad]
-public static class GoogleAdsDependencies {
+public static class AdSwitcherDependencies {
 	/// <summary>
 	/// The name of your plugin.  This is used to create a settings file
 	/// which contains the dependencies specific to your plugin.
@@ -17,9 +17,9 @@ public static class GoogleAdsDependencies {
 	public static PlayServicesSupport svcSupport;
 
 	/// <summary>
-	/// Initializes static members of the <see cref="GoogleAdsDependencies"/> class.
+	/// Initializes static members of the <see cref="AdSwitcherDependencies"/> class.
 	/// </summary>
-	static GoogleAdsDependencies() {
+	static AdSwitcherDependencies() {
 
 		svcSupport = PlayServicesSupport.CreateInstance(
 			PluginName,

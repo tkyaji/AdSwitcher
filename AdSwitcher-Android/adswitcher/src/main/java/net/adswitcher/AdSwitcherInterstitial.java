@@ -68,7 +68,7 @@ public class AdSwitcherInterstitial implements InterstitialAdListener {
 
         if (++showCalledCount < this.adSwitcherConfig.interval) {
             if (this.adClosedListener != null) {
-                this.adClosedListener.onAdClosed(null, false, false);
+                this.adClosedListener.onAdClosed(new AdConfig(), false, false);
             }
             return;
         }
@@ -79,7 +79,7 @@ public class AdSwitcherInterstitial implements InterstitialAdListener {
 
         } else {
             if (this.adClosedListener != null) {
-                this.adClosedListener.onAdClosed(null, false, false);
+                this.adClosedListener.onAdClosed(new AdConfig(), false, false);
             }
             this.load();
         }

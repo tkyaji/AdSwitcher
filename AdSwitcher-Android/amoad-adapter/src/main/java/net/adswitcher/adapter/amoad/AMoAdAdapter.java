@@ -169,6 +169,7 @@ public class AMoAdAdapter implements BannerAdAdapter, InterstitialAdAdapter, AdC
         switch (result) {
             case Click:
                 this.interstitialAdListener.interstitialAdClicked(this);
+                this.interstitialAdListener.interstitialAdClosed(this, true, false);
                 break;
 
             case Close:

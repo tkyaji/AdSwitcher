@@ -126,12 +126,10 @@ public class NendAdapter implements BannerAdAdapter, InterstitialAdAdapter, Nend
         NendAdInterstitial.NendAdInterstitialShowResult result = NendAdInterstitial.showAd(this.activity, new NendAdInterstitial.OnClickListener() {
             @Override
             public void onClick(NendAdInterstitial.NendAdInterstitialClickType nendAdInterstitialClickType) {
-                if (nendAdInterstitialClickType == NendAdInterstitial.NendAdInterstitialClickType.CLOSE) {
-                    NendAdapter.this.interstitialAdListener.interstitialAdClosed(NendAdapter.this, true, false);
-
-                } else if (nendAdInterstitialClickType == NendAdInterstitial.NendAdInterstitialClickType.DOWNLOAD) {
+                if (nendAdInterstitialClickType == NendAdInterstitial.NendAdInterstitialClickType.DOWNLOAD) {
                     NendAdapter.this.interstitialAdListener.interstitialAdClicked(NendAdapter.this);
                 }
+                NendAdapter.this.interstitialAdListener.interstitialAdClosed(NendAdapter.this, true, false);
             }
         });
 

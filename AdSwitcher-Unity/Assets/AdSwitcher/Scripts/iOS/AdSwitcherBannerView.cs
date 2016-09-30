@@ -1,5 +1,6 @@
 ﻿#if UNITY_IOS && !UNITY_EDITOR
 
+using UnityEngine;
 using System;
 using System.Runtime.InteropServices;
 using AOT;
@@ -11,24 +12,25 @@ public class AdSwitcherBannerView {
 
 	private Action<AdConfig, bool> adReceivedHandler;
 	private Action<AdConfig> adShownHandler;
-	private Action<AdConfig, bool, bool> adClosedHandler;
 	private Action<AdConfig> adClickedHandler;
 
 
 	public AdSwitcherBannerView(AdSwitcherConfigLoader configLoader, string category,
 	                            BannerAdSize adSize, BannerAdAlign adAlign, BannerAdMargin adMargin = default(BannerAdMargin),
-	                            bool testMode = false) {
-		int[] adMarginArr = new int[] { adMargin.Left, adMargin.Top, adMargin.Right, adMargin.Bottom };
-		this.CInstance = _AdSwitcherBannerView_new(configLoader.CInstance, category, (int)adSize, (int)adAlign, adMarginArr, testMode);
+	                            bool testMode = false/*, bool isSizeToFit = false*/) {
+		bool isSizeToFit = false; // TODO
+		float[] adMarginArr = new float[] { adMargin.Left, adMargin.Top, adMargin.Right, adMargin.Bottom };
+		this.CInstance = _AdSwitcherBannerView_new(configLoader.CInstance, category, (int)adSize, (int)adAlign, adMarginArr, isSizeToFit, testMode);
 		this.CSInstance = (IntPtr)GCHandle.Alloc(this);
 	}
 
 	public AdSwitcherBannerView(AdSwitcherConfig adSwitcherConfig,
 								BannerAdSize adSize, BannerAdAlign adAlign, BannerAdMargin adMargin = default(BannerAdMargin),
-	                            bool testMode = false) {
-		int[] adMarginArr = new int[] { adMargin.Left, adMargin.Top, adMargin.Right, adMargin.Bottom };
+	                            bool testMode = false/*, bool isSizeToFit = false*/) {
+		bool isSizeToFit = false; // TODO
+		float[] adMarginArr = new float[] { adMargin.Left, adMargin.Top, adMargin.Right, adMargin.Bottom };
 		string jsonStr = AdSwitcherJsonConverter.ToJson(adSwitcherConfig);
-		this.CInstance = _AdSwitcherBannerView_new_config(jsonStr, (int)adSize, (int)adAlign, adMarginArr, testMode);
+		this.CInstance = _AdSwitcherBannerView_new_config(jsonStr, (int)adSize, (int)adAlign, adMarginArr, isSizeToFit, testMode);
 		this.CSInstance = (IntPtr)GCHandle.Alloc(this);
 	}
 
@@ -55,6 +57,17 @@ public class AdSwitcherBannerView {
 		return _AdSwitcherBannerView_isLoaded(this.CInstance);
 	}
 
+	public Vector2 GetSize() {
+		float w = _AdSwitcherBannerView_getWidth(this.CInstance);
+		float h = _AdSwitcherBannerView_getHeight(this.CInstance);
+		return new Vector2(w, h);
+	}
+
+	public Vector2 GetScreenSize() {
+		float w = _AdSwitcherBannerView_getScreenWidth(this.CInstance);
+		float h = _AdSwitcherBannerView_getScreenHeight(this.CInstance);
+		return new Vector2(w, h);
+	}
 
 	public void SetAdReceivedHandler(Action<AdConfig, bool> handler) {
 		this.adReceivedHandler = handler;
@@ -73,10 +86,10 @@ public class AdSwitcherBannerView {
 
 
 	[DllImport("__Internal")]
-	private static extern IntPtr _AdSwitcherBannerView_new(IntPtr configLoaderCInstance, string category, int adSize, int adAlign, int[] adMarginArr, bool testMode);
+	private static extern IntPtr _AdSwitcherBannerView_new(IntPtr configLoaderCInstance, string category, int adSize, int adAlign, float[] adMarginArr, bool isSizeToFit, bool testMode);
 
 	[DllImport("__Internal")]
-	private static extern IntPtr _AdSwitcherBannerView_new_config(string adSwitcherConfigJsonStr, int adSize, int adAlign, int[] adMarginArr, bool testMode);
+	private static extern IntPtr _AdSwitcherBannerView_new_config(string adSwitcherConfigJsonStr, int adSize, int adAlign, float[] adMarginArr, bool isSizeToFit, bool testMode);
 
 	[DllImport("__Internal")]
 	private static extern void _AdSwitcherBannerView_release(IntPtr cInstance);
@@ -92,6 +105,18 @@ public class AdSwitcherBannerView {
 
 	[DllImport("__Internal")]
 	private static extern bool _AdSwitcherBannerView_isLoaded(IntPtr cInstance);
+
+	[DllImport("__Internal")]
+	private static extern float _AdSwitcherBannerView_getWidth(IntPtr cInstance);
+
+	[DllImport("__Internal")]
+	private static extern float _AdSwitcherBannerView_getHeight(IntPtr cInstance);
+
+	[DllImport("__Internal")]
+	private static extern float _AdSwitcherBannerView_getScreenWidth(IntPtr cInstance);
+
+	[DllImport("__Internal")]
+	private static extern float _AdSwitcherBannerView_getScreenHeight(IntPtr cInstance);
 
 	[DllImport("__Internal")]
 	private static extern void _AdSwitcherBannerView_setAdReceivedHandler(IntPtr cInstance, IntPtr csInstance, delagete_adReceivedHandlerCaller handler);

@@ -1,4 +1,4 @@
-﻿#if UNITY_ANDROID
+﻿#if UNITY_ANDROID && !UNITY_EDITOR
 
 using UnityEngine;
 using System;
@@ -52,16 +52,19 @@ public class JavaObjectConverter {
 		adConfig.ClassName = javaObj_adConfig.Get<string>("className");
 		adConfig.Ratio = javaObj_adConfig.Get<int>("ratio");
 
-		var javaObj_map = javaObj_adConfig.Get<AndroidJavaObject>("parameters");
-		var javaObjs_keys = javaObj_map.Call<AndroidJavaObject>("keySet").Call<AndroidJavaObject[]>("toArray");
-
 		var parametersDict = new Dictionary<string, string>();
-		foreach (var javaObj_key in javaObjs_keys) {
-			var javaObj_val = javaObj_map.Call<AndroidJavaObject>("get", javaObj_key);
-			var key = javaObj_key.Call<string>("toString");
-			var val = javaObj_val.Call<string>("toString");
-			parametersDict.Add(key, val);
+
+		if (adConfig.ClassName != null) {
+			var javaObj_map = javaObj_adConfig.Get<AndroidJavaObject>("parameters");
+			var javaObjs_keys = javaObj_map.Call<AndroidJavaObject>("keySet").Call<AndroidJavaObject[]>("toArray");
+			foreach (var javaObj_key in javaObjs_keys) {
+				var javaObj_val = javaObj_map.Call<AndroidJavaObject>("get", javaObj_key);
+				var key = javaObj_key.Call<string>("toString");
+				var val = javaObj_val.Call<string>("toString");
+				parametersDict.Add(key, val);
+			}
 		}
+
 		adConfig.Parameters = parametersDict;
 
 		return adConfig;

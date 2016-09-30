@@ -92,6 +92,10 @@
     return _selectedAdapter;
 }
 
+- (CGSize)getSize {
+    return [self toCGSize:self.adSize];
+}
+
 - (void)setAdReceivedHandler:(void (^)(AdConfig *config, BOOL result))handler {
     bannerAdReceived handlerWrapper = ^(AdConfig *config, BOOL result) {
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -192,8 +196,6 @@
     for (AdConfig *adConfig in adSwitcherConfig.adConfigArr) {
         [_adConfigDict setObject:adConfig forKey:adConfig.className];
     }
-    
-    [self load];
 }
 
 - (void)selectLoad {

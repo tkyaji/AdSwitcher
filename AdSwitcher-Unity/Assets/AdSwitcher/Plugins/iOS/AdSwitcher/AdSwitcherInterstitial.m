@@ -55,7 +55,7 @@ static int _show_called_count;
     
     if (++_show_called_count < self.adSwitcherConfig.interval) {
         if (_interstitialAdClosedHandler) {
-            _interstitialAdClosedHandler(nil, NO, NO);
+            _interstitialAdClosedHandler([AdConfig new], NO, NO);
         }
         return;
     }
@@ -66,7 +66,7 @@ static int _show_called_count;
         
     } else {
         if (_interstitialAdClosedHandler) {
-            _interstitialAdClosedHandler(nil, NO, NO);
+            _interstitialAdClosedHandler([AdConfig new], NO, NO);
         }
         [self load];
     }

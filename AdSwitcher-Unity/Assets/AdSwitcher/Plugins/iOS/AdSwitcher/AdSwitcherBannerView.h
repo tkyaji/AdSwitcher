@@ -42,6 +42,7 @@ typedef void (^bannerAdClicked)(AdConfig *config);
 - (void)hide;
 - (void)switchAd;
 - (BOOL)isLoaded;
+- (CGSize)getSize;
 
 - (void)setAdReceivedHandler:(void (^)(AdConfig *config, BOOL result))handler;
 - (void)setAdShownHandler:(void (^)(AdConfig *config))handler;

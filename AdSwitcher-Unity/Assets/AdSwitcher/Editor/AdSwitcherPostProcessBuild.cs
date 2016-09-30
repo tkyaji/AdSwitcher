@@ -21,46 +21,45 @@ public class AdSwitcherPostProcessBuild {
 		proj.AddBuildProperty(target, "GCC_ENABLE_OBJC_EXCEPTIONS", "YES");
 		proj.AddBuildProperty(target, "OTHER_LDFLAGS", "-ObjC");
 
-/*
-		// UnityAds
-		if (Directory.Exists("Assets/Adswitcher/Plugins/iOS/UnityAdsAdapter.framework")) {
-			if (File.Exists(Path.Combine(path, "Frameworks/UnityAds.bundle"))) {
-				File.Delete(Path.Combine(path, "Frameworks/UnityAds.bundle"));
-			}
-			FileUtil.CopyFileOrDirectory("Assets/AdSwitcher/Plugins/iOS/Libraries/UnityAds.bundle",
-										 Path.Combine(path, "Frameworks/UnityAds.bundle"));
-			proj.AddFileToBuild(target, proj.AddFile("Frameworks/UnityAds.bundle", "Frameworks/UnityAds.bundle"));
+		// Copy Resource Files
+		var resDirInfo = new DirectoryInfo(Path.Combine(path, "Libraries/AdSwitcher/Resources"));
+		if (!resDirInfo.Exists) {
+			resDirInfo.Create();
 		}
 
-		// AMoAd
-		if (Directory.Exists("Assets/AdSwitcher/Plugins/iOS/AMoAdAdapter.framework")) {
-			
-			var resDirInfo = new DirectoryInfo(Path.Combine(path, "Libraries/AdSwitcher/Resources"));
-			if (!resDirInfo.Exists) {
-				resDirInfo.Create();
-			}
+		List<FileInfo> fileList = searchFiles(new DirectoryInfo("Assets/AdSwitcher/Plugins/iOS"), new string[] { ".png" });
 
-			var amoadDirInfo = new DirectoryInfo(Path.Combine(resDirInfo.FullName, "AMoAd"));
-			if (!amoadDirInfo.Exists) {
-				amoadDirInfo.Create();
-			}
-
-			DirectoryInfo dirInfo = new DirectoryInfo("Assets/AdSwitcher/Plugins/iOS/Libraries/AMoAd");
-			foreach (FileInfo fileInfo in dirInfo.GetFiles("*.png")) {
-				var toFile = Path.Combine(amoadDirInfo.FullName, fileInfo.Name);
-				fileInfo.CopyTo(toFile);
-				var f = toFile.Replace(path, "");
-				UnityEngine.Debug.Log("### " + f);
-				proj.AddFileToBuild(target, proj.AddFile(f, f, PBXSourceTree.Source));
-			}
+		foreach (var fileInfo in fileList) {
+			var toFile = Path.Combine(resDirInfo.FullName, fileInfo.Name);
+			fileInfo.CopyTo(toFile);
+			var f = Path.Combine("Libraries/AdSwitcher/Resources", fileInfo.Name);
+			proj.AddFileToBuild(target, proj.AddFile(f, f, PBXSourceTree.Source));
 		}
-*/
-		
+
 		if (EditorUserBuildSettings.development) {
 			proj.AddBuildProperty(target, "GCC_PREPROCESSOR_DEFINITIONS", "ADSWITCHER_DEBUG=1");
 		}
 
 		File.WriteAllText(projPath, proj.WriteToString());
+	}
+
+	private static List<FileInfo> searchFiles(DirectoryInfo baseDirInfo, string[] searchExtensions) {
+		var list = new List<FileInfo>();
+
+		foreach (var fileInfo in baseDirInfo.GetFiles()) {
+			if (searchExtensions.Any(ext => ext == fileInfo.Extension)) {
+				list.Add(fileInfo);
+			}
+		}
+		foreach (var dirInfo in baseDirInfo.GetDirectories()) {
+			if (dirInfo.Name.EndsWith(".framework")) {
+				continue;
+			}
+			var subList = searchFiles(dirInfo, searchExtensions);
+			list.AddRange(subList);
+		}
+
+		return list;
 	}
 
 }

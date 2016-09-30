@@ -1,8 +1,11 @@
 package net.adswitcher;
 
 import android.app.Activity;
+import android.os.Build;
 import android.os.Handler;
+import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.Display;
 import android.widget.FrameLayout;
 
 import net.adswitcher.adapter.AdAdapter;
@@ -41,7 +44,7 @@ public class AdSwitcherBannerView extends FrameLayout implements BannerAdListene
 
 
     public AdSwitcherBannerView(final Activity activity, final AdSwitcherConfigLoader configLoader,
-                            final String category, final boolean testMode, final BannerAdSize adSize) {
+                                final String category, final boolean testMode, final BannerAdSize adSize) {
         super(activity);
 
         configLoader.addConfigLoadedHandler(new AdSwitcherConfigLoader.ConfigLoadHandler() {
@@ -54,7 +57,7 @@ public class AdSwitcherBannerView extends FrameLayout implements BannerAdListene
     }
 
     public AdSwitcherBannerView(final Activity activity, final AdSwitcherConfig adSwitcherConfig,
-                            final boolean testMode, final BannerAdSize adSize) {
+                                final boolean testMode, final BannerAdSize adSize) {
         super(activity);
 
         this.initialize(activity, adSwitcherConfig, testMode, adSize);
@@ -87,6 +90,52 @@ public class AdSwitcherBannerView extends FrameLayout implements BannerAdListene
 
     public boolean isLoaded() {
         return (this.selectedAdapter != null);
+    }
+
+    public float getDpiWidth() {
+        switch (this.adSize) {
+            case SIZE_320X50:
+            case SIZE_320X100:
+                return 320;
+            case SIZE_300X250:
+                return 300;
+        }
+        return 0;
+    }
+
+    public float getDpiHeight() {
+        switch (this.adSize) {
+            case SIZE_320X50:
+                return 50;
+            case SIZE_320X100:
+                return 100;
+            case SIZE_300X250:
+                return 250;
+        }
+        return 0;
+    }
+
+    public float getPxWidth() {
+        float dpiW = this.getDpiWidth();
+        DisplayMetrics metrics = this.getMetrics();
+        return dpiW * metrics.density;
+    }
+
+    public float getPxHeight() {
+        float dpiH = this.getDpiHeight();
+        DisplayMetrics metrics = this.getMetrics();
+        return dpiH * metrics.density;
+    }
+
+    private DisplayMetrics getMetrics() {
+        Display display = this.activity.getWindowManager().getDefaultDisplay();
+        DisplayMetrics metrics = new DisplayMetrics();
+        if (Build.VERSION.SDK_INT >= 17) {
+            display.getRealMetrics(metrics);
+        } else {
+            display.getMetrics(metrics);
+        }
+        return metrics;
     }
 
     public void setAdReceivedListener(final AdReceivedListener listener) {
@@ -145,8 +194,6 @@ public class AdSwitcherBannerView extends FrameLayout implements BannerAdListene
         for (AdConfig config : this.adSwitcherConfig.adConfigList) {
             this.adConfigMap.put(config.className, config);
         }
-
-        this.load();
     }
 
     private void selectLoad() {

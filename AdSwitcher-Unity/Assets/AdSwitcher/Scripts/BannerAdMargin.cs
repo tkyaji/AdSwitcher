@@ -1,6 +1,8 @@
 ﻿public struct BannerAdMargin {
-	public int Left;
-	public int Top;
-	public int Right;
-	public int Bottom;
+	public float Left;
+	public float Top;
+	public float Right;
+	public float Bottom;
+
+	public static readonly BannerAdMargin Zero = new BannerAdMargin();
 }

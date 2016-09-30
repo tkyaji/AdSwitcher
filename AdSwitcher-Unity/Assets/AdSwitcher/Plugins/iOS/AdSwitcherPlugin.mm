@@ -74,8 +74,12 @@ extern "C" {
     static inline NSString *__adConfigToJson(AdConfig *adConfig) {
         NSMutableDictionary *dict = [NSMutableDictionary new];
         
-        [dict setObject:adConfig.adName forKey:@"adName"];
-        [dict setObject:adConfig.className forKey:@"className"];
+        if (adConfig.adName) {
+            [dict setObject:adConfig.adName forKey:@"adName"];
+        }
+        if (adConfig.className) {
+            [dict setObject:adConfig.className forKey:@"className"];
+        }
         [dict setObject:@(adConfig.ratio) forKey:@"ratio"];
         
         NSMutableArray *arr = [NSMutableArray new];
@@ -109,19 +113,21 @@ extern "C" {
         return CGSizeMake(320, 50);
     }
 
-    static inline CGRect __toBannerAdFrame(BannerAdSize bannerAdSize, BannerAdAlign bannerAdAlign, BannerAdMargin bannerAdMargin) {
+    static inline CGRect __toBannerAdFrame(BannerAdSize bannerAdSize, BannerAdAlign bannerAdAlign, BannerAdMargin bannerAdMargin, CGFloat scale) {
         CGSize parentFrameSize = UnityGetGLView().frame.size;
         CGSize adViewSize = __toBannerAdCGSize(bannerAdSize);
+        adViewSize.width *= scale;
+        adViewSize.height *= scale;
         
         switch (bannerAdAlign) {
             case BannerAdAlignTopLeft:
-                return CGRectMake(bannerAdMargin.left + bannerAdMargin.left,
-                                  bannerAdMargin.top + bannerAdMargin.top,
+                return CGRectMake(bannerAdMargin.left,
+                                  bannerAdMargin.top,
                                   adViewSize.width, adViewSize.height);
                 
             case BannerAdAlignTopRight:
                 return CGRectMake(parentFrameSize.width - adViewSize.width - bannerAdMargin.right,
-                                  bannerAdMargin.top + bannerAdMargin.top,
+                                  bannerAdMargin.top,
                                   adViewSize.width, adViewSize.height);
                 
             case BannerAdAlignTopCenter:
@@ -164,10 +170,10 @@ extern "C" {
     }
     
     
-    // BannerAdSwitcher
+    // AdSwitcherBannerView
     
-    AdSwitcherBannerView *_BannerAdSwitcher_new(AdSwitcherConfigLoader *configLoader, const char *category, bool testMode,
-                                                int adSize, int adAlign, int *adMarginArr) {
+    AdSwitcherBannerView *_AdSwitcherBannerView_new(AdSwitcherConfigLoader *configLoader, const char *category,
+                                                int adSize, int adAlign, float *adMarginArr, bool isSizeToFit, bool testMode) {
         
         BannerAdSize bannerAdSize = (BannerAdSize)adSize;
         BannerAdAlign bannerAdAlign = (BannerAdAlign)adAlign;
@@ -179,13 +185,19 @@ extern "C" {
                                                   category:[NSString stringWithUTF8String:category]
                                                   testMode:testMode
                                                     adSize:bannerAdSize];
-        bannerView.frame = __toBannerAdFrame(bannerAdSize, bannerAdAlign, bannerAdMargin);
+        bannerView.frame = __toBannerAdFrame(bannerAdSize, bannerAdAlign, bannerAdMargin, 1);
+        
+        if (isSizeToFit) {
+            CGFloat scale = UnityGetGLView().frame.size.width / bannerView.frame.size.width;
+            bannerView.transform = CGAffineTransformMakeScale(scale, scale);
+            bannerView.frame = __toBannerAdFrame(bannerAdSize, bannerAdAlign, bannerAdMargin, scale);
+        }
         
         return bannerView;
     }
     
     AdSwitcherBannerView *_AdSwitcherBannerView_new_config(const char *adSwitcherConfigJsonStr,
-                                                int adSize, int adAlign, int *adMarginArr, bool testMode) {
+                                                int adSize, int adAlign, float *adMarginArr, bool isSizeToFit, bool testMode) {
 
         AdSwitcherConfig *adSwitcherConfig = __adSwitcherConfigFromJson([NSString stringWithUTF8String:adSwitcherConfigJsonStr]);
         
@@ -197,7 +209,13 @@ extern "C" {
                                                                              config:adSwitcherConfig
                                                                            testMode:testMode
                                                                              adSize:bannerAdSize];
-        bannerView.frame = __toBannerAdFrame(bannerAdSize, bannerAdAlign, bannerAdMargin);
+        bannerView.frame = __toBannerAdFrame(bannerAdSize, bannerAdAlign, bannerAdMargin, 1);
+        
+        if (isSizeToFit) {
+            CGFloat scale = UnityGetGLView().frame.size.width / bannerView.frame.size.width;
+            bannerView.transform = CGAffineTransformMakeScale(scale, scale);
+            bannerView.frame = __toBannerAdFrame(bannerAdSize, bannerAdAlign, bannerAdMargin, scale);
+        }
         
         return bannerView;
     }
@@ -231,6 +249,26 @@ extern "C" {
 
     bool _AdSwitcherBannerView_isLoaded(AdSwitcherBannerView *bannerView) {
         return [bannerView isLoaded];
+    }
+
+    float _AdSwitcherBannerView_getWidth(AdSwitcherBannerView *bannerView) {
+        CGSize size = [bannerView getSize];
+        return size.width;
+    }
+    
+    float _AdSwitcherBannerView_getHeight(AdSwitcherBannerView *bannerView) {
+        CGSize size = [bannerView getSize];
+        return size.height;
+    }
+
+    float _AdSwitcherBannerView_getScreenWidth(AdSwitcherBannerView *bannerView) {
+        CGSize screenSize = [UIScreen mainScreen].bounds.size;
+        return screenSize.width;
+    }
+
+    float _AdSwitcherBannerView_getScreenHeight(AdSwitcherBannerView *bannerView) {
+        CGSize screenSize = [UIScreen mainScreen].bounds.size;
+        return screenSize.height;
     }
 
     void _AdSwitcherBannerView_setAdReceivedHandler(AdSwitcherBannerView *bannerView,

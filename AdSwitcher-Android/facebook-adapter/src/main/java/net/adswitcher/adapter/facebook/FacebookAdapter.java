@@ -1,7 +1,10 @@
 package net.adswitcher.adapter.facebook;
 
 import android.app.Activity;
+import android.os.Build;
+import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.Display;
 import android.widget.FrameLayout;
 
 import com.facebook.ads.Ad;
@@ -31,6 +34,7 @@ public class FacebookAdapter implements BannerAdAdapter, InterstitialAdAdapter, 
     private String placementId;
     private BannerAdSize adSize;
 
+    private FrameLayout adViewLayout;
     private AdView adView;
     private InterstitialAd interstitialAd;
 
@@ -52,24 +56,30 @@ public class FacebookAdapter implements BannerAdAdapter, InterstitialAdAdapter, 
     @Override
     public void bannerAdLoad() {
         Log.d(TAG, "bannerAdLoad");
+
         this.adView = new AdView(this.activity, this.placementId, this.toFBAdSize(this.adSize));
         this.adView.setAdListener(this);
         this.adView.loadAd();
+
+        this.adViewLayout = new FrameLayout(this.activity);
+        this.adViewLayout.addView(this.adView, this.toLayoutParams(this.adSize));
     }
 
     @Override
     public void bannerAdShow(FrameLayout parentLayout) {
         Log.d(TAG, "bannerAdShow");
-        parentLayout.addView(this.adView);
+        parentLayout.addView(this.adViewLayout);
         this.bannerAdListener.bannerAdShown(this);
     }
 
     @Override
     public void bannerAdHide() {
         Log.d(TAG, "bannerAdHide");
-        ((FrameLayout)this.adView.getParent()).removeView(this.adView);
         this.adView.disableAutoRefresh();
+        this.adViewLayout.removeView(this.adView);
+        ((FrameLayout)this.adViewLayout.getParent()).removeView(this.adViewLayout);
         this.adView = null;
+        this.adViewLayout = null;
     }
 
 
@@ -150,9 +160,9 @@ public class FacebookAdapter implements BannerAdAdapter, InterstitialAdAdapter, 
     @Override
     public void onInterstitialDismissed(Ad ad) {
         Log.d(TAG, "interstitial onInterstitialDismissed");
-        this.interstitialAdListener.interstitialAdClosed(this, true, false);
         this.interstitialAd.destroy();
         this.interstitialAd = null;
+        this.interstitialAdListener.interstitialAdClosed(this, true, false);
     }
 
 
@@ -169,6 +179,29 @@ public class FacebookAdapter implements BannerAdAdapter, InterstitialAdAdapter, 
         }
 
         return AdSize.BANNER_HEIGHT_50;
+    }
+
+    private FrameLayout.LayoutParams toLayoutParams(BannerAdSize adSize) {
+
+        Display display = this.activity.getWindowManager().getDefaultDisplay();
+        DisplayMetrics metrics = new DisplayMetrics();
+        if (Build.VERSION.SDK_INT >= 17) {
+            display.getRealMetrics(metrics);
+        } else {
+            display.getMetrics(metrics);
+        }
+
+        switch (this.adSize) {
+            case SIZE_320X100:
+                return new FrameLayout.LayoutParams(Math.round(320 * metrics.density), Math.round(100 * metrics.density));
+
+            case SIZE_300X250:
+                return new FrameLayout.LayoutParams(Math.round(300 * metrics.density), Math.round(250 * metrics.density));
+
+            default:
+                return new FrameLayout.LayoutParams(Math.round(320 * metrics.density), Math.round(50 * metrics.density));
+        }
+
     }
 
 }

@@ -15,6 +15,7 @@ import com.five_corp.ad.FiveAdW320H180;
 
 import java.util.EnumSet;
 import java.util.Map;
+import java.util.Objects;
 
 import net.adswitcher.adapter.BannerAdAdapter;
 import net.adswitcher.adapter.BannerAdListener;
@@ -29,7 +30,8 @@ public class FiveAdapter implements BannerAdAdapter, InterstitialAdAdapter, Five
 
     private static final String TAG = "FiveAdapter";
 
-    private static boolean initializedSdk;
+    volatile private static boolean initializedSdk;
+    private static Object lock = new Object();
 
     private Activity activity;
 
@@ -62,7 +64,6 @@ public class FiveAdapter implements BannerAdAdapter, InterstitialAdAdapter, Five
         Log.d(TAG, "bannerAdLoad");
         this.loading = true;
 
-        FiveAd.getSingleton().enableLoading(true);
         // 300x250のレクタングルは用意されていないらしいので、320x180で表示
         this.bannerView = new FiveAdW320H180(this.activity, this.slotId);
         this.bannerView.setListener(this);
@@ -105,7 +106,7 @@ public class FiveAdapter implements BannerAdAdapter, InterstitialAdAdapter, Five
     public void interstitialAdLoad() {
         Log.d(TAG, "interstitialAdLoad");
         this.loading = true;
-        this.interstitial = new FiveAdInterstitial(activity, this.slotId);
+        this.interstitial = new FiveAdInterstitial(this.activity, this.slotId);
         this.interstitial.setListener(this);
         this.interstitial.loadAd();
     }
@@ -123,22 +124,26 @@ public class FiveAdapter implements BannerAdAdapter, InterstitialAdAdapter, Five
 
 
     private static void initializeSdk(Activity activity, String appId, boolean testMode) {
-        if (initializedSdk) {
-            return;
+        synchronized (lock) {
+            if (initializedSdk) {
+                return;
+            }
+
+            FiveAdConfig fiveConfig = new FiveAdConfig(appId);
+            fiveConfig.formats = EnumSet.of(
+                    FiveAdFormat.W320_H180,
+//                    FiveAdFormat.W300_H250,
+                    FiveAdFormat.INTERSTITIAL_PORTRAIT,
+                    FiveAdFormat.INTERSTITIAL_LANDSCAPE
+            );
+            fiveConfig.isTest = testMode;
+
+            FiveAd.initialize(activity, fiveConfig);
+
+            FiveAd.getSingleton().enableLoading(true);
+
+            initializedSdk = true;
         }
-
-        FiveAdConfig fiveConfig = new FiveAdConfig(appId);
-        fiveConfig.formats = EnumSet.of(
-                FiveAdFormat.W320_H180,
-//                FiveAdFormat.W300_H250,
-                FiveAdFormat.INTERSTITIAL_PORTRAIT,
-                FiveAdFormat.INTERSTITIAL_LANDSCAPE
-        );
-        fiveConfig.isTest = testMode;
-
-        FiveAd.initialize(activity, fiveConfig);
-
-        initializedSdk = true;
     }
 
 
