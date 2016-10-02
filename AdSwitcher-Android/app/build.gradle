@@ -30,6 +30,7 @@ dependencies {
     compile 'com.android.support:appcompat-v7:+'
     compile project(':adswitcher')
 
+    /*
     compile project(':adcolony-adapter')
     compile project(':admob-adapter')
     compile project(':adgeneration-adapter')
@@ -45,4 +46,5 @@ dependencies {
 
     compile 'com.facebook.android:audience-network-sdk:4.13.0'
     compile project(':unity-ads')
+    */
 }
