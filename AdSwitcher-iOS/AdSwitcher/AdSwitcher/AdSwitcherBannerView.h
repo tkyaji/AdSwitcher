@@ -29,14 +29,8 @@ typedef void (^bannerAdClicked)(AdConfig *config);
 - (instancetype)initWithConfigLoader:(UIViewController *)viewController configLoader:(AdSwitcherConfigLoader *)configLoader
                             category:(NSString *)category testMode:(BOOL)testMode adSize:(BannerAdSize)adSize;
 
-- (instancetype)initWithConfigLoader:(UIViewController *)viewController configLoader:(AdSwitcherConfigLoader *)configLoader
-                            category:(NSString *)category testMode:(BOOL)testMode adSize:(BannerAdSize)adSize position:(CGPoint)position;
-
 - (instancetype)initWithConfig:(UIViewController *)viewController config:(AdSwitcherConfig *)adSwitcherConfig
                       testMode:(BOOL)testMode adSize:(BannerAdSize)adSize;
-
-- (instancetype)initWithConfig:(UIViewController *)viewController config:(AdSwitcherConfig *)adSwitcherConfig
-                            testMode:(BOOL)testMode adSize:(BannerAdSize)adSize position:(CGPoint)position;
 
 - (void)load;
 - (void)hide;

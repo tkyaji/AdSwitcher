@@ -25,15 +25,8 @@
 - (instancetype)initWithConfigLoader:(UIViewController *)viewController configLoader:(AdSwitcherConfigLoader *)configLoader
                             category:(NSString *)category testMode:(BOOL)testMode adSize:(BannerAdSize)adSize {
     
-    return [self initWithConfigLoader:viewController configLoader:configLoader
-                             category:category testMode:testMode adSize:adSize position:CGPointMake(0, 0)];
-}
-
-- (instancetype)initWithConfigLoader:(UIViewController *)viewController configLoader:(AdSwitcherConfigLoader *)configLoader
-                            category:(NSString *)category testMode:(BOOL)testMode adSize:(BannerAdSize)adSize position:(CGPoint)position {
-
     CGSize cgSize = [self toCGSize:adSize];
-    CGRect frame = CGRectMake(position.x, position.y, cgSize.width, cgSize.height);
+    CGRect frame = CGRectMake(0, 0, cgSize.width, cgSize.height);
     if (self = [super initWithFrame:frame]) {
         __block AdSwitcherConfigLoader *configLoaderInBlock = configLoader;
         [configLoader addConfigLoadedHandler:^{
@@ -48,14 +41,8 @@
 - (instancetype)initWithConfig:(UIViewController *)viewController config:(AdSwitcherConfig *)adSwitcherConfig
                       testMode:(BOOL)testMode adSize:(BannerAdSize)adSize {
     
-    return [self initWithConfig:viewController config:adSwitcherConfig testMode:testMode adSize:adSize position:CGPointMake(0, 0)];
-}
-
-- (instancetype)initWithConfig:(UIViewController *)viewController config:(AdSwitcherConfig *)adSwitcherConfig
-                      testMode:(BOOL)testMode adSize:(BannerAdSize)adSize position:(CGPoint)position {
-    
     CGSize cgSize = [self toCGSize:adSize];
-    CGRect frame = CGRectMake(position.x, position.y, cgSize.width, cgSize.height);
+    CGRect frame = CGRectMake(0, 0, cgSize.width, cgSize.height);
     if (self = [super initWithFrame:frame]) {
         [self initialize:viewController config:adSwitcherConfig testMode:testMode adSize:adSize];
     }
