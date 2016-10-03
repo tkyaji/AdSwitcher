@@ -44,7 +44,7 @@ public class AdSwitcherBannerView extends FrameLayout implements BannerAdListene
 
 
     public AdSwitcherBannerView(final Activity activity, final AdSwitcherConfigLoader configLoader,
-                                final String category, final boolean testMode, final BannerAdSize adSize) {
+                                final String category, final BannerAdSize adSize, final boolean testMode) {
         super(activity);
 
         configLoader.addConfigLoadedHandler(new AdSwitcherConfigLoader.ConfigLoadHandler() {
@@ -57,7 +57,7 @@ public class AdSwitcherBannerView extends FrameLayout implements BannerAdListene
     }
 
     public AdSwitcherBannerView(final Activity activity, final AdSwitcherConfig adSwitcherConfig,
-                                final boolean testMode, final BannerAdSize adSize) {
+                                final BannerAdSize adSize, final boolean testMode) {
         super(activity);
 
         this.initialize(activity, adSwitcherConfig, testMode, adSize);

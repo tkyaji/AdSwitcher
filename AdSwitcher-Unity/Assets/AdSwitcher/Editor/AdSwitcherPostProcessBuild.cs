@@ -27,7 +27,7 @@ public class AdSwitcherPostProcessBuild {
 			resDirInfo.Create();
 		}
 
-		List<FileInfo> fileList = searchFiles(new DirectoryInfo("Assets/AdSwitcher/Plugins/iOS"), new string[] { ".png" });
+		List<FileInfo> fileList = searchFiles(new DirectoryInfo("Assets/Plugins/iOS/AdSwitcher"), new string[] { ".png" });
 
 		foreach (var fileInfo in fileList) {
 			var toFile = Path.Combine(resDirInfo.FullName, fileInfo.Name);

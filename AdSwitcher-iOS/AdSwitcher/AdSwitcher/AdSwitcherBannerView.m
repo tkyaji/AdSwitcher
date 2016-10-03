@@ -23,7 +23,7 @@
 }
 
 - (instancetype)initWithConfigLoader:(UIViewController *)viewController configLoader:(AdSwitcherConfigLoader *)configLoader
-                            category:(NSString *)category testMode:(BOOL)testMode adSize:(BannerAdSize)adSize {
+                            category:(NSString *)category adSize:(BannerAdSize)adSize testMode:(BOOL)testMode {
     
     CGSize cgSize = [self toCGSize:adSize];
     CGRect frame = CGRectMake(0, 0, cgSize.width, cgSize.height);
@@ -31,7 +31,7 @@
         __block AdSwitcherConfigLoader *configLoaderInBlock = configLoader;
         [configLoader addConfigLoadedHandler:^{
             AdSwitcherConfig *adSwitcherConfig = [configLoaderInBlock adSwitchConfig:category];
-            [self initialize:viewController config:adSwitcherConfig testMode:testMode adSize:adSize];
+            [self initialize:viewController config:adSwitcherConfig adSize:adSize testMode:testMode];
         }];
     }
     
@@ -39,12 +39,12 @@
 }
 
 - (instancetype)initWithConfig:(UIViewController *)viewController config:(AdSwitcherConfig *)adSwitcherConfig
-                      testMode:(BOOL)testMode adSize:(BannerAdSize)adSize {
+                        adSize:(BannerAdSize)adSize testMode:(BOOL)testMode {
     
     CGSize cgSize = [self toCGSize:adSize];
     CGRect frame = CGRectMake(0, 0, cgSize.width, cgSize.height);
     if (self = [super initWithFrame:frame]) {
-        [self initialize:viewController config:adSwitcherConfig testMode:testMode adSize:adSize];
+        [self initialize:viewController config:adSwitcherConfig adSize:adSize testMode:testMode];
     }
     
     return self;
@@ -168,7 +168,7 @@
 #pragma - private methods
 
 - (void)initialize:(UIViewController *)viewController config:(AdSwitcherConfig *)adSwitcherConfig
-          testMode:(BOOL)testMode adSize:(BannerAdSize)adSize {
+            adSize:(BannerAdSize)adSize testMode:(BOOL)testMode {
     
     _DLOG("testMode=%d, adSize=%d, switchType=%d", testMode, (int)adSize, (int)adSwitcherConfig.switchType);
 

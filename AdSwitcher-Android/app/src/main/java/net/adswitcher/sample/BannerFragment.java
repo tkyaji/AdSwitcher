@@ -52,13 +52,13 @@ public class BannerFragment extends Fragment {
         FrameLayout.LayoutParams lp = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT);
         lp.gravity = Gravity.TOP | Gravity.CENTER_HORIZONTAL;
 
-        this.bannerView_320x50 = new AdSwitcherBannerView(this.activity, AdSwitcherConfigLoader.getInstance(), "banner_320x50", true, BannerAdSize.SIZE_320X50);
+        this.bannerView_320x50 = new AdSwitcherBannerView(this.activity, AdSwitcherConfigLoader.getInstance(), "banner_320x50", BannerAdSize.SIZE_320X50, true);
         layout.addView(bannerView_320x50, lp);
 
-        this.bannerView_320x100 = new AdSwitcherBannerView(this.activity, AdSwitcherConfigLoader.getInstance(), "banner_320x100", true, BannerAdSize.SIZE_320X100);
+        this.bannerView_320x100 = new AdSwitcherBannerView(this.activity, AdSwitcherConfigLoader.getInstance(), "banner_320x100", BannerAdSize.SIZE_320X100, true);
         layout.addView(BannerFragment.this.bannerView_320x100, lp);
 
-        this.bannerView_300x250 = new AdSwitcherBannerView(this.activity, AdSwitcherConfigLoader.getInstance(), "banner_300x250", true, BannerAdSize.SIZE_300X250);
+        this.bannerView_300x250 = new AdSwitcherBannerView(this.activity, AdSwitcherConfigLoader.getInstance(), "banner_300x250", BannerAdSize.SIZE_300X250, true);
         layout.addView(bannerView_300x250, lp);
 
         this.bannerView_320x50.load();

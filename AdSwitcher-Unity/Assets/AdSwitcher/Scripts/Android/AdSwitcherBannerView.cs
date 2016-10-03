@@ -57,8 +57,8 @@ public class AdSwitcherBannerView {
 											 this.javaObj_activity,
 											 javaObj_configLoader,
 		                                     category,
-											 testMode,
-											 JavaObjectConverter.BannerAdSizeToJavaObject(adSize));
+											 JavaObjectConverter.BannerAdSizeToJavaObject(adSize),
+											 testMode);
 
 		this.javaObj_activity.Call("runOnUiThread", new AndroidJavaRunnable(() => {
 			this.addContentView(adAlign, adMargin, isSizeToFit);
@@ -77,8 +77,8 @@ public class AdSwitcherBannerView {
 		this.javaObj = new AndroidJavaObject("net.adswitcher.AdSwitcherBannerView",
 											 this.javaObj_activity,
 											 JavaObjectConverter.AdSwitcherConfigToJavaObject(adSwitcherConfig),
-											 testMode,
-											 JavaObjectConverter.BannerAdSizeToJavaObject(adSize));
+											 JavaObjectConverter.BannerAdSizeToJavaObject(adSize),
+											 testMode);
 
 		this.javaObj_activity.Call("runOnUiThread", new AndroidJavaRunnable(() => {
 			this.addContentView(adAlign, adMargin, isSizeToFit);

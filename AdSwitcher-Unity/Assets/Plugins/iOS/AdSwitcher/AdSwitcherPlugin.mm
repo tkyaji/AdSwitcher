@@ -183,8 +183,8 @@ extern "C" {
         [[AdSwitcherBannerView alloc] initWithConfigLoader:UnityGetGLViewController()
                                               configLoader:[AdSwitcherConfigLoader sharedInstance]
                                                   category:[NSString stringWithUTF8String:category]
-                                                  testMode:testMode
-                                                    adSize:bannerAdSize];
+                                                    adSize:bannerAdSize
+                                                  testMode:testMode];
         bannerView.frame = __toBannerAdFrame(bannerAdSize, bannerAdAlign, bannerAdMargin, 1);
         
         if (isSizeToFit) {
@@ -207,8 +207,8 @@ extern "C" {
 
         AdSwitcherBannerView *bannerView = [[AdSwitcherBannerView alloc] initWithConfig:UnityGetGLViewController()
                                                                              config:adSwitcherConfig
-                                                                           testMode:testMode
-                                                                             adSize:bannerAdSize];
+                                                                             adSize:bannerAdSize
+                                                                               testMode:testMode];
         bannerView.frame = __toBannerAdFrame(bannerAdSize, bannerAdAlign, bannerAdMargin, 1);
         
         if (isSizeToFit) {
