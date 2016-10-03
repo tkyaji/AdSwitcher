@@ -26,6 +26,11 @@ static int _show_called_count;
 }
 
 - (instancetype)initWithConfigLoader:(UIViewController *)viewController configLoader:(AdSwitcherConfigLoader *)configLoader
+                            category:(NSString *)category {
+    return [self initWithConfigLoader:viewController configLoader:configLoader category:category testMode:NO];
+}
+
+- (instancetype)initWithConfigLoader:(UIViewController *)viewController configLoader:(AdSwitcherConfigLoader *)configLoader
                             category:(NSString *)category testMode:(BOOL)testMode {
     
     if (self = [super init]) {
@@ -38,6 +43,10 @@ static int _show_called_count;
     
     return self;
 
+}
+
+- (instancetype)initWithConfig:(UIViewController *)viewController config:(AdSwitcherConfig *)adSwitcherConfig {
+    return [self initWithConfig:viewController config:adSwitcherConfig testMode:NO];
 }
 
 - (instancetype)initWithConfig:(UIViewController *)viewController config:(AdSwitcherConfig *)adSwitcherConfig

@@ -20,20 +20,20 @@
     _bannerView_320x50 = [[AdSwitcherBannerView alloc] initWithConfigLoader:self
                                                                configLoader:[AdSwitcherConfigLoader sharedInstance]
                                                                    category:@"banner_320x50"
-                                                                   testMode:YES
-                                                                     adSize:BannerAdSize_320x50];
+                                                                     adSize:BannerAdSize_320x50
+                                                                   testMode:YES];
     
     _bannerView_320x100 = [[AdSwitcherBannerView alloc] initWithConfigLoader:self
                                                                 configLoader:[AdSwitcherConfigLoader sharedInstance]
                                                                     category:@"banner_320x100"
-                                                                    testMode:YES
-                                                                      adSize:BannerAdSize_320x100];
+                                                                      adSize:BannerAdSize_320x100
+                                                                    testMode:YES];
 
     _bannerView_300x250 = [[AdSwitcherBannerView alloc] initWithConfigLoader:self
                                                                 configLoader:[AdSwitcherConfigLoader sharedInstance]
                                                                     category:@"banner_300x250"
-                                                                    testMode:YES
-                                                                      adSize:BannerAdSize_300x250];
+                                                                      adSize:BannerAdSize_300x250
+                                                                    testMode:YES];
 
     _bannerView_320x50.frame = CGRectMake((self.view.frame.size.width - _bannerView_320x50.frame.size.width) / 2, 0,
                                           _bannerView_320x50.frame.size.width, _bannerView_320x50.frame.size.height);

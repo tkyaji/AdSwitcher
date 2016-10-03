@@ -18,6 +18,7 @@ import android.view.WindowManager;
 import android.widget.FrameLayout;
 
 import net.adswitcher.AdSwitcherBannerView;
+import net.adswitcher.AdSwitcherInterstitial;
 import net.adswitcher.adapter.BannerAdSize;
 import net.adswitcher.config.AdSwitcherConfigLoader;
 
@@ -62,7 +63,6 @@ public class BannerFragment extends Fragment {
         layout.addView(bannerView_300x250, lp);
 
         this.bannerView_320x50.load();
-
 
 
         view.findViewById(R.id.button_ShowBanner320x50).setOnClickListener(new View.OnClickListener() {

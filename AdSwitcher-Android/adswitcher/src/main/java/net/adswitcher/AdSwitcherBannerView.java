@@ -42,6 +42,10 @@ public class AdSwitcherBannerView extends FrameLayout implements BannerAdListene
     private Map<String, AdConfig> adConfigMap;
     private boolean loading;
 
+    public AdSwitcherBannerView(final Activity activity, final AdSwitcherConfigLoader configLoader,
+                                final String category, final BannerAdSize adSize) {
+        this(activity, configLoader, category, adSize, false);
+    }
 
     public AdSwitcherBannerView(final Activity activity, final AdSwitcherConfigLoader configLoader,
                                 final String category, final BannerAdSize adSize, final boolean testMode) {
@@ -54,6 +58,11 @@ public class AdSwitcherBannerView extends FrameLayout implements BannerAdListene
                 AdSwitcherBannerView.this.initialize(activity, adSwitcherConfig, testMode, adSize);
             }
         });
+    }
+
+    public AdSwitcherBannerView(final Activity activity, final AdSwitcherConfig adSwitcherConfig,
+                                final BannerAdSize adSize) {
+        this(activity, adSwitcherConfig, adSize, false);
     }
 
     public AdSwitcherBannerView(final Activity activity, final AdSwitcherConfig adSwitcherConfig,
