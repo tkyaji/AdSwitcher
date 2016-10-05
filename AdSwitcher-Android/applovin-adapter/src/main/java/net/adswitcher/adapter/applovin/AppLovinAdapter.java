@@ -30,6 +30,7 @@ public class AppLovinAdapter implements InterstitialAdAdapter, AppLovinAdLoadLis
     private AppLovinSdk sdk;
     private AppLovinInterstitialAdDialog interstitialAd;
     private InterstitialAdListener interstitialAdListener;
+    private String placement;
     private boolean isSkipped;
 
     @Override
@@ -38,7 +39,8 @@ public class AppLovinAdapter implements InterstitialAdAdapter, AppLovinAdLoadLis
         this.interstitialAdListener = interstitialAdListener;
 
         String sdkKey = parameters.get("sdk_key");
-        Log.d(TAG, "interstitialAdInitialize : sdk_key=" + sdkKey);
+        this.placement = parameters.get("placement");
+        Log.d(TAG, "interstitialAdInitialize : sdk_key=" + sdkKey + ", placement=" + placement);
 
         this.initSdk(sdkKey);
     }
@@ -60,7 +62,12 @@ public class AppLovinAdapter implements InterstitialAdAdapter, AppLovinAdLoadLis
         this.isSkipped = false;
 
         Log.d(TAG, "interstitialAdShow");
-        this.interstitialAd.show();
+
+        if (this.placement != null) {
+            this.interstitialAd.show(this.placement);
+        } else {
+            this.interstitialAd.show();
+        }
     }
 
     private void initSdk(String sdkKey) {

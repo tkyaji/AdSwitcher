@@ -8,6 +8,35 @@
 
 /* Begin PBXBuildFile section */
 		B21907F71D788CCF00DF3A5C /* VideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B21907F61D788CCF00DF3A5C /* VideoViewController.m */; };
+		B229CF2C1DA473F900C0BD31 /* AdColonyAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = B229CEBD1DA473F800C0BD31 /* AdColonyAdapter.m */; };
+		B229CF2D1DA473F900C0BD31 /* AdColony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B229CEBF1DA473F800C0BD31 /* AdColony.framework */; };
+		B229CF2E1DA473F900C0BD31 /* AdGenerationAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = B229CEC21DA473F900C0BD31 /* AdGenerationAdapter.m */; };
+		B229CF2F1DA473F900C0BD31 /* ADG.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B229CEC41DA473F900C0BD31 /* ADG.framework */; };
+		B229CF301DA473F900C0BD31 /* AdMobAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = B229CEC71DA473F900C0BD31 /* AdMobAdapter.m */; };
+		B229CF311DA473F900C0BD31 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B229CEC91DA473F900C0BD31 /* GoogleMobileAds.framework */; };
+		B229CF321DA473F900C0BD31 /* AMoAdAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = B229CECC1DA473F900C0BD31 /* AMoAdAdapter.m */; };
+		B229CF331DA473F900C0BD31 /* amoad_close_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = B229CECF1DA473F900C0BD31 /* amoad_close_btn.png */; };
+		B229CF341DA473F900C0BD31 /* amoad_close_btn_h.png in Resources */ = {isa = PBXBuildFile; fileRef = B229CED01DA473F900C0BD31 /* amoad_close_btn_h.png */; };
+		B229CF351DA473F900C0BD31 /* amoad_link_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = B229CED11DA473F900C0BD31 /* amoad_link_btn.png */; };
+		B229CF361DA473F900C0BD31 /* amoad_link_btn_h.png in Resources */ = {isa = PBXBuildFile; fileRef = B229CED21DA473F900C0BD31 /* amoad_link_btn_h.png */; };
+		B229CF371DA473F900C0BD31 /* amoad_panel.png in Resources */ = {isa = PBXBuildFile; fileRef = B229CED31DA473F900C0BD31 /* amoad_panel.png */; };
+		B229CF381DA473F900C0BD31 /* amoad_panel_l.png in Resources */ = {isa = PBXBuildFile; fileRef = B229CED41DA473F900C0BD31 /* amoad_panel_l.png */; };
+		B229CF391DA473F900C0BD31 /* libAMoAd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B229CEDF1DA473F900C0BD31 /* libAMoAd.a */; };
+		B229CF3A1DA473F900C0BD31 /* AppLovinAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = B229CEE21DA473F900C0BD31 /* AppLovinAdapter.m */; };
+		B229CF3B1DA473F900C0BD31 /* libAppLovinSdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B229CEFF1DA473F900C0BD31 /* libAppLovinSdk.a */; };
+		B229CF3C1DA473F900C0BD31 /* FacebookAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = B229CF021DA473F900C0BD31 /* FacebookAdapter.m */; };
+		B229CF3D1DA473F900C0BD31 /* FBAudienceNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B229CF041DA473F900C0BD31 /* FBAudienceNetwork.framework */; };
+		B229CF3E1DA473F900C0BD31 /* FiveAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = B229CF071DA473F900C0BD31 /* FiveAdapter.m */; };
+		B229CF3F1DA473F900C0BD31 /* FiveAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B229CF091DA473F900C0BD31 /* FiveAd.framework */; };
+		B229CF401DA473F900C0BD31 /* IMobileAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = B229CF0C1DA473F900C0BD31 /* IMobileAdapter.m */; };
+		B229CF411DA473F900C0BD31 /* ImobileSdkAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B229CF0E1DA473F900C0BD31 /* ImobileSdkAds.framework */; };
+		B229CF421DA473F900C0BD31 /* Maio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B229CF111DA473F900C0BD31 /* Maio.framework */; };
+		B229CF431DA473F900C0BD31 /* MaioAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = B229CF131DA473F900C0BD31 /* MaioAdapter.m */; };
+		B229CF441DA473F900C0BD31 /* libNendAd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B229CF171DA473F900C0BD31 /* libNendAd.a */; };
+		B229CF451DA473F900C0BD31 /* NADView_readme.txt in Resources */ = {isa = PBXBuildFile; fileRef = B229CF231DA473F900C0BD31 /* NADView_readme.txt */; };
+		B229CF461DA473F900C0BD31 /* NendAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = B229CF261DA473F900C0BD31 /* NendAdapter.m */; };
+		B229CF471DA473F900C0BD31 /* UnityAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B229CF291DA473F900C0BD31 /* UnityAds.framework */; };
+		B229CF481DA473F900C0BD31 /* UnityAdsAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = B229CF2B1DA473F900C0BD31 /* UnityAdsAdapter.m */; };
 		B22D7EA51D72785B00F19E56 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B22D7EA41D72785B00F19E56 /* main.m */; };
 		B22D7EA81D72785B00F19E56 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B22D7EA71D72785B00F19E56 /* AppDelegate.m */; };
 		B22D7EB11D72785B00F19E56 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B22D7EAF1D72785B00F19E56 /* Main.storyboard */; };
@@ -26,6 +55,95 @@
 /* Begin PBXFileReference section */
 		B21907F51D788CCF00DF3A5C /* VideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoViewController.h; sourceTree = "<group>"; };
 		B21907F61D788CCF00DF3A5C /* VideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoViewController.m; sourceTree = "<group>"; };
+		B229CEBC1DA473F800C0BD31 /* AdColonyAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdColonyAdapter.h; sourceTree = "<group>"; };
+		B229CEBD1DA473F800C0BD31 /* AdColonyAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdColonyAdapter.m; sourceTree = "<group>"; };
+		B229CEBF1DA473F800C0BD31 /* AdColony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AdColony.framework; sourceTree = "<group>"; };
+		B229CEC11DA473F900C0BD31 /* AdGenerationAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdGenerationAdapter.h; sourceTree = "<group>"; };
+		B229CEC21DA473F900C0BD31 /* AdGenerationAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdGenerationAdapter.m; sourceTree = "<group>"; };
+		B229CEC41DA473F900C0BD31 /* ADG.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ADG.framework; sourceTree = "<group>"; };
+		B229CEC61DA473F900C0BD31 /* AdMobAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdMobAdapter.h; sourceTree = "<group>"; };
+		B229CEC71DA473F900C0BD31 /* AdMobAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdMobAdapter.m; sourceTree = "<group>"; };
+		B229CEC91DA473F900C0BD31 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
+		B229CECB1DA473F900C0BD31 /* AMoAdAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMoAdAdapter.h; sourceTree = "<group>"; };
+		B229CECC1DA473F900C0BD31 /* AMoAdAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMoAdAdapter.m; sourceTree = "<group>"; };
+		B229CECE1DA473F900C0BD31 /* AMoAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMoAd.h; sourceTree = "<group>"; };
+		B229CECF1DA473F900C0BD31 /* amoad_close_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = amoad_close_btn.png; sourceTree = "<group>"; };
+		B229CED01DA473F900C0BD31 /* amoad_close_btn_h.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = amoad_close_btn_h.png; sourceTree = "<group>"; };
+		B229CED11DA473F900C0BD31 /* amoad_link_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = amoad_link_btn.png; sourceTree = "<group>"; };
+		B229CED21DA473F900C0BD31 /* amoad_link_btn_h.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = amoad_link_btn_h.png; sourceTree = "<group>"; };
+		B229CED31DA473F900C0BD31 /* amoad_panel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = amoad_panel.png; sourceTree = "<group>"; };
+		B229CED41DA473F900C0BD31 /* amoad_panel_l.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = amoad_panel_l.png; sourceTree = "<group>"; };
+		B229CED51DA473F900C0BD31 /* AMoAdAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMoAdAnalytics.h; sourceTree = "<group>"; };
+		B229CED61DA473F900C0BD31 /* AMoAdInfeed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMoAdInfeed.h; sourceTree = "<group>"; };
+		B229CED71DA473F900C0BD31 /* AMoAdInterstitial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMoAdInterstitial.h; sourceTree = "<group>"; };
+		B229CED81DA473F900C0BD31 /* AMoAdItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMoAdItem.h; sourceTree = "<group>"; };
+		B229CED91DA473F900C0BD31 /* AMoAdList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMoAdList.h; sourceTree = "<group>"; };
+		B229CEDA1DA473F900C0BD31 /* AMoAdLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMoAdLogger.h; sourceTree = "<group>"; };
+		B229CEDB1DA473F900C0BD31 /* AMoAdNativePreRoll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMoAdNativePreRoll.h; sourceTree = "<group>"; };
+		B229CEDC1DA473F900C0BD31 /* AMoAdNativeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMoAdNativeView.h; sourceTree = "<group>"; };
+		B229CEDD1DA473F900C0BD31 /* AMoAdView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMoAdView.h; sourceTree = "<group>"; };
+		B229CEDE1DA473F900C0BD31 /* AMoAdWeb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMoAdWeb.h; sourceTree = "<group>"; };
+		B229CEDF1DA473F900C0BD31 /* libAMoAd.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAMoAd.a; sourceTree = "<group>"; };
+		B229CEE11DA473F900C0BD31 /* AppLovinAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppLovinAdapter.h; sourceTree = "<group>"; };
+		B229CEE21DA473F900C0BD31 /* AppLovinAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppLovinAdapter.m; sourceTree = "<group>"; };
+		B229CEE51DA473F900C0BD31 /* ALAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALAd.h; sourceTree = "<group>"; };
+		B229CEE61DA473F900C0BD31 /* ALAdDisplayDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALAdDisplayDelegate.h; sourceTree = "<group>"; };
+		B229CEE71DA473F900C0BD31 /* ALAdLoadDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALAdLoadDelegate.h; sourceTree = "<group>"; };
+		B229CEE81DA473F900C0BD31 /* ALAdRewardDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALAdRewardDelegate.h; sourceTree = "<group>"; };
+		B229CEE91DA473F900C0BD31 /* ALAdService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALAdService.h; sourceTree = "<group>"; };
+		B229CEEA1DA473F900C0BD31 /* ALAdSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALAdSize.h; sourceTree = "<group>"; };
+		B229CEEB1DA473F900C0BD31 /* ALAdType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALAdType.h; sourceTree = "<group>"; };
+		B229CEEC1DA473F900C0BD31 /* ALAdUpdateDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALAdUpdateDelegate.h; sourceTree = "<group>"; };
+		B229CEED1DA473F900C0BD31 /* ALAdVideoPlaybackDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALAdVideoPlaybackDelegate.h; sourceTree = "<group>"; };
+		B229CEEE1DA473F900C0BD31 /* ALAdView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALAdView.h; sourceTree = "<group>"; };
+		B229CEEF1DA473F900C0BD31 /* ALAnnotations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALAnnotations.h; sourceTree = "<group>"; };
+		B229CEF01DA473F900C0BD31 /* ALErrorCodes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALErrorCodes.h; sourceTree = "<group>"; };
+		B229CEF11DA473F900C0BD31 /* ALEventService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALEventService.h; sourceTree = "<group>"; };
+		B229CEF21DA473F900C0BD31 /* ALEventTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALEventTypes.h; sourceTree = "<group>"; };
+		B229CEF31DA473F900C0BD31 /* ALIncentivizedInterstitialAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALIncentivizedInterstitialAd.h; sourceTree = "<group>"; };
+		B229CEF41DA473F900C0BD31 /* ALInterstitialAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALInterstitialAd.h; sourceTree = "<group>"; };
+		B229CEF51DA473F900C0BD31 /* ALNativeAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALNativeAd.h; sourceTree = "<group>"; };
+		B229CEF61DA473F900C0BD31 /* ALNativeAdLoadDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALNativeAdLoadDelegate.h; sourceTree = "<group>"; };
+		B229CEF71DA473F900C0BD31 /* ALNativeAdPrecacheDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALNativeAdPrecacheDelegate.h; sourceTree = "<group>"; };
+		B229CEF81DA473F900C0BD31 /* ALNativeAdService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALNativeAdService.h; sourceTree = "<group>"; };
+		B229CEF91DA473F900C0BD31 /* ALPostbackDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALPostbackDelegate.h; sourceTree = "<group>"; };
+		B229CEFA1DA473F900C0BD31 /* ALPostbackService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALPostbackService.h; sourceTree = "<group>"; };
+		B229CEFB1DA473F900C0BD31 /* ALSdk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALSdk.h; sourceTree = "<group>"; };
+		B229CEFC1DA473F900C0BD31 /* ALSdkSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALSdkSettings.h; sourceTree = "<group>"; };
+		B229CEFD1DA473F900C0BD31 /* ALSwiftHeaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALSwiftHeaders.h; sourceTree = "<group>"; };
+		B229CEFE1DA473F900C0BD31 /* ALTargetingData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALTargetingData.h; sourceTree = "<group>"; };
+		B229CEFF1DA473F900C0BD31 /* libAppLovinSdk.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAppLovinSdk.a; sourceTree = "<group>"; };
+		B229CF011DA473F900C0BD31 /* FacebookAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookAdapter.h; sourceTree = "<group>"; };
+		B229CF021DA473F900C0BD31 /* FacebookAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookAdapter.m; sourceTree = "<group>"; };
+		B229CF041DA473F900C0BD31 /* FBAudienceNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBAudienceNetwork.framework; sourceTree = "<group>"; };
+		B229CF061DA473F900C0BD31 /* FiveAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FiveAdapter.h; sourceTree = "<group>"; };
+		B229CF071DA473F900C0BD31 /* FiveAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FiveAdapter.m; sourceTree = "<group>"; };
+		B229CF091DA473F900C0BD31 /* FiveAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FiveAd.framework; sourceTree = "<group>"; };
+		B229CF0B1DA473F900C0BD31 /* IMobileAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMobileAdapter.h; sourceTree = "<group>"; };
+		B229CF0C1DA473F900C0BD31 /* IMobileAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMobileAdapter.m; sourceTree = "<group>"; };
+		B229CF0E1DA473F900C0BD31 /* ImobileSdkAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ImobileSdkAds.framework; sourceTree = "<group>"; };
+		B229CF111DA473F900C0BD31 /* Maio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Maio.framework; sourceTree = "<group>"; };
+		B229CF121DA473F900C0BD31 /* MaioAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaioAdapter.h; sourceTree = "<group>"; };
+		B229CF131DA473F900C0BD31 /* MaioAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MaioAdapter.m; sourceTree = "<group>"; };
+		B229CF171DA473F900C0BD31 /* libNendAd.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libNendAd.a; sourceTree = "<group>"; };
+		B229CF181DA473F900C0BD31 /* NADInterstitial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NADInterstitial.h; sourceTree = "<group>"; };
+		B229CF191DA473F900C0BD31 /* NADNative.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NADNative.h; sourceTree = "<group>"; };
+		B229CF1A1DA473F900C0BD31 /* NADNativeClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NADNativeClient.h; sourceTree = "<group>"; };
+		B229CF1B1DA473F900C0BD31 /* NADNativeError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NADNativeError.h; sourceTree = "<group>"; };
+		B229CF1C1DA473F900C0BD31 /* NADNativeImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NADNativeImageView.h; sourceTree = "<group>"; };
+		B229CF1D1DA473F900C0BD31 /* NADNativeLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NADNativeLabel.h; sourceTree = "<group>"; };
+		B229CF1E1DA473F900C0BD31 /* NADNativeLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NADNativeLogger.h; sourceTree = "<group>"; };
+		B229CF1F1DA473F900C0BD31 /* NADNativeTableViewHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NADNativeTableViewHelper.h; sourceTree = "<group>"; };
+		B229CF201DA473F900C0BD31 /* NADNativeTableViewPlacement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NADNativeTableViewPlacement.h; sourceTree = "<group>"; };
+		B229CF211DA473F900C0BD31 /* NADNativeViewRendering.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NADNativeViewRendering.h; sourceTree = "<group>"; };
+		B229CF221DA473F900C0BD31 /* NADView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NADView.h; sourceTree = "<group>"; };
+		B229CF231DA473F900C0BD31 /* NADView_readme.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = NADView_readme.txt; sourceTree = "<group>"; };
+		B229CF241DA473F900C0BD31 /* NendAd-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NendAd-Bridging-Header.h"; sourceTree = "<group>"; };
+		B229CF251DA473F900C0BD31 /* NendAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NendAdapter.h; sourceTree = "<group>"; };
+		B229CF261DA473F900C0BD31 /* NendAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NendAdapter.m; sourceTree = "<group>"; };
+		B229CF291DA473F900C0BD31 /* UnityAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UnityAds.framework; sourceTree = "<group>"; };
+		B229CF2A1DA473F900C0BD31 /* UnityAdsAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnityAdsAdapter.h; sourceTree = "<group>"; };
+		B229CF2B1DA473F900C0BD31 /* UnityAdsAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnityAdsAdapter.m; sourceTree = "<group>"; };
 		B22D7EA01D72785B00F19E56 /* AdSwitcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AdSwitcher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B22D7EA41D72785B00F19E56 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B22D7EA61D72785B00F19E56 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -60,12 +178,293 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B229CF311DA473F900C0BD31 /* GoogleMobileAds.framework in Frameworks */,
+				B229CF2D1DA473F900C0BD31 /* AdColony.framework in Frameworks */,
+				B229CF391DA473F900C0BD31 /* libAMoAd.a in Frameworks */,
+				B229CF3D1DA473F900C0BD31 /* FBAudienceNetwork.framework in Frameworks */,
+				B229CF3F1DA473F900C0BD31 /* FiveAd.framework in Frameworks */,
+				B229CF471DA473F900C0BD31 /* UnityAds.framework in Frameworks */,
+				B229CF421DA473F900C0BD31 /* Maio.framework in Frameworks */,
+				B229CF2F1DA473F900C0BD31 /* ADG.framework in Frameworks */,
+				B229CF441DA473F900C0BD31 /* libNendAd.a in Frameworks */,
+				B229CF411DA473F900C0BD31 /* ImobileSdkAds.framework in Frameworks */,
+				B229CF3B1DA473F900C0BD31 /* libAppLovinSdk.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B229CEBB1DA473F800C0BD31 /* AdColonyAdapter */ = {
+			isa = PBXGroup;
+			children = (
+				B229CEBC1DA473F800C0BD31 /* AdColonyAdapter.h */,
+				B229CEBD1DA473F800C0BD31 /* AdColonyAdapter.m */,
+				B229CEBE1DA473F800C0BD31 /* Libraries */,
+			);
+			path = AdColonyAdapter;
+			sourceTree = "<group>";
+		};
+		B229CEBE1DA473F800C0BD31 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				B229CEBF1DA473F800C0BD31 /* AdColony.framework */,
+			);
+			path = Libraries;
+			sourceTree = "<group>";
+		};
+		B229CEC01DA473F900C0BD31 /* AdGenerationAdapter */ = {
+			isa = PBXGroup;
+			children = (
+				B229CEC11DA473F900C0BD31 /* AdGenerationAdapter.h */,
+				B229CEC21DA473F900C0BD31 /* AdGenerationAdapter.m */,
+				B229CEC31DA473F900C0BD31 /* Libraries */,
+			);
+			path = AdGenerationAdapter;
+			sourceTree = "<group>";
+		};
+		B229CEC31DA473F900C0BD31 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				B229CEC41DA473F900C0BD31 /* ADG.framework */,
+			);
+			path = Libraries;
+			sourceTree = "<group>";
+		};
+		B229CEC51DA473F900C0BD31 /* AdMobAdapter */ = {
+			isa = PBXGroup;
+			children = (
+				B229CEC61DA473F900C0BD31 /* AdMobAdapter.h */,
+				B229CEC71DA473F900C0BD31 /* AdMobAdapter.m */,
+				B229CEC81DA473F900C0BD31 /* Libraries */,
+			);
+			path = AdMobAdapter;
+			sourceTree = "<group>";
+		};
+		B229CEC81DA473F900C0BD31 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				B229CEC91DA473F900C0BD31 /* GoogleMobileAds.framework */,
+			);
+			path = Libraries;
+			sourceTree = "<group>";
+		};
+		B229CECA1DA473F900C0BD31 /* AMoAdAdapter */ = {
+			isa = PBXGroup;
+			children = (
+				B229CECB1DA473F900C0BD31 /* AMoAdAdapter.h */,
+				B229CECC1DA473F900C0BD31 /* AMoAdAdapter.m */,
+				B229CECD1DA473F900C0BD31 /* Libraries */,
+			);
+			path = AMoAdAdapter;
+			sourceTree = "<group>";
+		};
+		B229CECD1DA473F900C0BD31 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				B229CECE1DA473F900C0BD31 /* AMoAd.h */,
+				B229CECF1DA473F900C0BD31 /* amoad_close_btn.png */,
+				B229CED01DA473F900C0BD31 /* amoad_close_btn_h.png */,
+				B229CED11DA473F900C0BD31 /* amoad_link_btn.png */,
+				B229CED21DA473F900C0BD31 /* amoad_link_btn_h.png */,
+				B229CED31DA473F900C0BD31 /* amoad_panel.png */,
+				B229CED41DA473F900C0BD31 /* amoad_panel_l.png */,
+				B229CED51DA473F900C0BD31 /* AMoAdAnalytics.h */,
+				B229CED61DA473F900C0BD31 /* AMoAdInfeed.h */,
+				B229CED71DA473F900C0BD31 /* AMoAdInterstitial.h */,
+				B229CED81DA473F900C0BD31 /* AMoAdItem.h */,
+				B229CED91DA473F900C0BD31 /* AMoAdList.h */,
+				B229CEDA1DA473F900C0BD31 /* AMoAdLogger.h */,
+				B229CEDB1DA473F900C0BD31 /* AMoAdNativePreRoll.h */,
+				B229CEDC1DA473F900C0BD31 /* AMoAdNativeView.h */,
+				B229CEDD1DA473F900C0BD31 /* AMoAdView.h */,
+				B229CEDE1DA473F900C0BD31 /* AMoAdWeb.h */,
+				B229CEDF1DA473F900C0BD31 /* libAMoAd.a */,
+			);
+			path = Libraries;
+			sourceTree = "<group>";
+		};
+		B229CEE01DA473F900C0BD31 /* AppLovinAdapter */ = {
+			isa = PBXGroup;
+			children = (
+				B229CEE11DA473F900C0BD31 /* AppLovinAdapter.h */,
+				B229CEE21DA473F900C0BD31 /* AppLovinAdapter.m */,
+				B229CEE31DA473F900C0BD31 /* Libraries */,
+			);
+			path = AppLovinAdapter;
+			sourceTree = "<group>";
+		};
+		B229CEE31DA473F900C0BD31 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				B229CEE41DA473F900C0BD31 /* headers */,
+				B229CEFF1DA473F900C0BD31 /* libAppLovinSdk.a */,
+			);
+			path = Libraries;
+			sourceTree = "<group>";
+		};
+		B229CEE41DA473F900C0BD31 /* headers */ = {
+			isa = PBXGroup;
+			children = (
+				B229CEE51DA473F900C0BD31 /* ALAd.h */,
+				B229CEE61DA473F900C0BD31 /* ALAdDisplayDelegate.h */,
+				B229CEE71DA473F900C0BD31 /* ALAdLoadDelegate.h */,
+				B229CEE81DA473F900C0BD31 /* ALAdRewardDelegate.h */,
+				B229CEE91DA473F900C0BD31 /* ALAdService.h */,
+				B229CEEA1DA473F900C0BD31 /* ALAdSize.h */,
+				B229CEEB1DA473F900C0BD31 /* ALAdType.h */,
+				B229CEEC1DA473F900C0BD31 /* ALAdUpdateDelegate.h */,
+				B229CEED1DA473F900C0BD31 /* ALAdVideoPlaybackDelegate.h */,
+				B229CEEE1DA473F900C0BD31 /* ALAdView.h */,
+				B229CEEF1DA473F900C0BD31 /* ALAnnotations.h */,
+				B229CEF01DA473F900C0BD31 /* ALErrorCodes.h */,
+				B229CEF11DA473F900C0BD31 /* ALEventService.h */,
+				B229CEF21DA473F900C0BD31 /* ALEventTypes.h */,
+				B229CEF31DA473F900C0BD31 /* ALIncentivizedInterstitialAd.h */,
+				B229CEF41DA473F900C0BD31 /* ALInterstitialAd.h */,
+				B229CEF51DA473F900C0BD31 /* ALNativeAd.h */,
+				B229CEF61DA473F900C0BD31 /* ALNativeAdLoadDelegate.h */,
+				B229CEF71DA473F900C0BD31 /* ALNativeAdPrecacheDelegate.h */,
+				B229CEF81DA473F900C0BD31 /* ALNativeAdService.h */,
+				B229CEF91DA473F900C0BD31 /* ALPostbackDelegate.h */,
+				B229CEFA1DA473F900C0BD31 /* ALPostbackService.h */,
+				B229CEFB1DA473F900C0BD31 /* ALSdk.h */,
+				B229CEFC1DA473F900C0BD31 /* ALSdkSettings.h */,
+				B229CEFD1DA473F900C0BD31 /* ALSwiftHeaders.h */,
+				B229CEFE1DA473F900C0BD31 /* ALTargetingData.h */,
+			);
+			path = headers;
+			sourceTree = "<group>";
+		};
+		B229CF001DA473F900C0BD31 /* FacebookAdapter */ = {
+			isa = PBXGroup;
+			children = (
+				B229CF011DA473F900C0BD31 /* FacebookAdapter.h */,
+				B229CF021DA473F900C0BD31 /* FacebookAdapter.m */,
+				B229CF031DA473F900C0BD31 /* Libraries */,
+			);
+			path = FacebookAdapter;
+			sourceTree = "<group>";
+		};
+		B229CF031DA473F900C0BD31 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				B229CF041DA473F900C0BD31 /* FBAudienceNetwork.framework */,
+			);
+			path = Libraries;
+			sourceTree = "<group>";
+		};
+		B229CF051DA473F900C0BD31 /* FiveAdapter */ = {
+			isa = PBXGroup;
+			children = (
+				B229CF061DA473F900C0BD31 /* FiveAdapter.h */,
+				B229CF071DA473F900C0BD31 /* FiveAdapter.m */,
+				B229CF081DA473F900C0BD31 /* Libraries */,
+			);
+			path = FiveAdapter;
+			sourceTree = "<group>";
+		};
+		B229CF081DA473F900C0BD31 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				B229CF091DA473F900C0BD31 /* FiveAd.framework */,
+			);
+			path = Libraries;
+			sourceTree = "<group>";
+		};
+		B229CF0A1DA473F900C0BD31 /* IMobileAdapter */ = {
+			isa = PBXGroup;
+			children = (
+				B229CF0B1DA473F900C0BD31 /* IMobileAdapter.h */,
+				B229CF0C1DA473F900C0BD31 /* IMobileAdapter.m */,
+				B229CF0D1DA473F900C0BD31 /* Libraries */,
+			);
+			path = IMobileAdapter;
+			sourceTree = "<group>";
+		};
+		B229CF0D1DA473F900C0BD31 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				B229CF0E1DA473F900C0BD31 /* ImobileSdkAds.framework */,
+			);
+			path = Libraries;
+			sourceTree = "<group>";
+		};
+		B229CF0F1DA473F900C0BD31 /* MaioAdapter */ = {
+			isa = PBXGroup;
+			children = (
+				B229CF101DA473F900C0BD31 /* Libraries */,
+				B229CF121DA473F900C0BD31 /* MaioAdapter.h */,
+				B229CF131DA473F900C0BD31 /* MaioAdapter.m */,
+			);
+			path = MaioAdapter;
+			sourceTree = "<group>";
+		};
+		B229CF101DA473F900C0BD31 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				B229CF111DA473F900C0BD31 /* Maio.framework */,
+			);
+			path = Libraries;
+			sourceTree = "<group>";
+		};
+		B229CF141DA473F900C0BD31 /* NendAdapter */ = {
+			isa = PBXGroup;
+			children = (
+				B229CF151DA473F900C0BD31 /* Libraries */,
+				B229CF251DA473F900C0BD31 /* NendAdapter.h */,
+				B229CF261DA473F900C0BD31 /* NendAdapter.m */,
+			);
+			path = NendAdapter;
+			sourceTree = "<group>";
+		};
+		B229CF151DA473F900C0BD31 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				B229CF161DA473F900C0BD31 /* NendAd */,
+				B229CF241DA473F900C0BD31 /* NendAd-Bridging-Header.h */,
+			);
+			path = Libraries;
+			sourceTree = "<group>";
+		};
+		B229CF161DA473F900C0BD31 /* NendAd */ = {
+			isa = PBXGroup;
+			children = (
+				B229CF171DA473F900C0BD31 /* libNendAd.a */,
+				B229CF181DA473F900C0BD31 /* NADInterstitial.h */,
+				B229CF191DA473F900C0BD31 /* NADNative.h */,
+				B229CF1A1DA473F900C0BD31 /* NADNativeClient.h */,
+				B229CF1B1DA473F900C0BD31 /* NADNativeError.h */,
+				B229CF1C1DA473F900C0BD31 /* NADNativeImageView.h */,
+				B229CF1D1DA473F900C0BD31 /* NADNativeLabel.h */,
+				B229CF1E1DA473F900C0BD31 /* NADNativeLogger.h */,
+				B229CF1F1DA473F900C0BD31 /* NADNativeTableViewHelper.h */,
+				B229CF201DA473F900C0BD31 /* NADNativeTableViewPlacement.h */,
+				B229CF211DA473F900C0BD31 /* NADNativeViewRendering.h */,
+				B229CF221DA473F900C0BD31 /* NADView.h */,
+				B229CF231DA473F900C0BD31 /* NADView_readme.txt */,
+			);
+			path = NendAd;
+			sourceTree = "<group>";
+		};
+		B229CF271DA473F900C0BD31 /* UnityAdsAdapter */ = {
+			isa = PBXGroup;
+			children = (
+				B229CF281DA473F900C0BD31 /* Libraries */,
+				B229CF2A1DA473F900C0BD31 /* UnityAdsAdapter.h */,
+				B229CF2B1DA473F900C0BD31 /* UnityAdsAdapter.m */,
+			);
+			path = UnityAdsAdapter;
+			sourceTree = "<group>";
+		};
+		B229CF281DA473F900C0BD31 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				B229CF291DA473F900C0BD31 /* UnityAds.framework */,
+			);
+			path = Libraries;
+			sourceTree = "<group>";
+		};
 		B22D7E971D72785B00F19E56 = {
 			isa = PBXGroup;
 			children = (
@@ -153,6 +552,17 @@
 		B22D7EE81D72BDD000F19E56 /* Adapters */ = {
 			isa = PBXGroup;
 			children = (
+				B229CEBB1DA473F800C0BD31 /* AdColonyAdapter */,
+				B229CEC01DA473F900C0BD31 /* AdGenerationAdapter */,
+				B229CEC51DA473F900C0BD31 /* AdMobAdapter */,
+				B229CECA1DA473F900C0BD31 /* AMoAdAdapter */,
+				B229CEE01DA473F900C0BD31 /* AppLovinAdapter */,
+				B229CF001DA473F900C0BD31 /* FacebookAdapter */,
+				B229CF051DA473F900C0BD31 /* FiveAdapter */,
+				B229CF0A1DA473F900C0BD31 /* IMobileAdapter */,
+				B229CF0F1DA473F900C0BD31 /* MaioAdapter */,
+				B229CF141DA473F900C0BD31 /* NendAdapter */,
+				B229CF271DA473F900C0BD31 /* UnityAdsAdapter */,
 			);
 			path = Adapters;
 			sourceTree = "<group>";
@@ -214,10 +624,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B229CF361DA473F900C0BD31 /* amoad_link_btn_h.png in Resources */,
 				B22D7EB61D72785B00F19E56 /* LaunchScreen.storyboard in Resources */,
 				B22D7EC41D7278D500F19E56 /* adswitcher.json in Resources */,
+				B229CF331DA473F900C0BD31 /* amoad_close_btn.png in Resources */,
+				B229CF341DA473F900C0BD31 /* amoad_close_btn_h.png in Resources */,
 				B22D7EB31D72785B00F19E56 /* Assets.xcassets in Resources */,
+				B229CF381DA473F900C0BD31 /* amoad_panel_l.png in Resources */,
 				B22D7EB11D72785B00F19E56 /* Main.storyboard in Resources */,
+				B229CF371DA473F900C0BD31 /* amoad_panel.png in Resources */,
+				B229CF451DA473F900C0BD31 /* NADView_readme.txt in Resources */,
+				B229CF351DA473F900C0BD31 /* amoad_link_btn.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,14 +647,25 @@
 			files = (
 				B22D7EE31D72797D00F19E56 /* AdSwitcherInterstitial.m in Sources */,
 				B22D7EE01D72797D00F19E56 /* AdSwitcherConfig.m in Sources */,
+				B229CF3E1DA473F900C0BD31 /* FiveAdapter.m in Sources */,
+				B229CF2E1DA473F900C0BD31 /* AdGenerationAdapter.m in Sources */,
+				B229CF481DA473F900C0BD31 /* UnityAdsAdapter.m in Sources */,
 				B22D7F6D1D731C0B00F19E56 /* AdSelector.m in Sources */,
+				B229CF431DA473F900C0BD31 /* MaioAdapter.m in Sources */,
 				B22D7F661D73059500F19E56 /* AdSwitcherBannerView.m in Sources */,
 				B22D7EA81D72785B00F19E56 /* AppDelegate.m in Sources */,
 				B22D7EE11D72797D00F19E56 /* AdSwitcherConfigLoader.m in Sources */,
+				B229CF3C1DA473F900C0BD31 /* FacebookAdapter.m in Sources */,
 				B22D7EA51D72785B00F19E56 /* main.m in Sources */,
 				B22D7EC61D7278D500F19E56 /* InterstitialViewController.m in Sources */,
+				B229CF2C1DA473F900C0BD31 /* AdColonyAdapter.m in Sources */,
+				B229CF321DA473F900C0BD31 /* AMoAdAdapter.m in Sources */,
+				B229CF461DA473F900C0BD31 /* NendAdapter.m in Sources */,
+				B229CF401DA473F900C0BD31 /* IMobileAdapter.m in Sources */,
+				B229CF301DA473F900C0BD31 /* AdMobAdapter.m in Sources */,
 				B21907F71D788CCF00DF3A5C /* VideoViewController.m in Sources */,
 				B22D7EC51D7278D500F19E56 /* BannerViewController.m in Sources */,
+				B229CF3A1DA473F900C0BD31 /* AppLovinAdapter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
