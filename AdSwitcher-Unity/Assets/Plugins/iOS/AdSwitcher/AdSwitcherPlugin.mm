@@ -220,6 +220,10 @@ extern "C" {
         return bannerView;
     }
     
+    void _AdSwitcherBannerView_release(AdSwitcherBannerView *bannerView) {
+        CFRelease((CFTypeRef)bannerView);
+    }
+    
     typedef void (*cs_bannerAdReceivedHandler)(void *, const char *adConfigJson, bool result);
     typedef void (*cs_bannerAdShownHandler)(void *, const char *adConfigJson);
     typedef void (*cs_bannerAdClickedHandler)(void *, const char *adConfigJson);

@@ -130,6 +130,7 @@ public class AdSwitcherBannerView {
 	private void createCanvas() {
 
 		this.canvasGO = new GameObject("~AdSwitcherBannerView_Canvas");
+		UnityEngine.Object.DontDestroyOnLoad(this.canvasGO);
 		var canvas = canvasGO.AddComponent<Canvas>();
 		canvas.renderMode = RenderMode.ScreenSpaceOverlay;
 		canvas.sortingOrder = 100;
