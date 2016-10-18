@@ -27,7 +27,10 @@ public class AdSelector {
 
     public AdSelector(AdSwitcherConfig adSwitcherConfig) {
         this.adSwitcherConfig = adSwitcherConfig;
-        this.adConfigList = new ArrayList<>(adSwitcherConfig.adConfigList);
+        this.adConfigList = new ArrayList<>();
+        if (adSwitcherConfig != null) {
+            this.adConfigList.addAll(adSwitcherConfig.adConfigList);
+        }
     }
 
     public AdConfig selectAd() {

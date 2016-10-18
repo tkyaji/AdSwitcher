@@ -54,8 +54,13 @@ public class AdSwitcherBannerView extends FrameLayout implements BannerAdListene
         configLoader.addConfigLoadedHandler(new AdSwitcherConfigLoader.ConfigLoadHandler() {
             @Override
             public void onLoaded() {
-                AdSwitcherConfig adSwitcherConfig = configLoader.getAdSwitcherConfig(category);
-                AdSwitcherBannerView.this.initialize(activity, adSwitcherConfig, testMode, adSize);
+                final AdSwitcherConfig adSwitcherConfig = configLoader.getAdSwitcherConfig(category);
+                activity.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        AdSwitcherBannerView.this.initialize(activity, adSwitcherConfig, testMode, adSize);
+                    }
+                });
             }
         });
     }
@@ -200,8 +205,11 @@ public class AdSwitcherBannerView extends FrameLayout implements BannerAdListene
 
         this.adapterCacheMap = new HashMap<>();
         this.adConfigMap = new HashMap<>();
-        for (AdConfig config : this.adSwitcherConfig.adConfigList) {
-            this.adConfigMap.put(config.className, config);
+
+        if (this.adSwitcherConfig != null) {
+            for (AdConfig config : this.adSwitcherConfig.adConfigList) {
+                this.adConfigMap.put(config.className, config);
+            }
         }
     }
 

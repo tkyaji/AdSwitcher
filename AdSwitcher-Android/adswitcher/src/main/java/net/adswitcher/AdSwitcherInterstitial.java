@@ -56,8 +56,13 @@ public class AdSwitcherInterstitial implements InterstitialAdListener {
         configLoader.addConfigLoadedHandler(new AdSwitcherConfigLoader.ConfigLoadHandler() {
             @Override
             public void onLoaded() {
-                AdSwitcherConfig adSwitcherConfig = configLoader.getAdSwitcherConfig(category);
-                AdSwitcherInterstitial.this.initialize(activity, adSwitcherConfig, testMode);
+                final AdSwitcherConfig adSwitcherConfig = configLoader.getAdSwitcherConfig(category);
+                activity.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        AdSwitcherInterstitial.this.initialize(activity, adSwitcherConfig, testMode);
+                    }
+                });
             }
         });
 
@@ -218,8 +223,11 @@ public class AdSwitcherInterstitial implements InterstitialAdListener {
 
         this.adapterCacheMap = new HashMap<>();
         this.adConfigMap = new HashMap<>();
-        for (AdConfig config : this.adSwitcherConfig.adConfigList) {
-            this.adConfigMap.put(config.className, config);
+
+        if (this.adSwitcherConfig != null) {
+            for (AdConfig config : this.adSwitcherConfig.adConfigList) {
+                this.adConfigMap.put(config.className, config);
+            }
         }
 
         this.load();
