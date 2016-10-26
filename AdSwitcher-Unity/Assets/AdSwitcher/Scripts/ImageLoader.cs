@@ -14,7 +14,6 @@ public class ImageLoader : MonoBehaviour {
 
 
 	void Start() {
-		Debug.Log("### START");
 		StartCoroutine(this.load());
 	}
 
@@ -26,21 +25,13 @@ public class ImageLoader : MonoBehaviour {
 		var www = new WWW(this.url);
 		yield return www;
 
-		Debug.Log("### XXX1");
-
 		if (www.error == null) {
 			this.onLoaded.Invoke(www.textureNonReadable);
-
-			Debug.Log("### XXX2");
-
 
 		} else {
 			float waitTime = Mathf.Min(5f, (count + 1) * 0.5f);
 			yield return new WaitForSeconds(waitTime);
 			this.load(count + 1);
-
-			Debug.Log("### XXX3");
-
 		}
 	}
 

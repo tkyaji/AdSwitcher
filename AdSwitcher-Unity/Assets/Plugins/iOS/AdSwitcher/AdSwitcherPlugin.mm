@@ -239,7 +239,7 @@ extern "C" {
     
     void _AdSwitcherBannerView_load(AdSwitcherBannerView *bannerView, bool autoShow) {
         [bannerView load:autoShow];
-        if (autoShow) {
+        if (autoShow && !bannerView.superview) {
             [UnityGetGLView() addSubview:bannerView];
             [bannerView show];
         }
@@ -257,11 +257,10 @@ extern "C" {
     }
     
     void _AdSwitcherBannerView_hide(AdSwitcherBannerView *bannerView) {
-        if (!bannerView.superview) {
-            return;
-        }
         [bannerView hide];
-        [bannerView removeFromSuperview];
+        if (bannerView.superview) {
+            [bannerView removeFromSuperview];
+        }
     }
     
     void _AdSwitcherBannerView_switchAd(AdSwitcherBannerView *bannerView) {

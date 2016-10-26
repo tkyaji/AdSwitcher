@@ -5,6 +5,9 @@ using System;
 
 public class AdSwitcherBannerView {
 
+	private static int viewVisible = new AndroidJavaClass("android.view.View").GetStatic<int>("VISIBLE");
+	private static int viewGone = new AndroidJavaClass("android.view.View").GetStatic<int>("GONE");
+
 	private class AdReceivedListener : AndroidJavaProxy {
 		private Action<AdConfig, bool> handler;
 		public AdReceivedListener(Action<AdConfig, bool> handler) : base("net.adswitcher.AdSwitcherBannerView$AdReceivedListener") {
@@ -106,12 +109,14 @@ public class AdSwitcherBannerView {
 	public void Show() {
 		this.javaObj_activity.Call("runOnUiThread", new AndroidJavaRunnable(() => {
 			this.javaObj.Call("show");
+			this.javaObj.Call("setVisibility", viewVisible);
 		}));
 	}
 
 	public void Hide() {
 		this.javaObj_activity.Call("runOnUiThread", new AndroidJavaRunnable(() => {
 			this.javaObj.Call("hide");
+			this.javaObj.Call("setVisibility", viewGone);
 		}));
 	}
 
