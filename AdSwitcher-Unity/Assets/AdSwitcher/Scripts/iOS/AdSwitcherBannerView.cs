@@ -45,7 +45,7 @@ public class AdSwitcherBannerView {
 		_AdSwitcherBannerView_setPosition(this.CInstance, (int)adAlign, adMarginArr);
 	}
 
-	public void Load(bool autoShow) {
+	public void Load(bool autoShow = false) {
 		_AdSwitcherBannerView_load(this.CInstance, autoShow);
 	}
 
