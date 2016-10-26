@@ -2,7 +2,6 @@
 
 using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
 using System;
 using UnityEngine.EventSystems;
 
@@ -30,6 +29,7 @@ public class AdSwitcherBannerView {
 	private BannerAdSize adSize;
 	private BannerAdAlign adAlign;
 	private BannerAdMargin adMargin;
+	private bool loaded;
 
 	private GameObject canvasGO;
 
@@ -49,8 +49,8 @@ public class AdSwitcherBannerView {
 
 
 	public AdSwitcherBannerView(AdSwitcherConfigLoader configLoader, string category,
-	                            BannerAdSize adSize, BannerAdAlign adAlign, BannerAdMargin adMargin = default(BannerAdMargin),
-	                            bool testMode = false/*, bool isSizeToFit = false*/) {
+								BannerAdSize adSize, BannerAdAlign adAlign, BannerAdMargin adMargin = default(BannerAdMargin),
+								bool testMode = false/*, bool isSizeToFit = false*/) {
 		this.adSize = adSize;
 		this.adAlign = adAlign;
 		this.adMargin = adMargin;
@@ -58,32 +58,50 @@ public class AdSwitcherBannerView {
 
 	public AdSwitcherBannerView(AdSwitcherConfig adSwitcherConfig,
 								BannerAdSize adSize, BannerAdAlign adAlign, BannerAdMargin adMargin = default(BannerAdMargin),
-	                            bool testMode = false/*, bool isSizeToFit = false*/) {
+								bool testMode = false/*, bool isSizeToFit = false*/) {
 		this.adSize = adSize;
 		this.adAlign = adAlign;
 		this.adMargin = adMargin;
 	}
 
+	public void SetPosition(BannerAdAlign adAlign, BannerAdMargin adMargin) {
+		this.adAlign = adAlign;
+		this.adMargin = adMargin;
+	}
 
-	public void Show() {
-		this.Hide();
+	public void Load(bool autoShow = false) {
+		if (this.loaded || this.canvasGO != null) {
+			return;
+		}
 
 		WithWaitInvoker.Register(() => {
-			this.createCanvas();
+			this.loaded = (Application.internetReachability != NetworkReachability.NotReachable);
 
-			if (this.adReceivedHandler != null) {
-				this.adReceivedHandler.Invoke(adConfig, true);
+			if (this.loaded) {
+				if (this.adReceivedHandler != null) {
+					this.adReceivedHandler.Invoke(adConfig, true);
+				}
+				if (autoShow) {
+					this.Show();
+				}
 			}
+		}, 0.5f);
+	}
+
+	public void Show() {
+		if (this.loaded && this.canvasGO == null) {
+			this.createCanvas();
 			if (this.adShownHandler != null) {
 				this.adShownHandler.Invoke(adConfig);
 			}
-		}, 0.5f);
+		}
 	}
 
 	public void Hide() {
 		if (this.canvasGO != null) {
 			UnityEngine.Object.Destroy(this.canvasGO);
 		}
+		this.loaded = false;
 	}
 
 	public void SwitchAd() {
@@ -92,7 +110,7 @@ public class AdSwitcherBannerView {
 	}
 
 	public bool IsLoaded() {
-		return true;
+		return this.loaded;
 	}
 
 	public Vector2 GetSize() {
@@ -210,7 +228,7 @@ public class AdSwitcherBannerView {
 		text.font = Resources.GetBuiltinResource<Font>("Arial.ttf");
 		text.alignment = TextAnchor.MiddleCenter;
 		text.text = "BannerAd";
-		text.fontSize = 18;
+		text.resizeTextForBestFit = true;
 	}
 
 

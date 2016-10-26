@@ -43,20 +43,22 @@ public class AdSwitcherBannerView {
 
 	private AndroidJavaObject javaObj;
 	private AndroidJavaObject javaObj_activity;
+	private bool isSizeToFit;
 
 
 	public AdSwitcherBannerView(AdSwitcherConfigLoader configLoader, string category,
-	                            BannerAdSize adSize, BannerAdAlign adAlign, BannerAdMargin adMargin = default(BannerAdMargin),
-	                            bool testMode = false/*, bool isSizeToFit = false*/) {
+								BannerAdSize adSize, BannerAdAlign adAlign, BannerAdMargin adMargin = default(BannerAdMargin),
+								bool testMode = false/*, bool isSizeToFit = false*/) {
 
-		bool isSizeToFit = false;	// TODO
+		bool isSizeToFit = false;   // TODO
+		this.isSizeToFit = isSizeToFit;
 
 		this.javaObj_activity = new AndroidJavaClass("com.unity3d.player.UnityPlayer").GetStatic<AndroidJavaObject>("currentActivity");
 		var javaObj_configLoader = new AndroidJavaClass("net.adswitcher.config.AdSwitcherConfigLoader").CallStatic<AndroidJavaObject>("getInstance");
 		this.javaObj = new AndroidJavaObject("net.adswitcher.AdSwitcherBannerView",
 											 this.javaObj_activity,
 											 javaObj_configLoader,
-		                                     category,
+											 category,
 											 JavaObjectConverter.BannerAdSizeToJavaObject(adSize),
 											 testMode);
 
@@ -69,9 +71,10 @@ public class AdSwitcherBannerView {
 
 	public AdSwitcherBannerView(AdSwitcherConfig adSwitcherConfig,
 								BannerAdSize adSize, BannerAdAlign adAlign, BannerAdMargin adMargin = default(BannerAdMargin),
-	                            bool testMode = false/*, bool isSizeToFit = false*/) {
+								bool testMode = false/*, bool isSizeToFit = false*/) {
 
 		bool isSizeToFit = false;   // TODO
+		this.isSizeToFit = isSizeToFit;
 
 		this.javaObj_activity = new AndroidJavaClass("com.unity3d.player.UnityPlayer").GetStatic<AndroidJavaObject>("currentActivity");
 		this.javaObj = new AndroidJavaObject("net.adswitcher.AdSwitcherBannerView",
@@ -87,10 +90,22 @@ public class AdSwitcherBannerView {
 		UnityActionExecuter.Initialize();
 	}
 
+	public void SetPosition(BannerAdAlign adAlign, BannerAdMargin adMargin) {
+		this.javaObj_activity.Call("runOnUiThread", new AndroidJavaRunnable(() => {
+			var javaObj_layoutParams = this.createLayoutParams(adAlign, adMargin, this.isSizeToFit);
+			this.javaObj.Call("setLayoutParams", javaObj_layoutParams);
+		}));
+	}
+
+	public void Load(bool autoShow = false) {
+		this.javaObj_activity.Call("runOnUiThread", new AndroidJavaRunnable(() => {
+			this.javaObj.Call("load", autoShow);
+		}));
+	}
 
 	public void Show() {
 		this.javaObj_activity.Call("runOnUiThread", new AndroidJavaRunnable(() => {
-			this.javaObj.Call("load");
+			this.javaObj.Call("show");
 		}));
 	}
 
@@ -151,6 +166,11 @@ public class AdSwitcherBannerView {
 
 
 	private void addContentView(BannerAdAlign adAlign, BannerAdMargin adMargin, bool isSizeToFit) {
+		var javaObj_layoutParams = this.createLayoutParams(adAlign, adMargin, isSizeToFit);
+		this.javaObj_activity.Call("addContentView", this.javaObj, javaObj_layoutParams);
+	}
+
+	private AndroidJavaObject createLayoutParams(BannerAdAlign adAlign, BannerAdMargin adMargin, bool isSizeToFit) {
 		var javaObj_metrics = this.getMetrics();
 
 		float density = javaObj_metrics.Get<float>("density");
@@ -247,12 +267,12 @@ public class AdSwitcherBannerView {
 
 		javaObj_layoutParams.Call("setMargins", marginLeft, marginTop, marginRight, marginBottom);
 
-		this.javaObj_activity.Call("addContentView", this.javaObj, javaObj_layoutParams);
+		return javaObj_layoutParams;
 	}
 
 	private AndroidJavaObject getMetrics() {
 		AndroidJavaObject display = this.javaObj_activity.Call<AndroidJavaObject>("getWindowManager")
-		                                .Call<AndroidJavaObject>("getDefaultDisplay");
+										.Call<AndroidJavaObject>("getDefaultDisplay");
 		AndroidJavaObject metrics = new AndroidJavaObject("android.util.DisplayMetrics");
 
 		if (getApiLevel() >= 17) {

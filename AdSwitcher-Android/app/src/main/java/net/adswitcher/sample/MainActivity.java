@@ -37,6 +37,10 @@ public class MainActivity extends FragmentActivity {
         TabHost.TabSpec videoTabSpec = tabHost.newTabSpec("video_tab")
                 .setIndicator("Video");
         tabHost.addTab(videoTabSpec, VideoFragment.class, null);
+
+        TabHost.TabSpec nativeAdTabSpec = tabHost.newTabSpec("native_ad_tab")
+                .setIndicator("NativeAd");
+        tabHost.addTab(nativeAdTabSpec, NativeAdFragment.class, null);
     }
 
 

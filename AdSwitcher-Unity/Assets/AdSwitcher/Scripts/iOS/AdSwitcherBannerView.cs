@@ -40,6 +40,14 @@ public class AdSwitcherBannerView {
 		csInstanceHandle.Free();
 	}
 
+	public void SetPosition(BannerAdAlign adAlign, BannerAdMargin adMargin) {
+		float[] adMarginArr = new float[] { adMargin.Left, adMargin.Top, adMargin.Right, adMargin.Bottom };
+		_AdSwitcherBannerView_setPosition(this.CInstance, (int)adAlign, adMarginArr);
+	}
+
+	public void Load(bool autoShow) {
+		_AdSwitcherBannerView_load(this.CInstance, autoShow);
+	}
 
 	public void Show() {
 		_AdSwitcherBannerView_show(this.CInstance);
@@ -64,8 +72,8 @@ public class AdSwitcherBannerView {
 	}
 
 	public Vector2 GetScreenSize() {
-		float w = _AdSwitcherBannerView_getScreenWidth(this.CInstance);
-		float h = _AdSwitcherBannerView_getScreenHeight(this.CInstance);
+		float w = _AdSwitcherBannerView_getScreenWidth();
+		float h = _AdSwitcherBannerView_getScreenHeight();
 		return new Vector2(w, h);
 	}
 
@@ -95,6 +103,12 @@ public class AdSwitcherBannerView {
 	private static extern void _AdSwitcherBannerView_release(IntPtr cInstance);
 
 	[DllImport("__Internal")]
+	private static extern void _AdSwitcherBannerView_setPosition(IntPtr cInstance, int adAlign, float[] adMarginArr);
+
+	[DllImport("__Internal")]
+	private static extern void _AdSwitcherBannerView_load(IntPtr cInstance, bool autoShow);
+
+	[DllImport("__Internal")]
 	private static extern void _AdSwitcherBannerView_show(IntPtr cInstance);
 
 	[DllImport("__Internal")]
@@ -113,10 +127,10 @@ public class AdSwitcherBannerView {
 	private static extern float _AdSwitcherBannerView_getHeight(IntPtr cInstance);
 
 	[DllImport("__Internal")]
-	private static extern float _AdSwitcherBannerView_getScreenWidth(IntPtr cInstance);
+	private static extern float _AdSwitcherBannerView_getScreenWidth();
 
 	[DllImport("__Internal")]
-	private static extern float _AdSwitcherBannerView_getScreenHeight(IntPtr cInstance);
+	private static extern float _AdSwitcherBannerView_getScreenHeight();
 
 	[DllImport("__Internal")]
 	private static extern void _AdSwitcherBannerView_setAdReceivedHandler(IntPtr cInstance, IntPtr csInstance, delagete_adReceivedHandlerCaller handler);

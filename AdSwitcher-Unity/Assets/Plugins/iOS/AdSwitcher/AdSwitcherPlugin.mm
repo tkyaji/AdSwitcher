@@ -11,6 +11,7 @@
 #import "AdSwitcherConfigLoader.h"
 #import "AdSwitcherInterstitial.h"
 #import "AdSwitcherBannerView.h"
+#import "AdSwitcherNativeAd.h"
 
 
 extern "C" {
@@ -30,7 +31,7 @@ extern "C" {
             _ELOG("%@", error);
             return nil;
         }
-
+        
         AdConfig *adConfig = [AdConfig new];
         adConfig.adName = [dict objectForKey:@"adName"];
         adConfig.className = [dict objectForKey:@"className"];
@@ -63,7 +64,7 @@ extern "C" {
         NSMutableArray<AdConfig *> *adConfigArr = [NSMutableArray<AdConfig *> new];
         NSArray<NSString *> *adConfigStrArr = [dict objectForKey:@"adConfigList"];
         for (NSString *adConfigStr in adConfigStrArr) {
-           AdConfig *adConfig = __adConfigFromJson(adConfigStr);
+            AdConfig *adConfig = __adConfigFromJson(adConfigStr);
             [adConfigArr addObject:adConfig];
         }
         adSwitcherConfig.adConfigArr = adConfigArr;
@@ -112,7 +113,7 @@ extern "C" {
         }
         return CGSizeMake(320, 50);
     }
-
+    
     static inline CGRect __toBannerAdFrame(BannerAdSize bannerAdSize, BannerAdAlign bannerAdAlign, BannerAdMargin bannerAdMargin, CGFloat scale) {
         CGSize parentFrameSize = UnityGetGLView().frame.size;
         CGSize adViewSize = __toBannerAdCGSize(bannerAdSize);
@@ -173,7 +174,7 @@ extern "C" {
     // AdSwitcherBannerView
     
     AdSwitcherBannerView *_AdSwitcherBannerView_new(AdSwitcherConfigLoader *configLoader, const char *category,
-                                                int adSize, int adAlign, float *adMarginArr, bool isSizeToFit, bool testMode) {
+                                                    int adSize, int adAlign, float *adMarginArr, bool isSizeToFit, bool testMode) {
         
         BannerAdSize bannerAdSize = (BannerAdSize)adSize;
         BannerAdAlign bannerAdAlign = (BannerAdAlign)adAlign;
@@ -193,21 +194,22 @@ extern "C" {
             bannerView.frame = __toBannerAdFrame(bannerAdSize, bannerAdAlign, bannerAdMargin, scale);
         }
         
+        CFRetain((CFTypeRef)bannerView);
         return bannerView;
     }
     
     AdSwitcherBannerView *_AdSwitcherBannerView_new_config(const char *adSwitcherConfigJsonStr,
-                                                int adSize, int adAlign, float *adMarginArr, bool isSizeToFit, bool testMode) {
-
+                                                           int adSize, int adAlign, float *adMarginArr, bool isSizeToFit, bool testMode) {
+        
         AdSwitcherConfig *adSwitcherConfig = __adSwitcherConfigFromJson([NSString stringWithUTF8String:adSwitcherConfigJsonStr]);
         
         BannerAdSize bannerAdSize = (BannerAdSize)adSize;
         BannerAdAlign bannerAdAlign = (BannerAdAlign)adAlign;
         BannerAdMargin bannerAdMargin = BannerAdMarginMake(adMarginArr[0], adMarginArr[1], adMarginArr[2], adMarginArr[3]);
-
+        
         AdSwitcherBannerView *bannerView = [[AdSwitcherBannerView alloc] initWithConfig:UnityGetGLViewController()
-                                                                             config:adSwitcherConfig
-                                                                             adSize:bannerAdSize
+                                                                                 config:adSwitcherConfig
+                                                                                 adSize:bannerAdSize
                                                                                testMode:testMode];
         bannerView.frame = __toBannerAdFrame(bannerAdSize, bannerAdAlign, bannerAdMargin, 1);
         
@@ -217,6 +219,7 @@ extern "C" {
             bannerView.frame = __toBannerAdFrame(bannerAdSize, bannerAdAlign, bannerAdMargin, scale);
         }
         
+        CFRetain((CFTypeRef)bannerView);
         return bannerView;
     }
     
@@ -228,14 +231,31 @@ extern "C" {
     typedef void (*cs_bannerAdShownHandler)(void *, const char *adConfigJson);
     typedef void (*cs_bannerAdClickedHandler)(void *, const char *adConfigJson);
     
+    void _AdSwitcherBannerView_setPosition(AdSwitcherBannerView *bannerView, int adAlign, float *adMarginArr) {
+        BannerAdAlign bannerAdAlign = (BannerAdAlign)adAlign;
+        BannerAdMargin bannerAdMargin = BannerAdMarginMake(adMarginArr[0], adMarginArr[1], adMarginArr[2], adMarginArr[3]);
+        bannerView.frame = __toBannerAdFrame(bannerView.adSize, bannerAdAlign, bannerAdMargin, 1);
+    }
+    
+    void _AdSwitcherBannerView_load(AdSwitcherBannerView *bannerView, bool autoShow) {
+        [bannerView load:autoShow];
+        if (autoShow) {
+            [UnityGetGLView() addSubview:bannerView];
+            [bannerView show];
+        }
+    }
+    
     void _AdSwitcherBannerView_show(AdSwitcherBannerView *bannerView) {
         if (bannerView.superview) {
             return;
         }
-        [bannerView load];
+        if (![bannerView isLoaded]) {
+            return;
+        }
         [UnityGetGLView() addSubview:bannerView];
+        [bannerView show];
     }
-
+    
     void _AdSwitcherBannerView_hide(AdSwitcherBannerView *bannerView) {
         if (!bannerView.superview) {
             return;
@@ -243,18 +263,18 @@ extern "C" {
         [bannerView hide];
         [bannerView removeFromSuperview];
     }
-
+    
     void _AdSwitcherBannerView_switchAd(AdSwitcherBannerView *bannerView) {
         if (!bannerView.superview) {
             return;
         }
         [bannerView switchAd];
     }
-
+    
     bool _AdSwitcherBannerView_isLoaded(AdSwitcherBannerView *bannerView) {
         return [bannerView isLoaded];
     }
-
+    
     float _AdSwitcherBannerView_getWidth(AdSwitcherBannerView *bannerView) {
         CGSize size = [bannerView getSize];
         return size.width;
@@ -264,17 +284,17 @@ extern "C" {
         CGSize size = [bannerView getSize];
         return size.height;
     }
-
+    
     float _AdSwitcherBannerView_getScreenWidth(AdSwitcherBannerView *bannerView) {
         CGSize screenSize = [UIScreen mainScreen].bounds.size;
         return screenSize.width;
     }
-
+    
     float _AdSwitcherBannerView_getScreenHeight(AdSwitcherBannerView *bannerView) {
         CGSize screenSize = [UIScreen mainScreen].bounds.size;
         return screenSize.height;
     }
-
+    
     void _AdSwitcherBannerView_setAdReceivedHandler(AdSwitcherBannerView *bannerView,
                                                     void *cs_instance,
                                                     cs_bannerAdReceivedHandler cs_handler) {
@@ -283,10 +303,10 @@ extern "C" {
             cs_handler(cs_instance, [adConfigJson UTF8String], result);
         }];
     }
-
+    
     void _AdSwitcherBannerView_setAdShownHandler(AdSwitcherBannerView *bannerView,
-                                                   void *cs_instance,
-                                                   cs_bannerAdShownHandler cs_handler) {
+                                                 void *cs_instance,
+                                                 cs_bannerAdShownHandler cs_handler) {
         [bannerView setAdShownHandler:^(AdConfig *config) {
             NSString *adConfigJson = __adConfigToJson(config);
             cs_handler(cs_instance, [adConfigJson UTF8String]);
@@ -294,14 +314,14 @@ extern "C" {
     }
     
     void _AdSwitcherBannerView_setAdClickedHandler(AdSwitcherBannerView *bannerView,
-                                                     void *cs_instance,
-                                                     cs_bannerAdClickedHandler cs_handler) {
+                                                   void *cs_instance,
+                                                   cs_bannerAdClickedHandler cs_handler) {
         [bannerView setAdClickedHandler:^(AdConfig *config) {
             NSString *adConfigJson = __adConfigToJson(config);
             cs_handler(cs_instance, [adConfigJson UTF8String]);
         }];
     }
-
+    
     
     
     // AdSwitcherInterstitial
@@ -349,7 +369,7 @@ extern "C" {
             cs_handler(cs_instance, [adConfigJson UTF8String], result);
         }];
     }
-
+    
     void _AdSwitcherInterstitial_setAdShownHandler(AdSwitcherInterstitial *interstitial,
                                                    void *cs_instance,
                                                    cs_interstitialAdShownHandler cs_handler) {
@@ -369,11 +389,70 @@ extern "C" {
     }
     
     void _AdSwitcherInterstitial_setAdClickedHandler(AdSwitcherInterstitial *interstitial,
-                                                                 void *cs_instance,
-                                                                 cs_interstitialAdClickedHandler cs_handler) {
+                                                     void *cs_instance,
+                                                     cs_interstitialAdClickedHandler cs_handler) {
         [interstitial setAdClickedHandler:^(AdConfig *config) {
             NSString *adConfigJson = __adConfigToJson(config);
             cs_handler(cs_instance, [adConfigJson UTF8String]);
+        }];
+    }
+    
+    
+    
+    // AdSwitcherNativeAd
+    
+    typedef void (*cs_nativeAdReceivedHandler)(void *, const char *adConfigJson, bool result);
+    
+    AdSwitcherNativeAd *_AdSwitcherNativeAd_new(AdSwitcherConfigLoader *configLoader, const char *category, bool testMode) {
+        AdSwitcherNativeAd *nativeAd = [[AdSwitcherNativeAd alloc] initWithConfigLoader:configLoader
+                                                                               category:[NSString stringWithUTF8String:category]
+                                                                               testMode:testMode];
+        CFRetain((CFTypeRef)nativeAd);
+        return nativeAd;
+    }
+    
+    AdSwitcherNativeAd *_AdSwitcherNativeAd_new_config(const char *adSwitcherConfigJsonStr, bool testMode) {
+        AdSwitcherConfig *adSwicherConfig = __adSwitcherConfigFromJson([NSString stringWithUTF8String:adSwitcherConfigJsonStr]);
+        AdSwitcherNativeAd *nativeAd = [[AdSwitcherNativeAd alloc] initWithConfig:adSwicherConfig testMode:testMode];
+        CFRetain((CFTypeRef)nativeAd);
+        return nativeAd;
+    }
+    
+    void _AdSwitcherNativeAd_release(AdSwitcherNativeAd *nativeAd) {
+        CFRelease((CFTypeRef)nativeAd);
+    }
+    
+    void _AdSwitcherNativeAd_load(AdSwitcherNativeAd *nativeAd) {
+        [nativeAd load];
+    }
+    
+    AdSwitcherNativeAdData *_AdSwitcherNativeAd_getAdData(AdSwitcherNativeAd *nativeAd) {
+        return [nativeAd getAdData];
+    }
+    
+    const char *_AdSwitcherNativeAd_getAdDataProperty(AdSwitcherNativeAdData *nativeAdData, const char *propertyName) {
+        NSString *property = [nativeAdData valueForKey:[NSString stringWithUTF8String:propertyName]];
+        return __copyString(property);
+    }
+    
+    bool _AdSwitcherNativeAd_isLoaded(AdSwitcherNativeAd *nativeAd) {
+        return [nativeAd isLoaded];
+    }
+    
+    void _AdSwitcherNativeAd_openUrl(AdSwitcherNativeAd *nativeAd) {
+        [nativeAd openUrl];
+    }
+    
+    void _AdSwitcherNativeAd_sendImpression(AdSwitcherNativeAd *nativeAd) {
+        [nativeAd sendImpression];
+    }
+    
+    void _AdSwitcherNativeAd_setAdReceivedHandler(AdSwitcherNativeAd *nativeAd,
+                                                  void *cs_instance,
+                                                  cs_bannerAdReceivedHandler cs_handler) {
+        [nativeAd setAdReceivedHandler:^(AdConfig *config, BOOL result) {
+            NSString *adConfigJson = __adConfigToJson(config);
+            cs_handler(cs_instance, [adConfigJson UTF8String], result);
         }];
     }
 }

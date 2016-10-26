@@ -83,8 +83,8 @@ public class AdSwitcherInterstitial {
 
 	private void load() {
 		WithWaitInvoker.Register(() => {
+            this.loaded = (Application.internetReachability != NetworkReachability.NotReachable);
 			if (this.adLoadedHandler != null) {
-				this.loaded = (Application.internetReachability != NetworkReachability.NotReachable);
 				if (this.loaded) {
 					this.adLoadedHandler.Invoke(adConfig, this.loaded);
 				} else {

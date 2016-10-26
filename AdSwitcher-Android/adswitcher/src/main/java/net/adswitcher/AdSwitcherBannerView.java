@@ -41,6 +41,10 @@ public class AdSwitcherBannerView extends FrameLayout implements BannerAdListene
     private Map<String, BannerAdAdapter> adapterCacheMap;
     private Map<String, AdConfig> adConfigMap;
     private boolean loading;
+    private boolean loadCancel;
+    private boolean showing;
+    private boolean autoShow;
+
 
     public AdSwitcherBannerView(final Activity activity, final AdSwitcherConfigLoader configLoader,
                                 final String category, final BannerAdSize adSize) {
@@ -78,21 +82,47 @@ public class AdSwitcherBannerView extends FrameLayout implements BannerAdListene
     }
 
     public void load() {
-        Log.d(TAG, "load");
+        this.load(false);
+    }
+
+    public void load(boolean autoShow) {
+        Log.d(TAG, "load : autoShow=" + autoShow);
         if (this.loading) {
-            Log.d(TAG, "Already started to load");
+            Log.d(TAG, "already started to load.");
             return;
         }
+        if (this.showing) {
+            Log.d(TAG, "ad showing.");
+            return;
+        }
+        this.autoShow = autoShow;
         this.adSelector = new AdSelector(this.adSwitcherConfig);
         this.selectLoad();
     }
 
+    public void show() {
+        if (!this.isLoaded()) {
+            Log.d(TAG, "also not loaded.");
+            return;
+        }
+        if (this.showing) {
+            Log.d(TAG, "already shown.");
+            return;
+        }
+        this.selectedAdapter.bannerAdShow(this);
+        this.showing = true;
+    }
+
     public void hide() {
         Log.d(TAG, "hide");
-        if (this.selectedAdapter != null) {
+        if (this.showing) {
             this.selectedAdapter.bannerAdHide();
             this.selectedAdapter = null;
             this.selectedAdConfig = null;
+            this.showing = false;
+        }
+        if (this.loading) {
+            this.loadCancel = true;
         }
     }
 
@@ -214,6 +244,11 @@ public class AdSwitcherBannerView extends FrameLayout implements BannerAdListene
     }
 
     private void selectLoad() {
+        if (this.loadCancel) {
+            this.loading = false;
+            this.loadCancel = false;
+            return;
+        }
         this.loading = true;
 
         BannerAdAdapter bannerAdAdapter = null;
@@ -232,7 +267,6 @@ public class AdSwitcherBannerView extends FrameLayout implements BannerAdListene
             bannerAdAdapter.bannerAdLoad();
 
         } else {
-            this.loading = false;
             Log.w(TAG, "It will not be able to display all.");
 
             (new Handler()).postDelayed(new Runnable() {
@@ -241,11 +275,13 @@ public class AdSwitcherBannerView extends FrameLayout implements BannerAdListene
                     AdSwitcherBannerView.this.activity.runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            AdSwitcherBannerView.this.load();
+                            Log.d(TAG, "load retry");
+                            AdSwitcherBannerView.this.adSelector = new AdSelector(AdSwitcherBannerView.this.adSwitcherConfig);
+                            AdSwitcherBannerView.this.selectLoad();
                         }
                     });
                 }
-            }, 10000);
+            }, 5000);
         }
     }
 
@@ -289,17 +325,20 @@ public class AdSwitcherBannerView extends FrameLayout implements BannerAdListene
 
         this.loading = false;
 
+        if (this.selectedAdapter == null && result) {
+            this.selectedAdapter = (BannerAdAdapter) adAdapter;
+        }
+
         if (this.adReceivedListener != null) {
             this.adReceivedListener.onAdReceived(this.adConfigMap.get(className), result);
         }
 
-        if (this.selectedAdapter == null) {
-            if (result) {
-                this.selectedAdapter = (BannerAdAdapter) adAdapter;
-                this.selectedAdapter.bannerAdShow(this);
-            } else {
-                this.selectLoad();
+        if (result) {
+            if (this.autoShow) {
+                this.show();
             }
+        } else {
+            this.selectLoad();
         }
     }
 

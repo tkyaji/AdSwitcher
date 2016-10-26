@@ -39,6 +39,8 @@ typedef void (^bannerAdClicked)(AdConfig *config);
                         adSize:(BannerAdSize)adSize testMode:(BOOL)testMode;
 
 - (void)load;
+- (void)load:(BOOL)autoShow;
+- (void)show;
 - (void)hide;
 - (void)switchAd;
 - (BOOL)isLoaded;

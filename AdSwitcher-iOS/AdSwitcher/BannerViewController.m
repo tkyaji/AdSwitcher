@@ -45,20 +45,30 @@
     [self.view addSubview:_bannerView_320x50];
     [self.view addSubview:_bannerView_320x100];
     [self.view addSubview:_bannerView_300x250];
-    
-    [_bannerView_320x50 load];
+}
+
+- (IBAction)loadBanner_320x50:(id)sender {
+    [_bannerView_320x50 load:self.autoShowSwitch.on];
 }
 
 - (IBAction)showBanner_320x50:(id)sender {
-    [_bannerView_320x50 switchAd];
+    [_bannerView_320x50 show];
+}
+
+- (IBAction)loadBanner_320x100:(id)sender {
+    [_bannerView_320x100 load:self.autoShowSwitch.on];
 }
 
 - (IBAction)showBanner_320x100:(id)sender {
-    [_bannerView_320x100 switchAd];
+    [_bannerView_320x100 show];
+}
+
+- (IBAction)loadBanner_300x250:(id)sender {
+    [_bannerView_300x250 load:self.autoShowSwitch.on];
 }
 
 - (IBAction)showBanner_300x250:(id)sender {
-    [_bannerView_300x250 switchAd];
+    [_bannerView_300x250 show];
 }
 
 - (IBAction)hideBanner:(id)sender {

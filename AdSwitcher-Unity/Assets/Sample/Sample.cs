@@ -5,6 +5,7 @@ public class Sample : MonoBehaviour {
 
 	private AdSwitcherInterstitial interstitial;
 	private AdSwitcherBannerView bannerView;
+	private AdSwitcherNativeAd nativeAd;
 
 	private TextAsset jsonText {
 		get {
@@ -17,6 +18,12 @@ public class Sample : MonoBehaviour {
 	}
 
 	[SerializeField]
+	private Toggle autoShowToggle;
+
+	[SerializeField]
+	private Button bannerLoadButton;
+
+	[SerializeField]
 	private Button bannerShowButton;
 
 	[SerializeField]
@@ -26,10 +33,32 @@ public class Sample : MonoBehaviour {
 	private Button interstitialShowButton;
 
 	[SerializeField]
+	private Button nativeAdLoadButton;
+
+	[SerializeField]
 	private Text bannerText;
 
 	[SerializeField]
 	private Text interstitialText;
+
+	[SerializeField]
+	private Text nativeAdText;
+
+	[SerializeField]
+	private Text nativeAdShortText;
+
+	[SerializeField]
+	private Text nativeAdLongText;
+
+	[SerializeField]
+	private Image nativeAdImage;
+
+	[SerializeField]
+	private Image nativeAdIconImage;
+
+	[SerializeField]
+	private GameObject nativeAdPanelGO;
+
 
 
 	void Start () {
@@ -40,9 +69,14 @@ public class Sample : MonoBehaviour {
 
 		this.initInterstitial();
 		this.initBannerView();
+		this.initNativeAd();
 	}
 
 	private void bindEvents() {
+		this.bannerLoadButton.onClick.AddListener(() => {
+			this.bannerView.Load(this.autoShowToggle.isOn);
+		});
+
 		this.bannerShowButton.onClick.AddListener(() => {
 			this.bannerView.Show();
 		});
@@ -54,6 +88,10 @@ public class Sample : MonoBehaviour {
 
 		this.interstitialShowButton.onClick.AddListener(() => {
 			this.interstitial.Show();
+		});
+
+		this.nativeAdLoadButton.onClick.AddListener(() => {
+			this.nativeAd.Load();
 		});
 	}
 
@@ -82,7 +120,6 @@ public class Sample : MonoBehaviour {
 	}
 
 	private void initBannerView() {
-
 		this.bannerView = new AdSwitcherBannerView(AdSwitcherConfigLoader.Instance, "banner_320x50", BannerAdSize.Size_320x50, BannerAdAlign.BottomCenter, BannerAdMargin.Zero, true);
 
 		this.bannerView.SetAdReceivedHandler((config, result) => {
@@ -100,8 +137,34 @@ public class Sample : MonoBehaviour {
 			string message = "BannerAd Clicked : className=" + config.ClassName;
 			Debug.Log(message);
 		});
+	}
 
-		this.bannerView.Show();
+	private void initNativeAd() {
+
+		this.nativeAd = new AdSwitcherNativeAd(AdSwitcherConfigLoader.Instance, "native", true);
+
+		this.nativeAd.SetAdReceivedHandler((config, result) => {
+			string message = "NativeAd Received : className=" + config.ClassName + ", result=" + result;
+			this.nativeAdText.text = message;
+			Debug.Log(message);
+
+			if (result) {
+				var adData = this.nativeAd.GetAdData();
+				this.nativeAdShortText.text = adData.shortText;
+				this.nativeAdLongText.text = adData.longText;
+				this.nativeAd.LoadImage((Sprite sprite) => {
+					this.nativeAdImage.sprite = sprite;
+				});
+				this.nativeAd.LoadIconImage((Sprite sprite) => {
+					this.nativeAdIconImage.sprite = sprite;
+				});
+				this.nativeAd.SendImpression();
+			}
+		});
+	}
+
+	public void OnNativeAdClick() {
+		this.nativeAd.OpenUrl();
 	}
 
 }

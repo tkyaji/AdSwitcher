@@ -20,6 +20,9 @@
     NSObject<BannerAdAdapter> *_selectedAdapter;
     AdConfig *_selectedAdConfig;
     BOOL _loading;
+    BOOL _loadCancel;
+    BOOL _showing;
+    BOOL _autoShow;
 }
 
 - (instancetype)initWithConfigLoader:(UIViewController *)viewController configLoader:(AdSwitcherConfigLoader *)configLoader
@@ -61,21 +64,48 @@
 }
 
 - (void)load {
-    _DLOG();
+    [self load:false];
+}
+
+- (void)load:(BOOL)autoShow {
+    _DLOG("autoShow=%d", (int)autoShow);
     if (_loading) {
-        _DLOG("Already started to load.");
+        _DLOG("already started to load.");
         return;
     }
+    if (_showing) {
+        _DLOG("ad showing.");
+        return;
+    }
+    _autoShow = autoShow;
     _adSelector = [[AdSelector alloc] initWithConfig:self.adSwitcherConfig];
     [self selectLoad];
 }
 
+- (void)show {
+    if (![self isLoaded]) {
+        _DLOG("also not loaded.");
+        return;
+    }
+    if (_showing) {
+        _DLOG("already show.");
+        return;
+    }
+    [_selectedAdapter bannerAdShow:self];
+    _showing = YES;
+}
+
 - (void)hide {
     _DLOG();
-    if (_selectedAdapter) {
+    if (_showing) {
         [_selectedAdapter bannerAdHide];
         _selectedAdapter = nil;
         _selectedAdConfig = nil;
+        _showing = NO;
+        
+    }
+    if (_loading) {
+        _loadCancel = YES;
     }
 }
 
@@ -134,17 +164,20 @@
     
     _loading = false;
     
+    if (!_selectedAdapter && result) {
+        _selectedAdapter = (NSObject<BannerAdAdapter> *)adAdapter;
+    }
+    
     if (_bannerAdReceived) {
         _bannerAdReceived([_adConfigDict objectForKey:className], result);
     }
     
-    if (!_selectedAdapter) {
-        if (result) {
-            _selectedAdapter = (NSObject<BannerAdAdapter> *)adAdapter;
-            [_selectedAdapter bannerAdShow:self];
-        } else {
-            [self selectLoad];
+    if (result) {
+        if (_autoShow) {
+            [self show];
         }
+    } else {
+        [self selectLoad];
     }
 }
 
@@ -196,6 +229,11 @@
 }
 
 - (void)selectLoad {
+    if (_loadCancel) {
+        _loading = NO;
+        _loadCancel = NO;
+        return;
+    }
     _loading = YES;
     
     NSObject<BannerAdAdapter> *bannerAdAdapter = nil;
@@ -214,12 +252,13 @@
         [bannerAdAdapter bannerAdLoad];
         
     } else {
-        _loading = NO;
         _DLOG("It will not be able to display all.");
-        dispatch_time_t time = dispatch_time(DISPATCH_TIME_NOW, 10 * NSEC_PER_SEC);
+        dispatch_time_t time = dispatch_time(DISPATCH_TIME_NOW, 5 * NSEC_PER_SEC);
         dispatch_after(time, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             dispatch_async(dispatch_get_main_queue(), ^{
-                [self load];
+                _DLOG("retry load.");
+                _adSelector = [[AdSelector alloc] initWithConfig:self.adSwitcherConfig];
+                [self selectLoad];
             });
         });
     }

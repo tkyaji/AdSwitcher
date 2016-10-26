@@ -166,15 +166,15 @@ public class AdSwitcherInterstitial implements InterstitialAdListener {
 
         this.loading = false;
 
+        if (this.selectedAdapter == null && result) {
+            this.selectedAdapter = (InterstitialAdAdapter) adAdapter;
+        }
+
         if (this.adLoadedListener != null) {
             this.adLoadedListener.onAdLoaded(this.adConfigMap.get(className), result);
         }
 
-        if (result) {
-            if (this.selectedAdapter == null) {
-                this.selectedAdapter = (InterstitialAdAdapter) adAdapter;
-            }
-        } else {
+        if (!result) {
             this.selectLoad();
         }
     }
