@@ -2,24 +2,16 @@ package net.adswitcher.sample;
 
 import android.app.Activity;
 import android.content.Context;
-import android.graphics.Point;
-import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.util.DisplayMetrics;
-import android.util.Size;
-import android.view.Display;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.CheckBox;
 import android.widget.FrameLayout;
 
 import net.adswitcher.AdSwitcherBannerView;
-import net.adswitcher.AdSwitcherInterstitial;
 import net.adswitcher.adapter.BannerAdSize;
 import net.adswitcher.config.AdSwitcherConfigLoader;
 
@@ -40,7 +32,7 @@ public class BannerFragment extends Fragment {
     }
 
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
 

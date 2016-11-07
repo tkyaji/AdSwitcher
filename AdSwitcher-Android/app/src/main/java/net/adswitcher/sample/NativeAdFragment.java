@@ -11,8 +11,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import net.adswitcher.AdSwitcherBannerView;
-import net.adswitcher.AdSwitcherInterstitial;
 import net.adswitcher.AdSwitcherNativeAd;
 import net.adswitcher.AdSwitcherNativeAdData;
 import net.adswitcher.config.AdConfig;

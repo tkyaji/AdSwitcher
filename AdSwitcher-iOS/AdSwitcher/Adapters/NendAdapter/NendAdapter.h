@@ -8,15 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-//! Project version number for NendAdapter.
-FOUNDATION_EXPORT double NendAdapterVersionNumber;
-
-//! Project version string for NendAdapter.
-FOUNDATION_EXPORT const unsigned char NendAdapterVersionString[];
-
-// In this header, you should import all the public headers of your framework using statements like #import <NendAdapter/PublicHeader.h>
-
-
 @import Foundation;
 @import AdSupport;
 @import Security;

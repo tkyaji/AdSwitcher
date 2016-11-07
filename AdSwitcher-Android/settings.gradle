@@ -1,1 +1,1 @@
-include ':app', ':adswitcher', ':adcolony-adapter', ':applovin-adapter', 'adgeneration-adapter', ':admob-adapter', ':amoad-adapter', ':five-adapter', ':maio-adapter', ':unityads-adapter', ':nend-adapter', ':imobile-adapter', ':facebook-adapter', ':unity-ads'
+include ':app', ':adswitcher', ':adcolony-adapter', ':applovin-adapter', ':zucks-adapter', ':adgeneration-adapter', ':admob-adapter', ':amoad-adapter', ':five-adapter', ':maio-adapter', ':unityads-adapter', ':nend-adapter', ':imobile-adapter', ':facebook-adapter', ':unity-ads'

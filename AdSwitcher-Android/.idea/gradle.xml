@@ -23,6 +23,7 @@
             <option value="$PROJECT_DIR$/nend-adapter" />
             <option value="$PROJECT_DIR$/unity-ads" />
             <option value="$PROJECT_DIR$/unityads-adapter" />
+            <option value="$PROJECT_DIR$/zucks-adapter" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

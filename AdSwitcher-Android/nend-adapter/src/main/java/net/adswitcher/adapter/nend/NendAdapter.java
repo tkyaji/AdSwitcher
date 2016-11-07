@@ -166,4 +166,5 @@ public class NendAdapter implements BannerAdAdapter, InterstitialAdAdapter, Nend
     public void onDismissScreen(NendAdView nendAdView) {
         Log.d(TAG, "banner onDismissScreen");
     }
+
 }

@@ -48,6 +48,8 @@
 		B22D7EE31D72797D00F19E56 /* AdSwitcherInterstitial.m in Sources */ = {isa = PBXBuildFile; fileRef = B22D7EDA1D72797D00F19E56 /* AdSwitcherInterstitial.m */; };
 		B22D7F661D73059500F19E56 /* AdSwitcherBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = B22D7F651D73059500F19E56 /* AdSwitcherBannerView.m */; };
 		B22D7F6D1D731C0B00F19E56 /* AdSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = B22D7F6C1D731C0B00F19E56 /* AdSelector.m */; };
+		B26149761DD04F9F002370C8 /* ZucksAdNetworkSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B26149731DD04F9F002370C8 /* ZucksAdNetworkSDK.framework */; };
+		B26149771DD04F9F002370C8 /* ZucksAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = B26149751DD04F9F002370C8 /* ZucksAdapter.m */; };
 		B29555431DB84A2600FACF3D /* AdSwitcherNativeAdData.m in Sources */ = {isa = PBXBuildFile; fileRef = B29555421DB84A2600FACF3D /* AdSwitcherNativeAdData.m */; };
 		B29555461DB84EEB00FACF3D /* NativeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B29555451DB84EEB00FACF3D /* NativeViewController.m */; };
 		B2E53E121DB7B3870077850F /* AdSwitcherNativeAd.m in Sources */ = {isa = PBXBuildFile; fileRef = B2E53E111DB7B3870077850F /* AdSwitcherNativeAd.m */; };
@@ -161,6 +163,9 @@
 		B22D7F6A1D73092D00F19E56 /* AdAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdAdapter.h; sourceTree = "<group>"; };
 		B22D7F6B1D731C0B00F19E56 /* AdSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdSelector.h; sourceTree = "<group>"; };
 		B22D7F6C1D731C0B00F19E56 /* AdSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdSelector.m; sourceTree = "<group>"; };
+		B26149731DD04F9F002370C8 /* ZucksAdNetworkSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ZucksAdNetworkSDK.framework; sourceTree = "<group>"; };
+		B26149741DD04F9F002370C8 /* ZucksAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZucksAdapter.h; sourceTree = "<group>"; };
+		B26149751DD04F9F002370C8 /* ZucksAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZucksAdapter.m; sourceTree = "<group>"; };
 		B29555411DB84A2600FACF3D /* AdSwitcherNativeAdData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdSwitcherNativeAdData.h; sourceTree = "<group>"; };
 		B29555421DB84A2600FACF3D /* AdSwitcherNativeAdData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdSwitcherNativeAdData.m; sourceTree = "<group>"; };
 		B29555441DB84EEB00FACF3D /* NativeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NativeViewController.h; sourceTree = "<group>"; };
@@ -196,6 +201,7 @@
 				B229CF391DA473F900C0BD31 /* libAMoAd.a in Frameworks */,
 				B2E53E231DB7B58F0077850F /* libNendAd.a in Frameworks */,
 				B229CF3D1DA473F900C0BD31 /* FBAudienceNetwork.framework in Frameworks */,
+				B26149761DD04F9F002370C8 /* ZucksAdNetworkSDK.framework in Frameworks */,
 				B229CF3F1DA473F900C0BD31 /* FiveAd.framework in Frameworks */,
 				B229CF471DA473F900C0BD31 /* UnityAds.framework in Frameworks */,
 				B229CF421DA473F900C0BD31 /* Maio.framework in Frameworks */,
@@ -553,6 +559,7 @@
 		B22D7EE81D72BDD000F19E56 /* Adapters */ = {
 			isa = PBXGroup;
 			children = (
+				B26149711DD04F9F002370C8 /* ZucksAdapter */,
 				B229CEBB1DA473F800C0BD31 /* AdColonyAdapter */,
 				B229CEC01DA473F900C0BD31 /* AdGenerationAdapter */,
 				B229CEC51DA473F900C0BD31 /* AdMobAdapter */,
@@ -566,6 +573,24 @@
 				B229CF271DA473F900C0BD31 /* UnityAdsAdapter */,
 			);
 			path = Adapters;
+			sourceTree = "<group>";
+		};
+		B26149711DD04F9F002370C8 /* ZucksAdapter */ = {
+			isa = PBXGroup;
+			children = (
+				B26149721DD04F9F002370C8 /* Libraries */,
+				B26149741DD04F9F002370C8 /* ZucksAdapter.h */,
+				B26149751DD04F9F002370C8 /* ZucksAdapter.m */,
+			);
+			path = ZucksAdapter;
+			sourceTree = "<group>";
+		};
+		B26149721DD04F9F002370C8 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				B26149731DD04F9F002370C8 /* ZucksAdNetworkSDK.framework */,
+			);
+			path = Libraries;
 			sourceTree = "<group>";
 		};
 		B2E53E141DB7B58F0077850F /* NendAd */ = {
@@ -627,6 +652,8 @@
 				TargetAttributes = {
 					B22D7E9F1D72785B00F19E56 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = AE855DM39N;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -675,6 +702,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B22D7EE31D72797D00F19E56 /* AdSwitcherInterstitial.m in Sources */,
+				B26149771DD04F9F002370C8 /* ZucksAdapter.m in Sources */,
 				B22D7EE01D72797D00F19E56 /* AdSwitcherConfig.m in Sources */,
 				B229CF3E1DA473F900C0BD31 /* FiveAdapter.m in Sources */,
 				B229CF2E1DA473F900C0BD31 /* AdGenerationAdapter.m in Sources */,
@@ -811,6 +839,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = AE855DM39N;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -822,6 +852,9 @@
 					"$(PROJECT_DIR)/AdSwitcher/Adapters/IMobileAdapter/Libraries",
 					"$(PROJECT_DIR)/AdSwitcher/Adapters/MaioAdapter/Libraries",
 					"$(PROJECT_DIR)/AdSwitcher/Adapters/UnityAdsAdapter/Libraries",
+					"$(PROJECT_DIR)/AdSwitcher/Adapters/ZucksAdapter/Libraries",
+					"$(PROJECT_DIR)/AdSwitcher/Adapters/AdfurikunAdapter/Libraries",
+					"$(PROJECT_DIR)/AdSwitcher/Adapters/ZuksAdapter/Libraries",
 				);
 				INFOPLIST_FILE = AdSwitcher/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -841,6 +874,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = AE855DM39N;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -852,6 +887,9 @@
 					"$(PROJECT_DIR)/AdSwitcher/Adapters/IMobileAdapter/Libraries",
 					"$(PROJECT_DIR)/AdSwitcher/Adapters/MaioAdapter/Libraries",
 					"$(PROJECT_DIR)/AdSwitcher/Adapters/UnityAdsAdapter/Libraries",
+					"$(PROJECT_DIR)/AdSwitcher/Adapters/ZucksAdapter/Libraries",
+					"$(PROJECT_DIR)/AdSwitcher/Adapters/AdfurikunAdapter/Libraries",
+					"$(PROJECT_DIR)/AdSwitcher/Adapters/ZuksAdapter/Libraries",
 				);
 				INFOPLIST_FILE = AdSwitcher/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

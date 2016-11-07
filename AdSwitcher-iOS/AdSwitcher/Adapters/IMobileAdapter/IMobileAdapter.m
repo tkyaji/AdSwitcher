@@ -13,7 +13,6 @@
     UIViewController *_viewController;
     BannerAdSize _adSize;
     UIView *_adView;
-    BOOL _isLoaded;
 }
 
 @synthesize bannerAdDelegate;

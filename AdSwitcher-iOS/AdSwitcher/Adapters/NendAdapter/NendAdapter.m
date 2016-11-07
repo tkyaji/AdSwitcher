@@ -13,6 +13,7 @@
     NADView *_nadView;
     NSString *_apiKey;
     NSString *_spotId;
+    BOOL _testMode;
 }
 
 @synthesize bannerAdDelegate;
@@ -26,6 +27,7 @@
     _spotId = [parameters objectForKey:@"spot_id"];
     _DLOG(@"apiKey:%@, spotId:%@", _apiKey, _spotId);
     
+    _testMode = testMode;
     if (testMode) {
         switch (adSize) {
             case BannerAdSize_320x50:
@@ -47,14 +49,11 @@
 }
 
 - (void)bannerAdLoad {
+    _DLOG();
     _nadView = [NADView new];
     [_nadView setNendID:_apiKey spotID:_spotId];
     [_nadView setDelegate:self];
-#ifdef DEBUG
-    [_nadView setIsOutputLog:YES];
-#else
-    [_nadView setIsOutputLog:NO];
-#endif
+    [_nadView setIsOutputLog:_testMode];
     [_nadView load];
 }
 
@@ -86,11 +85,7 @@
     
     [NADInterstitial sharedInstance].enableAutoReload = NO;
     [NADInterstitial sharedInstance].delegate = self;
-#ifdef DEBUG
-    [NADInterstitial sharedInstance].isOutputLog = YES;
-#else
-    [NADInterstitial sharedInstance].isOutputLog = NO;
-#endif
+    [NADInterstitial sharedInstance].isOutputLog = testMode;
 }
 
 - (void)interstitialAdLoad {
@@ -152,6 +147,5 @@
     }
     [self.interstitialAdDelegate interstitialAdClosed:self result:YES isSkipped:NO];
 }
-
 
 @end

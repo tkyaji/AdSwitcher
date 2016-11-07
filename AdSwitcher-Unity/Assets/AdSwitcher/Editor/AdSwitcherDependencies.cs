@@ -1,35 +1,39 @@
-﻿using Google.JarResolver;
+﻿using System;
+using System.Collections.Generic;
 using UnityEditor;
 
-/// <summary>
-/// Sample dependencies file.  Copy this to a different name specific to your
-/// plugin and add the Google Play Services and Android Support components that
-/// your plugin depends on.
-/// </summary>
 [InitializeOnLoad]
-public static class AdSwitcherDependencies {
-	/// <summary>
-	/// The name of your plugin.  This is used to create a settings file
-	/// which contains the dependencies specific to your plugin.
-	/// </summary>
+public class SampleDependencies : AssetPostprocessor {
+	public static object svcSupport;
 
-	private static readonly string PluginName = "AdSwitcher";
-	public static PlayServicesSupport svcSupport;
-
-	/// <summary>
-	/// Initializes static members of the <see cref="AdSwitcherDependencies"/> class.
-	/// </summary>
-	static AdSwitcherDependencies() {
-
-		svcSupport = PlayServicesSupport.CreateInstance(
-			PluginName,
-			EditorPrefs.GetString("AndroidSdkRoot"),
-			"ProjectSettings");
-		
+	static SampleDependencies() {
 		RegisterDependencies();
 	}
 
 	public static void RegisterDependencies() {
-		svcSupport.DependOn("com.google.android.gms", "play-services-ads", "+");
+		RegisterAndroidDependencies();
+	}
+
+	public static void RegisterAndroidDependencies() {
+		Type playServicesSupport =
+			Google.VersionHandler.FindClass("Google.JarResolver", "Google.JarResolver.PlayServicesSupport");
+		
+		if (playServicesSupport == null) {
+			return;
+		}
+		svcSupport = svcSupport ?? Google.VersionHandler.InvokeStaticMethod(
+			playServicesSupport, "CreateInstance",
+			new object[] {
+				"GooglePlayGames",
+				EditorPrefs.GetString("AndroidSdkRoot"),
+				"ProjectSettings"
+			});
+
+		Google.VersionHandler.InvokeInstanceMethod(
+			svcSupport, "DependOn",
+			new object[] { "com.google.android.gms", "play-services-ads", "+" },
+			namedArgs: new Dictionary<string, object>() {
+				{ "packageIds", new string[] { "extra-google-m2repository" } }
+			});
 	}
 }

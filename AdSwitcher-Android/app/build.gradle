@@ -29,8 +29,6 @@ dependencies {
     compile 'com.google.android.gms:play-services-ads:+'
     compile 'com.android.support:appcompat-v7:+'
     compile project(':adswitcher')
-
-    /*
     compile project(':adcolony-adapter')
     compile project(':admob-adapter')
     compile project(':adgeneration-adapter')
@@ -43,8 +41,9 @@ dependencies {
     compile project(':facebook-adapter')
     compile project(':unityads-adapter')
     compile project(':imobile-adapter')
+    compile project(':admob-adapter')
+    compile project(':zucks-adapter')
 
     compile 'com.facebook.android:audience-network-sdk:4.13.0'
     compile project(':unity-ads')
-    */
 }
