@@ -32,3 +32,4 @@
 | [AppLovin](https://www.applovin.com/) |  |  |  | ◯ | 動画 | 
 | [Maio](https://maio.jp/) |  |  |  | ◯ | 動画 | 
 | [AdColony](http://video-ad.glossom.jp/) |  |  |  | ◯ | 動画 | 
+| [Zucks](https://zucks.co.jp/) | ◯ | ◯ | ◯ | ◯ | | 
