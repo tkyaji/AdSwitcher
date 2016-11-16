@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿#if UNITY_ANDROID && UNITY_EDITOR
+
 using UnityEditor;
+using Google.JarResolver;
 
 [InitializeOnLoad]
-public class SampleDependencies : AssetPostprocessor {
-	public static object svcSupport;
+public class AdSwitcherDependencies : AssetPostprocessor {
+	public static PlayServicesSupport svcSupport;
 
-	static SampleDependencies() {
+	static AdSwitcherDependencies() {
 		RegisterDependencies();
 	}
 
@@ -15,25 +16,11 @@ public class SampleDependencies : AssetPostprocessor {
 	}
 
 	public static void RegisterAndroidDependencies() {
-		Type playServicesSupport =
-			Google.VersionHandler.FindClass("Google.JarResolver", "Google.JarResolver.PlayServicesSupport");
-		
-		if (playServicesSupport == null) {
-			return;
-		}
-		svcSupport = svcSupport ?? Google.VersionHandler.InvokeStaticMethod(
-			playServicesSupport, "CreateInstance",
-			new object[] {
-				"GooglePlayGames",
-				EditorPrefs.GetString("AndroidSdkRoot"),
-				"ProjectSettings"
-			});
-
-		Google.VersionHandler.InvokeInstanceMethod(
-			svcSupport, "DependOn",
-			new object[] { "com.google.android.gms", "play-services-ads", "+" },
-			namedArgs: new Dictionary<string, object>() {
-				{ "packageIds", new string[] { "extra-google-m2repository" } }
-			});
+		svcSupport = PlayServicesSupport.CreateInstance("AdSwitcher",
+												EditorPrefs.GetString("AndroidSdkRoot"),
+														"ProjectSettings");
+		svcSupport.DependOn("com.google.android.gms", "play-services-ads", "+");
 	}
 }
+
+#endif
