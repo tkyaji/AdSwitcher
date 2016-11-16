@@ -15,16 +15,17 @@ import net.adswitcher.config.AdSwitcherConfigLoader;
 public class InterstitialFragment extends Fragment {
 
     private Activity activity;
+    private static AdSwitcherInterstitial interstitial;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+        super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.fragment_interstitial, container, false);
 
-        AdSwitcherConfigLoader configLoader = AdSwitcherConfigLoader.getInstance();
-
-        final AdSwitcherInterstitial interstitial = new AdSwitcherInterstitial(this.activity, configLoader, "interstitial", true);
+        if (interstitial == null) {
+            interstitial = new AdSwitcherInterstitial(this.activity, AdSwitcherConfigLoader.getInstance(), "interstitial", true);
+        }
 
         view.findViewById(R.id.button_showInterstitial).setOnClickListener(new View.OnClickListener() {
             @Override

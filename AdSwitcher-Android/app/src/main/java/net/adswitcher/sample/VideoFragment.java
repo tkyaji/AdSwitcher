@@ -15,16 +15,17 @@ import net.adswitcher.config.AdSwitcherConfigLoader;
 public class VideoFragment extends Fragment {
 
     private Activity activity;
+    private static AdSwitcherInterstitial video;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+        super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.fragment_video, container, false);
 
-        AdSwitcherConfigLoader configLoader = AdSwitcherConfigLoader.getInstance();
-
-        final AdSwitcherInterstitial video = new AdSwitcherInterstitial(this.activity, configLoader, "video", true);
+        if (video == null) {
+            video = new AdSwitcherInterstitial(this.activity, AdSwitcherConfigLoader.getInstance(), "video", true);
+        }
 
         view.findViewById(R.id.button_showVideo).setOnClickListener(new View.OnClickListener() {
             @Override

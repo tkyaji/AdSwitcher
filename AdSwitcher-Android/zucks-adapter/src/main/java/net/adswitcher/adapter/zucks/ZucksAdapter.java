@@ -40,7 +40,17 @@ public class ZucksAdapter implements BannerAdAdapter, InterstitialAdAdapter {
         Log.d(TAG, "bannerAdInitialize : frame_id=" + this.frameId);
 
         if (testMode) {
-            this.frameId = "_833b45aa06";
+            switch (adSize) {
+                case SIZE_320X50:
+                    this.frameId = "_833b45aa06";
+                    break;
+                case SIZE_320X100:
+                    this.frameId = "_4e2f9df1a5";
+                    break;
+                case SIZE_300X250:
+                    this.frameId = "_503e98aad1";
+                    break;
+            }
         }
     }
 

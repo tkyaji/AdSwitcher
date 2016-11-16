@@ -23,5 +23,5 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile project(':adswitcher')
     compile 'com.android.support:appcompat-v7:+'
-    compile 'com.google.android.gms:play-services-ads:9.4.0'
+    compile 'com.google.android.gms:play-services-ads:+'
 }

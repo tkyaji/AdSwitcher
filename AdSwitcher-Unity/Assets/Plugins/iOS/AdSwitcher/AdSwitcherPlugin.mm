@@ -431,6 +431,9 @@ extern "C" {
     
     const char *_AdSwitcherNativeAd_getAdDataProperty(AdSwitcherNativeAdData *nativeAdData, const char *propertyName) {
         NSString *property = [nativeAdData valueForKey:[NSString stringWithUTF8String:propertyName]];
+        if (!property) {
+            return nil;
+        }
         return __copyString(property);
     }
     

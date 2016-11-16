@@ -45,7 +45,8 @@ public class AdSwitcherInterstitial implements InterstitialAdListener {
     }
 
     public AdSwitcherInterstitial(final Activity activity, final AdSwitcherConfig adSwitcherConfig, boolean testMode) {
-        this.initialize(activity, adSwitcherConfig, testMode);
+        this.activity = activity;
+        this.initialize(adSwitcherConfig, testMode);
     }
 
     public AdSwitcherInterstitial(Activity activity, AdSwitcherConfigLoader configLoader, String category) {
@@ -53,6 +54,7 @@ public class AdSwitcherInterstitial implements InterstitialAdListener {
     }
 
     public AdSwitcherInterstitial(final Activity activity, final AdSwitcherConfigLoader configLoader, final String category, final boolean testMode) {
+        this.activity = activity;
         configLoader.addConfigLoadedHandler(new AdSwitcherConfigLoader.ConfigLoadHandler() {
             @Override
             public void onLoaded() {
@@ -60,7 +62,7 @@ public class AdSwitcherInterstitial implements InterstitialAdListener {
                 activity.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        AdSwitcherInterstitial.this.initialize(activity, adSwitcherConfig, testMode);
+                        AdSwitcherInterstitial.this.initialize(adSwitcherConfig, testMode);
                     }
                 });
             }
@@ -69,6 +71,9 @@ public class AdSwitcherInterstitial implements InterstitialAdListener {
     }
 
     public void show() {
+        if (adSwitcherConfig == null) {
+            return;
+        }
         Log.d(TAG, "show : interval=" + showCalledCount + "/" + this.adSwitcherConfig.interval);
 
         if (++showCalledCount < this.adSwitcherConfig.interval) {
@@ -214,10 +219,9 @@ public class AdSwitcherInterstitial implements InterstitialAdListener {
     }
 
 
-    private void initialize(Activity activity, AdSwitcherConfig adSwitcherConfig, boolean testMode) {
+    private void initialize(AdSwitcherConfig adSwitcherConfig, boolean testMode) {
         Log.d(TAG, "testMode=" + testMode);
 
-        this.activity = activity;
         this.adSwitcherConfig = adSwitcherConfig;
         this.testMode = testMode;
 

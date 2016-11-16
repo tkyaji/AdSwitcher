@@ -109,6 +109,9 @@ public class AdSwitcherInterstitial {
 		canvas.renderMode = RenderMode.ScreenSpaceOverlay;
 		canvas.sortingOrder = 101;
 		canvasGO.AddComponent<GraphicRaycaster>();
+		var canvasScaler = canvasGO.AddComponent<CanvasScaler>();
+		canvasScaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
+		canvasScaler.referenceResolution = new Vector2(320f, 568f);
 
 		var imageGO = new GameObject("~AdSwitcherInterstitial_Image");
 		var rawImage = imageGO.AddComponent<RawImage>();

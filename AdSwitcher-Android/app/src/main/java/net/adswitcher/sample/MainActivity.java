@@ -3,6 +3,7 @@ package net.adswitcher.sample;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTabHost;
+import android.util.Log;
 import android.widget.TabHost;
 
 import java.io.BufferedReader;
@@ -77,4 +78,5 @@ public class MainActivity extends FragmentActivity {
         }
         return null;
     }
+
 }

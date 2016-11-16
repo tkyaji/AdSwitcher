@@ -10,6 +10,8 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/adcolony-adapter" />
+            <option value="$PROJECT_DIR$/adfurikun-adapter" />
+            <option value="$PROJECT_DIR$/adfurikunvideo-adapter" />
             <option value="$PROJECT_DIR$/adgeneration-adapter" />
             <option value="$PROJECT_DIR$/admob-adapter" />
             <option value="$PROJECT_DIR$/adswitcher" />
@@ -21,6 +23,7 @@
             <option value="$PROJECT_DIR$/imobile-adapter" />
             <option value="$PROJECT_DIR$/maio-adapter" />
             <option value="$PROJECT_DIR$/nend-adapter" />
+            <option value="$PROJECT_DIR$/tapjoy-adapter" />
             <option value="$PROJECT_DIR$/unity-ads" />
             <option value="$PROJECT_DIR$/unityads-adapter" />
             <option value="$PROJECT_DIR$/zucks-adapter" />

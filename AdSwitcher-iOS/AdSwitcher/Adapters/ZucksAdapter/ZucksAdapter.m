@@ -26,7 +26,17 @@
     _DLOG(@"frame_id=%@", _frameId);
     
     if (testMode) {
-        _frameId = @"_1d8ba78682";
+        switch (adSize) {
+            case BannerAdSize_320x50:
+                _frameId = @"_1d8ba78682";
+                break;
+            case BannerAdSize_320x100:
+                _frameId = @"_4b551951af";
+                break;
+            case BannerAdSize_300x250:
+                _frameId = @"_4089f6355b";
+                break;
+        }
     }
     
     _frame = [self toRect:adSize];

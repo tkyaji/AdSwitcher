@@ -23,7 +23,6 @@
 		B229CF381DA473F900C0BD31 /* amoad_panel_l.png in Resources */ = {isa = PBXBuildFile; fileRef = B229CED41DA473F900C0BD31 /* amoad_panel_l.png */; };
 		B229CF391DA473F900C0BD31 /* libAMoAd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B229CEDF1DA473F900C0BD31 /* libAMoAd.a */; };
 		B229CF3A1DA473F900C0BD31 /* AppLovinAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = B229CEE21DA473F900C0BD31 /* AppLovinAdapter.m */; };
-		B229CF3B1DA473F900C0BD31 /* libAppLovinSdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B229CEFF1DA473F900C0BD31 /* libAppLovinSdk.a */; };
 		B229CF3C1DA473F900C0BD31 /* FacebookAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = B229CF021DA473F900C0BD31 /* FacebookAdapter.m */; };
 		B229CF3D1DA473F900C0BD31 /* FBAudienceNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B229CF041DA473F900C0BD31 /* FBAudienceNetwork.framework */; };
 		B229CF3E1DA473F900C0BD31 /* FiveAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = B229CF071DA473F900C0BD31 /* FiveAdapter.m */; };
@@ -48,6 +47,9 @@
 		B22D7EE31D72797D00F19E56 /* AdSwitcherInterstitial.m in Sources */ = {isa = PBXBuildFile; fileRef = B22D7EDA1D72797D00F19E56 /* AdSwitcherInterstitial.m */; };
 		B22D7F661D73059500F19E56 /* AdSwitcherBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = B22D7F651D73059500F19E56 /* AdSwitcherBannerView.m */; };
 		B22D7F6D1D731C0B00F19E56 /* AdSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = B22D7F6C1D731C0B00F19E56 /* AdSelector.m */; };
+		B22DB7031DD952E20095B74D /* TapjoyResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B22DB7011DD952E20095B74D /* TapjoyResources.bundle */; };
+		B22DB7041DD952E20095B74D /* Tapjoy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B22DB7021DD952E20095B74D /* Tapjoy.framework */; };
+		B22DB7071DD952EE0095B74D /* TapjoyAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = B22DB7061DD952EE0095B74D /* TapjoyAdapter.m */; };
 		B26149761DD04F9F002370C8 /* ZucksAdNetworkSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B26149731DD04F9F002370C8 /* ZucksAdNetworkSDK.framework */; };
 		B26149771DD04F9F002370C8 /* ZucksAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = B26149751DD04F9F002370C8 /* ZucksAdapter.m */; };
 		B29555431DB84A2600FACF3D /* AdSwitcherNativeAdData.m in Sources */ = {isa = PBXBuildFile; fileRef = B29555421DB84A2600FACF3D /* AdSwitcherNativeAdData.m */; };
@@ -56,6 +58,15 @@
 		B2E53E231DB7B58F0077850F /* libNendAd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B2E53E151DB7B58F0077850F /* libNendAd.a */; };
 		B2E53E241DB7B58F0077850F /* NADView_readme.txt in Resources */ = {isa = PBXBuildFile; fileRef = B2E53E211DB7B58F0077850F /* NADView_readme.txt */; };
 		B2E53E271DB7BA3F0077850F /* libz.1.2.8.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B2E53E261DB7BA3F0077850F /* libz.1.2.8.tbd */; };
+		B2F751411DD54623003591D2 /* AdfurikunAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = B2F7513F1DD54623003591D2 /* AdfurikunAdapter.m */; };
+		B2F751431DD54641003591D2 /* adfurikunsdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2F751421DD54641003591D2 /* adfurikunsdk.framework */; };
+		B2F751471DD57513003591D2 /* AdfurikunVideoAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = B2F751461DD57513003591D2 /* AdfurikunVideoAdapter.m */; };
+		B2F751A01DD575B3003591D2 /* ADFMovieReward.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2F7514A1DD575B3003591D2 /* ADFMovieReward.framework */; };
+		B2F751C91DD575B3003591D2 /* MovieInterstitial6000.m in Sources */ = {isa = PBXBuildFile; fileRef = B2F751971DD575B3003591D2 /* MovieInterstitial6000.m */; };
+		B2F751CA1DD575B3003591D2 /* MovieReward6000.m in Sources */ = {isa = PBXBuildFile; fileRef = B2F751991DD575B3003591D2 /* MovieReward6000.m */; };
+		B2F751CC1DD575B3003591D2 /* MovieInterstitial6004.m in Sources */ = {isa = PBXBuildFile; fileRef = B2F7519D1DD575B3003591D2 /* MovieInterstitial6004.m */; };
+		B2F751CD1DD575B3003591D2 /* MovieReward6004.m in Sources */ = {isa = PBXBuildFile; fileRef = B2F7519F1DD575B3003591D2 /* MovieReward6004.m */; };
+		B2F751EB1DD57BCF003591D2 /* libAppLovinSdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B2F751EA1DD57BCF003591D2 /* libAppLovinSdk.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -92,33 +103,6 @@
 		B229CEDF1DA473F900C0BD31 /* libAMoAd.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAMoAd.a; sourceTree = "<group>"; };
 		B229CEE11DA473F900C0BD31 /* AppLovinAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppLovinAdapter.h; sourceTree = "<group>"; };
 		B229CEE21DA473F900C0BD31 /* AppLovinAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppLovinAdapter.m; sourceTree = "<group>"; };
-		B229CEE51DA473F900C0BD31 /* ALAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALAd.h; sourceTree = "<group>"; };
-		B229CEE61DA473F900C0BD31 /* ALAdDisplayDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALAdDisplayDelegate.h; sourceTree = "<group>"; };
-		B229CEE71DA473F900C0BD31 /* ALAdLoadDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALAdLoadDelegate.h; sourceTree = "<group>"; };
-		B229CEE81DA473F900C0BD31 /* ALAdRewardDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALAdRewardDelegate.h; sourceTree = "<group>"; };
-		B229CEE91DA473F900C0BD31 /* ALAdService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALAdService.h; sourceTree = "<group>"; };
-		B229CEEA1DA473F900C0BD31 /* ALAdSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALAdSize.h; sourceTree = "<group>"; };
-		B229CEEB1DA473F900C0BD31 /* ALAdType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALAdType.h; sourceTree = "<group>"; };
-		B229CEEC1DA473F900C0BD31 /* ALAdUpdateDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALAdUpdateDelegate.h; sourceTree = "<group>"; };
-		B229CEED1DA473F900C0BD31 /* ALAdVideoPlaybackDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALAdVideoPlaybackDelegate.h; sourceTree = "<group>"; };
-		B229CEEE1DA473F900C0BD31 /* ALAdView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALAdView.h; sourceTree = "<group>"; };
-		B229CEEF1DA473F900C0BD31 /* ALAnnotations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALAnnotations.h; sourceTree = "<group>"; };
-		B229CEF01DA473F900C0BD31 /* ALErrorCodes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALErrorCodes.h; sourceTree = "<group>"; };
-		B229CEF11DA473F900C0BD31 /* ALEventService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALEventService.h; sourceTree = "<group>"; };
-		B229CEF21DA473F900C0BD31 /* ALEventTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALEventTypes.h; sourceTree = "<group>"; };
-		B229CEF31DA473F900C0BD31 /* ALIncentivizedInterstitialAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALIncentivizedInterstitialAd.h; sourceTree = "<group>"; };
-		B229CEF41DA473F900C0BD31 /* ALInterstitialAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALInterstitialAd.h; sourceTree = "<group>"; };
-		B229CEF51DA473F900C0BD31 /* ALNativeAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALNativeAd.h; sourceTree = "<group>"; };
-		B229CEF61DA473F900C0BD31 /* ALNativeAdLoadDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALNativeAdLoadDelegate.h; sourceTree = "<group>"; };
-		B229CEF71DA473F900C0BD31 /* ALNativeAdPrecacheDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALNativeAdPrecacheDelegate.h; sourceTree = "<group>"; };
-		B229CEF81DA473F900C0BD31 /* ALNativeAdService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALNativeAdService.h; sourceTree = "<group>"; };
-		B229CEF91DA473F900C0BD31 /* ALPostbackDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALPostbackDelegate.h; sourceTree = "<group>"; };
-		B229CEFA1DA473F900C0BD31 /* ALPostbackService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALPostbackService.h; sourceTree = "<group>"; };
-		B229CEFB1DA473F900C0BD31 /* ALSdk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALSdk.h; sourceTree = "<group>"; };
-		B229CEFC1DA473F900C0BD31 /* ALSdkSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALSdkSettings.h; sourceTree = "<group>"; };
-		B229CEFD1DA473F900C0BD31 /* ALSwiftHeaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALSwiftHeaders.h; sourceTree = "<group>"; };
-		B229CEFE1DA473F900C0BD31 /* ALTargetingData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALTargetingData.h; sourceTree = "<group>"; };
-		B229CEFF1DA473F900C0BD31 /* libAppLovinSdk.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAppLovinSdk.a; sourceTree = "<group>"; };
 		B229CF011DA473F900C0BD31 /* FacebookAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookAdapter.h; sourceTree = "<group>"; };
 		B229CF021DA473F900C0BD31 /* FacebookAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookAdapter.m; sourceTree = "<group>"; };
 		B229CF041DA473F900C0BD31 /* FBAudienceNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBAudienceNetwork.framework; sourceTree = "<group>"; };
@@ -163,6 +147,10 @@
 		B22D7F6A1D73092D00F19E56 /* AdAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdAdapter.h; sourceTree = "<group>"; };
 		B22D7F6B1D731C0B00F19E56 /* AdSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdSelector.h; sourceTree = "<group>"; };
 		B22D7F6C1D731C0B00F19E56 /* AdSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdSelector.m; sourceTree = "<group>"; };
+		B22DB7011DD952E20095B74D /* TapjoyResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TapjoyResources.bundle; sourceTree = "<group>"; };
+		B22DB7021DD952E20095B74D /* Tapjoy.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Tapjoy.framework; sourceTree = "<group>"; };
+		B22DB7051DD952EE0095B74D /* TapjoyAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TapjoyAdapter.h; sourceTree = "<group>"; };
+		B22DB7061DD952EE0095B74D /* TapjoyAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TapjoyAdapter.m; sourceTree = "<group>"; };
 		B26149731DD04F9F002370C8 /* ZucksAdNetworkSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ZucksAdNetworkSDK.framework; sourceTree = "<group>"; };
 		B26149741DD04F9F002370C8 /* ZucksAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZucksAdapter.h; sourceTree = "<group>"; };
 		B26149751DD04F9F002370C8 /* ZucksAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZucksAdapter.m; sourceTree = "<group>"; };
@@ -188,6 +176,47 @@
 		B2E53E211DB7B58F0077850F /* NADView_readme.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = NADView_readme.txt; sourceTree = "<group>"; };
 		B2E53E221DB7B58F0077850F /* NendAd-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NendAd-Bridging-Header.h"; sourceTree = "<group>"; };
 		B2E53E261DB7BA3F0077850F /* libz.1.2.8.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.2.8.tbd; path = usr/lib/libz.1.2.8.tbd; sourceTree = SDKROOT; };
+		B2F7513E1DD54623003591D2 /* AdfurikunAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdfurikunAdapter.h; sourceTree = "<group>"; };
+		B2F7513F1DD54623003591D2 /* AdfurikunAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdfurikunAdapter.m; sourceTree = "<group>"; };
+		B2F751421DD54641003591D2 /* adfurikunsdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = adfurikunsdk.framework; sourceTree = "<group>"; };
+		B2F751451DD57513003591D2 /* AdfurikunVideoAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AdfurikunVideoAdapter.h; path = AdfurikunVideoAdapter/AdfurikunVideoAdapter.h; sourceTree = "<group>"; };
+		B2F751461DD57513003591D2 /* AdfurikunVideoAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AdfurikunVideoAdapter.m; path = AdfurikunVideoAdapter/AdfurikunVideoAdapter.m; sourceTree = "<group>"; };
+		B2F7514A1DD575B3003591D2 /* ADFMovieReward.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ADFMovieReward.framework; sourceTree = "<group>"; };
+		B2F751961DD575B3003591D2 /* MovieInterstitial6000.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieInterstitial6000.h; sourceTree = "<group>"; };
+		B2F751971DD575B3003591D2 /* MovieInterstitial6000.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieInterstitial6000.m; sourceTree = "<group>"; };
+		B2F751981DD575B3003591D2 /* MovieReward6000.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieReward6000.h; sourceTree = "<group>"; };
+		B2F751991DD575B3003591D2 /* MovieReward6000.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieReward6000.m; sourceTree = "<group>"; };
+		B2F7519C1DD575B3003591D2 /* MovieInterstitial6004.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieInterstitial6004.h; sourceTree = "<group>"; };
+		B2F7519D1DD575B3003591D2 /* MovieInterstitial6004.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieInterstitial6004.m; sourceTree = "<group>"; };
+		B2F7519E1DD575B3003591D2 /* MovieReward6004.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieReward6004.h; sourceTree = "<group>"; };
+		B2F7519F1DD575B3003591D2 /* MovieReward6004.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieReward6004.m; sourceTree = "<group>"; };
+		B2F751D01DD57BCF003591D2 /* ALAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALAd.h; sourceTree = "<group>"; };
+		B2F751D11DD57BCF003591D2 /* ALAdDisplayDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALAdDisplayDelegate.h; sourceTree = "<group>"; };
+		B2F751D21DD57BCF003591D2 /* ALAdLoadDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALAdLoadDelegate.h; sourceTree = "<group>"; };
+		B2F751D31DD57BCF003591D2 /* ALAdRewardDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALAdRewardDelegate.h; sourceTree = "<group>"; };
+		B2F751D41DD57BCF003591D2 /* ALAdService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALAdService.h; sourceTree = "<group>"; };
+		B2F751D51DD57BCF003591D2 /* ALAdSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALAdSize.h; sourceTree = "<group>"; };
+		B2F751D61DD57BCF003591D2 /* ALAdType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALAdType.h; sourceTree = "<group>"; };
+		B2F751D71DD57BCF003591D2 /* ALAdUpdateDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALAdUpdateDelegate.h; sourceTree = "<group>"; };
+		B2F751D81DD57BCF003591D2 /* ALAdVideoPlaybackDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALAdVideoPlaybackDelegate.h; sourceTree = "<group>"; };
+		B2F751D91DD57BCF003591D2 /* ALAdView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALAdView.h; sourceTree = "<group>"; };
+		B2F751DA1DD57BCF003591D2 /* ALAnnotations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALAnnotations.h; sourceTree = "<group>"; };
+		B2F751DB1DD57BCF003591D2 /* ALErrorCodes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALErrorCodes.h; sourceTree = "<group>"; };
+		B2F751DC1DD57BCF003591D2 /* ALEventService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALEventService.h; sourceTree = "<group>"; };
+		B2F751DD1DD57BCF003591D2 /* ALEventTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALEventTypes.h; sourceTree = "<group>"; };
+		B2F751DE1DD57BCF003591D2 /* ALIncentivizedInterstitialAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALIncentivizedInterstitialAd.h; sourceTree = "<group>"; };
+		B2F751DF1DD57BCF003591D2 /* ALInterstitialAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALInterstitialAd.h; sourceTree = "<group>"; };
+		B2F751E01DD57BCF003591D2 /* ALNativeAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALNativeAd.h; sourceTree = "<group>"; };
+		B2F751E11DD57BCF003591D2 /* ALNativeAdLoadDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALNativeAdLoadDelegate.h; sourceTree = "<group>"; };
+		B2F751E21DD57BCF003591D2 /* ALNativeAdPrecacheDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALNativeAdPrecacheDelegate.h; sourceTree = "<group>"; };
+		B2F751E31DD57BCF003591D2 /* ALNativeAdService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALNativeAdService.h; sourceTree = "<group>"; };
+		B2F751E41DD57BCF003591D2 /* ALPostbackDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALPostbackDelegate.h; sourceTree = "<group>"; };
+		B2F751E51DD57BCF003591D2 /* ALPostbackService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALPostbackService.h; sourceTree = "<group>"; };
+		B2F751E61DD57BCF003591D2 /* ALSdk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALSdk.h; sourceTree = "<group>"; };
+		B2F751E71DD57BCF003591D2 /* ALSdkSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALSdkSettings.h; sourceTree = "<group>"; };
+		B2F751E81DD57BCF003591D2 /* ALSwiftHeaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALSwiftHeaders.h; sourceTree = "<group>"; };
+		B2F751E91DD57BCF003591D2 /* ALTargetingData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALTargetingData.h; sourceTree = "<group>"; };
+		B2F751EA1DD57BCF003591D2 /* libAppLovinSdk.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAppLovinSdk.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,19 +224,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B22DB7041DD952E20095B74D /* Tapjoy.framework in Frameworks */,
 				B2E53E271DB7BA3F0077850F /* libz.1.2.8.tbd in Frameworks */,
 				B229CF311DA473F900C0BD31 /* GoogleMobileAds.framework in Frameworks */,
 				B229CF2D1DA473F900C0BD31 /* AdColony.framework in Frameworks */,
+				B2F751A01DD575B3003591D2 /* ADFMovieReward.framework in Frameworks */,
 				B229CF391DA473F900C0BD31 /* libAMoAd.a in Frameworks */,
 				B2E53E231DB7B58F0077850F /* libNendAd.a in Frameworks */,
+				B2F751431DD54641003591D2 /* adfurikunsdk.framework in Frameworks */,
 				B229CF3D1DA473F900C0BD31 /* FBAudienceNetwork.framework in Frameworks */,
 				B26149761DD04F9F002370C8 /* ZucksAdNetworkSDK.framework in Frameworks */,
+				B2F751EB1DD57BCF003591D2 /* libAppLovinSdk.a in Frameworks */,
 				B229CF3F1DA473F900C0BD31 /* FiveAd.framework in Frameworks */,
 				B229CF471DA473F900C0BD31 /* UnityAds.framework in Frameworks */,
 				B229CF421DA473F900C0BD31 /* Maio.framework in Frameworks */,
 				B229CF2F1DA473F900C0BD31 /* ADG.framework in Frameworks */,
 				B229CF411DA473F900C0BD31 /* ImobileSdkAds.framework in Frameworks */,
-				B229CF3B1DA473F900C0BD31 /* libAppLovinSdk.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,53 +338,11 @@
 		B229CEE01DA473F900C0BD31 /* AppLovinAdapter */ = {
 			isa = PBXGroup;
 			children = (
+				B2F751CE1DD57BCF003591D2 /* Libraries */,
 				B229CEE11DA473F900C0BD31 /* AppLovinAdapter.h */,
 				B229CEE21DA473F900C0BD31 /* AppLovinAdapter.m */,
-				B229CEE31DA473F900C0BD31 /* Libraries */,
 			);
 			path = AppLovinAdapter;
-			sourceTree = "<group>";
-		};
-		B229CEE31DA473F900C0BD31 /* Libraries */ = {
-			isa = PBXGroup;
-			children = (
-				B229CEE41DA473F900C0BD31 /* headers */,
-				B229CEFF1DA473F900C0BD31 /* libAppLovinSdk.a */,
-			);
-			path = Libraries;
-			sourceTree = "<group>";
-		};
-		B229CEE41DA473F900C0BD31 /* headers */ = {
-			isa = PBXGroup;
-			children = (
-				B229CEE51DA473F900C0BD31 /* ALAd.h */,
-				B229CEE61DA473F900C0BD31 /* ALAdDisplayDelegate.h */,
-				B229CEE71DA473F900C0BD31 /* ALAdLoadDelegate.h */,
-				B229CEE81DA473F900C0BD31 /* ALAdRewardDelegate.h */,
-				B229CEE91DA473F900C0BD31 /* ALAdService.h */,
-				B229CEEA1DA473F900C0BD31 /* ALAdSize.h */,
-				B229CEEB1DA473F900C0BD31 /* ALAdType.h */,
-				B229CEEC1DA473F900C0BD31 /* ALAdUpdateDelegate.h */,
-				B229CEED1DA473F900C0BD31 /* ALAdVideoPlaybackDelegate.h */,
-				B229CEEE1DA473F900C0BD31 /* ALAdView.h */,
-				B229CEEF1DA473F900C0BD31 /* ALAnnotations.h */,
-				B229CEF01DA473F900C0BD31 /* ALErrorCodes.h */,
-				B229CEF11DA473F900C0BD31 /* ALEventService.h */,
-				B229CEF21DA473F900C0BD31 /* ALEventTypes.h */,
-				B229CEF31DA473F900C0BD31 /* ALIncentivizedInterstitialAd.h */,
-				B229CEF41DA473F900C0BD31 /* ALInterstitialAd.h */,
-				B229CEF51DA473F900C0BD31 /* ALNativeAd.h */,
-				B229CEF61DA473F900C0BD31 /* ALNativeAdLoadDelegate.h */,
-				B229CEF71DA473F900C0BD31 /* ALNativeAdPrecacheDelegate.h */,
-				B229CEF81DA473F900C0BD31 /* ALNativeAdService.h */,
-				B229CEF91DA473F900C0BD31 /* ALPostbackDelegate.h */,
-				B229CEFA1DA473F900C0BD31 /* ALPostbackService.h */,
-				B229CEFB1DA473F900C0BD31 /* ALSdk.h */,
-				B229CEFC1DA473F900C0BD31 /* ALSdkSettings.h */,
-				B229CEFD1DA473F900C0BD31 /* ALSwiftHeaders.h */,
-				B229CEFE1DA473F900C0BD31 /* ALTargetingData.h */,
-			);
-			path = headers;
 			sourceTree = "<group>";
 		};
 		B229CF001DA473F900C0BD31 /* FacebookAdapter */ = {
@@ -559,6 +549,9 @@
 		B22D7EE81D72BDD000F19E56 /* Adapters */ = {
 			isa = PBXGroup;
 			children = (
+				B22DB6FD1DD952E20095B74D /* TapjoyAdapter */,
+				B2F751441DD574F0003591D2 /* AdfurikunVideoAdapter */,
+				B2F7513D1DD54623003591D2 /* AdfurikunAdapter */,
 				B26149711DD04F9F002370C8 /* ZucksAdapter */,
 				B229CEBB1DA473F800C0BD31 /* AdColonyAdapter */,
 				B229CEC01DA473F900C0BD31 /* AdGenerationAdapter */,
@@ -573,6 +566,41 @@
 				B229CF271DA473F900C0BD31 /* UnityAdsAdapter */,
 			);
 			path = Adapters;
+			sourceTree = "<group>";
+		};
+		B22DB6FD1DD952E20095B74D /* TapjoyAdapter */ = {
+			isa = PBXGroup;
+			children = (
+				B22DB6FE1DD952E20095B74D /* Libraries */,
+				B22DB7051DD952EE0095B74D /* TapjoyAdapter.h */,
+				B22DB7061DD952EE0095B74D /* TapjoyAdapter.m */,
+			);
+			path = TapjoyAdapter;
+			sourceTree = "<group>";
+		};
+		B22DB6FE1DD952E20095B74D /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				B22DB6FF1DD952E20095B74D /* Tapjoy.embeddedframework */,
+			);
+			path = Libraries;
+			sourceTree = "<group>";
+		};
+		B22DB6FF1DD952E20095B74D /* Tapjoy.embeddedframework */ = {
+			isa = PBXGroup;
+			children = (
+				B22DB7001DD952E20095B74D /* Resources */,
+				B22DB7021DD952E20095B74D /* Tapjoy.framework */,
+			);
+			path = Tapjoy.embeddedframework;
+			sourceTree = "<group>";
+		};
+		B22DB7001DD952E20095B74D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B22DB7011DD952E20095B74D /* TapjoyResources.bundle */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		B26149711DD04F9F002370C8 /* ZucksAdapter */ = {
@@ -619,6 +647,109 @@
 				B2E53E261DB7BA3F0077850F /* libz.1.2.8.tbd */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B2F7513D1DD54623003591D2 /* AdfurikunAdapter */ = {
+			isa = PBXGroup;
+			children = (
+				B2F7513E1DD54623003591D2 /* AdfurikunAdapter.h */,
+				B2F7513F1DD54623003591D2 /* AdfurikunAdapter.m */,
+				B2F751401DD54623003591D2 /* Libraries */,
+			);
+			path = AdfurikunAdapter;
+			sourceTree = "<group>";
+		};
+		B2F751401DD54623003591D2 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				B2F751421DD54641003591D2 /* adfurikunsdk.framework */,
+			);
+			path = Libraries;
+			sourceTree = "<group>";
+		};
+		B2F751441DD574F0003591D2 /* AdfurikunVideoAdapter */ = {
+			isa = PBXGroup;
+			children = (
+				B2F751491DD575B3003591D2 /* Libraries */,
+				B2F751451DD57513003591D2 /* AdfurikunVideoAdapter.h */,
+				B2F751461DD57513003591D2 /* AdfurikunVideoAdapter.m */,
+			);
+			name = AdfurikunVideoAdapter;
+			sourceTree = "<group>";
+		};
+		B2F751491DD575B3003591D2 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				B2F7514A1DD575B3003591D2 /* ADFMovieReward.framework */,
+				B2F7514B1DD575B3003591D2 /* applovin-ios-sdk-3.4.3 */,
+				B2F7519A1DD575B3003591D2 /* Maio_1.1.6 */,
+			);
+			name = Libraries;
+			path = AdfurikunVideoAdapter/Libraries;
+			sourceTree = "<group>";
+		};
+		B2F7514B1DD575B3003591D2 /* applovin-ios-sdk-3.4.3 */ = {
+			isa = PBXGroup;
+			children = (
+				B2F751961DD575B3003591D2 /* MovieInterstitial6000.h */,
+				B2F751971DD575B3003591D2 /* MovieInterstitial6000.m */,
+				B2F751981DD575B3003591D2 /* MovieReward6000.h */,
+				B2F751991DD575B3003591D2 /* MovieReward6000.m */,
+			);
+			path = "applovin-ios-sdk-3.4.3";
+			sourceTree = "<group>";
+		};
+		B2F7519A1DD575B3003591D2 /* Maio_1.1.6 */ = {
+			isa = PBXGroup;
+			children = (
+				B2F7519C1DD575B3003591D2 /* MovieInterstitial6004.h */,
+				B2F7519D1DD575B3003591D2 /* MovieInterstitial6004.m */,
+				B2F7519E1DD575B3003591D2 /* MovieReward6004.h */,
+				B2F7519F1DD575B3003591D2 /* MovieReward6004.m */,
+			);
+			path = Maio_1.1.6;
+			sourceTree = "<group>";
+		};
+		B2F751CE1DD57BCF003591D2 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				B2F751CF1DD57BCF003591D2 /* headers */,
+				B2F751EA1DD57BCF003591D2 /* libAppLovinSdk.a */,
+			);
+			path = Libraries;
+			sourceTree = "<group>";
+		};
+		B2F751CF1DD57BCF003591D2 /* headers */ = {
+			isa = PBXGroup;
+			children = (
+				B2F751D01DD57BCF003591D2 /* ALAd.h */,
+				B2F751D11DD57BCF003591D2 /* ALAdDisplayDelegate.h */,
+				B2F751D21DD57BCF003591D2 /* ALAdLoadDelegate.h */,
+				B2F751D31DD57BCF003591D2 /* ALAdRewardDelegate.h */,
+				B2F751D41DD57BCF003591D2 /* ALAdService.h */,
+				B2F751D51DD57BCF003591D2 /* ALAdSize.h */,
+				B2F751D61DD57BCF003591D2 /* ALAdType.h */,
+				B2F751D71DD57BCF003591D2 /* ALAdUpdateDelegate.h */,
+				B2F751D81DD57BCF003591D2 /* ALAdVideoPlaybackDelegate.h */,
+				B2F751D91DD57BCF003591D2 /* ALAdView.h */,
+				B2F751DA1DD57BCF003591D2 /* ALAnnotations.h */,
+				B2F751DB1DD57BCF003591D2 /* ALErrorCodes.h */,
+				B2F751DC1DD57BCF003591D2 /* ALEventService.h */,
+				B2F751DD1DD57BCF003591D2 /* ALEventTypes.h */,
+				B2F751DE1DD57BCF003591D2 /* ALIncentivizedInterstitialAd.h */,
+				B2F751DF1DD57BCF003591D2 /* ALInterstitialAd.h */,
+				B2F751E01DD57BCF003591D2 /* ALNativeAd.h */,
+				B2F751E11DD57BCF003591D2 /* ALNativeAdLoadDelegate.h */,
+				B2F751E21DD57BCF003591D2 /* ALNativeAdPrecacheDelegate.h */,
+				B2F751E31DD57BCF003591D2 /* ALNativeAdService.h */,
+				B2F751E41DD57BCF003591D2 /* ALPostbackDelegate.h */,
+				B2F751E51DD57BCF003591D2 /* ALPostbackService.h */,
+				B2F751E61DD57BCF003591D2 /* ALSdk.h */,
+				B2F751E71DD57BCF003591D2 /* ALSdkSettings.h */,
+				B2F751E81DD57BCF003591D2 /* ALSwiftHeaders.h */,
+				B2F751E91DD57BCF003591D2 /* ALTargetingData.h */,
+			);
+			path = headers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -686,6 +817,7 @@
 				B229CF331DA473F900C0BD31 /* amoad_close_btn.png in Resources */,
 				B229CF341DA473F900C0BD31 /* amoad_close_btn_h.png in Resources */,
 				B22D7EB31D72785B00F19E56 /* Assets.xcassets in Resources */,
+				B22DB7031DD952E20095B74D /* TapjoyResources.bundle in Resources */,
 				B229CF381DA473F900C0BD31 /* amoad_panel_l.png in Resources */,
 				B22D7EB11D72785B00F19E56 /* Main.storyboard in Resources */,
 				B229CF371DA473F900C0BD31 /* amoad_panel.png in Resources */,
@@ -708,18 +840,25 @@
 				B229CF2E1DA473F900C0BD31 /* AdGenerationAdapter.m in Sources */,
 				B229CF481DA473F900C0BD31 /* UnityAdsAdapter.m in Sources */,
 				B22D7F6D1D731C0B00F19E56 /* AdSelector.m in Sources */,
+				B22DB7071DD952EE0095B74D /* TapjoyAdapter.m in Sources */,
 				B229CF431DA473F900C0BD31 /* MaioAdapter.m in Sources */,
 				B29555431DB84A2600FACF3D /* AdSwitcherNativeAdData.m in Sources */,
 				B22D7F661D73059500F19E56 /* AdSwitcherBannerView.m in Sources */,
 				B22D7EA81D72785B00F19E56 /* AppDelegate.m in Sources */,
+				B2F751411DD54623003591D2 /* AdfurikunAdapter.m in Sources */,
+				B2F751CC1DD575B3003591D2 /* MovieInterstitial6004.m in Sources */,
 				B22D7EE11D72797D00F19E56 /* AdSwitcherConfigLoader.m in Sources */,
+				B2F751CD1DD575B3003591D2 /* MovieReward6004.m in Sources */,
 				B229CF3C1DA473F900C0BD31 /* FacebookAdapter.m in Sources */,
 				B22D7EA51D72785B00F19E56 /* main.m in Sources */,
 				B22D7EC61D7278D500F19E56 /* InterstitialViewController.m in Sources */,
+				B2F751CA1DD575B3003591D2 /* MovieReward6000.m in Sources */,
+				B2F751C91DD575B3003591D2 /* MovieInterstitial6000.m in Sources */,
 				B229CF2C1DA473F900C0BD31 /* AdColonyAdapter.m in Sources */,
 				B229CF321DA473F900C0BD31 /* AMoAdAdapter.m in Sources */,
 				B2E53E121DB7B3870077850F /* AdSwitcherNativeAd.m in Sources */,
 				B229CF461DA473F900C0BD31 /* NendAdapter.m in Sources */,
+				B2F751471DD57513003591D2 /* AdfurikunVideoAdapter.m in Sources */,
 				B229CF401DA473F900C0BD31 /* IMobileAdapter.m in Sources */,
 				B229CF301DA473F900C0BD31 /* AdMobAdapter.m in Sources */,
 				B21907F71D788CCF00DF3A5C /* VideoViewController.m in Sources */,
@@ -855,6 +994,10 @@
 					"$(PROJECT_DIR)/AdSwitcher/Adapters/ZucksAdapter/Libraries",
 					"$(PROJECT_DIR)/AdSwitcher/Adapters/AdfurikunAdapter/Libraries",
 					"$(PROJECT_DIR)/AdSwitcher/Adapters/ZuksAdapter/Libraries",
+					"$(PROJECT_DIR)/AdSwitcher/Adapters/AdfurikunVideoAdapter/Libraries",
+					"$(PROJECT_DIR)/AdSwitcher/Adapters/AdfurikunVideoAdapter/Libraries/Maio_1.1.6",
+					"$(PROJECT_DIR)/AdSwitcher/Adapters/TapjoyVideoAdapter/Libraries/Tapjoy.embeddedframework",
+					"$(PROJECT_DIR)/AdSwitcher/Adapters/TapjoyAdapter/Libraries/Tapjoy.embeddedframework",
 				);
 				INFOPLIST_FILE = AdSwitcher/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -863,9 +1006,10 @@
 					"$(PROJECT_DIR)/AdSwitcher/Adapters/NendAdapter/Libraries/NendAd",
 					"$(PROJECT_DIR)/AdSwitcher/Adapters/AMoAdAdapter/Libraries",
 					"$(PROJECT_DIR)/AdSwitcher/Adapters/AppLovinAdapter/Libraries",
+					"$(PROJECT_DIR)/AdSwitcher/Adapters/AdfurikunVideoAdapter/Libraries/applovin-ios-sdk-3.4.3",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = net.adswitcher.AdSwitcher;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gamestart.nyancopter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -890,6 +1034,10 @@
 					"$(PROJECT_DIR)/AdSwitcher/Adapters/ZucksAdapter/Libraries",
 					"$(PROJECT_DIR)/AdSwitcher/Adapters/AdfurikunAdapter/Libraries",
 					"$(PROJECT_DIR)/AdSwitcher/Adapters/ZuksAdapter/Libraries",
+					"$(PROJECT_DIR)/AdSwitcher/Adapters/AdfurikunVideoAdapter/Libraries",
+					"$(PROJECT_DIR)/AdSwitcher/Adapters/AdfurikunVideoAdapter/Libraries/Maio_1.1.6",
+					"$(PROJECT_DIR)/AdSwitcher/Adapters/TapjoyVideoAdapter/Libraries/Tapjoy.embeddedframework",
+					"$(PROJECT_DIR)/AdSwitcher/Adapters/TapjoyAdapter/Libraries/Tapjoy.embeddedframework",
 				);
 				INFOPLIST_FILE = AdSwitcher/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -898,9 +1046,10 @@
 					"$(PROJECT_DIR)/AdSwitcher/Adapters/NendAdapter/Libraries/NendAd",
 					"$(PROJECT_DIR)/AdSwitcher/Adapters/AMoAdAdapter/Libraries",
 					"$(PROJECT_DIR)/AdSwitcher/Adapters/AppLovinAdapter/Libraries",
+					"$(PROJECT_DIR)/AdSwitcher/Adapters/AdfurikunVideoAdapter/Libraries/applovin-ios-sdk-3.4.3",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = net.adswitcher.AdSwitcher;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gamestart.nyancopter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

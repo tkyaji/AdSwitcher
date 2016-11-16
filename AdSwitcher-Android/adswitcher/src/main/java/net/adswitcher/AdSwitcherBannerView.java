@@ -54,6 +54,7 @@ public class AdSwitcherBannerView extends FrameLayout implements BannerAdListene
     public AdSwitcherBannerView(final Activity activity, final AdSwitcherConfigLoader configLoader,
                                 final String category, final BannerAdSize adSize, final boolean testMode) {
         super(activity);
+        this.activity = activity;
 
         configLoader.addConfigLoadedHandler(new AdSwitcherConfigLoader.ConfigLoadHandler() {
             @Override
@@ -62,7 +63,7 @@ public class AdSwitcherBannerView extends FrameLayout implements BannerAdListene
                 activity.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        AdSwitcherBannerView.this.initialize(activity, adSwitcherConfig, testMode, adSize);
+                        AdSwitcherBannerView.this.initialize(adSwitcherConfig, testMode, adSize);
                     }
                 });
             }
@@ -77,8 +78,9 @@ public class AdSwitcherBannerView extends FrameLayout implements BannerAdListene
     public AdSwitcherBannerView(final Activity activity, final AdSwitcherConfig adSwitcherConfig,
                                 final BannerAdSize adSize, final boolean testMode) {
         super(activity);
+        this.activity = activity;
 
-        this.initialize(activity, adSwitcherConfig, testMode, adSize);
+        this.initialize(adSwitcherConfig, testMode, adSize);
     }
 
     public void load() {
@@ -225,10 +227,9 @@ public class AdSwitcherBannerView extends FrameLayout implements BannerAdListene
     }
 
 
-    private void initialize(Activity activity, AdSwitcherConfig adSwitcherConfig, boolean testMode, BannerAdSize adSize) {
+    private void initialize(AdSwitcherConfig adSwitcherConfig, boolean testMode, BannerAdSize adSize) {
         Log.d(TAG, "testMode=" + testMode + ", adSize=" + adSize);
 
-        this.activity = activity;
         this.adSwitcherConfig = adSwitcherConfig;
         this.testMode = testMode;
         this.adSize = adSize;

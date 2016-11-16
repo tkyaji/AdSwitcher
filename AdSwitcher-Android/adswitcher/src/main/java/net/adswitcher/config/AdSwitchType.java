@@ -5,5 +5,6 @@ package net.adswitcher.config;
  */
 public enum AdSwitchType {
     Ratio,
-    Rotate
+    Rotate,
+    Priority
 }

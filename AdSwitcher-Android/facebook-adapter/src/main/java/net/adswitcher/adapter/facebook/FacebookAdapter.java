@@ -191,7 +191,7 @@ public class FacebookAdapter implements BannerAdAdapter, InterstitialAdAdapter, 
             display.getMetrics(metrics);
         }
 
-        switch (this.adSize) {
+        switch (adSize) {
             case SIZE_320X100:
                 return new FrameLayout.LayoutParams(Math.round(320 * metrics.density), Math.round(100 * metrics.density));
 

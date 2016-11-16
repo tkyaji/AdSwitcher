@@ -4,6 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/AdSwitcher-Android.iml" filepath="$PROJECT_DIR$/AdSwitcher-Android.iml" />
       <module fileurl="file://$PROJECT_DIR$/adcolony-adapter/adcolony-adapter.iml" filepath="$PROJECT_DIR$/adcolony-adapter/adcolony-adapter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/adfurikun-adapter/adfurikun-adapter.iml" filepath="$PROJECT_DIR$/adfurikun-adapter/adfurikun-adapter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/adfurikunvideo-adapter/adfurikunvideo-adapter.iml" filepath="$PROJECT_DIR$/adfurikunvideo-adapter/adfurikunvideo-adapter.iml" />
       <module fileurl="file://$PROJECT_DIR$/adgeneration-adapter/adgeneration-adapter.iml" filepath="$PROJECT_DIR$/adgeneration-adapter/adgeneration-adapter.iml" />
       <module fileurl="file://$PROJECT_DIR$/admob-adapter/admob-adapter.iml" filepath="$PROJECT_DIR$/admob-adapter/admob-adapter.iml" />
       <module fileurl="file://$PROJECT_DIR$/adswitcher/adswitcher.iml" filepath="$PROJECT_DIR$/adswitcher/adswitcher.iml" />
@@ -15,6 +17,7 @@
       <module fileurl="file://$PROJECT_DIR$/imobile-adapter/imobile-adapter.iml" filepath="$PROJECT_DIR$/imobile-adapter/imobile-adapter.iml" />
       <module fileurl="file://$PROJECT_DIR$/maio-adapter/maio-adapter.iml" filepath="$PROJECT_DIR$/maio-adapter/maio-adapter.iml" />
       <module fileurl="file://$PROJECT_DIR$/nend-adapter/nend-adapter.iml" filepath="$PROJECT_DIR$/nend-adapter/nend-adapter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tapjoy-adapter/tapjoy-adapter.iml" filepath="$PROJECT_DIR$/tapjoy-adapter/tapjoy-adapter.iml" />
       <module fileurl="file://$PROJECT_DIR$/unity-ads/unity-ads.iml" filepath="$PROJECT_DIR$/unity-ads/unity-ads.iml" />
       <module fileurl="file://$PROJECT_DIR$/unityads-adapter/unityads-adapter.iml" filepath="$PROJECT_DIR$/unityads-adapter/unityads-adapter.iml" />
       <module fileurl="file://$PROJECT_DIR$/zucks-adapter/zucks-adapter.iml" filepath="$PROJECT_DIR$/zucks-adapter/zucks-adapter.iml" />

@@ -25,16 +25,18 @@ import java.net.URI;
 public class NativeAdFragment extends Fragment {
 
     private Activity activity;
+    private static AdSwitcherNativeAd nativeAd;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+        super.onCreateView(inflater, container, savedInstanceState);
         final View view = inflater.inflate(R.layout.fragment_nativead, container, false);
 
-        AdSwitcherConfigLoader configLoader = AdSwitcherConfigLoader.getInstance();
+        if (nativeAd == null) {
+            nativeAd = new AdSwitcherNativeAd(this.activity, AdSwitcherConfigLoader.getInstance(), "native", true);
+        }
 
-        final AdSwitcherNativeAd nativeAd = new AdSwitcherNativeAd(this.activity, configLoader, "native", true);
         nativeAd.setAdReceivedListener(new AdSwitcherNativeAd.AdReceivedListener() {
             @Override
             public void onAdReceived(AdConfig config, boolean result) {
@@ -59,6 +61,8 @@ public class NativeAdFragment extends Fragment {
             }
         });
 
+        nativeAd.load();
+
         view.findViewById(R.id.layout_ad).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -72,7 +76,7 @@ public class NativeAdFragment extends Fragment {
                 NativeAdFragment.this.activity.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        // TODO
+                        nativeAd.load();
                     }
                 });
             }

@@ -39,10 +39,16 @@ public class AdSelector {
         }
 
         int index = -1;
-        if (this.adSwitcherConfig.switchType == AdSwitchType.Rotate) {
-            index = this.selectAdByRotate();
-        } else {
-            index = this.selectAdByRatio();
+        switch (this.adSwitcherConfig.switchType) {
+            case Rotate:
+                index = this.selectAdByRotate();
+                break;
+            case Ratio:
+                index = this.selectAdByRatio();
+                break;
+            case Priority:
+                index = 0;
+                break;
         }
 
         if (index == -1) {
@@ -52,7 +58,9 @@ public class AdSelector {
         AdConfig config = this.adConfigList.get(index);
         Log.d(TAG, "select:" + config.adName);
 
-        if (this.adSwitcherConfig.switchType == AdSwitchType.Ratio) {
+        if (this.adSwitcherConfig.switchType == AdSwitchType.Ratio ||
+                this.adSwitcherConfig.switchType == AdSwitchType.Priority) {
+
             this.adConfigList.remove(index);
         }
 

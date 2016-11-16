@@ -41,10 +41,6 @@
                                           _bannerView_320x100.frame.size.width, _bannerView_320x100.frame.size.height);
     _bannerView_300x250.frame = CGRectMake((self.view.frame.size.width - _bannerView_300x250.frame.size.width) / 2, 0,
                                           _bannerView_300x250.frame.size.width, _bannerView_300x250.frame.size.height);
-    
-    [self.view addSubview:_bannerView_320x50];
-    [self.view addSubview:_bannerView_320x100];
-    [self.view addSubview:_bannerView_300x250];
 }
 
 - (IBAction)loadBanner_320x50:(id)sender {
@@ -52,6 +48,7 @@
 }
 
 - (IBAction)showBanner_320x50:(id)sender {
+    [self.view addSubview:_bannerView_320x50];
     [_bannerView_320x50 show];
 }
 
@@ -60,6 +57,7 @@
 }
 
 - (IBAction)showBanner_320x100:(id)sender {
+    [self.view addSubview:_bannerView_320x100];
     [_bannerView_320x100 show];
 }
 
@@ -68,13 +66,17 @@
 }
 
 - (IBAction)showBanner_300x250:(id)sender {
+    [self.view addSubview:_bannerView_300x250];
     [_bannerView_300x250 show];
 }
 
 - (IBAction)hideBanner:(id)sender {
     [_bannerView_320x50 hide];
+    [_bannerView_320x50 removeFromSuperview];
     [_bannerView_320x100 hide];
+    [_bannerView_320x100 removeFromSuperview];
     [_bannerView_300x250 hide];
+    [_bannerView_300x250 removeFromSuperview];
 }
 
 @end

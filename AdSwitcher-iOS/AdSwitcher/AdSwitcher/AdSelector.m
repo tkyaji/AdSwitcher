@@ -30,10 +30,17 @@ static NSMutableDictionary<NSString *, NSNumber *> *rotateIndexDict;
     }
     
     NSInteger index = -1;
-    if (self.adSwitcherConfig.switchType == AdSwitchTypeRotate) {
-        index = [self selectAdByRotate];
-    } else {
-        index = [self selectAdByRatio];
+    
+    switch (self.adSwitcherConfig.switchType) {
+        case AdSwitchTypeRotate:
+            index = [self selectAdByRotate];
+            break;
+        case AdSwitchTypeRatio:
+            index = [self selectAdByRatio];
+            break;
+        case AdSwitchTypePriority:
+            index = 0;
+            break;
     }
 
     if (index == -1) {
@@ -43,7 +50,8 @@ static NSMutableDictionary<NSString *, NSNumber *> *rotateIndexDict;
     AdConfig *adConfig = [_adConfigArr objectAtIndex:index];
     _DLOG(@"select:%@", adConfig.adName);
     
-    if (self.adSwitcherConfig.switchType == AdSwitchTypeRatio) {
+    if (self.adSwitcherConfig.switchType == AdSwitchTypeRatio ||
+        self.adSwitcherConfig.switchType == AdSwitchTypePriority) {
         [_adConfigArr removeObjectAtIndex:index];
     }
     

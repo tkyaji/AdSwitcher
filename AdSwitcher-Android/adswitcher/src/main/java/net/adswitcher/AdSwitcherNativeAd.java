@@ -47,6 +47,7 @@ public class AdSwitcherNativeAd implements NativeAdListener {
 
     public AdSwitcherNativeAd(final Activity activity, final AdSwitcherConfigLoader configLoader,
                                 final String category, final boolean testMode) {
+        this.activity = activity;
         configLoader.addConfigLoadedHandler(new AdSwitcherConfigLoader.ConfigLoadHandler() {
             @Override
             public void onLoaded() {
@@ -54,7 +55,7 @@ public class AdSwitcherNativeAd implements NativeAdListener {
                 activity.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        AdSwitcherNativeAd.this.initialize(activity, adSwitcherConfig, testMode);
+                        AdSwitcherNativeAd.this.initialize(adSwitcherConfig, testMode);
                     }
                 });
             }
@@ -66,7 +67,8 @@ public class AdSwitcherNativeAd implements NativeAdListener {
     }
 
     public AdSwitcherNativeAd(final Activity activity, final AdSwitcherConfig adSwitcherConfig, final boolean testMode) {
-        this.initialize(activity, adSwitcherConfig, testMode);
+        this.activity = activity;
+        this.initialize(adSwitcherConfig, testMode);
     }
 
 
@@ -163,10 +165,9 @@ public class AdSwitcherNativeAd implements NativeAdListener {
     }
 
 
-    private void initialize(Activity activity, AdSwitcherConfig adSwitcherConfig, boolean testMode) {
+    private void initialize(AdSwitcherConfig adSwitcherConfig, boolean testMode) {
         Log.d(TAG, "testMode=" + testMode);
 
-        this.activity = activity;
         this.adSwitcherConfig = adSwitcherConfig;
         this.testMode = testMode;
 
