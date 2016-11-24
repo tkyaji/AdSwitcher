@@ -9,6 +9,7 @@
 @import Foundation;
 
 #import "AdSwitcherInterstitial.h"
+#import <ADFMovieReward/ADFmyMovieReward.h>
 #import <ADFMovieReward/ADFmyMovieInterstitial.h>
 
 @interface AdfurikunVideoAdapter : NSObject <InterstitialAdAdapter, ADFmyMovieRewardDelegate>

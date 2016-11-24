@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B21907F71D788CCF00DF3A5C /* VideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B21907F61D788CCF00DF3A5C /* VideoViewController.m */; };
+		B2298BCE1DE673AC00512C21 /* libAppLovinSdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B2298BCD1DE673AC00512C21 /* libAppLovinSdk.a */; };
 		B229CF2C1DA473F900C0BD31 /* AdColonyAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = B229CEBD1DA473F800C0BD31 /* AdColonyAdapter.m */; };
 		B229CF2D1DA473F900C0BD31 /* AdColony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B229CEBF1DA473F800C0BD31 /* AdColony.framework */; };
 		B229CF2E1DA473F900C0BD31 /* AdGenerationAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = B229CEC21DA473F900C0BD31 /* AdGenerationAdapter.m */; };
@@ -66,12 +67,38 @@
 		B2F751CA1DD575B3003591D2 /* MovieReward6000.m in Sources */ = {isa = PBXBuildFile; fileRef = B2F751991DD575B3003591D2 /* MovieReward6000.m */; };
 		B2F751CC1DD575B3003591D2 /* MovieInterstitial6004.m in Sources */ = {isa = PBXBuildFile; fileRef = B2F7519D1DD575B3003591D2 /* MovieInterstitial6004.m */; };
 		B2F751CD1DD575B3003591D2 /* MovieReward6004.m in Sources */ = {isa = PBXBuildFile; fileRef = B2F7519F1DD575B3003591D2 /* MovieReward6004.m */; };
-		B2F751EB1DD57BCF003591D2 /* libAppLovinSdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B2F751EA1DD57BCF003591D2 /* libAppLovinSdk.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		B21907F51D788CCF00DF3A5C /* VideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoViewController.h; sourceTree = "<group>"; };
 		B21907F61D788CCF00DF3A5C /* VideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoViewController.m; sourceTree = "<group>"; };
+		B2298BB31DE673AC00512C21 /* ALAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALAd.h; sourceTree = "<group>"; };
+		B2298BB41DE673AC00512C21 /* ALAdDisplayDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALAdDisplayDelegate.h; sourceTree = "<group>"; };
+		B2298BB51DE673AC00512C21 /* ALAdLoadDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALAdLoadDelegate.h; sourceTree = "<group>"; };
+		B2298BB61DE673AC00512C21 /* ALAdRewardDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALAdRewardDelegate.h; sourceTree = "<group>"; };
+		B2298BB71DE673AC00512C21 /* ALAdService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALAdService.h; sourceTree = "<group>"; };
+		B2298BB81DE673AC00512C21 /* ALAdSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALAdSize.h; sourceTree = "<group>"; };
+		B2298BB91DE673AC00512C21 /* ALAdType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALAdType.h; sourceTree = "<group>"; };
+		B2298BBA1DE673AC00512C21 /* ALAdUpdateDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALAdUpdateDelegate.h; sourceTree = "<group>"; };
+		B2298BBB1DE673AC00512C21 /* ALAdVideoPlaybackDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALAdVideoPlaybackDelegate.h; sourceTree = "<group>"; };
+		B2298BBC1DE673AC00512C21 /* ALAdView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALAdView.h; sourceTree = "<group>"; };
+		B2298BBD1DE673AC00512C21 /* ALAnnotations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALAnnotations.h; sourceTree = "<group>"; };
+		B2298BBE1DE673AC00512C21 /* ALErrorCodes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALErrorCodes.h; sourceTree = "<group>"; };
+		B2298BBF1DE673AC00512C21 /* ALEventService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALEventService.h; sourceTree = "<group>"; };
+		B2298BC01DE673AC00512C21 /* ALEventTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALEventTypes.h; sourceTree = "<group>"; };
+		B2298BC11DE673AC00512C21 /* ALIncentivizedInterstitialAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALIncentivizedInterstitialAd.h; sourceTree = "<group>"; };
+		B2298BC21DE673AC00512C21 /* ALInterstitialAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALInterstitialAd.h; sourceTree = "<group>"; };
+		B2298BC31DE673AC00512C21 /* ALNativeAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALNativeAd.h; sourceTree = "<group>"; };
+		B2298BC41DE673AC00512C21 /* ALNativeAdLoadDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALNativeAdLoadDelegate.h; sourceTree = "<group>"; };
+		B2298BC51DE673AC00512C21 /* ALNativeAdPrecacheDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALNativeAdPrecacheDelegate.h; sourceTree = "<group>"; };
+		B2298BC61DE673AC00512C21 /* ALNativeAdService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALNativeAdService.h; sourceTree = "<group>"; };
+		B2298BC71DE673AC00512C21 /* ALPostbackDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALPostbackDelegate.h; sourceTree = "<group>"; };
+		B2298BC81DE673AC00512C21 /* ALPostbackService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALPostbackService.h; sourceTree = "<group>"; };
+		B2298BC91DE673AC00512C21 /* ALSdk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALSdk.h; sourceTree = "<group>"; };
+		B2298BCA1DE673AC00512C21 /* ALSdkSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALSdkSettings.h; sourceTree = "<group>"; };
+		B2298BCB1DE673AC00512C21 /* ALSwiftHeaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALSwiftHeaders.h; sourceTree = "<group>"; };
+		B2298BCC1DE673AC00512C21 /* ALTargetingData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALTargetingData.h; sourceTree = "<group>"; };
+		B2298BCD1DE673AC00512C21 /* libAppLovinSdk.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAppLovinSdk.a; sourceTree = "<group>"; };
 		B229CEBC1DA473F800C0BD31 /* AdColonyAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdColonyAdapter.h; sourceTree = "<group>"; };
 		B229CEBD1DA473F800C0BD31 /* AdColonyAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdColonyAdapter.m; sourceTree = "<group>"; };
 		B229CEBF1DA473F800C0BD31 /* AdColony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AdColony.framework; sourceTree = "<group>"; };
@@ -190,33 +217,6 @@
 		B2F7519D1DD575B3003591D2 /* MovieInterstitial6004.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieInterstitial6004.m; sourceTree = "<group>"; };
 		B2F7519E1DD575B3003591D2 /* MovieReward6004.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieReward6004.h; sourceTree = "<group>"; };
 		B2F7519F1DD575B3003591D2 /* MovieReward6004.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieReward6004.m; sourceTree = "<group>"; };
-		B2F751D01DD57BCF003591D2 /* ALAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALAd.h; sourceTree = "<group>"; };
-		B2F751D11DD57BCF003591D2 /* ALAdDisplayDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALAdDisplayDelegate.h; sourceTree = "<group>"; };
-		B2F751D21DD57BCF003591D2 /* ALAdLoadDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALAdLoadDelegate.h; sourceTree = "<group>"; };
-		B2F751D31DD57BCF003591D2 /* ALAdRewardDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALAdRewardDelegate.h; sourceTree = "<group>"; };
-		B2F751D41DD57BCF003591D2 /* ALAdService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALAdService.h; sourceTree = "<group>"; };
-		B2F751D51DD57BCF003591D2 /* ALAdSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALAdSize.h; sourceTree = "<group>"; };
-		B2F751D61DD57BCF003591D2 /* ALAdType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALAdType.h; sourceTree = "<group>"; };
-		B2F751D71DD57BCF003591D2 /* ALAdUpdateDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALAdUpdateDelegate.h; sourceTree = "<group>"; };
-		B2F751D81DD57BCF003591D2 /* ALAdVideoPlaybackDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALAdVideoPlaybackDelegate.h; sourceTree = "<group>"; };
-		B2F751D91DD57BCF003591D2 /* ALAdView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALAdView.h; sourceTree = "<group>"; };
-		B2F751DA1DD57BCF003591D2 /* ALAnnotations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALAnnotations.h; sourceTree = "<group>"; };
-		B2F751DB1DD57BCF003591D2 /* ALErrorCodes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALErrorCodes.h; sourceTree = "<group>"; };
-		B2F751DC1DD57BCF003591D2 /* ALEventService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALEventService.h; sourceTree = "<group>"; };
-		B2F751DD1DD57BCF003591D2 /* ALEventTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALEventTypes.h; sourceTree = "<group>"; };
-		B2F751DE1DD57BCF003591D2 /* ALIncentivizedInterstitialAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALIncentivizedInterstitialAd.h; sourceTree = "<group>"; };
-		B2F751DF1DD57BCF003591D2 /* ALInterstitialAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALInterstitialAd.h; sourceTree = "<group>"; };
-		B2F751E01DD57BCF003591D2 /* ALNativeAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALNativeAd.h; sourceTree = "<group>"; };
-		B2F751E11DD57BCF003591D2 /* ALNativeAdLoadDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALNativeAdLoadDelegate.h; sourceTree = "<group>"; };
-		B2F751E21DD57BCF003591D2 /* ALNativeAdPrecacheDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALNativeAdPrecacheDelegate.h; sourceTree = "<group>"; };
-		B2F751E31DD57BCF003591D2 /* ALNativeAdService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALNativeAdService.h; sourceTree = "<group>"; };
-		B2F751E41DD57BCF003591D2 /* ALPostbackDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALPostbackDelegate.h; sourceTree = "<group>"; };
-		B2F751E51DD57BCF003591D2 /* ALPostbackService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALPostbackService.h; sourceTree = "<group>"; };
-		B2F751E61DD57BCF003591D2 /* ALSdk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALSdk.h; sourceTree = "<group>"; };
-		B2F751E71DD57BCF003591D2 /* ALSdkSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALSdkSettings.h; sourceTree = "<group>"; };
-		B2F751E81DD57BCF003591D2 /* ALSwiftHeaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALSwiftHeaders.h; sourceTree = "<group>"; };
-		B2F751E91DD57BCF003591D2 /* ALTargetingData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALTargetingData.h; sourceTree = "<group>"; };
-		B2F751EA1DD57BCF003591D2 /* libAppLovinSdk.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAppLovinSdk.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -225,6 +225,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B22DB7041DD952E20095B74D /* Tapjoy.framework in Frameworks */,
+				B2298BCE1DE673AC00512C21 /* libAppLovinSdk.a in Frameworks */,
 				B2E53E271DB7BA3F0077850F /* libz.1.2.8.tbd in Frameworks */,
 				B229CF311DA473F900C0BD31 /* GoogleMobileAds.framework in Frameworks */,
 				B229CF2D1DA473F900C0BD31 /* AdColony.framework in Frameworks */,
@@ -234,7 +235,6 @@
 				B2F751431DD54641003591D2 /* adfurikunsdk.framework in Frameworks */,
 				B229CF3D1DA473F900C0BD31 /* FBAudienceNetwork.framework in Frameworks */,
 				B26149761DD04F9F002370C8 /* ZucksAdNetworkSDK.framework in Frameworks */,
-				B2F751EB1DD57BCF003591D2 /* libAppLovinSdk.a in Frameworks */,
 				B229CF3F1DA473F900C0BD31 /* FiveAd.framework in Frameworks */,
 				B229CF471DA473F900C0BD31 /* UnityAds.framework in Frameworks */,
 				B229CF421DA473F900C0BD31 /* Maio.framework in Frameworks */,
@@ -246,6 +246,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B2298BB21DE673AC00512C21 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				B2298BB31DE673AC00512C21 /* ALAd.h */,
+				B2298BB41DE673AC00512C21 /* ALAdDisplayDelegate.h */,
+				B2298BB51DE673AC00512C21 /* ALAdLoadDelegate.h */,
+				B2298BB61DE673AC00512C21 /* ALAdRewardDelegate.h */,
+				B2298BB71DE673AC00512C21 /* ALAdService.h */,
+				B2298BB81DE673AC00512C21 /* ALAdSize.h */,
+				B2298BB91DE673AC00512C21 /* ALAdType.h */,
+				B2298BBA1DE673AC00512C21 /* ALAdUpdateDelegate.h */,
+				B2298BBB1DE673AC00512C21 /* ALAdVideoPlaybackDelegate.h */,
+				B2298BBC1DE673AC00512C21 /* ALAdView.h */,
+				B2298BBD1DE673AC00512C21 /* ALAnnotations.h */,
+				B2298BBE1DE673AC00512C21 /* ALErrorCodes.h */,
+				B2298BBF1DE673AC00512C21 /* ALEventService.h */,
+				B2298BC01DE673AC00512C21 /* ALEventTypes.h */,
+				B2298BC11DE673AC00512C21 /* ALIncentivizedInterstitialAd.h */,
+				B2298BC21DE673AC00512C21 /* ALInterstitialAd.h */,
+				B2298BC31DE673AC00512C21 /* ALNativeAd.h */,
+				B2298BC41DE673AC00512C21 /* ALNativeAdLoadDelegate.h */,
+				B2298BC51DE673AC00512C21 /* ALNativeAdPrecacheDelegate.h */,
+				B2298BC61DE673AC00512C21 /* ALNativeAdService.h */,
+				B2298BC71DE673AC00512C21 /* ALPostbackDelegate.h */,
+				B2298BC81DE673AC00512C21 /* ALPostbackService.h */,
+				B2298BC91DE673AC00512C21 /* ALSdk.h */,
+				B2298BCA1DE673AC00512C21 /* ALSdkSettings.h */,
+				B2298BCB1DE673AC00512C21 /* ALSwiftHeaders.h */,
+				B2298BCC1DE673AC00512C21 /* ALTargetingData.h */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
 		B229CEBB1DA473F800C0BD31 /* AdColonyAdapter */ = {
 			isa = PBXGroup;
 			children = (
@@ -713,43 +746,10 @@
 		B2F751CE1DD57BCF003591D2 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				B2F751CF1DD57BCF003591D2 /* headers */,
-				B2F751EA1DD57BCF003591D2 /* libAppLovinSdk.a */,
+				B2298BB21DE673AC00512C21 /* Headers */,
+				B2298BCD1DE673AC00512C21 /* libAppLovinSdk.a */,
 			);
 			path = Libraries;
-			sourceTree = "<group>";
-		};
-		B2F751CF1DD57BCF003591D2 /* headers */ = {
-			isa = PBXGroup;
-			children = (
-				B2F751D01DD57BCF003591D2 /* ALAd.h */,
-				B2F751D11DD57BCF003591D2 /* ALAdDisplayDelegate.h */,
-				B2F751D21DD57BCF003591D2 /* ALAdLoadDelegate.h */,
-				B2F751D31DD57BCF003591D2 /* ALAdRewardDelegate.h */,
-				B2F751D41DD57BCF003591D2 /* ALAdService.h */,
-				B2F751D51DD57BCF003591D2 /* ALAdSize.h */,
-				B2F751D61DD57BCF003591D2 /* ALAdType.h */,
-				B2F751D71DD57BCF003591D2 /* ALAdUpdateDelegate.h */,
-				B2F751D81DD57BCF003591D2 /* ALAdVideoPlaybackDelegate.h */,
-				B2F751D91DD57BCF003591D2 /* ALAdView.h */,
-				B2F751DA1DD57BCF003591D2 /* ALAnnotations.h */,
-				B2F751DB1DD57BCF003591D2 /* ALErrorCodes.h */,
-				B2F751DC1DD57BCF003591D2 /* ALEventService.h */,
-				B2F751DD1DD57BCF003591D2 /* ALEventTypes.h */,
-				B2F751DE1DD57BCF003591D2 /* ALIncentivizedInterstitialAd.h */,
-				B2F751DF1DD57BCF003591D2 /* ALInterstitialAd.h */,
-				B2F751E01DD57BCF003591D2 /* ALNativeAd.h */,
-				B2F751E11DD57BCF003591D2 /* ALNativeAdLoadDelegate.h */,
-				B2F751E21DD57BCF003591D2 /* ALNativeAdPrecacheDelegate.h */,
-				B2F751E31DD57BCF003591D2 /* ALNativeAdService.h */,
-				B2F751E41DD57BCF003591D2 /* ALPostbackDelegate.h */,
-				B2F751E51DD57BCF003591D2 /* ALPostbackService.h */,
-				B2F751E61DD57BCF003591D2 /* ALSdk.h */,
-				B2F751E71DD57BCF003591D2 /* ALSdkSettings.h */,
-				B2F751E81DD57BCF003591D2 /* ALSwiftHeaders.h */,
-				B2F751E91DD57BCF003591D2 /* ALTargetingData.h */,
-			);
-			path = headers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -998,6 +998,7 @@
 					"$(PROJECT_DIR)/AdSwitcher/Adapters/AdfurikunVideoAdapter/Libraries/Maio_1.1.6",
 					"$(PROJECT_DIR)/AdSwitcher/Adapters/TapjoyVideoAdapter/Libraries/Tapjoy.embeddedframework",
 					"$(PROJECT_DIR)/AdSwitcher/Adapters/TapjoyAdapter/Libraries/Tapjoy.embeddedframework",
+					"$(PROJECT_DIR)/AdSwitcher/Adapters/AppLovinAdapter/Libraries",
 				);
 				INFOPLIST_FILE = AdSwitcher/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1038,6 +1039,7 @@
 					"$(PROJECT_DIR)/AdSwitcher/Adapters/AdfurikunVideoAdapter/Libraries/Maio_1.1.6",
 					"$(PROJECT_DIR)/AdSwitcher/Adapters/TapjoyVideoAdapter/Libraries/Tapjoy.embeddedframework",
 					"$(PROJECT_DIR)/AdSwitcher/Adapters/TapjoyAdapter/Libraries/Tapjoy.embeddedframework",
+					"$(PROJECT_DIR)/AdSwitcher/Adapters/AppLovinAdapter/Libraries",
 				);
 				INFOPLIST_FILE = AdSwitcher/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

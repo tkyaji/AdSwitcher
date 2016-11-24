@@ -12,6 +12,26 @@
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:theme="@android:style/Theme.Translucent" />
 
+        <!-- Maio -->
+        <activity
+            android:name="jp.maio.sdk.android.AdFullscreenActivity"
+            android:label="maiosdk" android:configChanges="orientation|screenLayout|screenSize|smallestScreenSize|touchscreen" android:hardwareAccelerated="true" android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+            <intent-filter>
+                <data android:scheme="jp.maio.sdk.android"/>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" /> <category android:name="android.intent.category.BROWSABLE" />
+            </intent-filter> </activity>
+
+        <!-- AppLovin -->
+        <activity android:name="com.applovin.adview.AppLovinInterstitialActivity" />
+        <activity android:name="com.applovin.adview.AppLovinConfirmationActivity" />
+        <meta-data android:name="applovin.sdk.key" android:value="c3Mi1VLcRGdiZxI7-NonTyektGx5Wlc8o-rqTARwQ3c__w7zHvklsNSidOp87QHwP6kuHAoiDPh CJqAbiuLZFp" />
+
+        <!-- AdColony -->
+        <activity android:name="com.jirbo.adcolony.AdColonyOverlay" android:configChanges="keyboardHidden|orientation|screenSize" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
+        <activity android:name="com.jirbo.adcolony.AdColonyFullscreen" android:configChanges="keyboardHidden|orientation|screenSize" android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" />
+        <activity android:name="com.jirbo.adcolony.AdColonyBrowser" android:configChanges="keyboardHidden|orientation|screenSize" android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" />
+
     </application>
 
 </manifest>

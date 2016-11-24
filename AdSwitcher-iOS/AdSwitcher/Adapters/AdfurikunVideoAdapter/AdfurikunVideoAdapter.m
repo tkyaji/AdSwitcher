@@ -11,6 +11,8 @@
 
 @implementation AdfurikunVideoAdapter {
     NSString *_appId;
+    NSString *_adType;
+    ADFmyMovieReward *_adfurikunMovieReward;
     ADFmyMovieInterstitial *_adfurikunMovieInterstitial;
     BOOL _result;
     BOOL _isSkipped;
@@ -24,14 +26,20 @@
 - (void)interstitialAdInitialize:(UIViewController *)viewController parameters:(NSDictionary<NSString *, NSString *> *)parameters testMode:(BOOL)testMode {
     
     _appId = [parameters objectForKey:@"app_id"];
-    _DLOG(@"app_id=%@", _appId);
+    _adType = [parameters objectForKey:@"ad_type"];
+    _DLOG(@"app_id=%@, ad_type=%@", _appId, _adType);
 
-    [ADFmyMovieInterstitial initWithAppID:_appId viewController:viewController];
-    _adfurikunMovieInterstitial = [ADFmyMovieInterstitial getInstance:_appId delegate:self];
+    if ([@"interstitial" isEqualToString:_adType]) {
+        [ADFmyMovieInterstitial initWithAppID:_appId viewController:viewController];
+        _adfurikunMovieInterstitial = [ADFmyMovieInterstitial getInstance:_appId delegate:self];
+    } else {
+        [ADFmyMovieReward initWithAppID:_appId viewController:viewController];
+        _adfurikunMovieReward = [ADFmyMovieReward getInstance:_appId delegate:self];
+    }
 }
 
 - (void)interstitialAdLoad {
-    if (_adfurikunMovieInterstitial.isPrepared) {
+    if ([self isPrepared]) {
         _DLOG("ready");
         [self.interstitialAdDelegate interstitialAdLoaded:self result:YES];
     } else {
@@ -43,7 +51,12 @@
     _DLOG();
     _result = NO;
     _isSkipped = NO;
-    [_adfurikunMovieInterstitial play];
+    
+    if ([@"interstitial" isEqualToString:_adType]) {
+        [_adfurikunMovieInterstitial play];
+    } else {
+        [_adfurikunMovieReward play];
+    }
 }
 
 
@@ -68,6 +81,7 @@
 
 - (void)AdsPlayFailed {
     _DLOG();
+    [self.interstitialAdDelegate interstitialAdClosed:self result:NO isSkipped:NO];
 }
 
 - (void)AdsDidHide {
@@ -84,7 +98,7 @@
     
     dispatch_time_t time = dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC);
     dispatch_after(time, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        if (_adfurikunMovieInterstitial.isPrepared) {
+        if ([self isPrepared]) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.interstitialAdDelegate interstitialAdLoaded:self result:YES];
             });
@@ -96,6 +110,14 @@
             [self adLoad:count + 1];
         }
     });
+}
+
+- (BOOL)isPrepared {
+    if ([@"interstitial" isEqualToString:_adType]) {
+        return _adfurikunMovieInterstitial.isPrepared;
+    } else {
+        return _adfurikunMovieReward.isPrepared;
+    }
 }
 
 @end
