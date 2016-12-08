@@ -28,7 +28,7 @@
 
 @property (nonatomic) id<NativeAdDelegate> nativeAdDelegate;
 
-- (void)nativeAdInitialize:(NSDictionary<NSString *, NSString *> *)parameters testMode:(BOOL)testMode;
+- (void)nativeAdInitialize:(UIViewController *)viewController parameters:(NSDictionary<NSString *, NSString *> *)parameters testMode:(BOOL)testMode;
 - (void)nativeAdLoad;
 - (AdSwitcherNativeAdData *)getAdData;
 - (void)openUrl;

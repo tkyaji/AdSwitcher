@@ -55,6 +55,8 @@ public class AdSwitcherBannerView extends FrameLayout implements BannerAdListene
                                 final String category, final BannerAdSize adSize, final boolean testMode) {
         super(activity);
         this.activity = activity;
+        this.adSize = adSize;
+        this.testMode = testMode;
 
         configLoader.addConfigLoadedHandler(new AdSwitcherConfigLoader.ConfigLoadHandler() {
             @Override
@@ -63,7 +65,7 @@ public class AdSwitcherBannerView extends FrameLayout implements BannerAdListene
                 activity.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        AdSwitcherBannerView.this.initialize(adSwitcherConfig, testMode, adSize);
+                        AdSwitcherBannerView.this.initialize(adSwitcherConfig);
                     }
                 });
             }
@@ -79,8 +81,10 @@ public class AdSwitcherBannerView extends FrameLayout implements BannerAdListene
                                 final BannerAdSize adSize, final boolean testMode) {
         super(activity);
         this.activity = activity;
+        this.testMode = testMode;
+        this.adSize = adSize;
 
-        this.initialize(adSwitcherConfig, testMode, adSize);
+        this.initialize(adSwitcherConfig);
     }
 
     public void load() {
@@ -227,12 +231,10 @@ public class AdSwitcherBannerView extends FrameLayout implements BannerAdListene
     }
 
 
-    private void initialize(AdSwitcherConfig adSwitcherConfig, boolean testMode, BannerAdSize adSize) {
+    private void initialize(AdSwitcherConfig adSwitcherConfig) {
         Log.d(TAG, "testMode=" + testMode + ", adSize=" + adSize);
 
         this.adSwitcherConfig = adSwitcherConfig;
-        this.testMode = testMode;
-        this.adSize = adSize;
 
         this.adapterCacheMap = new HashMap<>();
         this.adConfigMap = new HashMap<>();

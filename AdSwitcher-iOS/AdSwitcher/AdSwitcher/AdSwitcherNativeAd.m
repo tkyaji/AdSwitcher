@@ -20,33 +20,39 @@
     nativeAdReceived _nativeAdReceived;
 }
 
-- (instancetype)initWithConfigLoader:(AdSwitcherConfigLoader *)configLoader
+- (instancetype)initWithConfigLoader:(UIViewController *)viewController configLoader:(AdSwitcherConfigLoader *)configLoader
                             category:(NSString *)category {
-    return [self initWithConfigLoader:configLoader category:category testMode:NO];
+    return [self initWithConfigLoader:viewController configLoader:configLoader category:category testMode:NO];
 }
 
-- (instancetype)initWithConfigLoader:(AdSwitcherConfigLoader *)configLoader
+- (instancetype)initWithConfigLoader:(UIViewController *)viewController configLoader:(AdSwitcherConfigLoader *)configLoader
                             category:(NSString *)category testMode:(BOOL)testMode {
     
     if (self = [super init]) {
+        self.viewController = viewController;
+        self.testMode = testMode;
+
         __block AdSwitcherConfigLoader *configLoaderInBlock = configLoader;
         [configLoader addConfigLoadedHandler:^{
             AdSwitcherConfig *adSwitcherConfig = [configLoaderInBlock adSwitchConfig:category];
-            [self initialize:adSwitcherConfig testMode:testMode];
+            [self initialize:adSwitcherConfig];
         }];
     }
     return self;
 }
 
-- (instancetype)initWithConfig:(AdSwitcherConfig *)adSwitcherConfig {
-    return [self initWithConfig:adSwitcherConfig testMode:NO];
+- (instancetype)initWithConfig:(UIViewController *)viewController config:(AdSwitcherConfig *)adSwitcherConfig {
+    return [self initWithConfig:viewController config:adSwitcherConfig testMode:NO];
 }
 
-- (instancetype)initWithConfig:(AdSwitcherConfig *)adSwitcherConfig
+- (instancetype)initWithConfig:(UIViewController *)viewController config:(AdSwitcherConfig *)adSwitcherConfig
                       testMode:(BOOL)testMode {
     
     if (self = [super init]) {
-        [self initialize:adSwitcherConfig testMode:testMode];
+        self.viewController = viewController;
+        self.testMode = testMode;
+
+        [self initialize:adSwitcherConfig];
     }
     return self;
 
@@ -204,7 +210,7 @@
         return;
     }
     
-    [nativeAdAdapter nativeAdInitialize:adConfig.parameters testMode:self.testMode];
+    [nativeAdAdapter nativeAdInitialize:self.viewController parameters:adConfig.parameters testMode:self.testMode];
     
     [_adapterCacheDict setObject:nativeAdAdapter forKey:adConfig.className];
 }
@@ -219,12 +225,11 @@
     [self selectLoad];
 }
 
-- (void)initialize:(AdSwitcherConfig *)adSwitcherConfig testMode:(BOOL)testMode {
+- (void)initialize:(AdSwitcherConfig *)adSwitcherConfig {
     
-    _DLOG("testMode=%d, switchType=%d", testMode, (int)adSwitcherConfig.switchType);
+    _DLOG("switchType=%d", (int)adSwitcherConfig.switchType);
     
     self.adSwitcherConfig = adSwitcherConfig;
-    self.testMode = testMode;
     
     _adapterCacheDict = [NSMutableDictionary<NSString *, NSObject<NativeAdAdapter> *> new];
     

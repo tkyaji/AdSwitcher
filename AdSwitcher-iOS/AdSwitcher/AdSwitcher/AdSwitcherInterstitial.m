@@ -34,10 +34,13 @@ static int _show_called_count;
                             category:(NSString *)category testMode:(BOOL)testMode {
     
     if (self = [super init]) {
+        self.viewController = viewController;
+        self.testMode = testMode;
+
         __block AdSwitcherConfigLoader *configLoaderInBlock = configLoader;
         [configLoader addConfigLoadedHandler:^{
             AdSwitcherConfig *adSwitcherConfig = [configLoaderInBlock adSwitchConfig:category];
-            [self initialize:viewController config:adSwitcherConfig testMode:testMode];
+            [self initialize:adSwitcherConfig];
         }];
     }
     
@@ -53,7 +56,10 @@ static int _show_called_count;
                       testMode:(BOOL)testMode {
     
     if (self = [super init]) {
-        [self initialize:viewController config:adSwitcherConfig testMode:testMode];
+        self.viewController = viewController;
+        self.testMode = testMode;
+
+        [self initialize:adSwitcherConfig];
     }
     
     return self;
@@ -207,13 +213,11 @@ static int _show_called_count;
 
 #pragma - private methods
 
-- (void)initialize:(UIViewController *)viewController config:(AdSwitcherConfig *)adSwitcherConfig testMode:(BOOL)testMode {
+- (void)initialize:(AdSwitcherConfig *)adSwitcherConfig {
 
-    _DLOG("testMode=%d, switchType=%d", testMode, (int)adSwitcherConfig.switchType);
+    _DLOG("switchType=%d", (int)adSwitcherConfig.switchType);
 
-    self.viewController = viewController;
     self.adSwitcherConfig = adSwitcherConfig;
-    self.testMode = testMode;
     
     _adapterCacheDict = [NSMutableDictionary<NSString *, NSObject<InterstitialAdAdapter> *> new];
     

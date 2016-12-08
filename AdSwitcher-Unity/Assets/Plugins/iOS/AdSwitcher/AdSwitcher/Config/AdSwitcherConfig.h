@@ -10,7 +10,8 @@
 
 typedef enum {
     AdSwitchTypeRatio,
-    AdSwitchTypeRotate
+    AdSwitchTypeRotate,
+    AdSwitchTypePriority
 } AdSwitchType;
 
 

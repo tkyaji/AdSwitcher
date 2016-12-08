@@ -199,6 +199,8 @@ static AdSwitcherConfigLoader *_sharedInstance;
 - (AdSwitchType)toAdSwitchType:(NSString *)adSwitchTypeStr {
     if ([@"rotate" isEqualToString:adSwitchTypeStr]) {
         return AdSwitchTypeRotate;
+    } else if ([@"priority" isEqualToString:adSwitchTypeStr]) {
+        return AdSwitchTypePriority;
     } else {
         return AdSwitchTypeRatio;
     }

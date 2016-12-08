@@ -36,10 +36,14 @@
     CGSize cgSize = [self toCGSize:adSize];
     CGRect frame = CGRectMake(0, 0, cgSize.width, cgSize.height);
     if (self = [super initWithFrame:frame]) {
+        self.viewController = viewController;
+        self.testMode = testMode;
+        self.adSize = adSize;
+
         __block AdSwitcherConfigLoader *configLoaderInBlock = configLoader;
         [configLoader addConfigLoadedHandler:^{
             AdSwitcherConfig *adSwitcherConfig = [configLoaderInBlock adSwitchConfig:category];
-            [self initialize:viewController config:adSwitcherConfig adSize:adSize testMode:testMode];
+            [self initialize:adSwitcherConfig];
         }];
     }
     
@@ -57,7 +61,11 @@
     CGSize cgSize = [self toCGSize:adSize];
     CGRect frame = CGRectMake(0, 0, cgSize.width, cgSize.height);
     if (self = [super initWithFrame:frame]) {
-        [self initialize:viewController config:adSwitcherConfig adSize:adSize testMode:testMode];
+        self.viewController = viewController;
+        self.testMode = testMode;
+        self.adSize = adSize;
+
+        [self initialize:adSwitcherConfig];
     }
     
     return self;
@@ -210,15 +218,11 @@
 
 #pragma - private methods
 
-- (void)initialize:(UIViewController *)viewController config:(AdSwitcherConfig *)adSwitcherConfig
-            adSize:(BannerAdSize)adSize testMode:(BOOL)testMode {
+- (void)initialize:(AdSwitcherConfig *)adSwitcherConfig {
     
-    _DLOG("testMode=%d, adSize=%d, switchType=%d", testMode, (int)adSize, (int)adSwitcherConfig.switchType);
+    _DLOG("switchType=%d", (int)adSwitcherConfig.switchType);
 
-    self.viewController = viewController;
     self.adSwitcherConfig = adSwitcherConfig;
-    self.testMode = testMode;
-    self.adSize = adSize;
     
     _adapterCacheDict = [NSMutableDictionary<NSString *, NSObject<BannerAdAdapter> *> new];
     

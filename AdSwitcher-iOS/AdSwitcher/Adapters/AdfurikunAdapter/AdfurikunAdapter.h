@@ -8,6 +8,7 @@
 
 @import Foundation;
 @import SystemConfiguration;
+@import SafariServices;
 
 #import "AdSwitcherBannerView.h"
 #import "AdSwitcherInterstitial.h"

@@ -6,6 +6,7 @@
 //  Copyright © 2016年 adwitcher. All rights reserved.
 //
 
+@import SafariServices;
 #import "UIKit/UIKit.h"
 #import "AdSwitcherConfig.h"
 #import "AdSwitcherConfigLoader.h"
@@ -13,24 +14,26 @@
 #import "AdSelector.h"
 #import "AdSwitcherNativeAdData.h"
 
+
 @interface AdSwitcherNativeAd : NSObject <NativeAdDelegate>
 
 typedef void (^nativeAdReceived)(AdConfig *config, BOOL result);
 
+@property (nonatomic) UIViewController *viewController;
 @property (nonatomic) BOOL testMode;
 @property (nonatomic) AdSwitcherConfig *adSwitcherConfig;
 
 - (instancetype)init __attribute__((unavailable("init is not available")));
 
-- (instancetype)initWithConfigLoader:(AdSwitcherConfigLoader *)configLoader
+- (instancetype)initWithConfigLoader:(UIViewController *)viewController configLoader:(AdSwitcherConfigLoader *)configLoader
                             category:(NSString *)category;
 
-- (instancetype)initWithConfigLoader:(AdSwitcherConfigLoader *)configLoader
+- (instancetype)initWithConfigLoader:(UIViewController *)viewController configLoader:(AdSwitcherConfigLoader *)configLoader
                             category:(NSString *)category testMode:(BOOL)testMode;
 
-- (instancetype)initWithConfig:(AdSwitcherConfig *)adSwitcherConfig;
+- (instancetype)initWithConfig:(UIViewController *)viewController config:(AdSwitcherConfig *)adSwitcherConfig;
 
-- (instancetype)initWithConfig:(AdSwitcherConfig *)adSwitcherConfig
+- (instancetype)initWithConfig:(UIViewController *)viewController config:(AdSwitcherConfig *)adSwitcherConfig
                       testMode:(BOOL)testMode;
 
 - (void)load;

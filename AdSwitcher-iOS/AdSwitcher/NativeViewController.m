@@ -19,7 +19,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _nativeAd = [[AdSwitcherNativeAd alloc]initWithConfigLoader:[AdSwitcherConfigLoader sharedInstance]
+    _nativeAd = [[AdSwitcherNativeAd alloc]initWithConfigLoader:self
+                                                   configLoader:[AdSwitcherConfigLoader sharedInstance]
                                                        category:@"native" testMode:YES];
     
     __block NativeViewController *_self = self;

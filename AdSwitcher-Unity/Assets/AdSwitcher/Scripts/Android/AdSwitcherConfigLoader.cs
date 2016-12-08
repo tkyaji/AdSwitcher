@@ -27,8 +27,11 @@ public class AdSwitcherConfigLoader {
 
 	public void StartLoad(string url) {
 		AndroidJavaObject javaObj_activity = new AndroidJavaClass("com.unity3d.player.UnityPlayer").GetStatic<AndroidJavaObject>("currentActivity");
-		AndroidJavaObject java_url = new AndroidJavaObject("java.net.URL", url);
-		this.javaObj.Call("startLoad", javaObj_activity, java_url);
+		try {
+			AndroidJavaObject java_url = new AndroidJavaObject("java.net.URL", url);
+			this.javaObj.Call("startLoad", javaObj_activity, java_url);
+		} catch (AndroidJavaException) {
+		}
 	}
 
 	public void LoadJson(string jsonText) {

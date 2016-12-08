@@ -111,9 +111,11 @@
 
 #pragma - NativeAdAdapter
 
-- (void)nativeAdInitialize:(NSDictionary<NSString *, NSString *> *)parameters testMode:(BOOL)testMode {
+- (void)nativeAdInitialize:(UIViewController *)viewController parameters:(NSDictionary<NSString *, NSString *> *)parameters testMode:(BOOL)testMode {
     _appId = [parameters objectForKey:@"app_id"];
     _DLOG(@"app_id=%@", _appId);
+    
+    _viewController = viewController;
 
     _adfurikunNativeAd = [[AdfurikunNativeAd alloc] init:_appId];
     _adfurikunNativeAd.delegate = self;
@@ -130,7 +132,10 @@
 - (void)openUrl {
     if (_adfurikunNativeAdInfo) {
         [_adfurikunNativeAdInfo recClick];
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:_adfurikunNativeAdInfo.link_url]];
+        
+        SFSafariViewController *safariViewController =
+        [[SFSafariViewController alloc] initWithURL:[NSURL URLWithString:_adfurikunNativeAdInfo.link_url]];
+        [_viewController presentViewController:safariViewController animated:YES completion:nil];
     }
 }
 
