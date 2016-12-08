@@ -6,8 +6,9 @@
 //  Copyright © 2016年 adwitcher. All rights reserved.
 //
 
+@import UIKit;
 @import SafariServices;
-#import "UIKit/UIKit.h"
+
 #import "AdSwitcherConfig.h"
 #import "AdSwitcherConfigLoader.h"
 #import "NativeAdAdapter.h"

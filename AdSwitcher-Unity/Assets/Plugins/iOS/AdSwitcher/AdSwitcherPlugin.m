@@ -2,19 +2,15 @@
 //  AdSwitcherPlugin.m
 //  Unity-iPhone
 //
-//  Created by tkyaji on 2016/09/17.
+//  Created by tkyaji on 2016/12/08.
 //
 //
 
-#import <Foundation/Foundation.h>
+#import "AdSwitcherPlugin.h"
 
-#import "AdSwitcherConfigLoader.h"
-#import "AdSwitcherInterstitial.h"
-#import "AdSwitcherBannerView.h"
-#import "AdSwitcherNativeAd.h"
-
-
+#ifdef __cplusplus
 extern "C" {
+#endif
     
     static inline const char *__copyString(NSString *str) {
         const char *adNameStr = [str UTF8String];
@@ -227,10 +223,6 @@ extern "C" {
         CFRelease((CFTypeRef)bannerView);
     }
     
-    typedef void (*cs_bannerAdReceivedHandler)(void *, const char *adConfigJson, bool result);
-    typedef void (*cs_bannerAdShownHandler)(void *, const char *adConfigJson);
-    typedef void (*cs_bannerAdClickedHandler)(void *, const char *adConfigJson);
-    
     void _AdSwitcherBannerView_setPosition(AdSwitcherBannerView *bannerView, int adAlign, float *adMarginArr) {
         BannerAdAlign bannerAdAlign = (BannerAdAlign)adAlign;
         BannerAdMargin bannerAdMargin = BannerAdMarginMake(adMarginArr[0], adMarginArr[1], adMarginArr[2], adMarginArr[3]);
@@ -347,11 +339,6 @@ extern "C" {
         CFRelease((CFTypeRef)interstitial);
     }
     
-    typedef void (*cs_interstitialAdLoadedHandler)(void *, const char *adConfigJson, bool result);
-    typedef void (*cs_interstitialAdShownHandler)(void *, const char *adConfigJson);
-    typedef void (*cs_interstitialAdClosedHandler)(void *, const char *adConfigJson, bool result, bool isSkipped);
-    typedef void (*cs_interstitialAdClickedHandler)(void *, const char *adConfigJson);
-    
     void _AdSwitcherInterstitial_show(AdSwitcherInterstitial *interstitial) {
         [interstitial show];
     }
@@ -400,10 +387,9 @@ extern "C" {
     
     // AdSwitcherNativeAd
     
-    typedef void (*cs_nativeAdReceivedHandler)(void *, const char *adConfigJson, bool result);
-    
     AdSwitcherNativeAd *_AdSwitcherNativeAd_new(AdSwitcherConfigLoader *configLoader, const char *category, bool testMode) {
-        AdSwitcherNativeAd *nativeAd = [[AdSwitcherNativeAd alloc] initWithConfigLoader:configLoader
+        AdSwitcherNativeAd *nativeAd = [[AdSwitcherNativeAd alloc] initWithConfigLoader:UnityGetGLViewController()
+                                                                           configLoader:configLoader
                                                                                category:[NSString stringWithUTF8String:category]
                                                                                testMode:testMode];
         CFRetain((CFTypeRef)nativeAd);
@@ -412,7 +398,7 @@ extern "C" {
     
     AdSwitcherNativeAd *_AdSwitcherNativeAd_new_config(const char *adSwitcherConfigJsonStr, bool testMode) {
         AdSwitcherConfig *adSwicherConfig = __adSwitcherConfigFromJson([NSString stringWithUTF8String:adSwitcherConfigJsonStr]);
-        AdSwitcherNativeAd *nativeAd = [[AdSwitcherNativeAd alloc] initWithConfig:adSwicherConfig testMode:testMode];
+        AdSwitcherNativeAd *nativeAd = [[AdSwitcherNativeAd alloc] initWithConfig:UnityGetGLViewController() config:adSwicherConfig testMode:testMode];
         CFRetain((CFTypeRef)nativeAd);
         return nativeAd;
     }
@@ -457,4 +443,7 @@ extern "C" {
             cs_handler(cs_instance, [adConfigJson UTF8String], result);
         }];
     }
+
+#ifdef __cplusplus
 }
+#endif

@@ -7,6 +7,7 @@
 //
 
 @import Foundation;
+@import WebKit;
 
 #import "AdSwitcherInterstitial.h"
 #import <ADFMovieReward/ADFmyMovieReward.h>

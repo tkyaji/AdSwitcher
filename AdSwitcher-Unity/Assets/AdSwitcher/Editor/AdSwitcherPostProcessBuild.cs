@@ -1,4 +1,4 @@
-﻿//#if UNITY_IOS
+﻿#if UNITY_IOS
 
 using UnityEditor;
 using UnityEditor.Callbacks;
@@ -20,11 +20,6 @@ public class AdSwitcherPostProcessBuild {
 		proj.SetBuildProperty(target, "CLANG_ENABLE_MODULES", "YES");
 		proj.AddBuildProperty(target, "GCC_ENABLE_OBJC_EXCEPTIONS", "YES");
 		proj.AddBuildProperty(target, "OTHER_LDFLAGS", "-ObjC");
-
-		// Adfurikun Video
-		if (Directory.Exists("Assets/Plugins/iOS/AdSwitcher/Adapters/AdfurikunVideoAdapter")) {
-			proj.AddFrameworkToProject(target, "WebKit.framework", true);
-		}
 
 		// Copy Resource Files
 		var resDirInfo = new DirectoryInfo(Path.Combine(path, "Libraries/AdSwitcher/Resources"));
@@ -69,4 +64,4 @@ public class AdSwitcherPostProcessBuild {
 
 }
 
-//#endif
+#endif
