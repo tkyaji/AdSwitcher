@@ -20,7 +20,7 @@ public class WithWaitInvoker : MonoBehaviour {
 	}
 
 	private System.Collections.IEnumerator runOnNextFrame() {
-		yield return new WaitForSeconds(this.waitTime);
+		yield return new WaitForSecondsRealtime(this.waitTime);
 		this.action.Invoke();
 		Destroy(this.gameObject);
 	}
