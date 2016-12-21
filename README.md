@@ -35,6 +35,6 @@
 | [Zucks](https://zucks.co.jp/) | ◯ | ◯ | ◯ | ◯ |  |  | 
 | [Tapjoy](https://home.tapjoy.com/) |  |  |  | ◎ |  |  |
 | [アドフリくん](https://adfurikun.jp/) | ◯ | ◯ | ◯ | ◯ | ◯ |  |
-| [アドフリくん 動画](https://adfurikun.jp/) |  |  |  | ◎ |  | 動画インタースティシャル |
+| [アドフリくん 動画](https://adfurikun.jp/) |  |  |  | ◎ |  |  |
 
 ※ ◎は動画インタースティシャル
