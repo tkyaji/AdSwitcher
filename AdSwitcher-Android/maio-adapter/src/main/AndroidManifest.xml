@@ -10,11 +10,12 @@
         android:supportsRtl="true">
 
         <activity
-            android:name="jp.maio.sdk.android.AdFullscreenActivity" android:label="maiosdk" android:configChanges="orientation|screenLayout|screenSize|smallestScreenSize" android:hardwareAccelerated="true" android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+            android:name="jp.maio.sdk.android.AdFullscreenActivity" android:label="maiosdk">
             <intent-filter>
                 <data android:scheme="jp.maio.sdk.android"/>
                 <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" /> <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
             </intent-filter>
         </activity>
 

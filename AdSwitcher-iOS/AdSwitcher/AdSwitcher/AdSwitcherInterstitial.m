@@ -8,8 +8,6 @@
 
 #import "AdSwitcherInterstitial.h"
 
-static int _show_called_count;
-
 @implementation AdSwitcherInterstitial {
     interstitialAdLoadedHandler _interstitialAdLoadedHandler;
     interstitialAdShownHandler _interstitialAdShownHandler;
@@ -23,6 +21,7 @@ static int _show_called_count;
     NSObject<InterstitialAdAdapter> *_selectedAdapter;
     AdConfig *_selectedAdConfig;
     BOOL _loading;
+    int _show_called_count;
 }
 
 - (instancetype)initWithConfigLoader:(UIViewController *)viewController configLoader:(AdSwitcherConfigLoader *)configLoader

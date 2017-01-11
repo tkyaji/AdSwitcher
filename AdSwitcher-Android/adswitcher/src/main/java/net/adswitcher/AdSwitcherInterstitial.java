@@ -21,8 +21,6 @@ public class AdSwitcherInterstitial implements InterstitialAdListener {
 
     private static final String TAG = "AdSwitcherInterstitial";
 
-    private static int showCalledCount;
-
     private AdLoadedListener adLoadedListener;
     private AdShownListener adShownListener;
     private AdClickedListener adClickedListener;
@@ -38,6 +36,7 @@ public class AdSwitcherInterstitial implements InterstitialAdListener {
     private Map<String, InterstitialAdAdapter> adapterCacheMap;
     private Map<String, AdConfig> adConfigMap;
     private boolean loading;
+    private int showCalledCount;
 
 
     public AdSwitcherInterstitial(final Activity activity, final AdSwitcherConfig adSwitcherConfig) {
@@ -74,15 +73,15 @@ public class AdSwitcherInterstitial implements InterstitialAdListener {
         if (adSwitcherConfig == null) {
             return;
         }
-        Log.d(TAG, "show : interval=" + showCalledCount + "/" + this.adSwitcherConfig.interval);
+        Log.d(TAG, "show : interval=" + this.showCalledCount + "/" + this.adSwitcherConfig.interval);
 
-        if (++showCalledCount < this.adSwitcherConfig.interval) {
+        if (++this.showCalledCount < this.adSwitcherConfig.interval) {
             if (this.adClosedListener != null) {
                 this.adClosedListener.onAdClosed(new AdConfig(), false, false);
             }
             return;
         }
-        showCalledCount = 0;
+        this.showCalledCount = 0;
 
         if (this.selectedAdapter != null) {
             this.selectedAdapter.interstitialAdShow();
