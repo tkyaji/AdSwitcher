@@ -4,10 +4,7 @@ import android.app.Activity;
 import android.os.Handler;
 import android.util.Log;
 
-import com.jirbo.adcolony.AdColony;
-import com.jirbo.adcolony.AdColonyAd;
-import com.jirbo.adcolony.AdColonyAdListener;
-import com.jirbo.adcolony.AdColonyVideoAd;
+import com.adcolony.sdk.*;
 
 import net.adswitcher.adapter.InterstitialAdAdapter;
 import net.adswitcher.adapter.InterstitialAdListener;
@@ -17,14 +14,16 @@ import java.util.Map;
 /**
  * Created by tkyaji on 2016/08/12.
  */
-public class AdColonyAdapter implements InterstitialAdAdapter, AdColonyAdListener {
+public class AdColonyAdapter implements InterstitialAdAdapter {
 
     private static final String TAG = "AdColonyAdapter";
 
     private String zoneId;
-    private AdColonyVideoAd videoAd;
     private InterstitialAdListener interstitialAdListener;
+    AdColonyInterstitial adColonyInterstitial;
     private Activity activity;
+    private boolean isLoading;
+    private boolean isLoaded;
 
 
     @Override
@@ -36,64 +35,30 @@ public class AdColonyAdapter implements InterstitialAdAdapter, AdColonyAdListene
         this.zoneId = parameters.get("zone_id");
 
         Log.d(TAG, "videoAdInitialize : app_id=" + appId + ", zone_id=" + this.zoneId);
-
-        String versionName = "";
-        try {
-            versionName = activity.getPackageManager().getPackageInfo(activity.getPackageName(), 0).versionName;
-        } catch (Throwable ex) {
-            Log.e(TAG, ex.getLocalizedMessage(), ex);
-        }
-
-        String option = "version:" + versionName + ",store:google";
-        AdColony.configure(activity, option, appId, this.zoneId);
+        AdColony.configure(activity, appId, this.zoneId);
     }
 
     @Override
     public void interstitialAdLoad() {
         Log.d(TAG, "interstitialAdLoad");
 
-        this.videoAd = new AdColonyVideoAd(this.zoneId);
-        this.videoAd.withListener(this);
+        this.adColonyInterstitial = null;
+        this.isLoading = true;
+        this.isLoaded = false;
 
-        if (this.videoAd.isReady()) {
-            this.interstitialAdListener.interstitialAdLoaded(AdColonyAdapter.this, true);
+        AdColony.requestInterstitial(this.zoneId, this.getListener());
 
-        } else {
-            this.adLoad(1);
-        }
+        this.adLoad(1);
     }
 
     @Override
     public void interstitialAdShow() {
         Log.d(TAG, "videoAdShow");
-        this.videoAd.show();
-    }
-
-
-    @Override
-    public void onAdColonyAdStarted(AdColonyAd adColonyAd) {
-        Log.d(TAG, "onAdColonyAdStarted");
-        this.interstitialAdListener.interstitialAdShown(this);
-    }
-
-    @Override
-    public void onAdColonyAdAttemptFinished(AdColonyAd adColonyAd) {
-        if (adColonyAd.shown()) {
-            if (adColonyAd.skipped()) {
-                Log.d(TAG, "onAdColonyAdAttemptFinished : status=skipped");
-                this.interstitialAdListener.interstitialAdClosed(this, true, true);
-
-            } else {
-                Log.d(TAG, "onAdColonyAdAttemptFinished : status=completed");
-                this.interstitialAdListener.interstitialAdClosed(this, true, false);
-            }
-
+        if (this.isLoaded && this.adColonyInterstitial.show()) {
         } else {
-            Log.d(TAG, "onAdColonyAdAttemptFinished : status=failed");
             this.interstitialAdListener.interstitialAdClosed(this, false, false);
         }
     }
-
 
     private void adLoad(final int count) {
         Log.d(TAG, "adLoad : count=" + count);
@@ -101,20 +66,14 @@ public class AdColonyAdapter implements InterstitialAdAdapter, AdColonyAdListene
         (new Handler()).postDelayed(new Runnable() {
             @Override
             public void run() {
-                if (AdColonyAdapter.this.videoAd.isReady()) {
-                    AdColonyAdapter.this.activity.runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            AdColonyAdapter.this.interstitialAdListener.interstitialAdLoaded(AdColonyAdapter.this, true);
-                        }
-                    });
+                if (!AdColonyAdapter.this.isLoading) {
+                    return;
+
                 } else if (count == 5) {
-                    AdColonyAdapter.this.activity.runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            AdColonyAdapter.this.interstitialAdListener.interstitialAdLoaded(AdColonyAdapter.this, false);
-                        }
-                    });
+                    AdColonyAdapter.this.isLoading = false;
+                    Log.d(TAG, "load timeout");
+                    AdColonyAdapter.this.interstitialAdListener.interstitialAdLoaded(AdColonyAdapter.this, false);
+
                 } else {
                     AdColonyAdapter.this.adLoad(count + 1);
                 }
@@ -122,4 +81,34 @@ public class AdColonyAdapter implements InterstitialAdAdapter, AdColonyAdListene
         }, 1000);
     }
 
+    private AdColonyInterstitialListener getListener() {
+        return new AdColonyInterstitialListener() {
+            @Override
+            public void onRequestFilled(AdColonyInterstitial adColonyInterstitial) {
+                Log.d(TAG, "onRequestFilled");
+                AdColonyAdapter.this.adColonyInterstitial = adColonyInterstitial;
+                AdColonyAdapter.this.isLoading = false;
+                AdColonyAdapter.this.isLoaded = true;
+                AdColonyAdapter.this.interstitialAdListener.interstitialAdLoaded(AdColonyAdapter.this, true);
+            }
+
+            @Override
+            public void onClicked(AdColonyInterstitial ad) {
+                Log.d(TAG, "onClicked");
+                AdColonyAdapter.this.interstitialAdListener.interstitialAdClicked(AdColonyAdapter.this);
+            }
+
+            @Override
+            public void onClosed(AdColonyInterstitial ad) {
+                Log.d(TAG, "onClosed");
+                AdColonyAdapter.this.interstitialAdListener.interstitialAdClosed(AdColonyAdapter.this, true, false);
+            }
+
+            @Override
+            public void onOpened(AdColonyInterstitial ad) {
+                Log.d(TAG, "onOpened");
+                AdColonyAdapter.this.interstitialAdListener.interstitialAdShown(AdColonyAdapter.this);
+            }
+        };
+    }
 }

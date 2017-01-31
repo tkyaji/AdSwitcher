@@ -10,7 +10,12 @@
 
 @implementation AdColonyAdapter {
     NSString *_zoneId;
-    UIViewController* _appViewController;
+    UIViewController *_appViewController;
+    AdColonyInterstitial *_adColonyInterstitial;
+    
+    BOOL _isInitialized;
+    BOOL _isLoading;
+    BOOL _isLoaded;
 }
 
 @synthesize interstitialAdDelegate;
@@ -24,41 +29,65 @@
     
     _DLOG(@"app_id:%@, zone_id:%@", appId, _zoneId);
     
-    [AdColony configureWithAppID:appId zoneIDs:@[_zoneId] delegate:self logging:testMode];
+    [AdColony configureWithAppID:appId zoneIDs:@[_zoneId] options:nil completion:^(NSArray<AdColonyZone *> *zones) {
+        _DLOG("%@", appId);
+        _isInitialized = YES;
+    }];
 }
 
 - (void)interstitialAdLoad {
-    if ([AdColony zoneStatusForZone:_zoneId] == ADCOLONY_ZONE_STATUS_ACTIVE) {
-        _DLOG("ready");
-        [self.interstitialAdDelegate interstitialAdLoaded:self result:YES];
+    if (_isInitialized) {
+        [self requestLoad];
         
     } else {
-        [self adLoad:1];
+        dispatch_time_t time = dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC);
+        dispatch_after(time, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            [self requestLoad];
+        });
     }
 }
 
-- (void)interstitialAdShow {
-    UIWindow* window = [[UIApplication sharedApplication] keyWindow];
-    UIViewController* viewController = [UIViewController new];
-    [viewController.view setBackgroundColor:[UIColor whiteColor]];
-    _appViewController = window.rootViewController;
-    window.rootViewController = viewController;
+- (void)requestLoad {
+    _adColonyInterstitial = nil;
+    _isLoading = YES;
+    _isLoaded = NO;
     
-    [AdColony playVideoAdForZone:_zoneId withDelegate:self];
+    [AdColony requestInterstitialInZone:_zoneId options:nil success:^(AdColonyInterstitial *ad) {
+        _DLOG("success");
+        _adColonyInterstitial = ad;
+        _isLoading = NO;
+        _isLoaded = YES;
+        [self.interstitialAdDelegate interstitialAdLoaded:self result:YES];
+        
+        [ad setOpen:^{
+            _DLOG("open");
+            [self.interstitialAdDelegate interstitialAdShown:self];
+        }];
+        [ad setClick:^{
+            _DLOG("click");
+            [self.interstitialAdDelegate interstitialAdClicked:self];
+        }];
+        [ad setClose:^{
+            _DLOG("close");
+            [self.interstitialAdDelegate interstitialAdClosed:self result:YES isSkipped:NO];
+        }];
+        
+    } failure:^(AdColonyAdRequestError *error) {
+        _DLOG("failure: %@", error);
+        [self.interstitialAdDelegate interstitialAdLoaded:self result:NO];
+        _isLoading = NO;
+    }];
+    
+    [self adLoad:1];
 }
 
-
-# pragma - AdColonyAdDelegate
-
-- (void)onAdColonyAdStartedInZone:(NSString *)zoneID {
-    _DLOG();
-    [self.interstitialAdDelegate interstitialAdShown:self];
-}
-
-- (void)onAdColonyAdAttemptFinished:(BOOL)shown inZone:(NSString *)zoneID {
-    _DLOG(@"show:%d", (int)shown);
-    [self.interstitialAdDelegate interstitialAdClosed:self result:shown isSkipped:NO];
-    [[UIApplication sharedApplication] keyWindow].rootViewController = _appViewController;
+- (void)interstitialAdShow {
+    if (_isLoaded && [_adColonyInterstitial showWithPresentingViewController:_appViewController]) {
+        _DLOG("show:1");
+    } else {
+        _DLOG("show:0");
+        [self.interstitialAdDelegate interstitialAdClosed:self result:NO isSkipped:NO];
+    }
 }
 
 
@@ -69,14 +98,13 @@
     
     dispatch_time_t time = dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC);
     dispatch_after(time, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        if ([AdColony zoneStatusForZone:_zoneId] == ADCOLONY_ZONE_STATUS_ACTIVE) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self.interstitialAdDelegate interstitialAdLoaded:self result:YES];
-            });
+        if (!_isLoading) {
+            return;
+            
         } else if (count == 5) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self.interstitialAdDelegate interstitialAdLoaded:self result:NO];
-            });
+            _isLoading = NO;
+            _DLOG("load timeout");
+            [self.interstitialAdDelegate interstitialAdLoaded:self result:NO];
         } else {
             [self adLoad:count + 1];
         }

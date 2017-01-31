@@ -10,7 +10,6 @@
 		B21907F71D788CCF00DF3A5C /* VideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B21907F61D788CCF00DF3A5C /* VideoViewController.m */; };
 		B2298BCE1DE673AC00512C21 /* libAppLovinSdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B2298BCD1DE673AC00512C21 /* libAppLovinSdk.a */; };
 		B229CF2C1DA473F900C0BD31 /* AdColonyAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = B229CEBD1DA473F800C0BD31 /* AdColonyAdapter.m */; };
-		B229CF2D1DA473F900C0BD31 /* AdColony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B229CEBF1DA473F800C0BD31 /* AdColony.framework */; };
 		B229CF2E1DA473F900C0BD31 /* AdGenerationAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = B229CEC21DA473F900C0BD31 /* AdGenerationAdapter.m */; };
 		B229CF2F1DA473F900C0BD31 /* ADG.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B229CEC41DA473F900C0BD31 /* ADG.framework */; };
 		B229CF301DA473F900C0BD31 /* AdMobAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = B229CEC71DA473F900C0BD31 /* AdMobAdapter.m */; };
@@ -51,13 +50,14 @@
 		B22DB7031DD952E20095B74D /* TapjoyResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B22DB7011DD952E20095B74D /* TapjoyResources.bundle */; };
 		B22DB7041DD952E20095B74D /* Tapjoy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B22DB7021DD952E20095B74D /* Tapjoy.framework */; };
 		B22DB7071DD952EE0095B74D /* TapjoyAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = B22DB7061DD952EE0095B74D /* TapjoyAdapter.m */; };
+		B238A8321E3F7D150030EB38 /* NendAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B238A82F1E3F7D150030EB38 /* NendAd.framework */; };
+		B238A8331E3F7D150030EB38 /* NendAdResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B238A8311E3F7D150030EB38 /* NendAdResource.bundle */; };
+		B238A8351E3F7D4B0030EB38 /* AdColony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B238A8341E3F7D4B0030EB38 /* AdColony.framework */; };
 		B26149761DD04F9F002370C8 /* ZucksAdNetworkSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B26149731DD04F9F002370C8 /* ZucksAdNetworkSDK.framework */; };
 		B26149771DD04F9F002370C8 /* ZucksAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = B26149751DD04F9F002370C8 /* ZucksAdapter.m */; };
 		B29555431DB84A2600FACF3D /* AdSwitcherNativeAdData.m in Sources */ = {isa = PBXBuildFile; fileRef = B29555421DB84A2600FACF3D /* AdSwitcherNativeAdData.m */; };
 		B29555461DB84EEB00FACF3D /* NativeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B29555451DB84EEB00FACF3D /* NativeViewController.m */; };
 		B2E53E121DB7B3870077850F /* AdSwitcherNativeAd.m in Sources */ = {isa = PBXBuildFile; fileRef = B2E53E111DB7B3870077850F /* AdSwitcherNativeAd.m */; };
-		B2E53E231DB7B58F0077850F /* libNendAd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B2E53E151DB7B58F0077850F /* libNendAd.a */; };
-		B2E53E241DB7B58F0077850F /* NADView_readme.txt in Resources */ = {isa = PBXBuildFile; fileRef = B2E53E211DB7B58F0077850F /* NADView_readme.txt */; };
 		B2E53E271DB7BA3F0077850F /* libz.1.2.8.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B2E53E261DB7BA3F0077850F /* libz.1.2.8.tbd */; };
 		B2F751411DD54623003591D2 /* AdfurikunAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = B2F7513F1DD54623003591D2 /* AdfurikunAdapter.m */; };
 		B2F751431DD54641003591D2 /* adfurikunsdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2F751421DD54641003591D2 /* adfurikunsdk.framework */; };
@@ -101,7 +101,6 @@
 		B2298BCD1DE673AC00512C21 /* libAppLovinSdk.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAppLovinSdk.a; sourceTree = "<group>"; };
 		B229CEBC1DA473F800C0BD31 /* AdColonyAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdColonyAdapter.h; sourceTree = "<group>"; };
 		B229CEBD1DA473F800C0BD31 /* AdColonyAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdColonyAdapter.m; sourceTree = "<group>"; };
-		B229CEBF1DA473F800C0BD31 /* AdColony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AdColony.framework; sourceTree = "<group>"; };
 		B229CEC11DA473F900C0BD31 /* AdGenerationAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdGenerationAdapter.h; sourceTree = "<group>"; };
 		B229CEC21DA473F900C0BD31 /* AdGenerationAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdGenerationAdapter.m; sourceTree = "<group>"; };
 		B229CEC41DA473F900C0BD31 /* ADG.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ADG.framework; sourceTree = "<group>"; };
@@ -178,6 +177,9 @@
 		B22DB7021DD952E20095B74D /* Tapjoy.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Tapjoy.framework; sourceTree = "<group>"; };
 		B22DB7051DD952EE0095B74D /* TapjoyAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TapjoyAdapter.h; sourceTree = "<group>"; };
 		B22DB7061DD952EE0095B74D /* TapjoyAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TapjoyAdapter.m; sourceTree = "<group>"; };
+		B238A82F1E3F7D150030EB38 /* NendAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NendAd.framework; sourceTree = "<group>"; };
+		B238A8311E3F7D150030EB38 /* NendAdResource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = NendAdResource.bundle; sourceTree = "<group>"; };
+		B238A8341E3F7D4B0030EB38 /* AdColony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AdColony.framework; sourceTree = "<group>"; };
 		B26149731DD04F9F002370C8 /* ZucksAdNetworkSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ZucksAdNetworkSDK.framework; sourceTree = "<group>"; };
 		B26149741DD04F9F002370C8 /* ZucksAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZucksAdapter.h; sourceTree = "<group>"; };
 		B26149751DD04F9F002370C8 /* ZucksAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZucksAdapter.m; sourceTree = "<group>"; };
@@ -188,20 +190,6 @@
 		B2E53E101DB7B3870077850F /* AdSwitcherNativeAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdSwitcherNativeAd.h; sourceTree = "<group>"; };
 		B2E53E111DB7B3870077850F /* AdSwitcherNativeAd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdSwitcherNativeAd.m; sourceTree = "<group>"; };
 		B2E53E131DB7B3E10077850F /* NativeAdAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NativeAdAdapter.h; sourceTree = "<group>"; };
-		B2E53E151DB7B58F0077850F /* libNendAd.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libNendAd.a; sourceTree = "<group>"; };
-		B2E53E161DB7B58F0077850F /* NADInterstitial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NADInterstitial.h; sourceTree = "<group>"; };
-		B2E53E171DB7B58F0077850F /* NADNative.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NADNative.h; sourceTree = "<group>"; };
-		B2E53E181DB7B58F0077850F /* NADNativeClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NADNativeClient.h; sourceTree = "<group>"; };
-		B2E53E191DB7B58F0077850F /* NADNativeError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NADNativeError.h; sourceTree = "<group>"; };
-		B2E53E1A1DB7B58F0077850F /* NADNativeImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NADNativeImageView.h; sourceTree = "<group>"; };
-		B2E53E1B1DB7B58F0077850F /* NADNativeLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NADNativeLabel.h; sourceTree = "<group>"; };
-		B2E53E1C1DB7B58F0077850F /* NADNativeLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NADNativeLogger.h; sourceTree = "<group>"; };
-		B2E53E1D1DB7B58F0077850F /* NADNativeTableViewHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NADNativeTableViewHelper.h; sourceTree = "<group>"; };
-		B2E53E1E1DB7B58F0077850F /* NADNativeTableViewPlacement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NADNativeTableViewPlacement.h; sourceTree = "<group>"; };
-		B2E53E1F1DB7B58F0077850F /* NADNativeViewRendering.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NADNativeViewRendering.h; sourceTree = "<group>"; };
-		B2E53E201DB7B58F0077850F /* NADView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NADView.h; sourceTree = "<group>"; };
-		B2E53E211DB7B58F0077850F /* NADView_readme.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = NADView_readme.txt; sourceTree = "<group>"; };
-		B2E53E221DB7B58F0077850F /* NendAd-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NendAd-Bridging-Header.h"; sourceTree = "<group>"; };
 		B2E53E261DB7BA3F0077850F /* libz.1.2.8.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.2.8.tbd; path = usr/lib/libz.1.2.8.tbd; sourceTree = SDKROOT; };
 		B2F7513E1DD54623003591D2 /* AdfurikunAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdfurikunAdapter.h; sourceTree = "<group>"; };
 		B2F7513F1DD54623003591D2 /* AdfurikunAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdfurikunAdapter.m; sourceTree = "<group>"; };
@@ -228,10 +216,10 @@
 				B2298BCE1DE673AC00512C21 /* libAppLovinSdk.a in Frameworks */,
 				B2E53E271DB7BA3F0077850F /* libz.1.2.8.tbd in Frameworks */,
 				B229CF311DA473F900C0BD31 /* GoogleMobileAds.framework in Frameworks */,
-				B229CF2D1DA473F900C0BD31 /* AdColony.framework in Frameworks */,
 				B2F751A01DD575B3003591D2 /* ADFMovieReward.framework in Frameworks */,
+				B238A8321E3F7D150030EB38 /* NendAd.framework in Frameworks */,
 				B229CF391DA473F900C0BD31 /* libAMoAd.a in Frameworks */,
-				B2E53E231DB7B58F0077850F /* libNendAd.a in Frameworks */,
+				B238A8351E3F7D4B0030EB38 /* AdColony.framework in Frameworks */,
 				B2F751431DD54641003591D2 /* adfurikunsdk.framework in Frameworks */,
 				B229CF3D1DA473F900C0BD31 /* FBAudienceNetwork.framework in Frameworks */,
 				B26149761DD04F9F002370C8 /* ZucksAdNetworkSDK.framework in Frameworks */,
@@ -292,7 +280,7 @@
 		B229CEBE1DA473F800C0BD31 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				B229CEBF1DA473F800C0BD31 /* AdColony.framework */,
+				B238A8341E3F7D4B0030EB38 /* AdColony.framework */,
 			);
 			path = Libraries;
 			sourceTree = "<group>";
@@ -463,8 +451,7 @@
 		B229CF151DA473F900C0BD31 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				B2E53E141DB7B58F0077850F /* NendAd */,
-				B2E53E221DB7B58F0077850F /* NendAd-Bridging-Header.h */,
+				B238A82E1E3F7D150030EB38 /* NendAd.embeddedframework */,
 			);
 			path = Libraries;
 			sourceTree = "<group>";
@@ -636,6 +623,23 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		B238A82E1E3F7D150030EB38 /* NendAd.embeddedframework */ = {
+			isa = PBXGroup;
+			children = (
+				B238A82F1E3F7D150030EB38 /* NendAd.framework */,
+				B238A8301E3F7D150030EB38 /* Resources */,
+			);
+			path = NendAd.embeddedframework;
+			sourceTree = "<group>";
+		};
+		B238A8301E3F7D150030EB38 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B238A8311E3F7D150030EB38 /* NendAdResource.bundle */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		B26149711DD04F9F002370C8 /* ZucksAdapter */ = {
 			isa = PBXGroup;
 			children = (
@@ -652,26 +656,6 @@
 				B26149731DD04F9F002370C8 /* ZucksAdNetworkSDK.framework */,
 			);
 			path = Libraries;
-			sourceTree = "<group>";
-		};
-		B2E53E141DB7B58F0077850F /* NendAd */ = {
-			isa = PBXGroup;
-			children = (
-				B2E53E151DB7B58F0077850F /* libNendAd.a */,
-				B2E53E161DB7B58F0077850F /* NADInterstitial.h */,
-				B2E53E171DB7B58F0077850F /* NADNative.h */,
-				B2E53E181DB7B58F0077850F /* NADNativeClient.h */,
-				B2E53E191DB7B58F0077850F /* NADNativeError.h */,
-				B2E53E1A1DB7B58F0077850F /* NADNativeImageView.h */,
-				B2E53E1B1DB7B58F0077850F /* NADNativeLabel.h */,
-				B2E53E1C1DB7B58F0077850F /* NADNativeLogger.h */,
-				B2E53E1D1DB7B58F0077850F /* NADNativeTableViewHelper.h */,
-				B2E53E1E1DB7B58F0077850F /* NADNativeTableViewPlacement.h */,
-				B2E53E1F1DB7B58F0077850F /* NADNativeViewRendering.h */,
-				B2E53E201DB7B58F0077850F /* NADView.h */,
-				B2E53E211DB7B58F0077850F /* NADView_readme.txt */,
-			);
-			path = NendAd;
 			sourceTree = "<group>";
 		};
 		B2E53E251DB7BA3E0077850F /* Frameworks */ = {
@@ -818,10 +802,10 @@
 				B229CF341DA473F900C0BD31 /* amoad_close_btn_h.png in Resources */,
 				B22D7EB31D72785B00F19E56 /* Assets.xcassets in Resources */,
 				B22DB7031DD952E20095B74D /* TapjoyResources.bundle in Resources */,
+				B238A8331E3F7D150030EB38 /* NendAdResource.bundle in Resources */,
 				B229CF381DA473F900C0BD31 /* amoad_panel_l.png in Resources */,
 				B22D7EB11D72785B00F19E56 /* Main.storyboard in Resources */,
 				B229CF371DA473F900C0BD31 /* amoad_panel.png in Resources */,
-				B2E53E241DB7B58F0077850F /* NADView_readme.txt in Resources */,
 				B229CF351DA473F900C0BD31 /* amoad_link_btn.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -999,6 +983,7 @@
 					"$(PROJECT_DIR)/AdSwitcher/Adapters/TapjoyVideoAdapter/Libraries/Tapjoy.embeddedframework",
 					"$(PROJECT_DIR)/AdSwitcher/Adapters/TapjoyAdapter/Libraries/Tapjoy.embeddedframework",
 					"$(PROJECT_DIR)/AdSwitcher/Adapters/AppLovinAdapter/Libraries",
+					"$(PROJECT_DIR)/AdSwitcher/Adapters/NendAdapter/Libraries/NendAd.embeddedframework",
 				);
 				INFOPLIST_FILE = AdSwitcher/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1010,7 +995,7 @@
 					"$(PROJECT_DIR)/AdSwitcher/Adapters/AdfurikunVideoAdapter/Libraries/applovin-ios-sdk-3.4.3",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = com.gamestart.nyancopter;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tkyaji.adswitcher.sample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -1040,6 +1025,7 @@
 					"$(PROJECT_DIR)/AdSwitcher/Adapters/TapjoyVideoAdapter/Libraries/Tapjoy.embeddedframework",
 					"$(PROJECT_DIR)/AdSwitcher/Adapters/TapjoyAdapter/Libraries/Tapjoy.embeddedframework",
 					"$(PROJECT_DIR)/AdSwitcher/Adapters/AppLovinAdapter/Libraries",
+					"$(PROJECT_DIR)/AdSwitcher/Adapters/NendAdapter/Libraries/NendAd.embeddedframework",
 				);
 				INFOPLIST_FILE = AdSwitcher/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1051,7 +1037,7 @@
 					"$(PROJECT_DIR)/AdSwitcher/Adapters/AdfurikunVideoAdapter/Libraries/applovin-ios-sdk-3.4.3",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = com.gamestart.nyancopter;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tkyaji.adswitcher.sample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

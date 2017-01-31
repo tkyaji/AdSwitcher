@@ -27,6 +27,6 @@
 #import "Log.h"
 #import <AdColony/AdColony.h>
 
-@interface AdColonyAdapter : NSObject <InterstitialAdAdapter, AdColonyDelegate, AdColonyAdDelegate>
+@interface AdColonyAdapter : NSObject <InterstitialAdAdapter>
 
 @end

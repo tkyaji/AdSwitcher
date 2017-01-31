@@ -43,11 +43,20 @@ public class MaioAdapter extends MaioAdsListener implements InterstitialAdAdapte
     public void interstitialAdLoad() {
         Log.d(TAG, "interstitialAdLoad");
 
-        if (MaioAds.canShow()) {
-            this.interstitialAdListener.interstitialAdLoaded(MaioAdapter.this, true);
+        if (this.zoneId == null) {
+            if (MaioAds.canShow(this.zoneId)) {
+                this.interstitialAdListener.interstitialAdLoaded(MaioAdapter.this, true);
 
+            } else {
+                this.adLoad(1);
+            }
         } else {
-            this.adLoad(1);
+            if (MaioAds.canShow()) {
+                this.interstitialAdListener.interstitialAdLoaded(MaioAdapter.this, true);
+
+            } else {
+                this.adLoad(1);
+            }
         }
     }
 

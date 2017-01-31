@@ -15,8 +15,8 @@
 
 #import "AdSwitcherBannerView.h"
 #import "AdSwitcherInterstitial.h"
-#import "NADView.h"
-#import "NADInterstitial.h"
+#import <NendAd/NADView.h>
+#import <NendAd/NADInterstitial.h>
 
 @interface NendAdapter : NSObject <BannerAdAdapter, InterstitialAdAdapter, NADViewDelegate, NADInterstitialDelegate>
 

@@ -11,6 +11,7 @@
 # AdSwitcher
 adswitcher.json
 unity-ads/
+nendSDK-*/
 **/libs/*
 !**/libs/.gitkeep
 

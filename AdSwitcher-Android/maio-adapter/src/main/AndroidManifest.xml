@@ -10,7 +10,11 @@
         android:supportsRtl="true">
 
         <activity
-            android:name="jp.maio.sdk.android.AdFullscreenActivity" android:label="maiosdk">
+            android:name="jp.maio.sdk.android.AdFullscreenActivity"
+            android:label="maiosdk"
+            android:configChanges="orientation|screenLayout|screenSize|smallestScreenSize"
+            android:hardwareAccelerated="true"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
             <intent-filter>
                 <data android:scheme="jp.maio.sdk.android"/>
                 <action android:name="android.intent.action.VIEW" />
