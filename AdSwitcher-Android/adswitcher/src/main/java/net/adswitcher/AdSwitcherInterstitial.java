@@ -70,12 +70,11 @@ public class AdSwitcherInterstitial implements InterstitialAdListener {
     }
 
     public void show() {
-        if (adSwitcherConfig == null) {
-            return;
+        if (adSwitcherConfig != null) {
+            Log.d(TAG, "show : interval=" + this.showCalledCount + "/" + this.adSwitcherConfig.interval);
         }
-        Log.d(TAG, "show : interval=" + this.showCalledCount + "/" + this.adSwitcherConfig.interval);
 
-        if (++this.showCalledCount < this.adSwitcherConfig.interval) {
+        if (adSwitcherConfig == null || ++this.showCalledCount < this.adSwitcherConfig.interval) {
             if (this.adClosedListener != null) {
                 this.adClosedListener.onAdClosed(new AdConfig(), false, false);
             }

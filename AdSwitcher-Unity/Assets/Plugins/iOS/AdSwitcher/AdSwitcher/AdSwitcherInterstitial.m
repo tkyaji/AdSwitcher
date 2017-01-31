@@ -67,7 +67,7 @@
 - (void)show {
     _DLOG("interval : %d/%d", _show_called_count, (int)self.adSwitcherConfig.interval);
     
-    if (++_show_called_count < self.adSwitcherConfig.interval) {
+    if (!self.adSwitcherConfig || ++_show_called_count < self.adSwitcherConfig.interval) {
         if (_interstitialAdClosedHandler) {
             _interstitialAdClosedHandler(nil, NO, NO);
         }
