@@ -11,10 +11,12 @@ public class AdSwitcherResovleAndroidLibraries {
 	private static string androidPluginDir = "Assets/Plugins/Android";
 
 
-	[MenuItem("AdSwitcher/Jar Resolve")]
+	[MenuItem("AdSwitcher/Resolve Jar")]
 	private static void jarResolve() {
 		addLibrary("com.google.android.gms", "play-services-basement");
 		addLibrary("com.google.android.gms", "play-services-ads");
+		addLibrary("com.google.android.gms", "play-services-ads-lite");
+		addLibrary("com.android.support", "support-v4");
 
 		// Nend
 		if (Directory.Exists("Assets/Plugins/Android/AdSwitcher-NendAdapter")) {
@@ -27,12 +29,14 @@ public class AdSwitcherResovleAndroidLibraries {
 		if (Directory.Exists("Assets/Plugins/Android/AdSwitcher-AdColonyAdapter")) {
 			addLibrary("com.android.support", "support-annotations");
 		}
+
+		AssetDatabase.Refresh();
 	}
 
 
 
 	private static void addLibrary(string group, string artifact, string version = "LATEST") {
-		var searchRegex = artifact.Replace("-", "\\-") + "\\-[0-9\\.]+\\.aar";
+		var searchRegex = artifact.Replace("-", "\\-") + "\\-[0-9\\.]+";
 		if (isExistLibrary(searchRegex)) {
 			return;
 		}
@@ -102,8 +106,14 @@ public class AdSwitcherResovleAndroidLibraries {
 
 	private static bool isExistLibrary(string libNameRegex) {
 		var dInfo = new DirectoryInfo(androidPluginDir);
-		var regex = new Regex(libNameRegex);
+		var regex = new Regex(libNameRegex + "\\.aar");
 		foreach (var fInfo in dInfo.GetFiles("*.aar")) {
+			if (regex.IsMatch(fInfo.Name)) {
+				return true;
+			}
+		}
+		regex = new Regex(libNameRegex + "\\.jar");
+		foreach (var fInfo in dInfo.GetFiles("*.jar")) {
 			if (regex.IsMatch(fInfo.Name)) {
 				return true;
 			}
