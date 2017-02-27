@@ -91,8 +91,13 @@
 }
 
 - (void)interstitialAdShow {
-    _DLOG();
-    [_interstitial presentFromRootViewController:_viewController];
+    if (_interstitial.isReady) {
+        _DLOG("ready : 1");
+        [_interstitial presentFromRootViewController:_viewController];
+    } else {
+        _DLOG("ready : 0");
+        [self.interstitialAdDelegate interstitialAdClosed:self result:NO isSkipped:NO];
+    }
 }
 
 

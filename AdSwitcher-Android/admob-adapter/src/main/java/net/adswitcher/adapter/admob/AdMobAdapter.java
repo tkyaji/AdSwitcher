@@ -132,8 +132,13 @@ public class AdMobAdapter implements BannerAdAdapter, InterstitialAdAdapter {
 
     @Override
     public void interstitialAdShow() {
-        Log.d(TAG, "interstitialAdShow");
-        this.interstitialAd.show();
+        if (this.interstitialAd.isLoaded()) {
+            Log.d(TAG, "interstitialAdShow : loaded=true");
+            this.interstitialAd.show();
+        } else {
+            Log.d(TAG, "interstitialAdShow : loaded=false");
+            interstitialAdListener.interstitialAdClosed(AdMobAdapter.this, false, false);
+        }
     }
 
     private void setInterstitialAdListener(final InterstitialAd interstitialAd, final InterstitialAdListener interstitialAdListener) {
