@@ -14,6 +14,11 @@ typedef enum {
     AdSwitchTypePriority
 } AdSwitchType;
 
+typedef enum {
+    IntervalTypeCount,
+    IntervalTypeTime,
+} IntervalType;
+
 
 @interface AdConfig : NSObject
 
@@ -30,6 +35,7 @@ typedef enum {
 @property (nonatomic) NSString *category;
 @property (nonatomic) AdSwitchType switchType;
 @property (nonatomic) NSInteger interval;
+@property (nonatomic) IntervalType intervalType;
 @property (nonatomic) NSArray<AdConfig *> *adConfigArr;
 
 @end

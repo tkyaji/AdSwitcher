@@ -170,7 +170,7 @@ extern "C" {
     // AdSwitcherBannerView
     
     AdSwitcherBannerView *_AdSwitcherBannerView_new(AdSwitcherConfigLoader *configLoader, const char *category,
-                                                    int adSize, int adAlign, float *adMarginArr, bool isSizeToFit, bool testMode) {
+                                                    int adSize, int adAlign, float *adMarginArr, float scale, bool testMode) {
         
         BannerAdSize bannerAdSize = (BannerAdSize)adSize;
         BannerAdAlign bannerAdAlign = (BannerAdAlign)adAlign;
@@ -184,8 +184,7 @@ extern "C" {
                                                   testMode:testMode];
         bannerView.frame = __toBannerAdFrame(bannerAdSize, bannerAdAlign, bannerAdMargin, 1);
         
-        if (isSizeToFit) {
-            CGFloat scale = UnityGetGLView().frame.size.width / bannerView.frame.size.width;
+        if (scale != 1.0f) {
             bannerView.transform = CGAffineTransformMakeScale(scale, scale);
             bannerView.frame = __toBannerAdFrame(bannerAdSize, bannerAdAlign, bannerAdMargin, scale);
         }
@@ -195,7 +194,7 @@ extern "C" {
     }
     
     AdSwitcherBannerView *_AdSwitcherBannerView_new_config(const char *adSwitcherConfigJsonStr,
-                                                           int adSize, int adAlign, float *adMarginArr, bool isSizeToFit, bool testMode) {
+                                                           int adSize, int adAlign, float *adMarginArr, float scale, bool testMode) {
         
         AdSwitcherConfig *adSwitcherConfig = __adSwitcherConfigFromJson([NSString stringWithUTF8String:adSwitcherConfigJsonStr]);
         
@@ -209,8 +208,7 @@ extern "C" {
                                                                                testMode:testMode];
         bannerView.frame = __toBannerAdFrame(bannerAdSize, bannerAdAlign, bannerAdMargin, 1);
         
-        if (isSizeToFit) {
-            CGFloat scale = UnityGetGLView().frame.size.width / bannerView.frame.size.width;
+        if (scale != 1.0f) {
             bannerView.transform = CGAffineTransformMakeScale(scale, scale);
             bannerView.frame = __toBannerAdFrame(bannerAdSize, bannerAdAlign, bannerAdMargin, scale);
         }

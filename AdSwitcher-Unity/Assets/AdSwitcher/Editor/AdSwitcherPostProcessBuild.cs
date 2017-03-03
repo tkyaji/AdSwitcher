@@ -40,6 +40,11 @@ public class AdSwitcherPostProcessBuild {
 			proj.AddBuildProperty(target, "GCC_PREPROCESSOR_DEFINITIONS", "ADSWITCHER_DEBUG=1");
 		}
 
+		// MoPub
+		if (Directory.Exists("Assets/Plugins/iOS/AdSwitcher/Adapters/MopubAdapter")) {
+			proj.AddBuildProperty(target, "GCC_C_LANGUAGE_STANDARD", "gnu99");
+		}
+
 		File.WriteAllText(projPath, proj.WriteToString());
 
 
@@ -56,6 +61,7 @@ public class AdSwitcherPostProcessBuild {
 			plist.WriteToFile(plistPath);
 		}
 	}
+
 
 	private static List<FileInfo> searchFiles(DirectoryInfo baseDirInfo, string[] searchExtensions) {
 		var list = new List<FileInfo>();

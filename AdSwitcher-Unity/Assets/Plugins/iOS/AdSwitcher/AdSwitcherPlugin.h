@@ -28,10 +28,10 @@ extern "C" {
     // AdSwitcherBannerView
     
     AdSwitcherBannerView *_AdSwitcherBannerView_new(AdSwitcherConfigLoader *configLoader, const char *category,
-                                                    int adSize, int adAlign, float *adMarginArr, bool isSizeToFit, bool testMode);
+                                                    int adSize, int adAlign, float *adMarginArr, float scale, bool testMode);
     
     AdSwitcherBannerView *_AdSwitcherBannerView_new_config(const char *adSwitcherConfigJsonStr,
-                                                           int adSize, int adAlign, float *adMarginArr, bool isSizeToFit, bool testMode);
+                                                           int adSize, int adAlign, float *adMarginArr, float scale, bool testMode);
     
     void _AdSwitcherBannerView_release(AdSwitcherBannerView *bannerView);
     

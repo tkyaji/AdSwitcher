@@ -164,6 +164,7 @@ static AdSwitcherConfigLoader *_sharedInstance;
     [adSwitcherConfigsDict enumerateKeysAndObjectsUsingBlock:^(NSString *key, NSDictionary *dict, BOOL *stop) {
         NSString *switchType = [dict objectForKey:@"switch_type"];
         NSNumber *interval = [dict objectForKey:@"interval"];
+        NSString *intervalType = [dict objectForKey:@"interval_type"];
         NSArray *adConfigArr = [dict objectForKey:@"ads"];
         
         AdSwitcherConfig *adSwitcherConfig = [AdSwitcherConfig new];
@@ -171,6 +172,7 @@ static AdSwitcherConfigLoader *_sharedInstance;
         adSwitcherConfig.category = key;
         adSwitcherConfig.switchType = [self toAdSwitchType:switchType];
         adSwitcherConfig.interval = (interval) ? interval.integerValue : 0;
+        adSwitcherConfig.intervalType = [self toIntervalType:intervalType];
         
         NSMutableArray<AdConfig *> *mArr = [NSMutableArray<AdConfig *> new];
         for (NSDictionary *adConfigDict in adConfigArr) {
@@ -203,6 +205,14 @@ static AdSwitcherConfigLoader *_sharedInstance;
         return AdSwitchTypePriority;
     } else {
         return AdSwitchTypeRatio;
+    }
+}
+
+- (IntervalType)toIntervalType:(NSString *)intervalTypeStr {
+    if ([@"time" isEqualToString:intervalTypeStr]) {
+        return IntervalTypeTime;
+    } else {
+        return IntervalTypeCount;
     }
 }
 

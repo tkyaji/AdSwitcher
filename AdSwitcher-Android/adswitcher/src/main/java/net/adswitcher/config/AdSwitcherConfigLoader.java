@@ -203,8 +203,9 @@ public class AdSwitcherConfigLoader {
         while (it.hasNext()) {
             String cateogry = it.next();
             JSONObject obj = jsonObject.getJSONObject(cateogry);
-            String switchType = obj.getString("switch_type");
+            String switchType = obj.has("switch_type") ? obj.getString("switch_type") : "ratio";
             int interval = obj.has("interval") ? obj.getInt("interval") : 0;
+            String intervalType = obj.has("interval_type") ? obj.getString("interval_type") : "count";
             JSONArray ads = obj.getJSONArray("ads");
 
             List<AdConfig> adConfigList = new ArrayList<>();
@@ -228,7 +229,7 @@ public class AdSwitcherConfigLoader {
                 adConfigList.add(adConfig);
             }
 
-            AdSwitcherConfig adSwitcherConfig = new AdSwitcherConfig(cateogry, this.toAdSwitchType(switchType), interval, adConfigList);
+            AdSwitcherConfig adSwitcherConfig = new AdSwitcherConfig(cateogry, this.toAdSwitchType(switchType), interval, this.toIntervalType(intervalType), adConfigList);
             adSwitcherConfigMap.put(cateogry, adSwitcherConfig);
         }
 
@@ -240,6 +241,14 @@ public class AdSwitcherConfigLoader {
             return AdSwitchType.Rotate;
         } else {
             return AdSwitchType.Ratio;
+        }
+    }
+
+    private IntervalType toIntervalType(String intervalTypeStr) {
+        if ("time".equals(intervalTypeStr)) {
+            return IntervalType.Time;
+        } else {
+            return IntervalType.Count;
         }
     }
 

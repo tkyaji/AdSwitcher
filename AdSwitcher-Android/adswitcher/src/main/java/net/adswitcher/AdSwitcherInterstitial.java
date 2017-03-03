@@ -10,6 +10,7 @@ import net.adswitcher.adapter.InterstitialAdListener;
 import net.adswitcher.config.AdConfig;
 import net.adswitcher.config.AdSwitcherConfig;
 import net.adswitcher.config.AdSwitcherConfigLoader;
+import net.adswitcher.config.IntervalType;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -37,6 +38,7 @@ public class AdSwitcherInterstitial implements InterstitialAdListener {
     private Map<String, AdConfig> adConfigMap;
     private boolean loading;
     private int showCalledCount;
+    private long showCalledTime;
 
 
     public AdSwitcherInterstitial(final Activity activity, final AdSwitcherConfig adSwitcherConfig) {
@@ -70,26 +72,43 @@ public class AdSwitcherInterstitial implements InterstitialAdListener {
     }
 
     public void show() {
-        if (adSwitcherConfig != null) {
-            Log.d(TAG, "show : interval=" + this.showCalledCount + "/" + this.adSwitcherConfig.interval);
-        }
-
-        if (adSwitcherConfig == null || ++this.showCalledCount < this.adSwitcherConfig.interval) {
-            if (this.adClosedListener != null) {
-                this.adClosedListener.onAdClosed(new AdConfig(), false, false);
-            }
+        if (adSwitcherConfig == null) {
+            this.showFailedClose();
             return;
         }
-        this.showCalledCount = 0;
+
+        if (adSwitcherConfig.intervalType == IntervalType.Time) {
+            long now = System.currentTimeMillis();
+            Log.d(TAG, "show : interval_time=" + ((now - this.showCalledTime) / 1000) + "/" + this.adSwitcherConfig.interval);
+
+            if (now - this.showCalledTime <= adSwitcherConfig.interval * 1000) {
+                this.showFailedClose();
+                return;
+            }
+            this.showCalledTime = now;
+
+        } else {
+            Log.d(TAG, "show : interval_count=" + this.showCalledCount + "/" + this.adSwitcherConfig.interval);
+
+            if (++this.showCalledCount < this.adSwitcherConfig.interval) {
+                this.showFailedClose();
+                return;
+            }
+            this.showCalledCount = 0;
+        }
 
         if (this.selectedAdapter != null) {
             this.selectedAdapter.interstitialAdShow();
 
         } else {
-            if (this.adClosedListener != null) {
-                this.adClosedListener.onAdClosed(new AdConfig(), false, false);
-            }
+            this.showFailedClose();
             this.load();
+        }
+    }
+
+    private void showFailedClose() {
+        if (this.adClosedListener != null) {
+            this.adClosedListener.onAdClosed(new AdConfig(), false, false);
         }
     }
 

@@ -21,7 +21,8 @@
     NSObject<InterstitialAdAdapter> *_selectedAdapter;
     AdConfig *_selectedAdConfig;
     BOOL _loading;
-    int _show_called_count;
+    int _showCalledCount;
+    NSTimeInterval _showCalledTime;
 }
 
 - (instancetype)initWithConfigLoader:(UIViewController *)viewController configLoader:(AdSwitcherConfigLoader *)configLoader
@@ -65,29 +66,48 @@
 }
 
 - (void)show {
-    _DLOG("interval : %d/%d", _show_called_count, (int)self.adSwitcherConfig.interval);
-    
-    if (!self.adSwitcherConfig || ++_show_called_count < self.adSwitcherConfig.interval) {
-        if (_interstitialAdClosedHandler) {
-            _interstitialAdClosedHandler(nil, NO, NO);
-        }
+    if (!self.adSwitcherConfig) {
+        [self showFailedClose];
         return;
     }
-    _show_called_count = 0;
+    
+    if (self.adSwitcherConfig.intervalType == IntervalTypeTime) {
+        NSTimeInterval now = [[NSDate date] timeIntervalSince1970];
+        _DLOG("interval time : %lf/%lf", (now - _showCalledTime), (NSTimeInterval)self.adSwitcherConfig.interval);
+        
+        if (now - _showCalledTime <= self.adSwitcherConfig.interval) {
+            [self showFailedClose];
+            return;
+        }
+        _showCalledTime = now;
+
+    } else {
+        _DLOG("interval count : %d/%d", _showCalledCount, (int)self.adSwitcherConfig.interval);
+        
+        if (++_showCalledCount < self.adSwitcherConfig.interval) {
+            [self showFailedClose];
+            return;
+        }
+        _showCalledCount = 0;
+    }
     
     if (_selectedAdapter) {
         [_selectedAdapter interstitialAdShow];
         
     } else {
-        if (_interstitialAdClosedHandler) {
-            _interstitialAdClosedHandler(nil, NO, NO);
-        }
+        [self showFailedClose];
         [self load];
     }
 }
 
+- (void)showFailedClose {
+    if (_interstitialAdClosedHandler) {
+        _interstitialAdClosedHandler(nil, NO, NO);
+    }
+}
+
 - (BOOL)isLoaded {
-    return _selectedAdapter;
+    return (_selectedAdapter != nil);
 }
 
 - (void)setAdLoadedHandler:(void (^)(AdConfig *config, BOOL result))handler {

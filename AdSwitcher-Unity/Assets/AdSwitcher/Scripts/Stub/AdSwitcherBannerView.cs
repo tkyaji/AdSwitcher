@@ -47,10 +47,25 @@ public class AdSwitcherBannerView {
 	}
 
 
+	public AdSwitcherBannerView(AdSwitcherConfigLoader configLoader, string category,
+							BannerAdSize adSize, BannerAdAlign adAlign, BannerAdMargin adMargin = default(BannerAdMargin),
+							float scale = 1.0f, bool testMode = false) {
+		this.adSize = adSize;
+		this.adAlign = adAlign;
+		this.adMargin = adMargin;
+	}
 
 	public AdSwitcherBannerView(AdSwitcherConfigLoader configLoader, string category,
 								BannerAdSize adSize, BannerAdAlign adAlign, BannerAdMargin adMargin = default(BannerAdMargin),
-								bool testMode = false/*, bool isSizeToFit = false*/) {
+								bool testMode = false) {
+		this.adSize = adSize;
+		this.adAlign = adAlign;
+		this.adMargin = adMargin;
+	}
+
+	public AdSwitcherBannerView(AdSwitcherConfig adSwitcherConfig,
+							BannerAdSize adSize, BannerAdAlign adAlign, BannerAdMargin adMargin = default(BannerAdMargin),
+							float scale = 1.0f, bool testMode = false) {
 		this.adSize = adSize;
 		this.adAlign = adAlign;
 		this.adMargin = adMargin;
@@ -58,7 +73,7 @@ public class AdSwitcherBannerView {
 
 	public AdSwitcherBannerView(AdSwitcherConfig adSwitcherConfig,
 								BannerAdSize adSize, BannerAdAlign adAlign, BannerAdMargin adMargin = default(BannerAdMargin),
-								bool testMode = false/*, bool isSizeToFit = false*/) {
+								bool testMode = false) {
 		this.adSize = adSize;
 		this.adAlign = adAlign;
 		this.adMargin = adMargin;

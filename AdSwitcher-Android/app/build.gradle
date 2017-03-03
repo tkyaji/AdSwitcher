@@ -28,6 +28,7 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.google.android.gms:play-services-ads:+'
     compile project(':adswitcher')
+    compile project(':mopub-adapter')
 
     /*
     compile project(':adcolony-adapter')
@@ -47,8 +48,9 @@ dependencies {
     compile project(':adfurikun-adapter')
     compile project(':adfurikunvideo-adapter')
     compile project(':tapjoy-adapter')
-    */
 
     compile 'com.facebook.android:audience-network-sdk:4.13.0'
     compile project(':unity-ads')
+        */
+
 }

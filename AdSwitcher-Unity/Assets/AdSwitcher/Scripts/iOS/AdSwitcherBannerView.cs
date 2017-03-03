@@ -16,21 +16,36 @@ public class AdSwitcherBannerView {
 
 
 	public AdSwitcherBannerView(AdSwitcherConfigLoader configLoader, string category,
-	                            BannerAdSize adSize, BannerAdAlign adAlign, BannerAdMargin adMargin = default(BannerAdMargin),
-	                            bool testMode = false/*, bool isSizeToFit = false*/) {
-		bool isSizeToFit = false; // TODO
+							BannerAdSize adSize, BannerAdAlign adAlign, BannerAdMargin adMargin = default(BannerAdMargin),
+							bool testMode = false) {
 		float[] adMarginArr = new float[] { adMargin.Left, adMargin.Top, adMargin.Right, adMargin.Bottom };
-		this.CInstance = _AdSwitcherBannerView_new(configLoader.CInstance, category, (int)adSize, (int)adAlign, adMarginArr, isSizeToFit, testMode);
+		this.CInstance = _AdSwitcherBannerView_new(configLoader.CInstance, category, (int)adSize, (int)adAlign, adMarginArr, 1.0f, testMode);
+		this.CSInstance = (IntPtr)GCHandle.Alloc(this);
+	}
+
+	public AdSwitcherBannerView(AdSwitcherConfigLoader configLoader, string category,
+	                            BannerAdSize adSize, BannerAdAlign adAlign, BannerAdMargin adMargin = default(BannerAdMargin),
+								float scale = 1.0f, bool testMode = false) {
+		float[] adMarginArr = new float[] { adMargin.Left, adMargin.Top, adMargin.Right, adMargin.Bottom };
+		this.CInstance = _AdSwitcherBannerView_new(configLoader.CInstance, category, (int)adSize, (int)adAlign, adMarginArr, scale, testMode);
+		this.CSInstance = (IntPtr)GCHandle.Alloc(this);
+	}
+
+	public AdSwitcherBannerView(AdSwitcherConfig adSwitcherConfig,
+							BannerAdSize adSize, BannerAdAlign adAlign, BannerAdMargin adMargin = default(BannerAdMargin),
+							bool testMode = false) {
+		float[] adMarginArr = new float[] { adMargin.Left, adMargin.Top, adMargin.Right, adMargin.Bottom };
+		string jsonStr = AdSwitcherJsonConverter.ToJson(adSwitcherConfig);
+		this.CInstance = _AdSwitcherBannerView_new_config(jsonStr, (int)adSize, (int)adAlign, adMarginArr, 1.0f, testMode);
 		this.CSInstance = (IntPtr)GCHandle.Alloc(this);
 	}
 
 	public AdSwitcherBannerView(AdSwitcherConfig adSwitcherConfig,
 								BannerAdSize adSize, BannerAdAlign adAlign, BannerAdMargin adMargin = default(BannerAdMargin),
-	                            bool testMode = false/*, bool isSizeToFit = false*/) {
-		bool isSizeToFit = false; // TODO
+								float scale = 1.0f, bool testMode = false) {
 		float[] adMarginArr = new float[] { adMargin.Left, adMargin.Top, adMargin.Right, adMargin.Bottom };
 		string jsonStr = AdSwitcherJsonConverter.ToJson(adSwitcherConfig);
-		this.CInstance = _AdSwitcherBannerView_new_config(jsonStr, (int)adSize, (int)adAlign, adMarginArr, isSizeToFit, testMode);
+		this.CInstance = _AdSwitcherBannerView_new_config(jsonStr, (int)adSize, (int)adAlign, adMarginArr, scale, testMode);
 		this.CSInstance = (IntPtr)GCHandle.Alloc(this);
 	}
 
@@ -94,10 +109,10 @@ public class AdSwitcherBannerView {
 
 
 	[DllImport("__Internal")]
-	private static extern IntPtr _AdSwitcherBannerView_new(IntPtr configLoaderCInstance, string category, int adSize, int adAlign, float[] adMarginArr, bool isSizeToFit, bool testMode);
+	private static extern IntPtr _AdSwitcherBannerView_new(IntPtr configLoaderCInstance, string category, int adSize, int adAlign, float[] adMarginArr, float scale, bool testMode);
 
 	[DllImport("__Internal")]
-	private static extern IntPtr _AdSwitcherBannerView_new_config(string adSwitcherConfigJsonStr, int adSize, int adAlign, float[] adMarginArr, bool isSizeToFit, bool testMode);
+	private static extern IntPtr _AdSwitcherBannerView_new_config(string adSwitcherConfigJsonStr, int adSize, int adAlign, float[] adMarginArr, float scale, bool testMode);
 
 	[DllImport("__Internal")]
 	private static extern void _AdSwitcherBannerView_release(IntPtr cInstance);

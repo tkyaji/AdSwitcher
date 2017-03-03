@@ -16,6 +16,7 @@
       <module fileurl="file://$PROJECT_DIR$/five-adapter/five-adapter.iml" filepath="$PROJECT_DIR$/five-adapter/five-adapter.iml" />
       <module fileurl="file://$PROJECT_DIR$/imobile-adapter/imobile-adapter.iml" filepath="$PROJECT_DIR$/imobile-adapter/imobile-adapter.iml" />
       <module fileurl="file://$PROJECT_DIR$/maio-adapter/maio-adapter.iml" filepath="$PROJECT_DIR$/maio-adapter/maio-adapter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mopub-adapter/mopub-adapter.iml" filepath="$PROJECT_DIR$/mopub-adapter/mopub-adapter.iml" />
       <module fileurl="file://$PROJECT_DIR$/nend-adapter/nend-adapter.iml" filepath="$PROJECT_DIR$/nend-adapter/nend-adapter.iml" />
       <module fileurl="file://$PROJECT_DIR$/nendSDK-3.3.0/nendSDK-3.3.0.iml" filepath="$PROJECT_DIR$/nendSDK-3.3.0/nendSDK-3.3.0.iml" />
       <module fileurl="file://$PROJECT_DIR$/tapjoy-adapter/tapjoy-adapter.iml" filepath="$PROJECT_DIR$/tapjoy-adapter/tapjoy-adapter.iml" />
