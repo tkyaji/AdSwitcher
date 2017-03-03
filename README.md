@@ -36,5 +36,6 @@
 | [Tapjoy](https://home.tapjoy.com/) |  |  |  | ◎ |  |  |
 | [アドフリくん](https://adfurikun.jp/) | ◯ | ◯ | ◯ | ◯ | ◯ |  |
 | [アドフリくん 動画](https://adfurikun.jp/) |  |  |  | ◎ |  |  |
+| [MoPub](http://www.mopub.com/) | ◯ | ◯ | ◯ | ◯ |  |  |
 
 ※ ◎は動画インタースティシャル
