@@ -151,7 +151,7 @@
     [self.interstitialAdDelegate interstitialAdClicked:self];
 }
 
- 
+
 #pragma - Private Method
 
 - (GADAdSize)toGADAdSize:(BannerAdSize)adSize {

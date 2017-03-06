@@ -11,6 +11,7 @@
 @implementation AdGenerationAdapter {
     UIViewController *_viewController;
     ADGManagerViewController *_adgViewController;
+    ADGInterstitial *_adgInterstitial;
     NSDictionary *_adgParams;
     UIView *_adgView;
     BannerAdSize _adSize;
@@ -18,6 +19,7 @@
 }
 
 @synthesize bannerAdDelegate;
+@synthesize interstitialAdDelegate;
 
 
 #pragma - BannerAdAdapter
@@ -63,36 +65,82 @@
 }
 
 
+#pragma - InterstitialAdAdapter
+
+- (void)interstitialAdInitialize:(UIViewController *)viewController parameters:(NSDictionary<NSString *,NSString *> *)parameters testMode:(BOOL)testMode {
+    NSString *locationId = [parameters objectForKey:@"location_id"];
+    _DLOG(@"locationId:%@", locationId);
+    
+    _viewController = viewController;
+    _testMode = testMode;
+    _adgInterstitial = [ADGInterstitial new];
+    _adgInterstitial.delegate = self;
+    [_adgInterstitial setLocationId:locationId];
+}
+
+- (void)interstitialAdLoad {
+    _DLOG();
+    [_adgInterstitial preload];
+}
+
+- (void)interstitialAdShow {
+    _DLOG();
+    [_adgInterstitial show];
+}
+
+
 
 #pragma - ADGManagerViewControllerDelegate
 
 - (void)ADGManagerViewControllerReceiveAd:(ADGManagerViewController *)adgManagerViewController {
     _DLOG();
-    [self.bannerAdDelegate bannerAdReceived:self result:YES];
+    if (_adgInterstitial) {
+        [self.interstitialAdDelegate interstitialAdLoaded:self result:YES];
+    } else {
+        [self.bannerAdDelegate bannerAdReceived:self result:YES];
+    }
 }
 
 - (void)ADGManagerViewControllerReceiveAd:(ADGManagerViewController *)adgManagerViewController mediationNativeAd:(id)mediationNativeAd {
+    _DLOG();
 }
 
 - (void)ADGManagerViewControllerFailedToReceiveAd:(ADGManagerViewController *)adgManagerViewController code:(kADGErrorCode)code {
     _DLOG();
-    [self.bannerAdDelegate bannerAdReceived:self result:NO];
+    if (_adgInterstitial) {
+        [self.interstitialAdDelegate interstitialAdLoaded:self result:NO];
+    } else {
+        [self.bannerAdDelegate bannerAdReceived:self result:NO];
+    }
 }
 
 - (void)ADGManagerViewControllerOpenUrl:(ADGManagerViewController *)adgManagerViewController {
     _DLOG();
-    [self.bannerAdDelegate bannerAdClicked:self];
+    if (_adgInterstitial) {
+        [self.interstitialAdDelegate interstitialAdClicked:self];
+    } else {
+        [self.bannerAdDelegate bannerAdClicked:self];
+    }
 }
 
 - (void)ADGManagerViewControllerFinishImpression:(ADGManagerViewController *)adgManagerViewController {
+    _DLOG();
 }
 
 - (void)ADGManagerViewControllerFailInImpression:(ADGManagerViewController *)adgManagerViewController {
+    _DLOG();
 }
 
 - (void)ADGManagerViewControllerCompleteRewardAd {
+    _DLOG();
 }
 
+
+#pragma - ADGInterstitialDelegate
+- (void)ADGInterstitialClose {
+    _DLOG();
+    [self.interstitialAdDelegate interstitialAdClosed:self result:YES isSkipped:NO];
+}
 
 
 #pragma - private methods

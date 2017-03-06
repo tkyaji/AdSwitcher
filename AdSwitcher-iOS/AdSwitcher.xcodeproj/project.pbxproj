@@ -189,6 +189,10 @@
 		B20EBB541E67F0EE0058B2A8 /* MPRewardedVideoError.m in Sources */ = {isa = PBXBuildFile; fileRef = B20EBA9F1E67F0EE0058B2A8 /* MPRewardedVideoError.m */; };
 		B20EBB551E67F0EE0058B2A8 /* MPRewardedVideoReward.m in Sources */ = {isa = PBXBuildFile; fileRef = B20EBAA11E67F0EE0058B2A8 /* MPRewardedVideoReward.m */; };
 		B21907F71D788CCF00DF3A5C /* VideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B21907F61D788CCF00DF3A5C /* VideoViewController.m */; };
+		B21A09831E69799300A6A509 /* ADGAdMob.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B21A09821E69799300A6A509 /* ADGAdMob.framework */; };
+		B224138E1E6D29D600AFF81B /* ADGAmazonAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B224138C1E6D29D600AFF81B /* ADGAmazonAd.framework */; };
+		B224138F1E6D29D600AFF81B /* AmazonAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B224138D1E6D29D600AFF81B /* AmazonAd.framework */; };
+		B22413931E6D368500AFF81B /* AdMobVideoAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = B22413921E6D368500AFF81B /* AdMobVideoAdapter.m */; };
 		B2298BCE1DE673AC00512C21 /* libAppLovinSdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B2298BCD1DE673AC00512C21 /* libAppLovinSdk.a */; };
 		B229CF2C1DA473F900C0BD31 /* AdColonyAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = B229CEBD1DA473F800C0BD31 /* AdColonyAdapter.m */; };
 		B229CF2E1DA473F900C0BD31 /* AdGenerationAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = B229CEC21DA473F900C0BD31 /* AdGenerationAdapter.m */; };
@@ -614,6 +618,11 @@
 		B20EBAA11E67F0EE0058B2A8 /* MPRewardedVideoReward.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPRewardedVideoReward.m; sourceTree = "<group>"; };
 		B21907F51D788CCF00DF3A5C /* VideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoViewController.h; sourceTree = "<group>"; };
 		B21907F61D788CCF00DF3A5C /* VideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoViewController.m; sourceTree = "<group>"; };
+		B21A09821E69799300A6A509 /* ADGAdMob.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ADGAdMob.framework; sourceTree = "<group>"; };
+		B224138C1E6D29D600AFF81B /* ADGAmazonAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ADGAmazonAd.framework; sourceTree = "<group>"; };
+		B224138D1E6D29D600AFF81B /* AmazonAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AmazonAd.framework; sourceTree = "<group>"; };
+		B22413911E6D368500AFF81B /* AdMobVideoAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdMobVideoAdapter.h; sourceTree = "<group>"; };
+		B22413921E6D368500AFF81B /* AdMobVideoAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdMobVideoAdapter.m; sourceTree = "<group>"; };
 		B2298BB31DE673AC00512C21 /* ALAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALAd.h; sourceTree = "<group>"; };
 		B2298BB41DE673AC00512C21 /* ALAdDisplayDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALAdDisplayDelegate.h; sourceTree = "<group>"; };
 		B2298BB51DE673AC00512C21 /* ALAdLoadDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALAdLoadDelegate.h; sourceTree = "<group>"; };
@@ -756,7 +765,9 @@
 			files = (
 				B22DB7041DD952E20095B74D /* Tapjoy.framework in Frameworks */,
 				B2298BCE1DE673AC00512C21 /* libAppLovinSdk.a in Frameworks */,
+				B21A09831E69799300A6A509 /* ADGAdMob.framework in Frameworks */,
 				B2E53E271DB7BA3F0077850F /* libz.1.2.8.tbd in Frameworks */,
+				B224138F1E6D29D600AFF81B /* AmazonAd.framework in Frameworks */,
 				B229CF311DA473F900C0BD31 /* GoogleMobileAds.framework in Frameworks */,
 				B2F751A01DD575B3003591D2 /* ADFMovieReward.framework in Frameworks */,
 				B238A8321E3F7D150030EB38 /* NendAd.framework in Frameworks */,
@@ -765,6 +776,7 @@
 				B2F751431DD54641003591D2 /* adfurikunsdk.framework in Frameworks */,
 				B229CF3D1DA473F900C0BD31 /* FBAudienceNetwork.framework in Frameworks */,
 				B26149761DD04F9F002370C8 /* ZucksAdNetworkSDK.framework in Frameworks */,
+				B224138E1E6D29D600AFF81B /* ADGAmazonAd.framework in Frameworks */,
 				B229CF3F1DA473F900C0BD31 /* FiveAd.framework in Frameworks */,
 				B229CF471DA473F900C0BD31 /* UnityAds.framework in Frameworks */,
 				B229CF421DA473F900C0BD31 /* Maio.framework in Frameworks */,
@@ -1312,6 +1324,15 @@
 			path = Internal;
 			sourceTree = "<group>";
 		};
+		B22413901E6D367600AFF81B /* AdMobVideoAdapter */ = {
+			isa = PBXGroup;
+			children = (
+				B22413911E6D368500AFF81B /* AdMobVideoAdapter.h */,
+				B22413921E6D368500AFF81B /* AdMobVideoAdapter.m */,
+			);
+			path = AdMobVideoAdapter;
+			sourceTree = "<group>";
+		};
 		B2298BB21DE673AC00512C21 /* Headers */ = {
 			isa = PBXGroup;
 			children = (
@@ -1376,6 +1397,9 @@
 		B229CEC31DA473F900C0BD31 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				B224138C1E6D29D600AFF81B /* ADGAmazonAd.framework */,
+				B224138D1E6D29D600AFF81B /* AmazonAd.framework */,
+				B21A09821E69799300A6A509 /* ADGAdMob.framework */,
 				B229CEC41DA473F900C0BD31 /* ADG.framework */,
 			);
 			path = Libraries;
@@ -1647,6 +1671,7 @@
 		B22D7EE81D72BDD000F19E56 /* Adapters */ = {
 			isa = PBXGroup;
 			children = (
+				B22413901E6D367600AFF81B /* AdMobVideoAdapter */,
 				B20EB9221E67F0830058B2A8 /* MopubAdapter */,
 				B22DB6FD1DD952E20095B74D /* TapjoyAdapter */,
 				B2F751441DD574F0003591D2 /* AdfurikunVideoAdapter */,
@@ -2087,6 +2112,7 @@
 				B20EBAFE1E67F0EE0058B2A8 /* MPVASTTrackingEvent.m in Sources */,
 				B20EBB2C1E67F0EE0058B2A8 /* MOPUBAVPlayer.m in Sources */,
 				B20EBAB81E67F0EE0058B2A8 /* MPVideoConfig.m in Sources */,
+				B22413931E6D368500AFF81B /* AdMobVideoAdapter.m in Sources */,
 				B20EBADE1E67F0EE0058B2A8 /* NSURL+MPAdditions.m in Sources */,
 				B20EBABB1E67F0EE0058B2A8 /* MPLogEvent.m in Sources */,
 				B20EBAFA1E67F0EE0058B2A8 /* MPVASTModel.m in Sources */,

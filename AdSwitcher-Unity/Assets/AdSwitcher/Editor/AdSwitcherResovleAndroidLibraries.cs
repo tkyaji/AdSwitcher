@@ -13,6 +13,7 @@ public class AdSwitcherResovleAndroidLibraries {
 
 	[MenuItem("AdSwitcher/Resolve Jar")]
 	private static void jarResolve() {
+		addLibrary("com.google.android.gms", "play-services-base");
 		addLibrary("com.google.android.gms", "play-services-basement");
 		addLibrary("com.google.android.gms", "play-services-ads");
 		addLibrary("com.google.android.gms", "play-services-ads-lite");

@@ -16,9 +16,11 @@
 @import CoreGraphics;
 
 #import <ADG/ADGManagerViewController.h>
+#import <ADG/ADGInterstitial.h>
 #import "BannerAdAdapter.h"
+#import "InterstitialAdAdapter.h"
 #import "Log.h"
 
-@interface AdGenerationAdapter : NSObject <BannerAdAdapter, ADGManagerViewControllerDelegate>
+@interface AdGenerationAdapter : NSObject <BannerAdAdapter, InterstitialAdAdapter, ADGManagerViewControllerDelegate, ADGInterstitialDelegate>
 
 @end
