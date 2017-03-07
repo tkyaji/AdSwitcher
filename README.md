@@ -22,6 +22,7 @@
 | AdNetwork | バナー(320x50) | バナー(320x100) | バナー(300x250) | インタースティシャル | ネイティブ | 備考
 | ----- |:-----:|:-----:|:-----:|:-----:|:-----:| ----- |
 | [AdMob](https://www.google.co.jp/admob/) | ◯ | ◯ | ◯ | ◯ |  |  |
+| [AdMob動画](https://www.google.co.jp/admob/) |  |  |  | ◎ |  |  |
 | [Nend](http://nend.net/)     | ◯ | ◯ | ◯ | ◯ | | | 
 | [i-mobile](http://www.i-mobile.co.jp/)  | ◯ | ◯ | ◯ | ◯ |  |  | 
 | [Facebook](https://developers.facebook.com/products/app-monetization/audience-network/) | ◯ | ◯ | ◯ | ◯ | | | 
