@@ -167,7 +167,9 @@
     
     if (nativeAdAdapter) {
         _DLOG("%@", NSStringFromClass(nativeAdAdapter.class));
-        [nativeAdAdapter nativeAdLoad];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [nativeAdAdapter nativeAdLoad];
+        });
         
     } else {
         _loading = NO;

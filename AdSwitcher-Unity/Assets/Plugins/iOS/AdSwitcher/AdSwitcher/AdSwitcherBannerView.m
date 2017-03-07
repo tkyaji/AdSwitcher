@@ -253,7 +253,9 @@
     
     if (bannerAdAdapter) {
         _DLOG("%@", NSStringFromClass(bannerAdAdapter.class));
-        [bannerAdAdapter bannerAdLoad];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [bannerAdAdapter bannerAdLoad];
+        });
         
     } else {
         _DLOG("It will not be able to display all.");

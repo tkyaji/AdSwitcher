@@ -159,7 +159,9 @@
     
     NSObject<InterstitialAdAdapter> *interstitialAdAdapter = (NSObject<InterstitialAdAdapter> *)adAdapter;
     [interstitialAdAdapter interstitialAdInitialize:self.viewController parameters:adConfig.parameters testMode:self.testMode];
-    [interstitialAdAdapter interstitialAdLoad];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [interstitialAdAdapter interstitialAdLoad];
+    });
     
     @try {
         [interstitialAdAdapter setValue:self forKey:@"interstitialAdDelegate"];
