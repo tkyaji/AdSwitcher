@@ -267,7 +267,13 @@ public class AdSwitcherBannerView extends FrameLayout implements BannerAdListene
 
         if (bannerAdAdapter != null) {
             Log.d(TAG, bannerAdAdapter.getClass().getName());
-            bannerAdAdapter.bannerAdLoad();
+            final BannerAdAdapter _bannerAdAdapter = bannerAdAdapter;
+            AdSwitcherBannerView.this.activity.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    _bannerAdAdapter.bannerAdLoad();
+                }
+            });
 
         } else {
             Log.w(TAG, "It will not be able to display all.");

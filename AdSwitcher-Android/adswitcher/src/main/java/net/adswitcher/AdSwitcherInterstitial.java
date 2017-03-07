@@ -270,7 +270,13 @@ public class AdSwitcherInterstitial implements InterstitialAdListener {
 
         if (interstitialAdAdapter != null) {
             Log.d(TAG, interstitialAdAdapter.getClass().getName());
-            interstitialAdAdapter.interstitialAdLoad();
+            final InterstitialAdAdapter _interstitialAdAdapter = interstitialAdAdapter;
+            AdSwitcherInterstitial.this.activity.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    _interstitialAdAdapter.interstitialAdLoad();
+                }
+            });
 
         } else {
             this.loading = false;

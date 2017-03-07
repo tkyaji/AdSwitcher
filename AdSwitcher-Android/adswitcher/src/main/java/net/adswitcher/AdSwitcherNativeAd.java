@@ -197,7 +197,13 @@ public class AdSwitcherNativeAd implements NativeAdListener {
 
         if (nativeAdAdapter != null) {
             Log.d(TAG, nativeAdAdapter.getClass().getName());
-            nativeAdAdapter.nativeAdLoad();
+            final NativeAdAdapter _nativeAdAdapter = nativeAdAdapter;
+            AdSwitcherNativeAd.this.activity.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    _nativeAdAdapter.nativeAdLoad();
+                }
+            });
 
         } else {
             this.loading = false;
