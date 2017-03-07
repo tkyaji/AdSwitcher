@@ -291,7 +291,7 @@ public class AdSwitcherBannerView {
 		int marginTop = Mathf.FloorToInt(adMargin.Top * density + 0.5f);
 		int marginBottom = Mathf.FloorToInt(adMargin.Bottom * density + 0.5f);
 
-//		javaObj_layoutParams.Call("setMargins", marginLeft, marginTop, marginRight, marginBottom);
+		javaObj_layoutParams.Call("setMargins", marginLeft, marginTop, marginRight, marginBottom);
 
 		return javaObj_layoutParams;
 	}

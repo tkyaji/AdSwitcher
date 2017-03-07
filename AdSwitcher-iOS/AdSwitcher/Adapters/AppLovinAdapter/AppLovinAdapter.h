@@ -18,8 +18,7 @@
 
 #import "InterstitialAdAdapter.h"
 #import "Log.h"
-#import "ALSdk.h"
-#import "ALInterstitialAd.h"
+#import <AppLovinSDK/AppLovinSDK.h>
 
 @interface AppLovinAdapter : NSObject <InterstitialAdAdapter, ALAdDisplayDelegate, ALAdVideoPlaybackDelegate>
 
