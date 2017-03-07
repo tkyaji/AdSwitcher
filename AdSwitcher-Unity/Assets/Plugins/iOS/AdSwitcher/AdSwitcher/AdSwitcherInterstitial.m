@@ -266,7 +266,9 @@
     
     if (interstitialAdAdapter) {
         _DLOG("%@", NSStringFromClass(interstitialAdAdapter.class));
-        [interstitialAdAdapter interstitialAdLoad];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [interstitialAdAdapter interstitialAdLoad];
+        });
         
     } else {
         _loading = NO;
