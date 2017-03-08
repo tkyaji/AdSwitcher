@@ -2,6 +2,7 @@
 
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using System;
 
 public class AdSwitcherInterstitial {
@@ -135,6 +136,13 @@ public class AdSwitcherInterstitial {
 		text.alignment = TextAnchor.MiddleCenter;
 		text.text = "InterstitialAd";
 		text.fontSize = 40;
+
+		if (EventSystem.current == null) {
+			var esGO = new GameObject("~AdSwitcher_EventSystem");
+			esGO.AddComponent<EventSystem>();
+			esGO.AddComponent<StandaloneInputModule>();
+			esGO.transform.SetParent(canvasGO.transform);
+		}
 
 		this.createButton(canvasGO, "Close\n(success)", new Vector2(0, 300f)).onClick.AddListener(() => {
 			this.close(true);
