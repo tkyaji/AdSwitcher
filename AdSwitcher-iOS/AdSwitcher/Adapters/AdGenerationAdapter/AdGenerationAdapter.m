@@ -40,6 +40,7 @@
     _DLOG();
     _adgView = [UIView new];
     _adgViewController = [[ADGManagerViewController alloc] initWithAdParams:_adgParams adView:_adgView];
+    _adgViewController.rootViewController = _viewController;
     _adgViewController.delegate = self;
     [_adgViewController setFillerRetry:NO];
     [_adgViewController setEnableTestMode:_testMode];
@@ -76,6 +77,7 @@
     _adgInterstitial = [ADGInterstitial new];
     _adgInterstitial.delegate = self;
     [_adgInterstitial setLocationId:locationId];
+    _adgInterstitial.rootViewController = _viewController;
 }
 
 - (void)interstitialAdLoad {
