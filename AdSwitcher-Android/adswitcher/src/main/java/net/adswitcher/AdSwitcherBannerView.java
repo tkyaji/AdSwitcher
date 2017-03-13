@@ -135,7 +135,7 @@ public class AdSwitcherBannerView extends FrameLayout implements BannerAdListene
     public void switchAd() {
         Log.d(TAG, "switchAd");
         this.hide();
-        this.load();
+        this.load(true);
     }
 
     public boolean isLoaded() {
@@ -340,6 +340,10 @@ public class AdSwitcherBannerView extends FrameLayout implements BannerAdListene
 
         if (this.adReceivedListener != null) {
             this.adReceivedListener.onAdReceived(this.adConfigMap.get(className), result);
+        }
+
+        if (this.showing) {
+            return;
         }
 
         if (result) {

@@ -120,11 +120,11 @@
 - (void)switchAd {
     _DLOG();
     [self hide];
-    [self load];
+    [self load:YES];
 }
 
 - (BOOL)isLoaded {
-    return _selectedAdapter;
+    return (_selectedAdapter != nil);
 }
 
 - (CGSize)getSize {
@@ -178,6 +178,10 @@
     
     if (_bannerAdReceived) {
         _bannerAdReceived([_adConfigDict objectForKey:className], result);
+    }
+    
+    if (_showing) {
+        return;
     }
     
     if (result) {
