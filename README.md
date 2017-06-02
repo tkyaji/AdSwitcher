@@ -38,5 +38,6 @@
 | [アドフリくん](https://adfurikun.jp/) | ◯ | ◯ | ◯ | ◯ | ◯ |  |
 | [アドフリくん 動画](https://adfurikun.jp/) |  |  |  | ◎ |  |  |
 | [MoPub](http://www.mopub.com/) | ◯ | ◯ | ◯ | ◯ |  |  |
+| [Amazon](https://developer.amazon.com/ja/mobile-ads)     | ◯ |   | ◯ | ◯ | | | 
 
 ※ ◎は動画インタースティシャル
