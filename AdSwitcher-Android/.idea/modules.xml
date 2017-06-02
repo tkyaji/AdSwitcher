@@ -10,6 +10,7 @@
       <module fileurl="file://$PROJECT_DIR$/admob-adapter/admob-adapter.iml" filepath="$PROJECT_DIR$/admob-adapter/admob-adapter.iml" />
       <module fileurl="file://$PROJECT_DIR$/admobvideo-adapter/admobvideo-adapter.iml" filepath="$PROJECT_DIR$/admobvideo-adapter/admobvideo-adapter.iml" />
       <module fileurl="file://$PROJECT_DIR$/adswitcher/adswitcher.iml" filepath="$PROJECT_DIR$/adswitcher/adswitcher.iml" />
+      <module fileurl="file://$PROJECT_DIR$/amazon-adapter/amazon-adapter.iml" filepath="$PROJECT_DIR$/amazon-adapter/amazon-adapter.iml" />
       <module fileurl="file://$PROJECT_DIR$/amoad-adapter/amoad-adapter.iml" filepath="$PROJECT_DIR$/amoad-adapter/amoad-adapter.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/applovin-adapter/applovin-adapter.iml" filepath="$PROJECT_DIR$/applovin-adapter/applovin-adapter.iml" />

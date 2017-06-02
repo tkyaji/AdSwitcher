@@ -242,6 +242,8 @@
 		B26149771DD04F9F002370C8 /* ZucksAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = B26149751DD04F9F002370C8 /* ZucksAdapter.m */; };
 		B29555431DB84A2600FACF3D /* AdSwitcherNativeAdData.m in Sources */ = {isa = PBXBuildFile; fileRef = B29555421DB84A2600FACF3D /* AdSwitcherNativeAdData.m */; };
 		B29555461DB84EEB00FACF3D /* NativeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B29555451DB84EEB00FACF3D /* NativeViewController.m */; };
+		B2B1725F1EE14FE500C0AC99 /* AmazonAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = B2B1725E1EE14FE500C0AC99 /* AmazonAdapter.m */; };
+		B2B172621EE1518D00C0AC99 /* AmazonAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2B172611EE1518D00C0AC99 /* AmazonAd.framework */; };
 		B2E53E121DB7B3870077850F /* AdSwitcherNativeAd.m in Sources */ = {isa = PBXBuildFile; fileRef = B2E53E111DB7B3870077850F /* AdSwitcherNativeAd.m */; };
 		B2E53E271DB7BA3F0077850F /* libz.1.2.8.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B2E53E261DB7BA3F0077850F /* libz.1.2.8.tbd */; };
 		B2F751411DD54623003591D2 /* AdfurikunAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = B2F7513F1DD54623003591D2 /* AdfurikunAdapter.m */; };
@@ -708,6 +710,9 @@
 		B29555421DB84A2600FACF3D /* AdSwitcherNativeAdData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdSwitcherNativeAdData.m; sourceTree = "<group>"; };
 		B29555441DB84EEB00FACF3D /* NativeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NativeViewController.h; sourceTree = "<group>"; };
 		B29555451DB84EEB00FACF3D /* NativeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NativeViewController.m; sourceTree = "<group>"; };
+		B2B1725D1EE14FE500C0AC99 /* AmazonAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmazonAdapter.h; sourceTree = "<group>"; };
+		B2B1725E1EE14FE500C0AC99 /* AmazonAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmazonAdapter.m; sourceTree = "<group>"; };
+		B2B172611EE1518D00C0AC99 /* AmazonAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AmazonAd.framework; sourceTree = "<group>"; };
 		B2E53E101DB7B3870077850F /* AdSwitcherNativeAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdSwitcherNativeAd.h; sourceTree = "<group>"; };
 		B2E53E111DB7B3870077850F /* AdSwitcherNativeAd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdSwitcherNativeAd.m; sourceTree = "<group>"; };
 		B2E53E131DB7B3E10077850F /* NativeAdAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NativeAdAdapter.h; sourceTree = "<group>"; };
@@ -726,6 +731,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B22DB7041DD952E20095B74D /* Tapjoy.framework in Frameworks */,
+				B2B172621EE1518D00C0AC99 /* AmazonAd.framework in Frameworks */,
 				B21A09831E69799300A6A509 /* ADGAdMob.framework in Frameworks */,
 				B2E53E271DB7BA3F0077850F /* libz.1.2.8.tbd in Frameworks */,
 				B224138F1E6D29D600AFF81B /* AmazonAd.framework in Frameworks */,
@@ -1600,6 +1606,7 @@
 		B22D7EE81D72BDD000F19E56 /* Adapters */ = {
 			isa = PBXGroup;
 			children = (
+				B2B1725C1EE14FD700C0AC99 /* AmazonAdapter */,
 				B22413901E6D367600AFF81B /* AdMobVideoAdapter */,
 				B20EB9221E67F0830058B2A8 /* MopubAdapter */,
 				B22DB6FD1DD952E20095B74D /* TapjoyAdapter */,
@@ -1687,6 +1694,24 @@
 			isa = PBXGroup;
 			children = (
 				B26149731DD04F9F002370C8 /* ZucksAdNetworkSDK.framework */,
+			);
+			path = Libraries;
+			sourceTree = "<group>";
+		};
+		B2B1725C1EE14FD700C0AC99 /* AmazonAdapter */ = {
+			isa = PBXGroup;
+			children = (
+				B2B172601EE1518D00C0AC99 /* Libraries */,
+				B2B1725D1EE14FE500C0AC99 /* AmazonAdapter.h */,
+				B2B1725E1EE14FE500C0AC99 /* AmazonAdapter.m */,
+			);
+			path = AmazonAdapter;
+			sourceTree = "<group>";
+		};
+		B2B172601EE1518D00C0AC99 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				B2B172611EE1518D00C0AC99 /* AmazonAd.framework */,
 			);
 			path = Libraries;
 			sourceTree = "<group>";
@@ -1899,6 +1924,7 @@
 				B229CF431DA473F900C0BD31 /* MaioAdapter.m in Sources */,
 				B29555431DB84A2600FACF3D /* AdSwitcherNativeAdData.m in Sources */,
 				B20EBAE01E67F0EE0058B2A8 /* UIColor+MPAdditions.m in Sources */,
+				B2B1725F1EE14FE500C0AC99 /* AmazonAdapter.m in Sources */,
 				B20EBAFF1E67F0EE0058B2A8 /* MPVASTWrapper.m in Sources */,
 				B20EBAF51E67F0EE0058B2A8 /* MPVASTInline.m in Sources */,
 				B22D7F661D73059500F19E56 /* AdSwitcherBannerView.m in Sources */,
@@ -2170,6 +2196,7 @@
 					"$(PROJECT_DIR)/AdSwitcher/Adapters/TapjoyAdapter/Libraries/Tapjoy.embeddedframework",
 					"$(PROJECT_DIR)/AdSwitcher/Adapters/AppLovinAdapter/Libraries",
 					"$(PROJECT_DIR)/AdSwitcher/Adapters/NendAdapter/Libraries/NendAd.embeddedframework",
+					"$(PROJECT_DIR)/AdSwitcher/Adapters/AmazonAdapter/Libraries",
 				);
 				INFOPLIST_FILE = AdSwitcher/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -2212,6 +2239,7 @@
 					"$(PROJECT_DIR)/AdSwitcher/Adapters/TapjoyAdapter/Libraries/Tapjoy.embeddedframework",
 					"$(PROJECT_DIR)/AdSwitcher/Adapters/AppLovinAdapter/Libraries",
 					"$(PROJECT_DIR)/AdSwitcher/Adapters/NendAdapter/Libraries/NendAd.embeddedframework",
+					"$(PROJECT_DIR)/AdSwitcher/Adapters/AmazonAdapter/Libraries",
 				);
 				INFOPLIST_FILE = AdSwitcher/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

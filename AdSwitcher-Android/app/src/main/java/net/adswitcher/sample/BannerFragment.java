@@ -47,7 +47,7 @@ public class BannerFragment extends Fragment {
         FrameLayout.LayoutParams lp = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT);
         lp.gravity = Gravity.TOP | Gravity.CENTER_HORIZONTAL;
 
-        this.bannerView_320x50 = new AdSwitcherBannerView(this.activity, AdSwitcherConfigLoader.getInstance(), "banner_320x50", BannerAdSize.SIZE_320X50, false);
+        this.bannerView_320x50 = new AdSwitcherBannerView(this.activity, AdSwitcherConfigLoader.getInstance(), "banner_320x50", BannerAdSize.SIZE_320X50, true);
         layout.addView(bannerView_320x50, lp);
 
         this.bannerView_320x100 = new AdSwitcherBannerView(this.activity, AdSwitcherConfigLoader.getInstance(), "banner_320x100", BannerAdSize.SIZE_320X100, true);
