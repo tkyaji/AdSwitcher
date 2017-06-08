@@ -9,7 +9,8 @@
 #import "AdMobAdapter.h"
 
 #import <AdSupport/ASIdentifierManager.h>
-#include <CommonCrypto/CommonDigest.h>
+#import <CommonCrypto/CommonDigest.h>
+#import <UIKit/UIKit.h>
 
 @implementation AdMobAdapter {
     BOOL _testMode;
