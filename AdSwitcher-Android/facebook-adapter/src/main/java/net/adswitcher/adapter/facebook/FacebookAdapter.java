@@ -151,6 +151,10 @@ public class FacebookAdapter implements BannerAdAdapter, InterstitialAdAdapter, 
         }
     }
 
+    @Override
+    public void onLoggingImpression(Ad ad) {
+        Log.d(TAG, "onLoggingImpression");
+    }
 
     @Override
     public void onInterstitialDisplayed(Ad ad) {

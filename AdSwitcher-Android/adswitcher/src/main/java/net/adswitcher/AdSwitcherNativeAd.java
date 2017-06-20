@@ -223,15 +223,24 @@ public class AdSwitcherNativeAd implements NativeAdListener {
         }
     }
 
-    private void initAdapter(AdConfig adConfig) {
+    private void initAdapter(final AdConfig adConfig) {
         if (this.adapterCacheMap.containsKey(adConfig.className)) {
             return;
         }
 
-        NativeAdAdapter nativeAdAdapter = null;
         try {
             Class<?> adAdapterClass = Class.forName(adConfig.className);
-            nativeAdAdapter = (NativeAdAdapter) adAdapterClass.newInstance();
+            final NativeAdAdapter nativeAdAdapter = (NativeAdAdapter) adAdapterClass.newInstance();
+
+            this.activity.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    nativeAdAdapter.nativeAdInitialize(AdSwitcherNativeAd.this.activity,
+                            AdSwitcherNativeAd.this, adConfig.parameters,
+                            AdSwitcherNativeAd.this.testMode);
+                }
+            });
+            this.adapterCacheMap.put(adConfig.className, nativeAdAdapter);
 
         } catch (ClassNotFoundException ex) {
             Log.w(TAG, adConfig.className + " class is not found.");
@@ -241,10 +250,6 @@ public class AdSwitcherNativeAd implements NativeAdListener {
             Log.w(TAG, adConfig.className + " class is not conform NativeAdAdapter.");
             return;
         }
-
-        nativeAdAdapter.nativeAdInitialize(this.activity, this, adConfig.parameters, this.testMode);
-
-        this.adapterCacheMap.put(adConfig.className, nativeAdAdapter);
     }
 
 

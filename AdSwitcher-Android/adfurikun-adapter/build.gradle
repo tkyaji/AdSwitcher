@@ -20,6 +20,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    packagingOptions {
+        exclude 'assets/**/*'
+    }
 }
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])

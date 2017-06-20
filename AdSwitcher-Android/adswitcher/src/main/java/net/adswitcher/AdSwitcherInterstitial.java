@@ -296,15 +296,24 @@ public class AdSwitcherInterstitial implements InterstitialAdListener {
         }
     }
 
-    private void initAdapter(AdConfig adConfig) {
+    private void initAdapter(final AdConfig adConfig) {
         if (this.adapterCacheMap.containsKey(adConfig.className)) {
             return;
         }
 
-        InterstitialAdAdapter interstitialAdAdapter = null;
         try {
             Class<?> adAdapterClass = Class.forName(adConfig.className);
-            interstitialAdAdapter = (InterstitialAdAdapter) adAdapterClass.newInstance();
+            final InterstitialAdAdapter interstitialAdAdapter = (InterstitialAdAdapter) adAdapterClass.newInstance();
+
+            this.activity.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    interstitialAdAdapter.interstitialAdInitialize(
+                            AdSwitcherInterstitial.this.activity, AdSwitcherInterstitial.this,
+                            adConfig.parameters, AdSwitcherInterstitial.this.testMode);
+                }
+            });
+            this.adapterCacheMap.put(adConfig.className, interstitialAdAdapter);
 
         } catch (ClassNotFoundException ex) {
             Log.w(TAG, adConfig.className + " class is not found.");
@@ -314,10 +323,6 @@ public class AdSwitcherInterstitial implements InterstitialAdListener {
             Log.w(TAG, adConfig.className + " class is not conform BannerAdAdapter.");
             return;
         }
-
-        interstitialAdAdapter.interstitialAdInitialize(this.activity, this, adConfig.parameters, this.testMode);
-
-        this.adapterCacheMap.put(adConfig.className, interstitialAdAdapter);
     }
 
     private void load() {

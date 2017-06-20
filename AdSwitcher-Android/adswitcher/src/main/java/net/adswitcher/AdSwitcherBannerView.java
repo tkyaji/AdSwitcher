@@ -294,15 +294,24 @@ public class AdSwitcherBannerView extends FrameLayout implements BannerAdListene
         }
     }
 
-    private void initAdapter(AdConfig adConfig) {
+    private void initAdapter(final AdConfig adConfig) {
         if (this.adapterCacheMap.containsKey(adConfig.className)) {
             return;
         }
 
-        BannerAdAdapter bannerAdAdapter = null;
         try {
             Class<?> adAdapterClass = Class.forName(adConfig.className);
-            bannerAdAdapter = (BannerAdAdapter) adAdapterClass.newInstance();
+            final BannerAdAdapter bannerAdAdapter = (BannerAdAdapter) adAdapterClass.newInstance();
+
+            this.activity.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    bannerAdAdapter.bannerAdInitialize(AdSwitcherBannerView.this.activity,
+                            AdSwitcherBannerView.this, adConfig.parameters,
+                            AdSwitcherBannerView.this.testMode, AdSwitcherBannerView.this.adSize);
+                }
+            });
+            this.adapterCacheMap.put(adConfig.className, bannerAdAdapter);
 
         } catch (ClassNotFoundException ex) {
             Log.w(TAG, adConfig.className + " class is not found.");
@@ -312,10 +321,6 @@ public class AdSwitcherBannerView extends FrameLayout implements BannerAdListene
             Log.w(TAG, adConfig.className + " class is not conform BannerAdAdapter.");
             return;
         }
-
-        bannerAdAdapter.bannerAdInitialize(this.activity, this, adConfig.parameters, this.testMode, this.adSize);
-
-        this.adapterCacheMap.put(adConfig.className, bannerAdAdapter);
     }
 
 

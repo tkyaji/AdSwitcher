@@ -26,10 +26,10 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:25.2.0'
     compile 'com.google.android.gms:play-services-ads:+'
     compile project(':adswitcher')
-    compile project(':amazon-adapter')
+    compile project(':applovin-adapter')
+    compile project(':facebook-adapter')
 
     /*
     compile project(':adcolony-adapter')
@@ -37,11 +37,10 @@ dependencies {
     compile project(':adgeneration-adapter')
     compile project(':nend-adapter')
     compile project(':amoad-adapter')
+    compile project(':amazon-adapter')
     compile project(':unityads-adapter')
     compile project(':maio-adapter')
-    compile project(':applovin-adapter')
     compile project(':five-adapter')
-    compile project(':facebook-adapter')
     compile project(':unityads-adapter')
     compile project(':imobile-adapter')
     compile project(':admob-adapter')

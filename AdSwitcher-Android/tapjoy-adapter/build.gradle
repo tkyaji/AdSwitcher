@@ -20,6 +20,13 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    packagingOptions {
+        exclude 'assets/*'
+        exclude '**/*.html'
+        exclude '**/*.js'
+        exclude '**/*.png'
+    }
 }
 
 dependencies {
