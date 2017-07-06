@@ -135,13 +135,9 @@ public class BannerFragment extends Fragment {
                 activity.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        /*
                         bannerView_320x50.hide();
                         bannerView_320x100.hide();
                         bannerView_300x250.hide();
-                        */
-
-                        bannerView_320x50.switchAd();
                     }
                 });
             }

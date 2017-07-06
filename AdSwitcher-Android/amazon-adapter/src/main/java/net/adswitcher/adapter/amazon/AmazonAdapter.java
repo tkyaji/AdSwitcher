@@ -10,6 +10,7 @@ import com.amazon.device.ads.AdLayout;
 import com.amazon.device.ads.AdListener;
 import com.amazon.device.ads.AdProperties;
 import com.amazon.device.ads.AdRegistration;
+import com.amazon.device.ads.AdSize;
 import com.amazon.device.ads.InterstitialAd;
 
 import net.adswitcher.adapter.BannerAdAdapter;
@@ -36,12 +37,14 @@ public class AmazonAdapter implements BannerAdAdapter, InterstitialAdAdapter, Ad
 
     private Activity activity;
     private String appKey;
+    private BannerAdSize adSize;
 
     @Override
     public void bannerAdInitialize(Activity activity, BannerAdListener bannerAdListener, Map<String, String> parameters, boolean testMode, BannerAdSize adSize) {
         this.activity = activity;
         this.bannerAdListener = bannerAdListener;
         this.appKey = parameters.get("app_key");
+        this.adSize = adSize;
 
         Log.d(TAG, "bannerAdInitialize : app_key=" + this.appKey);
 
@@ -53,11 +56,28 @@ public class AmazonAdapter implements BannerAdAdapter, InterstitialAdAdapter, Ad
     @Override
     public void bannerAdLoad() {
         Log.d(TAG, "bannerAdLoad");
-        this.adView = new AdLayout(this.activity);
-        FrameLayout.LayoutParams lp = new FrameLayout.LayoutParams(
-                FrameLayout.LayoutParams.MATCH_PARENT,
-                FrameLayout.LayoutParams.MATCH_PARENT);
-        this.adView.setLayoutParams(lp);
+        int w = 0;
+        int h = 0;
+        switch (this.adSize) {
+            case SIZE_320X50:
+                this.adView = new AdLayout(this.activity, AdSize.SIZE_320x50);
+                w = 320;
+                h = 50;
+                break;
+            case SIZE_320X100:
+                this.adView = new AdLayout(this.activity, AdSize.SIZE_320x50);
+                w = 320;
+                h = 50;
+                break;
+            case SIZE_300X250:
+                this.adView = new AdLayout(this.activity, AdSize.SIZE_300x250);
+                w = 300;
+                h = 250;
+                break;
+        }
+
+        float d = this.activity.getResources().getDisplayMetrics().density;
+        this.adView.setLayoutParams(new FrameLayout.LayoutParams(Math.round(w * d), Math.round(h * d)));
         this.adView.setListener(this);
         this.adView.loadAd();
     }
