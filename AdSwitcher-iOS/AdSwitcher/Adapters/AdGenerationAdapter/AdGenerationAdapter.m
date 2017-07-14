@@ -25,7 +25,7 @@
 #pragma - BannerAdAdapter
 
 - (void)bannerAdInitialize:(UIViewController *)viewController parameters:(NSDictionary<NSString *,NSString *> *)parameters testMode:(BOOL)testMode adSize:(BannerAdSize)adSize {
-    
+    [ADGSettings setGeolocationEnabled: NO];
     NSString *locationId = [parameters objectForKey:@"location_id"];
     _DLOG(@"locationId:%@", locationId);
     
@@ -69,6 +69,7 @@
 #pragma - InterstitialAdAdapter
 
 - (void)interstitialAdInitialize:(UIViewController *)viewController parameters:(NSDictionary<NSString *,NSString *> *)parameters testMode:(BOOL)testMode {
+    [ADGSettings setGeolocationEnabled: NO];
     NSString *locationId = [parameters objectForKey:@"location_id"];
     _DLOG(@"locationId:%@", locationId);
     

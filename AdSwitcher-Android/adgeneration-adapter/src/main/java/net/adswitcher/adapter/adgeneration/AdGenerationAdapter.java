@@ -7,6 +7,7 @@ import android.widget.FrameLayout;
 import com.socdm.d.adgeneration.ADG;
 import com.socdm.d.adgeneration.ADGConsts;
 import com.socdm.d.adgeneration.ADGListener;
+import com.socdm.d.adgeneration.ADGSettings;
 import com.socdm.d.adgeneration.interstitial.ADGInterstitial;
 import com.socdm.d.adgeneration.interstitial.ADGInterstitialListener;
 
@@ -37,6 +38,7 @@ public class AdGenerationAdapter implements BannerAdAdapter, InterstitialAdAdapt
 
     @Override
     public void bannerAdInitialize(Activity activity, BannerAdListener bannerAdListener, Map<String, String> parameters, boolean testMode, BannerAdSize adSize) {
+        ADGSettings.setGeolocationEnabled(false);
         this.activity = activity;
         this.bannerAdListener = bannerAdListener;
         this.testMode = testMode;
@@ -77,6 +79,7 @@ public class AdGenerationAdapter implements BannerAdAdapter, InterstitialAdAdapt
 
     @Override
     public void interstitialAdInitialize(Activity activity, InterstitialAdListener interstitialAdListener, Map<String, String> parameters, boolean testMode) {
+        ADGSettings.setGeolocationEnabled(false);
         this.activity = activity;
         this.interstitialAdListener = interstitialAdListener;
         this.testMode = testMode;

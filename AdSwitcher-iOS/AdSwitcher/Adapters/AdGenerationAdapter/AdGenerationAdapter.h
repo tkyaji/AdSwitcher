@@ -15,6 +15,7 @@
 @import AdSupport;
 @import CoreGraphics;
 
+#import <ADG/ADGSettings.h>
 #import <ADG/ADGManagerViewController.h>
 #import <ADG/ADGInterstitial.h>
 #import "BannerAdAdapter.h"
