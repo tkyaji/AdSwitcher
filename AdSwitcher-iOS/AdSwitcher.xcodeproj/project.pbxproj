@@ -240,6 +240,9 @@
 		B238A8351E3F7D4B0030EB38 /* AdColony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B238A8341E3F7D4B0030EB38 /* AdColony.framework */; };
 		B26149761DD04F9F002370C8 /* ZucksAdNetworkSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B26149731DD04F9F002370C8 /* ZucksAdNetworkSDK.framework */; };
 		B26149771DD04F9F002370C8 /* ZucksAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = B26149751DD04F9F002370C8 /* ZucksAdapter.m */; };
+		B29231631F1EF33C00E2EE67 /* VungleAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = B29231611F1EF33C00E2EE67 /* VungleAdapter.m */; };
+		B29231651F1EF57300E2EE67 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B29231641F1EF57200E2EE67 /* libsqlite3.tbd */; };
+		B29231691F1F959100E2EE67 /* VungleSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B29231681F1F959100E2EE67 /* VungleSDK.framework */; };
 		B29555431DB84A2600FACF3D /* AdSwitcherNativeAdData.m in Sources */ = {isa = PBXBuildFile; fileRef = B29555421DB84A2600FACF3D /* AdSwitcherNativeAdData.m */; };
 		B29555461DB84EEB00FACF3D /* NativeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B29555451DB84EEB00FACF3D /* NativeViewController.m */; };
 		B2B1725F1EE14FE500C0AC99 /* AmazonAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = B2B1725E1EE14FE500C0AC99 /* AmazonAdapter.m */; };
@@ -706,6 +709,10 @@
 		B26149731DD04F9F002370C8 /* ZucksAdNetworkSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ZucksAdNetworkSDK.framework; sourceTree = "<group>"; };
 		B26149741DD04F9F002370C8 /* ZucksAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZucksAdapter.h; sourceTree = "<group>"; };
 		B26149751DD04F9F002370C8 /* ZucksAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZucksAdapter.m; sourceTree = "<group>"; };
+		B29231601F1EF33C00E2EE67 /* VungleAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VungleAdapter.h; sourceTree = "<group>"; };
+		B29231611F1EF33C00E2EE67 /* VungleAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VungleAdapter.m; sourceTree = "<group>"; };
+		B29231641F1EF57200E2EE67 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		B29231681F1F959100E2EE67 /* VungleSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = VungleSDK.framework; sourceTree = "<group>"; };
 		B29555411DB84A2600FACF3D /* AdSwitcherNativeAdData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdSwitcherNativeAdData.h; sourceTree = "<group>"; };
 		B29555421DB84A2600FACF3D /* AdSwitcherNativeAdData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdSwitcherNativeAdData.m; sourceTree = "<group>"; };
 		B29555441DB84EEB00FACF3D /* NativeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NativeViewController.h; sourceTree = "<group>"; };
@@ -730,9 +737,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B29231651F1EF57300E2EE67 /* libsqlite3.tbd in Frameworks */,
 				B22DB7041DD952E20095B74D /* Tapjoy.framework in Frameworks */,
 				B2B172621EE1518D00C0AC99 /* AmazonAd.framework in Frameworks */,
 				B21A09831E69799300A6A509 /* ADGAdMob.framework in Frameworks */,
+				B29231691F1F959100E2EE67 /* VungleSDK.framework in Frameworks */,
 				B2E53E271DB7BA3F0077850F /* libz.1.2.8.tbd in Frameworks */,
 				B224138F1E6D29D600AFF81B /* AmazonAd.framework in Frameworks */,
 				B229CF311DA473F900C0BD31 /* GoogleMobileAds.framework in Frameworks */,
@@ -1606,6 +1615,7 @@
 		B22D7EE81D72BDD000F19E56 /* Adapters */ = {
 			isa = PBXGroup;
 			children = (
+				B292315D1F1EF31300E2EE67 /* VungleAdapter */,
 				B2B1725C1EE14FD700C0AC99 /* AmazonAdapter */,
 				B22413901E6D367600AFF81B /* AdMobVideoAdapter */,
 				B20EB9221E67F0830058B2A8 /* MopubAdapter */,
@@ -1698,6 +1708,40 @@
 			path = Libraries;
 			sourceTree = "<group>";
 		};
+		B292315D1F1EF31300E2EE67 /* VungleAdapter */ = {
+			isa = PBXGroup;
+			children = (
+				B292315E1F1EF33C00E2EE67 /* Libraries */,
+				B29231601F1EF33C00E2EE67 /* VungleAdapter.h */,
+				B29231611F1EF33C00E2EE67 /* VungleAdapter.m */,
+			);
+			path = VungleAdapter;
+			sourceTree = "<group>";
+		};
+		B292315E1F1EF33C00E2EE67 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				B29231661F1F959100E2EE67 /* VungleSDK.embeddedframework */,
+			);
+			path = Libraries;
+			sourceTree = "<group>";
+		};
+		B29231661F1F959100E2EE67 /* VungleSDK.embeddedframework */ = {
+			isa = PBXGroup;
+			children = (
+				B29231671F1F959100E2EE67 /* Resources */,
+				B29231681F1F959100E2EE67 /* VungleSDK.framework */,
+			);
+			path = VungleSDK.embeddedframework;
+			sourceTree = "<group>";
+		};
+		B29231671F1F959100E2EE67 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		B2B1725C1EE14FD700C0AC99 /* AmazonAdapter */ = {
 			isa = PBXGroup;
 			children = (
@@ -1719,6 +1763,7 @@
 		B2E53E251DB7BA3E0077850F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B29231641F1EF57200E2EE67 /* libsqlite3.tbd */,
 				B2E53E261DB7BA3F0077850F /* libz.1.2.8.tbd */,
 			);
 			name = Frameworks;
@@ -1966,6 +2011,7 @@
 				B20EBAD31E67F0EE0058B2A8 /* MRCommand.m in Sources */,
 				B20EBB1C1E67F0EE0058B2A8 /* MPNativeAdConstants.m in Sources */,
 				B20EBACB1E67F0EE0058B2A8 /* MPInstanceProvider.m in Sources */,
+				B29231631F1EF33C00E2EE67 /* VungleAdapter.m in Sources */,
 				B20EBB2A1E67F0EE0058B2A8 /* MPTableViewAdPlacer.m in Sources */,
 				B20EBAD11E67F0EE0058B2A8 /* MRBridge.m in Sources */,
 				B20EBB111E67F0EE0058B2A8 /* MPNativeCache.m in Sources */,
@@ -2197,6 +2243,8 @@
 					"$(PROJECT_DIR)/AdSwitcher/Adapters/AppLovinAdapter/Libraries",
 					"$(PROJECT_DIR)/AdSwitcher/Adapters/NendAdapter/Libraries/NendAd.embeddedframework",
 					"$(PROJECT_DIR)/AdSwitcher/Adapters/AmazonAdapter/Libraries",
+					"$(PROJECT_DIR)/AdSwitcher/Adapters/VungleAdapter/Libraries",
+					"$(PROJECT_DIR)/AdSwitcher/Adapters/VungleAdapter/Libraries/VungleSDK.embeddedframework",
 				);
 				INFOPLIST_FILE = AdSwitcher/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -2240,6 +2288,8 @@
 					"$(PROJECT_DIR)/AdSwitcher/Adapters/AppLovinAdapter/Libraries",
 					"$(PROJECT_DIR)/AdSwitcher/Adapters/NendAdapter/Libraries/NendAd.embeddedframework",
 					"$(PROJECT_DIR)/AdSwitcher/Adapters/AmazonAdapter/Libraries",
+					"$(PROJECT_DIR)/AdSwitcher/Adapters/VungleAdapter/Libraries",
+					"$(PROJECT_DIR)/AdSwitcher/Adapters/VungleAdapter/Libraries/VungleSDK.embeddedframework",
 				);
 				INFOPLIST_FILE = AdSwitcher/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

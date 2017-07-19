@@ -44,6 +44,11 @@ public class AdSwitcherPostProcessBuild {
 		if (Directory.Exists("Assets/Plugins/iOS/AdSwitcher/Adapters/MopubAdapter")) {
 			proj.AddBuildProperty(target, "GCC_C_LANGUAGE_STANDARD", "gnu99");
 		}
+        // Vungle
+        if (Directory.Exists("Assets/Plugins/iOS/AdSwitcher/Adapters/VungleAdapter")) {
+            proj.AddFileToBuild(target, proj.AddFile("usr/lib/libz.tbd", "Frameworks/libz.tbd", PBXSourceTree.Sdk));
+            proj.AddFileToBuild(target, proj.AddFile("usr/lib/libsqlite3.tbd", "Frameworks/libsqlite3.tbd", PBXSourceTree.Sdk));
+        }
 
 		File.WriteAllText(projPath, proj.WriteToString());
 
