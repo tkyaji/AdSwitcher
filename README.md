@@ -35,6 +35,7 @@
 | [AdColony](http://video-ad.glossom.jp/) |  |  |  | ◎ |  |  | 
 | [Zucks](https://zucks.co.jp/) | ◯ | ◯ | ◯ | ◯ |  |  | 
 | [Tapjoy](https://home.tapjoy.com/) |  |  |  | ◎ |  |  |
+| [Vungle](https://vungle.com) |  |  |  | ◎ |  | バージョン4.x |
 | [アドフリくん](https://adfurikun.jp/) | ◯ | ◯ | ◯ | ◯ | ◯ |  |
 | [アドフリくん 動画](https://adfurikun.jp/) |  |  |  | ◎ |  |  |
 | [MoPub](http://www.mopub.com/) | ◯ | ◯ | ◯ | ◯ |  |  |
