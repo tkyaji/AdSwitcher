@@ -53,18 +53,24 @@ public class AdSwitcherPostProcessBuild {
 		File.WriteAllText(projPath, proj.WriteToString());
 
 
+		var plistPath = Path.Combine(path, "Info.plist");
+		var plist = new PlistDocument();
+		plist.ReadFromFile(plistPath);
+
 		// AdColony
 		// https://github.com/glossom-dev/AdColony-iOS-SDK-JP-Support#3-%E3%83%97%E3%83%A9%E3%82%A4%E3%83%90%E3%82%B7%E3%83%BC%E3%82%B3%E3%83%B3%E3%83%88%E3%83%AD%E3%83%BC%E3%83%AB%E3%81%AE%E8%A8%AD%E5%AE%9A
 		if (Directory.Exists("Assets/Plugins/iOS/AdSwitcher/Adapters/AdColonyAdapter")) {
-			var plistPath = Path.Combine(path, "Info.plist");
-			var plist = new PlistDocument();
-			plist.ReadFromFile(plistPath);
 			plist.root.SetString("NSCalendarsUsageDescription", "Adding events");
 			plist.root.SetString("NSPhotoLibraryUsageDescription", "Taking selfies");
 			plist.root.SetString("NSCameraUsageDescription", "Taking selfies");
 			plist.root.SetString("NSMotionUsageDescription", "Interactive ad controls");
-			plist.WriteToFile(plistPath);
 		}
+		// Amazon
+		if (Directory.Exists("Assets/Plugins/iOS/AdSwitcher/Adapters/AmazonAdapter")) {
+			plist.root.SetString("NSCalendarsUsageDescription", "Adding events");
+		}
+
+		plist.WriteToFile(plistPath);
 	}
 
 
