@@ -1,6 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="net.adswitcher.adapter.tapjoy">
 
+    <uses-sdk android:minSdkVersion="16" android:targetSdkVersion="25" />
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 

@@ -10,6 +10,7 @@ import com.socdm.d.adgeneration.ADGListener;
 import com.socdm.d.adgeneration.ADGSettings;
 import com.socdm.d.adgeneration.interstitial.ADGInterstitial;
 import com.socdm.d.adgeneration.interstitial.ADGInterstitialListener;
+import com.socdm.d.adgeneration.nativead.ADGInformationIconView;
 
 import java.util.Map;
 
