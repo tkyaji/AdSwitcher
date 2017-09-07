@@ -72,7 +72,10 @@ public class AdGenerationAdapter implements BannerAdAdapter, InterstitialAdAdapt
     @Override
     public void bannerAdHide() {
         Log.d(TAG, "bannerAdHide");
-        ((FrameLayout)this.adg.getParent()).removeView(this.adg);
+        FrameLayout parent = (FrameLayout)this.adg.getParent();
+        if (parent != null) {
+            parent.removeView(this.adg);
+        }
         this.adg.destroyAdView();
         this.adg = null;
     }
