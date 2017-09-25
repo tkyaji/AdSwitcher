@@ -11,6 +11,9 @@
 
 @implementation AdMobVideoAdapter {
     UIViewController *_viewController;
+    BOOL _isRewarded;
+    BOOL _testMode;
+    NSString *_adUnitId;
 }
 
 @synthesize interstitialAdDelegate;
@@ -19,52 +22,46 @@
 
 - (void)interstitialAdInitialize:(UIViewController *)viewController parameters:(NSDictionary<NSString *,NSString *> *)parameters testMode:(BOOL)testMode {
     
-    NSString *adUnitId = [parameters objectForKey:@"ad_unit_id"];
-    _DLOG(@"ad_unit_id:%@", adUnitId);
+    _adUnitId = [parameters objectForKey:@"ad_unit_id"];
+    _DLOG(@"ad_unit_id:%@", _adUnitId);
     
     _viewController = viewController;
+    _testMode = testMode;
     
-    GADRequest *request = [GADRequest request];
-    /*
-    if (testMode) {
-        NSString *deviceId = [self getAdMobDeviceId];
-        request.testDevices = @[kGADSimulatorID, deviceId];
-    }
-     */
     [GADRewardBasedVideoAd sharedInstance].delegate = self;
-    [[GADRewardBasedVideoAd sharedInstance] loadRequest:request withAdUnitID:adUnitId];
 }
 
 - (void)interstitialAdLoad {
-    if ([GADRewardBasedVideoAd sharedInstance].isReady) {
-        _DLOG("ready");
-        [self.interstitialAdDelegate interstitialAdLoaded:self result:YES];
-        
-    } else {
-        [self adLoad:1];
+    GADRequest *request = [GADRequest request];
+    if (_testMode) {
+        NSString *deviceId = [self getAdMobDeviceId];
+        request.testDevices = @[kGADSimulatorID, deviceId];
     }
+    [[GADRewardBasedVideoAd sharedInstance] loadRequest:request withAdUnitID:_adUnitId];
 }
 
 - (void)interstitialAdShow {
     _DLOG();
+    _isRewarded = NO;
     [[GADRewardBasedVideoAd sharedInstance] presentFromRootViewController:_viewController];
 }
 
 
 # pragma - GADRewardBasedVideoAdDelegate
 
-- (void)rewardBasedVideoAd:(GADRewardBasedVideoAd *)rewardBasedVideoAd
-   didRewardUserWithReward:(GADAdReward *)reward {
+- (void)rewardBasedVideoAd:(GADRewardBasedVideoAd *)rewardBasedVideoAd didRewardUserWithReward:(GADAdReward *)reward {
     _DLOG();
+    _isRewarded = YES;
 }
 
-- (void)rewardBasedVideoAd:(GADRewardBasedVideoAd *)rewardBasedVideoAd
-    didFailToLoadWithError:(NSError *)error {
+- (void)rewardBasedVideoAd:(GADRewardBasedVideoAd *)rewardBasedVideoAd didFailToLoadWithError:(NSError *)error {
     _DLOG();
+    [self.interstitialAdDelegate interstitialAdLoaded:self result:rewardBasedVideoAd.isReady];
 }
 
 - (void)rewardBasedVideoAdDidReceiveAd:(GADRewardBasedVideoAd *)rewardBasedVideoAd {
     _DLOG();
+    [self.interstitialAdDelegate interstitialAdLoaded:self result:rewardBasedVideoAd.isReady];
 }
 
 - (void)rewardBasedVideoAdDidOpen:(GADRewardBasedVideoAd *)rewardBasedVideoAd {
@@ -78,7 +75,7 @@
 
 - (void)rewardBasedVideoAdDidClose:(GADRewardBasedVideoAd *)rewardBasedVideoAd {
     _DLOG();
-    [self.interstitialAdDelegate interstitialAdClosed:self result:YES isSkipped:NO];
+    [self.interstitialAdDelegate interstitialAdClosed:self result:YES isSkipped:!_isRewarded];
 }
 
 - (void)rewardBasedVideoAdWillLeaveApplication:(GADRewardBasedVideoAd *)rewardBasedVideoAd {
@@ -88,25 +85,6 @@
 
 
 #pragma - Private methods
-
-- (void)adLoad:(int)count {
-    _DLOG("count=%d", count);
-    
-    dispatch_time_t time = dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC);
-    dispatch_after(time, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        if ([GADRewardBasedVideoAd sharedInstance].isReady) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self.interstitialAdDelegate interstitialAdLoaded:self result:YES];
-            });
-        } else if (count == 15) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self.interstitialAdDelegate interstitialAdLoaded:self result:NO];
-            });
-        } else {
-            [self adLoad:count + 1];
-        }
-    });
-}
 
 - (NSString *)getAdMobDeviceId {
     NSString *adUUID = [ASIdentifierManager sharedManager].advertisingIdentifier.UUIDString;

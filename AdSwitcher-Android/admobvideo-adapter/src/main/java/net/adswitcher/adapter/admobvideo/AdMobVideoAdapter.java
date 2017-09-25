@@ -1,7 +1,6 @@
 package net.adswitcher.adapter.admobvideo;
 
 import android.app.Activity;
-import android.os.Handler;
 import android.provider.Settings;
 import android.util.Log;
 
@@ -29,50 +28,53 @@ public class AdMobVideoAdapter implements InterstitialAdAdapter, RewardedVideoAd
     private RewardedVideoAd rewardedVideoAd;
     private Activity activity;
     private InterstitialAdListener interstitialAdListener;
+    private boolean testMode;
+    private String adUnitId;
+    private boolean isRewarded;
 
 
     @Override
     public void interstitialAdInitialize(Activity activity, InterstitialAdListener interstitialAdListener, Map<String, String> parameters, boolean testMode) {
         this.activity = activity;
         this.interstitialAdListener = interstitialAdListener;
+        this.testMode = testMode;
 
-        String adUnitId = parameters.get("ad_unit_id");
+        this.adUnitId = parameters.get("ad_unit_id");
         Log.d(TAG, "interstitialAdInitialize : ad_unit_id=" + adUnitId);
 
         this.rewardedVideoAd = MobileAds.getRewardedVideoAdInstance(activity);
         this.rewardedVideoAd.setRewardedVideoAdListener(this);
-
-        AdRequest.Builder builder = new AdRequest.Builder();
-        /*
-        if (testMode) {
-            builder.addTestDevice(AdRequest.DEVICE_ID_EMULATOR);
-            builder.addTestDevice(this.getAdMobDeviceId());
-        }
-        */
-        this.rewardedVideoAd.loadAd(adUnitId, builder.build());
     }
 
     @Override
     public void interstitialAdLoad() {
         Log.d(TAG, "interstitialAdLoad");
 
-        if (this.rewardedVideoAd.isLoaded()) {
-            this.interstitialAdListener.interstitialAdLoaded(AdMobVideoAdapter.this, true);
-        } else {
-            this.adLoad(1);
+        AdRequest.Builder builder = new AdRequest.Builder();
+        if (this.testMode) {
+            builder.addTestDevice(AdRequest.DEVICE_ID_EMULATOR);
+            builder.addTestDevice(this.getAdMobDeviceId());
         }
+        this.rewardedVideoAd.loadAd(this.adUnitId, builder.build());
     }
 
     @Override
     public void interstitialAdShow() {
         Log.d(TAG, "interstitialAdShow");
+        this.isRewarded = false;
         this.rewardedVideoAd.show();
     }
-
 
     @Override
     public void onRewardedVideoAdLoaded() {
         Log.d(TAG, "onRewardedVideoAdLoaded");
+        this.interstitialAdListener.interstitialAdLoaded(this, true);
+    }
+
+    @Override
+    public void onRewardedVideoAdFailedToLoad(int i) {
+        Log.d(TAG, "onRewardedVideoAdFailedToLoad");
+        this.interstitialAdListener.interstitialAdLoaded(this, false);
     }
 
     @Override
@@ -89,12 +91,13 @@ public class AdMobVideoAdapter implements InterstitialAdAdapter, RewardedVideoAd
     @Override
     public void onRewardedVideoAdClosed() {
         Log.d(TAG, "onRewardedVideoAdLoaded");
-        this.interstitialAdListener.interstitialAdClosed(this, true, false);
+        this.interstitialAdListener.interstitialAdClosed(this, true, !this.isRewarded);
     }
 
     @Override
     public void onRewarded(RewardItem rewardItem) {
         Log.d(TAG, "onRewardedVideoAdLoaded");
+        this.isRewarded = true;
     }
 
     @Override
@@ -103,39 +106,6 @@ public class AdMobVideoAdapter implements InterstitialAdAdapter, RewardedVideoAd
         this.interstitialAdListener.interstitialAdClicked(this);
     }
 
-    @Override
-    public void onRewardedVideoAdFailedToLoad(int i) {
-        Log.d(TAG, "onRewardedVideoAdLoaded");
-    }
-
-
-
-    private void adLoad(final int count) {
-        Log.d(TAG, "adLoad : count=" + count);
-
-        (new Handler()).postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                if (AdMobVideoAdapter.this.rewardedVideoAd.isLoaded()) {
-                    AdMobVideoAdapter.this.activity.runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            AdMobVideoAdapter.this.interstitialAdListener.interstitialAdLoaded(AdMobVideoAdapter.this, true);
-                        }
-                    });
-                } else if (count == 5) {
-                    AdMobVideoAdapter.this.activity.runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            AdMobVideoAdapter.this.interstitialAdListener.interstitialAdLoaded(AdMobVideoAdapter.this, false);
-                        }
-                    });
-                } else {
-                    AdMobVideoAdapter.this.adLoad(count + 1);
-                }
-            }
-        }, 1000);
-    }
 
     private String getAdMobDeviceId() {
         String androidId =  Settings.Secure.getString(this.activity.getContentResolver(), Settings.Secure.ANDROID_ID);
