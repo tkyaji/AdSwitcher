@@ -110,7 +110,6 @@ public class Sample : MonoBehaviour {
 		});
 		bannerView.SetAdShownHandler(config => {
 			string message = "BannerAd Shown : className=" + config.ClassName;
-			this.addLog(this.bannerControllers.LogText, message);
 			Debug.Log(message);
 		});
 		bannerView.SetAdClickedHandler(config => {

@@ -353,7 +353,12 @@ public class AdSwitcherBannerView extends FrameLayout implements BannerAdListene
 
         if (result) {
             if (this.autoShow) {
-                this.show();
+                AdSwitcherBannerView.this.activity.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        AdSwitcherBannerView.this.show();
+                    }
+                });
             }
         } else {
             this.selectLoad();

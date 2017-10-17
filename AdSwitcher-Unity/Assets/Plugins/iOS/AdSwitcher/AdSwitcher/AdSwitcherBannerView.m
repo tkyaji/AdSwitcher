@@ -186,7 +186,9 @@
     
     if (result) {
         if (_autoShow) {
-            [self show];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self show];
+            });
         }
     } else {
         [self selectLoad];

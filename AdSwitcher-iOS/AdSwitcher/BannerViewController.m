@@ -44,6 +44,9 @@
 }
 
 - (IBAction)loadBanner_320x50:(id)sender {
+    if (self.autoShowSwitch.on) {
+        [self.view addSubview:_bannerView_320x50];
+    }
     [_bannerView_320x50 load:self.autoShowSwitch.on];
 }
 
@@ -53,6 +56,9 @@
 }
 
 - (IBAction)loadBanner_320x100:(id)sender {
+    if (self.autoShowSwitch.on) {
+        [self.view addSubview:_bannerView_320x100];
+    }
     [_bannerView_320x100 load:self.autoShowSwitch.on];
 }
 
@@ -62,6 +68,9 @@
 }
 
 - (IBAction)loadBanner_300x250:(id)sender {
+    if (self.autoShowSwitch.on) {
+        [self.view addSubview:_bannerView_300x250];
+    }
     [_bannerView_300x250 load:self.autoShowSwitch.on];
 }
 

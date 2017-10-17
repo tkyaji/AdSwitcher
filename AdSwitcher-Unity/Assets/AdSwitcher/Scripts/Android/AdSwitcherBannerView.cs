@@ -127,6 +127,9 @@ public class AdSwitcherBannerView {
 	public void Load(bool autoShow = false) {
 		this.javaObj_activity.Call("runOnUiThread", new AndroidJavaRunnable(() => {
 			this.javaObj.Call("load", autoShow);
+            if (autoShow) {
+                this.javaObj.Call("setVisibility", viewVisible);
+            }
 		}));
 	}
 
