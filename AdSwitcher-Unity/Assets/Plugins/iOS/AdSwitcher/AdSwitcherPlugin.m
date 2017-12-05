@@ -182,13 +182,11 @@ extern "C" {
                                                   category:[NSString stringWithUTF8String:category]
                                                     adSize:bannerAdSize
                                                   testMode:testMode];
-        bannerView.frame = __toBannerAdFrame(bannerAdSize, bannerAdAlign, bannerAdMargin, 1);
-        
         if (scale != 1.0f) {
             bannerView.transform = CGAffineTransformMakeScale(scale, scale);
-            bannerView.frame = __toBannerAdFrame(bannerAdSize, bannerAdAlign, bannerAdMargin, scale);
         }
-        
+        bannerView.frame = __toBannerAdFrame(bannerAdSize, bannerAdAlign, bannerAdMargin, scale);
+
         CFRetain((CFTypeRef)bannerView);
         return bannerView;
     }
@@ -206,13 +204,11 @@ extern "C" {
                                                                                  config:adSwitcherConfig
                                                                                  adSize:bannerAdSize
                                                                                testMode:testMode];
-        bannerView.frame = __toBannerAdFrame(bannerAdSize, bannerAdAlign, bannerAdMargin, 1);
-        
         if (scale != 1.0f) {
             bannerView.transform = CGAffineTransformMakeScale(scale, scale);
-            bannerView.frame = __toBannerAdFrame(bannerAdSize, bannerAdAlign, bannerAdMargin, scale);
         }
-        
+        bannerView.frame = __toBannerAdFrame(bannerAdSize, bannerAdAlign, bannerAdMargin, scale);
+
         CFRetain((CFTypeRef)bannerView);
         return bannerView;
     }
@@ -224,7 +220,8 @@ extern "C" {
     void _AdSwitcherBannerView_setPosition(AdSwitcherBannerView *bannerView, int adAlign, float *adMarginArr) {
         BannerAdAlign bannerAdAlign = (BannerAdAlign)adAlign;
         BannerAdMargin bannerAdMargin = BannerAdMarginMake(adMarginArr[0], adMarginArr[1], adMarginArr[2], adMarginArr[3]);
-        bannerView.frame = __toBannerAdFrame(bannerView.adSize, bannerAdAlign, bannerAdMargin, 1);
+        CGFloat scale = sqrt(bannerView.transform.a * bannerView.transform.a + bannerView.transform.c * bannerView.transform.c);
+        bannerView.frame = __toBannerAdFrame(bannerView.adSize, bannerAdAlign, bannerAdMargin, scale);
     }
     
     void _AdSwitcherBannerView_load(AdSwitcherBannerView *bannerView, bool autoShow) {
