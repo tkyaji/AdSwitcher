@@ -272,13 +272,11 @@ extern "C" {
     }
     
     float _AdSwitcherBannerView_getScreenWidth(AdSwitcherBannerView *bannerView) {
-        CGSize screenSize = [UIScreen mainScreen].bounds.size;
-        return screenSize.width;
+        return UnityGetMainWindow().frame.size.width;
     }
     
     float _AdSwitcherBannerView_getScreenHeight(AdSwitcherBannerView *bannerView) {
-        CGSize screenSize = [UIScreen mainScreen].bounds.size;
-        return screenSize.height;
+        return UnityGetMainWindow().frame.size.height;
     }
     
     void _AdSwitcherBannerView_setAdReceivedHandler(AdSwitcherBannerView *bannerView,
