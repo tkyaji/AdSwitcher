@@ -10,7 +10,7 @@
 
 @implementation UnityAdsAdapter {
     UIViewController *_viewController;
-    NSString *_zoneId;
+    NSString *_placementId;
 }
 
 @synthesize interstitialAdDelegate;
@@ -19,8 +19,8 @@
 
 - (void)interstitialAdInitialize:(UIViewController *)viewController parameters:(NSDictionary<NSString *,NSString *> *)parameters testMode:(BOOL)testMode {
     NSString *gameId = [parameters objectForKey:@"game_id"];
-    _zoneId = [parameters objectForKey:@"zone_id"];
-    _DLOG("game_id=%@, zone_id=%@", gameId, _zoneId);
+    _placementId = [parameters objectForKey:@"placement_id"];
+    _DLOG("game_id=%@, placement_id=%@", gameId, _placementId);
     
     _viewController = viewController;
     
@@ -28,7 +28,7 @@
 }
 
 - (void)interstitialAdLoad {
-    if ([UnityAds isReady]) {
+    if ([self isReady]) {
         _DLOG("ready");
         [self.interstitialAdDelegate interstitialAdLoaded:self result:YES];
         
@@ -37,9 +37,21 @@
     }
 }
 
+- (BOOL)isReady {
+    if (_placementId) {
+        return [UnityAds isReady:_placementId];
+    } else {
+        return [UnityAds isReady];
+    }
+}
+
 - (void)interstitialAdShow {
     _DLOG();
-    [UnityAds show:_viewController];
+    if (_placementId) {
+        [UnityAds show:_viewController placementId:_placementId];
+    } else {
+        [UnityAds show:_viewController];
+    }
 }
 
 
@@ -84,7 +96,7 @@
     
     dispatch_time_t time = dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC);
     dispatch_after(time, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        if ([UnityAds isReady]) {
+        if ([self isReady]) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.interstitialAdDelegate interstitialAdLoaded:self result:YES];
             });
