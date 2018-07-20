@@ -23,7 +23,7 @@ import java.util.Map;
 
 public class AdMobVideoAdapter implements InterstitialAdAdapter, RewardedVideoAdListener {
 
-    private static final String TAG = "AppLovinAdapter";
+    private static final String TAG = "AdMobVideoAdapter";
 
     private RewardedVideoAd rewardedVideoAd;
     private Activity activity;

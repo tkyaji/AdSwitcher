@@ -16,10 +16,11 @@
 @import SystemConfiguration;
 @import UIKit;
 
+#import "BannerAdAdapter.h"
 #import "InterstitialAdAdapter.h"
 #import "Log.h"
 #import <AppLovinSDK/AppLovinSDK.h>
 
-@interface AppLovinAdapter : NSObject <InterstitialAdAdapter, ALAdDisplayDelegate, ALAdVideoPlaybackDelegate>
+@interface AppLovinAdapter : NSObject <BannerAdAdapter, InterstitialAdAdapter, ALAdLoadDelegate, ALAdDisplayDelegate, ALAdVideoPlaybackDelegate>
 
 @end

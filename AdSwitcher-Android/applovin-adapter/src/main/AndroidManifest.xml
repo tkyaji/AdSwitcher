@@ -12,7 +12,11 @@
 
         <activity android:name="com.applovin.adview.AppLovinInterstitialActivity"
             android:configChanges="orientation|screenSize"/>
+        <activity android:name="com.applovin.adview.AppLovinConfirmationActivity"
+            android:configChanges="orientation|screenSize"/>
 
+        <meta-data android:name="applovin.sdk.key"
+            android:value="mk3TVDhzOrT674QLKJy8Tq94HhFKek4PR7yyLdvlTSsbWGysZu-6h8B-qQJT8NtaVqWsSQawtQVOhSFGKEN1MT"  />
     </application>
 
 </manifest>

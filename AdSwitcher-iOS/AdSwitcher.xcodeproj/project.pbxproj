@@ -2260,7 +2260,7 @@
 					"$(PROJECT_DIR)/AdSwitcher/Adapters/AdfurikunVideoAdapter/Libraries/applovin-ios-sdk-3.4.3",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = com.tkyaji.adswitcher.sample;
+				PRODUCT_BUNDLE_IDENTIFIER = net.adswitcher.sample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
@@ -2306,7 +2306,7 @@
 					"$(PROJECT_DIR)/AdSwitcher/Adapters/AdfurikunVideoAdapter/Libraries/applovin-ios-sdk-3.4.3",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = com.tkyaji.adswitcher.sample;
+				PRODUCT_BUNDLE_IDENTIFIER = net.adswitcher.sample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 			};

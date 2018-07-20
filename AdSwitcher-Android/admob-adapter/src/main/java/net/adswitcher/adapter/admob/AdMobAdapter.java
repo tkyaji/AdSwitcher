@@ -77,7 +77,10 @@ public class AdMobAdapter implements BannerAdAdapter, InterstitialAdAdapter {
     @Override
     public void bannerAdHide() {
         Log.d(TAG, "bannerHide");
-        ((FrameLayout)this.adView.getParent()).removeView(this.adView);
+        FrameLayout parent = (FrameLayout)this.adView.getParent();
+        if (parent != null) {
+            parent.removeView(this.adView);
+        }
     }
 
     private void setBannerListener(final AdView adView, final BannerAdListener bannerAdListener) {

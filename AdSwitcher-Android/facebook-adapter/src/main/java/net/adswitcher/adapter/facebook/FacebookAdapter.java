@@ -13,7 +13,7 @@ import com.facebook.ads.AdListener;
 import com.facebook.ads.AdSize;
 import com.facebook.ads.AdView;
 import com.facebook.ads.InterstitialAd;
-import com.facebook.ads.internal.util.AdInternalSettings;
+import com.facebook.ads.internal.settings.AdInternalSettings;
 
 import net.adswitcher.adapter.BannerAdAdapter;
 import net.adswitcher.adapter.BannerAdListener;

@@ -26,14 +26,14 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.google.android.gms:play-services-ads:+'
+    compile 'com.google.android.gms:play-services-ads:11.0.0'
     compile 'com.android.support:appcompat-v7:25.2.0'
     compile project(':adswitcher')
-    compile project(':adgeneration-adapter')
-    compile project(':admobvideo-adapter')
+    compile project(':admob-adapter')
 
     /*
     compile project(':adcolony-adapter')
+    compile project(':applovin-adapter')
     compile project(':admob-adapter')
     compile project(':adgeneration-adapter')
     compile project(':nend-adapter')
